@@ -1,0 +1,17 @@
+{
+  "NServiceBus.MessageId": "6dcfffce-cae7-4414-bc88-a78c00425dc3",
+  "NServiceBus.MessageIntent": "Reply",
+  "NServiceBus.ReplyToAddress": "Authentication",
+  "NServiceBus.CorrelationId": "94ee4535-d03a-40b0-a34c-a78c00425d3d",
+  "NServiceBus.OriginatingMachine": "JOSHUA-HP",
+  "NServiceBus.OriginatingEndpoint": "Authentication",
+  "$.diagnostics.originating.hostid": "1fcb4f56683f87e5b1aadf0db4953d55",
+  "NServiceBus.ContentType": "application\/json",
+  "NServiceBus.EnclosedMessageTypes": "Messages.AuthenticationResult, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+  "NServiceBus.RelatedTo": "94ee4535-d03a-40b0-a34c-a78c00425d3d",
+  "NServiceBus.ConversationId": "199639c1-35fd-4301-8590-a78c00425d63",
+  "NServiceBus.Version": "6.3.3",
+  "NServiceBus.TimeSent": "2017-06-08 04:01:37:985496 Z",
+  "NServiceBus.Retries": "3",
+  "NServiceBus.Retries.Timestamp": "2017-06-08 04:02:11:153393 Z"
+}

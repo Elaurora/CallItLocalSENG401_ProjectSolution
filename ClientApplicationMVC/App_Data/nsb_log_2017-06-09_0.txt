@@ -1,0 +1,9 @@
+﻿2017-06-09 20:10:58.510 INFO  DefaultFactory Logging to 'c:\users\joshua\documents\visual studio 2017\Projects\CallItLocal\ClientApplicationMVC\App_Data\' with level Info
+2017-06-09 20:10:58.804 INFO  NServiceBus.LicenseManager No valid license could be found, falling back to trial license with start date '04/06/2017'
+
+2017-06-09 20:12:44.600 INFO  DefaultFactory Logging to 'c:\users\joshua\documents\visual studio 2017\Projects\CallItLocal\ClientApplicationMVC\App_Data\' with level Info
+2017-06-09 20:12:44.891 INFO  NServiceBus.LicenseManager No valid license could be found, falling back to trial license with start date '04/06/2017'
+
+2017-06-09 20:13:40.386 INFO  DefaultFactory Logging to 'c:\users\joshua\documents\visual studio 2017\Projects\CallItLocal\ClientApplicationMVC\App_Data\' with level Info
+2017-06-09 20:13:40.733 INFO  NServiceBus.LicenseManager No valid license could be found, falling back to trial license with start date '04/06/2017'
+

@@ -1,22 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using ClientApplicationMVC.Models;
+
+using System;
+using System.Net.Sockets;
+using System.Text;
 using System.Web.Mvc;
-
-using Messages;
-using Messages.Commands; 
-
-using NServiceBus;
 
 namespace ClientApplicationMVC.Controllers
 {
-    public class AuthenticationController : AsyncController
+    public class AuthenticationController : Controller
     {
-        IEndpointInstance endpoint;
-
-        public AuthenticationController(IEndpointInstance endpoint)
-        {
-            this.endpoint = endpoint;
-        }
-
+        
         /// <summary>
         /// This is the controller used when the user first navigates to the login page before they have entered any information
         /// </summary>
@@ -36,31 +29,38 @@ namespace ClientApplicationMVC.Controllers
         /// <returns>The new view to be displayed</returns>
         [HttpPost]
         [AsyncTimeout(50000)]
-        public async Task<ActionResult> IndexAsync(string textUsername, string textPassword)
+        public ActionResult Index(string textUsername, string textPassword)
         {
-            //Create the message object that will be sent to the Authentication service
-            var loginInfo = new AuthenticateMe
-            {
-                username = textUsername,
-                password = textPassword
-            };
+            Socket connection = new Socket(ServiceBusInfo.ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            connection.Connect("localhost", 11000);
 
-            var sendOptions = new SendOptions();
-            sendOptions.SetDestination("Authentication");//Set the destination of the message to be the endpoint with the given name. Its address is defined in TODO: Finish this comment
+            textUsername += "<EOF>";
+            byte[] msg = Encoding.ASCII.GetBytes(textUsername);
+            connection.Send(msg);
 
-            //Send the Command to the AuthenticationService and await its response before continueing
-            var response = await endpoint.Request<AuthenticationResult>(loginInfo, sendOptions).ConfigureAwait(false);
+            textPassword += "<EOF>";
+            msg = Encoding.ASCII.GetBytes(textPassword);
+            connection.Send(msg);
 
-            if(response.success == false)
-            {
-                //TODO: Implement the logic for how the website should respond if it fails to authenticate.
-                // This will include returning a different view to be displayed
-                //throw new NotImplementedException("Have not implemented logic for failed authentication");
-            }
+            string response = readUntilEOF(connection);
 
             ViewBag.Title = "AuthenticationSuccess";
-            ViewBag.Result = response.success.ToString();
+            ViewBag.Result = response;
             return View("AuthenticationSuccess");
+        }
+
+        private string readUntilEOF(Socket connection)
+        {
+            byte[] readByte = new byte[1];
+            string returned = String.Empty;
+
+            while (returned.Contains("<EOF>") == false)
+            {
+                connection.Receive(readByte, 1, 0);
+                returned += (char)readByte[0];
+            }
+
+            return returned.Substring(0, returned.IndexOf("<EOF>"));
         }
     }
 }

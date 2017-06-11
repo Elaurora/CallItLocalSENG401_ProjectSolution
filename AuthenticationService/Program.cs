@@ -32,13 +32,12 @@ namespace AuthenticationService
             var endpointInstance = await Endpoint.Start(endpointConfiguration).ConfigureAwait(false);//Start the endpoint with the configuration defined above.
 
             Server serverConnection = new Server(endpointInstance);
-            serverConnection.StartListening();
+            serverConnection.StartListening();//Start the server
 
             Console.WriteLine("Press Enter to exit.");
             Console.ReadLine();
 
             await endpointInstance.Stop().ConfigureAwait(false);
-
         }
 
         

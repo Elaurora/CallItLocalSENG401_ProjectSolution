@@ -9,29 +9,44 @@ using System.Threading;
 
 namespace AuthenticationService
 {
-    public class Server
+    /// <summary>
+    /// This portion of the class contains the member variables
+    /// </summary>
+    public partial class Server
     {
-        // Thread signal.  
-        public ManualResetEvent allDone = new ManualResetEvent(false);
-
+        /// <summary>
+        /// Semaphore used to indicate when a client connection has been recieved
+        /// </summary>
+        private ManualResetEvent connectionAttemptRecieved = new ManualResetEvent(false);
+        /// <summary>
+        /// The endpoint used to communicate with the other endpoints in the service bus
+        /// </summary>
         private IEndpointInstance endpoint;
 
+        /// <summary>
+        /// A list of all the currently running client connections
+        /// </summary>
         private List<Thread> threads = new List<Thread>();
 
+    }
+
+    public partial class Server
+    {
         public Server(IEndpointInstance endpoint)
         {
             this.endpoint = endpoint;
         }
 
+        /// <summary>
+        /// Listen for incoming connections for as long as they continue to arrive until an exception is thrown
+        /// </summary>
         public void StartListening()
         {
-            // Establish the local endpoint for the socket.  
-            // The DNS name of the computer  
-            // running the listener is "host.contoso.com".  
+            // Establish the local endpoint for the socket.   
             IPAddress ipAddress = IPAddress.Parse("127.0.0.1");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 11000);
 
-            // Create a TCP/IP socket.  
+            // Create a TCP/IPv6 socket.  
             Socket listener = new Socket(ipAddress.AddressFamily,
                 SocketType.Stream, ProtocolType.Tcp);
 
@@ -44,7 +59,7 @@ namespace AuthenticationService
                 while (true)
                 {
                     // Set the event to nonsignaled state.  
-                    allDone.Reset();
+                    connectionAttemptRecieved.Reset();
 
                     // Start an asynchronous socket to listen for connections.  
                     Console.WriteLine("Waiting for a connection...");
@@ -53,7 +68,7 @@ namespace AuthenticationService
                         listener);
 
                     // Wait until a connection is made before continuing.  
-                    allDone.WaitOne();
+                    connectionAttemptRecieved.WaitOne();
                 }
 
             }
@@ -64,16 +79,19 @@ namespace AuthenticationService
 
         }
 
+        /// <summary>
+        /// Accepts the new connection and creates a new running thread to handle communication with the new connection
+        /// </summary>
+        /// <param name="ar"></param>
         public void AcceptConnection(IAsyncResult ar)
         {
-            // Signal the main thread to continue.  
-            allDone.Set();
+            // Signal the main thread to continue listening for more connection attempts.  
+            connectionAttemptRecieved.Set();
 
             // Get the socket that handles the client request.  
             Socket listener = (Socket)ar.AsyncState;
             Socket handler = listener.EndAccept(ar);
-
-            // Create the state object.  
+            
             ClientConnection connection = new ClientConnection(handler, endpoint);
 
             Thread newThread = new Thread(new ThreadStart(connection.listenToClient));

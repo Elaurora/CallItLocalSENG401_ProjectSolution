@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="ClientConnection.cs" />
     <Compile Include="ClientAuthenticator.cs" />
-    <Compile Include="Handlers\ClientLogInAttemptHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server.cs" />
@@ -61,6 +60,9 @@
       <Project>{9cac18a4-2902-403e-9134-04ac6ab4e16f}</Project>
       <Name>Messages</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Handlers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

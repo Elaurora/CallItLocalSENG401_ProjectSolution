@@ -49,6 +49,10 @@ namespace ClientApplicationMVC.Controllers
             return View("AuthenticationSuccess");
         }
 
+        /// <summary>
+        /// Continuously reads one byte at a time from the client until the "<EOF>" string of characters is found
+        /// </summary>
+        /// <returns>The string representation of bytes read from the server socket</returns>
         private string readUntilEOF(Socket connection)
         {
             byte[] readByte = new byte[1];

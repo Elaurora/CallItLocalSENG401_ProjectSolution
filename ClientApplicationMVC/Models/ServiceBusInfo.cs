@@ -2,6 +2,9 @@
 
 namespace ClientApplicationMVC.Models
 {
+    /// <summary>
+    /// This class contains information about how to connect to the service bus
+    /// </summary>
     public static class ServiceBusInfo
     {
         public const int serverPort = 11000;

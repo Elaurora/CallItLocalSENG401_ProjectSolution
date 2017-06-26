@@ -92,7 +92,7 @@ namespace AuthenticationService
                 }
                 catch(SocketException e)// This is thrown when the timeout occurs. The timeout is set in the constructor
                 {
-                    Thread.Yield();// Yield this threads timeslice to another process, since this process does not appear ti need it
+                    Thread.Yield();// Yield this threads remaining timeslice to another process, this process does not appear to need it
                 }
             }
 
@@ -124,7 +124,7 @@ namespace AuthenticationService
                 clientAccepted = this.authenticated,
                 requestSource = ((IPEndPoint)connection.RemoteEndPoint).Serialize()
             };
-
+            
             //Publish the log in attempt event for any other EP that wish to know about it.
             //If an endpoint wishes to be notified about this event, it should subscribe to the event in its configuration
             authenticationEndpoint.Publish(attempt);

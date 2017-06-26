@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<license id="5ee41fd2-b92b-4cd7-ad99-9c0db28bad47" expiration="2017-07-26T21:13:01.0000000" type="Trial" Applications="All" LicenseVersion="6.0" WorkerThreads="Max" AllowedNumberOfWorkerNodes="Max" LicenseType="Trial" MaxMessageThroughputPerSecond="Max">
+  <name>joshua.walters@ucalgary.ca</name>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+      <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <Reference URI="">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <DigestValue>qFksZ9WcIWQeVXSKN5zGcNiBSjs=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>qi8Tq2i9nsZQTZulBwnHwvciqJ/8zd2y/u2FKkqfeG9U8xtt9ssjFKYV6Lzp5obEkds4MRDqnSnTjRCwf4Yf1Em78OODdbsFYJgT1B/+M/wVHbOblyfXfo0pHCvdw61LmsCdxoPEZ5jhfSAOO4XMxfnvkA8Uq2E366YCBC8beHc=</SignatureValue>
+  </Signature>
+</license>

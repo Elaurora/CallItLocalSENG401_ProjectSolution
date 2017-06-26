@@ -15,7 +15,7 @@ namespace AuthenticationService
     public partial class Server
     {
         /// <summary>
-        /// Semaphore used to indicate when a client connection has been recieved
+        /// Semaphore, used to indicate when a client connection has been recieved
         /// </summary>
         private ManualResetEvent connectionAttemptRecieved = new ManualResetEvent(false);
         /// <summary>

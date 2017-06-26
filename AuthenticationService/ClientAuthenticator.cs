@@ -5,6 +5,7 @@ using NServiceBus;
 using System;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace AuthenticationService
 {
@@ -14,6 +15,7 @@ namespace AuthenticationService
     /// </summary>
     partial class ClientAuthenticator
     {
+        private const int timeout_ms = 50;
 
         /// <summary>
         /// The connection between the client and the server
@@ -57,6 +59,8 @@ namespace AuthenticationService
         {
             this.connection = connection;
             this.authenticationEndpoint = authenticationEndpoint;
+
+            connection.ReceiveTimeout = timeout_ms;
         }
 
         /// <summary>
@@ -74,15 +78,22 @@ namespace AuthenticationService
         /// Continuously reads one byte at a time from the client until the "<EOF>" string of characters is found
         /// </summary>
         /// <returns>The string representation of bytes read from the client socket</returns>
-        private string readUntilEOF()
+        public string readUntilEOF()
         {
             byte[] readByte = new byte[1];
             string returned = String.Empty;
 
             while (returned.Contains("<EOF>") == false)
             {
-                connection.Receive(readByte, 1, 0);
-                returned += (char)readByte[0];
+                try
+                {
+                    connection.Receive(readByte, 1, 0);
+                    returned += (char)readByte[0];
+                }
+                catch(SocketException e)// This is thrown when the timeout occurs. The timeout is set in the constructor
+                {
+                    Thread.Yield();// Yield this threads timeslice to another process, since this process does not appear ti need it
+                }
             }
 
             return returned.Substring(0, returned.IndexOf("<EOF>"));
@@ -114,6 +125,8 @@ namespace AuthenticationService
                 requestSource = ((IPEndPoint)connection.RemoteEndPoint).Serialize()
             };
 
+            //Publish the log in attempt event for any other EP that wish to know about it.
+            //If an endpoint wishes to be notified about this event, it should subscribe to the event in its configuration
             authenticationEndpoint.Publish(attempt);
         }
 

@@ -2,6 +2,7 @@
 
 using NServiceBus;
 
+using System;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -49,13 +50,17 @@ namespace AuthenticationService
         /// <summary>
         /// Waits for the client to be authenticated, then listens for message requests/commands until the socket is closed.
         /// </summary>
-        public void listenToClient()
+        public async void listenToClient()
         {
             waitUntilAuthenticated();
             while (true)
             {
                 //TODO: Implement logic to deal with other messages that the web client may send
-                Thread.Sleep(1000);
+
+                //Read the name of the service the client wishes to access
+                string serviceRequested = authenticator.readUntilEOF();
+
+                
             }
         }
 

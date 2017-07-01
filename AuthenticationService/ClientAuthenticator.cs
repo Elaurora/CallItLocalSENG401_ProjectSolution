@@ -124,9 +124,12 @@ namespace AuthenticationService
                 clientAccepted = this.authenticated,
                 requestSource = ((IPEndPoint)connection.RemoteEndPoint).Serialize()
             };
-            
+
             //Publish the log in attempt event for any other EP that wish to know about it.
             //If an endpoint wishes to be notified about this event, it should subscribe to the event in its configuration
+            Console.Write("Log in attempted with credentials:" + "\n" +
+                "Username:" + username + "\n" +
+                "Password:" + password + "\n");
             authenticationEndpoint.Publish(attempt);
         }
 

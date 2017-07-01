@@ -9,7 +9,12 @@ namespace CompanyDirectoryService
     {
         static void Main()
         {
-            AsyncMain().GetAwaiter().GetResult();
+            Database.CompanyDirectoryDB.startupDB();
+            //Database.CompanyDirectoryDB.deleteDatabase();
+
+            Console.ReadLine();
+
+            //AsyncMain().GetAwaiter().GetResult();
         }
 
         static async Task AsyncMain()

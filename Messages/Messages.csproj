@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CreateAccount.cs" />
     <Compile Include="Commands\LockAccount.cs" />
     <Compile Include="Events\AccountLocked.cs" />
     <Compile Include="Events\ClientLogInAttempted.cs" />

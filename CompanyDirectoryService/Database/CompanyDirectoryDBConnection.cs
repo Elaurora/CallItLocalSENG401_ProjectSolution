@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Messages.Events;
+
+using MySql.Data.MySqlClient;
 
 using System;
 
@@ -63,11 +65,11 @@ namespace CompanyDirectoryService.Database
             }
         }
 
-        public void addNewCompany(string name, string phoneNumber)
+        public void addNewCompany(AccountCreated accountInfo)
         {
             if(openConnection() == true)
             {
-                string query = "INSERT INTO Company (name, phonenumber) VALUES('" + name + "', '" + phoneNumber + "')";
+                string query = @"INSERT INTO Company (name, phonenumber) VALUES('" + accountInfo.username + @"', '" + accountInfo.phonenumber + @"')";
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 

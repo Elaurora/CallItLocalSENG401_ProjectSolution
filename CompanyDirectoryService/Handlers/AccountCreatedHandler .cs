@@ -32,7 +32,7 @@ namespace CompanyDirectoryService.Handlers
             {
                 CompanyDirectoryDBConnection connection = new CompanyDirectoryDBConnection();
 
-                connection.addNewCompany(message.username, message.phonenumber);
+                connection.addNewCompany(message);
             }
             return Task.CompletedTask;
         }

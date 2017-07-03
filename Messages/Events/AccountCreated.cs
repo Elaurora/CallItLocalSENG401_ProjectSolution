@@ -2,9 +2,9 @@
 
 using Messages.DataTypes;
 
-namespace Messages.Commands
+namespace Messages.Events
 {
-    public class CreateAccount : ICommand
+    public class AccountCreated : IEvent
     {
         public string username { get; set; }
         public string password { get; set; }

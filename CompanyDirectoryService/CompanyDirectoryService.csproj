@@ -48,12 +48,19 @@
   <ItemGroup>
     <Compile Include="Database\CompanyDirectoryDB.cs" />
     <Compile Include="Database\CompanyDirectoryDBConnection.cs" />
+    <Compile Include="Handlers\AccountCreatedHandler .cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Messages\Messages.csproj">
+      <Project>{9cac18a4-2902-403e-9134-04ac6ab4e16f}</Project>
+      <Name>Messages</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

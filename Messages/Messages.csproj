@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Commands\CreateAccount.cs" />
     <Compile Include="Commands\LockAccount.cs" />
+    <Compile Include="DataTypes\Enums.cs" />
+    <Compile Include="Events\AccountCreated.cs" />
     <Compile Include="Events\AccountLocked.cs" />
     <Compile Include="Events\ClientLogInAttempted.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,6 @@
-﻿using NServiceBus;
+﻿using Messages.Events;
+
+using NServiceBus;
 
 using System;
 using System.Threading.Tasks;
@@ -10,11 +12,8 @@ namespace CompanyDirectoryService
         static void Main()
         {
             Database.CompanyDirectoryDB.startupDB();
-            //Database.CompanyDirectoryDB.deleteDatabase();
 
-            Console.ReadLine();
-
-            //AsyncMain().GetAwaiter().GetResult();
+            AsyncMain().GetAwaiter().GetResult();
         }
 
         static async Task AsyncMain()
@@ -38,12 +37,34 @@ namespace CompanyDirectoryService
             //This variable is used to configure how messages are routed. Using this, you may set the default reciever of a particular command, and/or subscribe to any number of events
             var routing = transport.Routing();
 
+            routing.RegisterPublisher(typeof(AccountCreated), "Authentication");//Register to events of type AccountCreated from Authentication endpoint
+
             //Start the endpoint with the configuration defined above. It should be noted that any changes made to the endpointConfiguration after an endpoint is instantiated will not apply to any endpoints that have already been instantiated
             var endpointInstance = await Endpoint.Start(endpointConfiguration).ConfigureAwait(false);
 
             Console.WriteLine("Press Enter to exit.");
-            Console.ReadLine();
+            string entry;
 
+            do
+            {
+                entry = Console.ReadLine();
+
+                switch (entry)
+                {
+                    case ("DELETEDB"):
+                        Database.CompanyDirectoryDB.deleteDatabase();
+                        Console.WriteLine("Deleted database");
+                        break;
+                    case ("createDB"):
+                        Database.CompanyDirectoryDB.startupDB();
+                        Console.WriteLine("Completed Database Creation Attempt.");
+                        break;
+                    default:
+                        Console.WriteLine("Command not understood");
+                        break;
+                }
+            } while (!entry.Equals(""));
+            
             await endpointInstance.Stop().ConfigureAwait(false);
         }
     }

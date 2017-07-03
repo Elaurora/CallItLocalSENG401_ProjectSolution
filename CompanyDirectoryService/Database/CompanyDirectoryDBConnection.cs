@@ -14,7 +14,7 @@ namespace CompanyDirectoryService.Database
 
         public CompanyDirectoryDBConnection()
         {
-            server = "locaslhost";
+            server = "localhost";
             dbname = "CompanyDirectoryServiceDB";
             uid = "username";
             password = "password";
@@ -58,8 +58,22 @@ namespace CompanyDirectoryService.Database
             }
             catch(MySqlException e)
             {
-                Console.Write("Could not close connection to database. Error message: " + e.Message);
+                Console.Write("Could not close connection to database. Error message: " + e.Message + e.Number);
                 return false;
+            }
+        }
+
+        public void addNewCompany(string name, string phoneNumber)
+        {
+            if(openConnection() == true)
+            {
+                string query = "INSERT INTO Company (name, phonenumber) VALUES('" + name + "', '" + phoneNumber + "')";
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                cmd.ExecuteNonQuery();
+
+                closeConnection();
             }
         }
     }

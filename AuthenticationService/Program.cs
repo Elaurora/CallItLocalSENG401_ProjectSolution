@@ -1,4 +1,6 @@
-﻿using NServiceBus;
+﻿using AuthenticationService.Database;
+
+using NServiceBus;
 
 using System;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ namespace AuthenticationService
         /// </summary>
         static void Main()
         {
+            AuthenticationDatabase.startupDB();
             AsyncMain().GetAwaiter().GetResult();
         }
 
@@ -44,7 +47,27 @@ namespace AuthenticationService
             serverConnection.StartListening();//Start the server
 
             Console.WriteLine("Press Enter to exit.");
-            Console.ReadLine();
+            string entry;
+
+            do
+            {
+                entry = Console.ReadLine();
+
+                switch (entry)
+                {
+                    case ("DELETEDB"):
+                        AuthenticationDatabase.deleteDatabase();
+                        Console.WriteLine("Deleted database");
+                        break;
+                    case ("CREATEDB"):
+                        AuthenticationDatabase.startupDB();
+                        Console.WriteLine("Completed Database Creation Attempt.");
+                        break;
+                    default:
+                        Console.WriteLine("Command not understood");
+                        break;
+                }
+            } while (!entry.Equals(""));
 
             await endpointInstance.Stop().ConfigureAwait(false);
         }

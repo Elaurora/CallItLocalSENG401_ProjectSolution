@@ -1,4 +1,6 @@
-﻿using Messages.Events;
+﻿using CompanyDirectoryService.Database;
+
+using Messages.Events;
 
 using NServiceBus;
 
@@ -11,7 +13,7 @@ namespace CompanyDirectoryService
     {
         static void Main()
         {
-            Database.CompanyDirectoryDB.startupDB();
+            CompanyDirectoryDB.startupDB();
 
             AsyncMain().GetAwaiter().GetResult();
         }
@@ -52,11 +54,11 @@ namespace CompanyDirectoryService
                 switch (entry)
                 {
                     case ("DELETEDB"):
-                        Database.CompanyDirectoryDB.deleteDatabase();
+                        CompanyDirectoryDB.deleteDatabase();
                         Console.WriteLine("Deleted database");
                         break;
-                    case ("createDB"):
-                        Database.CompanyDirectoryDB.startupDB();
+                    case ("CREATEDB"):
+                        CompanyDirectoryDB.startupDB();
                         Console.WriteLine("Completed Database Creation Attempt.");
                         break;
                     default:

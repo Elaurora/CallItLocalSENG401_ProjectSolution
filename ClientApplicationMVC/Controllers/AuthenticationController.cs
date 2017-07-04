@@ -31,22 +31,12 @@ namespace ClientApplicationMVC.Controllers
         [AsyncTimeout(50000)]
         public ActionResult Index(string textUsername, string textPassword)
         {
-            Socket connection = new Socket(ServiceBusInfo.ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-            connection.Connect("localhost", 11000);
-
-            textUsername += "<EOF>";
-            byte[] msg = Encoding.ASCII.GetBytes(textUsername);
-            connection.Send(msg);
-
-            textPassword += "<EOF>";
-            msg = Encoding.ASCII.GetBytes(textPassword);
-            connection.Send(msg);
-
-            string response = readUntilEOF(connection);
+            string response = ServiceBusConnection.sendCredentials(textUsername, textPassword);
 
             ViewBag.Title = "AuthenticationSuccess";
             ViewBag.Result = response;
-            return View("AuthenticationSuccess");
+            return RedirectToAction("Index", "Home");
+            return View("~/Views/Home/Index.aspx");
         }
 
         /// <summary>

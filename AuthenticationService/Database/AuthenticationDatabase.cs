@@ -6,102 +6,122 @@ namespace AuthenticationService.Database
 {
     static partial class AuthenticationDatabase
     {
-
+        /// <summary>
+        /// Creates the database, if it was not already created
+        /// </summary>
         public static void startupDB()
         {
             createDB();
             createTables();
         }
 
+        /// <summary>
+        /// Creates the Tables of the database, if they do not already exist
+        /// </summary>
         private static void createTables()
         {
-            openConnection();
-            foreach (string commandString in tableCreateCommands)
+            if (openConnection() == true)
             {
-                try
+                foreach (string commandString in tableCreateCommands)
                 {
-                    MySqlCommand command = new MySqlCommand(commandString, connection);
-                    command.ExecuteNonQuery();
-                }
-                catch (MySqlException e)
-                {
-                    if (e.Number == 1050)//1050 means table already exists
+                    try
                     {
-                        Console.WriteLine("Table already exixts");
+                        MySqlCommand command = new MySqlCommand(commandString, connection);
+                        command.ExecuteNonQuery();
                     }
-                    else
+                    catch (MySqlException e)
                     {
-                        Console.Write(e.Message + e.Number);
+                        if (e.Number == 1050)//1050 means table already exists
+                        {
+                            Console.WriteLine("Table already exixts");
+                        }
+                        else
+                        {
+                            Console.Write(e.Message + e.Number);
+                        }
                     }
                 }
+                closeConnection();
             }
-            closeConnection();
         }
 
+        /// <summary>
+        /// Creates the database, if it does not already exist
+        /// </summary>
         private static void createDB()
         {
             String commandString;
             MySqlCommand command;
 
-            commandString = "CREATE DATABASE CompanyDirectoryServiceDB;";
-
-            try
-            {
-                openConnection();
-                command = new MySqlCommand(commandString, connection);
-                command.ExecuteNonQuery();
-            }
-            catch (MySqlException e)
-            {
-                if (e.Number == 1007)//Database already exists, no need to continure further
-                {
-                    Console.WriteLine("Database already exists.");
-                    return;
-                }
-                Console.Write(e.Message + e.Number);
-                throw e;
-            }
-            finally
-            {
-                closeConnection();
-            }
-        }
-
-        public static void deleteDatabase()
-        {
-            openConnection();
-            string commandString;
-            MySqlCommand command;
-            foreach (string name in tableNames)
+            commandString = "CREATE DATABASE " + databaseName + ";";
+            if (openConnection() == true)
             {
                 try
                 {
-                    commandString = "DROP TABLE " + name + ";";
                     command = new MySqlCommand(commandString, connection);
+                    command.ExecuteNonQuery();
+                }
+                catch (MySqlException e)
+                {
+                    if (e.Number == 1007)//Database already exists, no need to continure further
+                    {
+                        Console.WriteLine("Database already exists.");
+                        return;
+                    }
+                    Console.Write(e.Message + e.Number);
+                    throw e;
+                }
+                finally
+                {
+                    closeConnection();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deletes the database if it exists
+        /// </summary>
+        public static void deleteDatabase()
+        {
+            if (openConnection() == true)
+            {
+                string commandString;
+                MySqlCommand command;
+                foreach (string name in tableNames)
+                {
+                    try
+                    {
+                        commandString = "DROP TABLE " + databaseName + "." + name + ";";
+                        command = new MySqlCommand(commandString, connection);
+                        command.ExecuteNonQuery();
+                    }
+                    catch (MySqlException e)
+                    {
+                        Console.Write(e.Message + e.Number);
+                    }
+                }
+
+                commandString = "DROP DATABASE " + databaseName + ";";
+                command = new MySqlCommand(commandString, connection);
+                try
+                {
                     command.ExecuteNonQuery();
                 }
                 catch (MySqlException e)
                 {
                     Console.Write(e.Message + e.Number);
                 }
-            }
-
-            commandString = "DROP DATABASE CompanyDirectoryServiceDB;";
-            command = new MySqlCommand(commandString, connection);
-            try
-            {
-                command.ExecuteNonQuery();
-            }
-            catch (MySqlException e)
-            {
-                Console.Write(e.Message + e.Number);
-            }
-            finally
-            {
-                closeConnection();
+                finally
+                {
+                    closeConnection();
+                }
             }
         }
 
+        /// <summary>
+        /// Attempts to open a connection to the database
+        /// </summary>
+        /// <returns>true if the connection was successful, false otherwise</returns>
         private static bool openConnection()
         {
             try
@@ -127,6 +147,10 @@ namespace AuthenticationService.Database
             }
         }
 
+        /// <summary>
+        /// Attempts to close the connection with the database
+        /// </summary>
+        /// <returns>true if successful, false otherwise</returns>
         private static bool closeConnection()
         {
             try
@@ -148,18 +172,19 @@ namespace AuthenticationService.Database
                 ("SERVER=localhost;DATABASE=mysql;UID=" + UID + ";PASSWORD=" + Password);
         private const string UID = "root";
         private const string Password = "abc123";
+        private const string databaseName = "AuthenticationServiceDB";
 
 
-        private const string userTableCreateCommand = "CREATE TABLE User" +
+        private const string userTableCreateCommand = "CREATE TABLE " + databaseName + "." + "User" +
             "(username CHAR(50) NOT NULL," +
-            "password CHAR(50), NOT NULL," +
+            "password CHAR(50) NOT NULL," +
             "PRIMARY KEY(name, password)" +
             ");";
 
-        private const string businessUserTableCreateCommand = "CREATE TABLE BusinessUser" +
+        private const string businessUserTableCreateCommand = "CREATE TABLE " + databaseName + "." + "BusinessUser" +
             "(username CHAR(50) NOT NULL," +
-            "password CHAR(50), NOT NULL," +
-            "phonenumber char(10)" +
+            "password CHAR(50) NOT NULL," +
+            "phonenumber CHAR(10)," +
             "PRIMARY KEY(name, password)" +
             ");";
 

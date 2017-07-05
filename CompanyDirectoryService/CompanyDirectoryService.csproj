@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\CompanyDirectoryDB.cs" />
-    <Compile Include="Database\CompanyDirectoryDBConnection.cs" />
     <Compile Include="Handlers\AccountCreatedHandler .cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

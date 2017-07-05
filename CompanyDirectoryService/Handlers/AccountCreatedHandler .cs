@@ -30,9 +30,7 @@ namespace CompanyDirectoryService.Handlers
         {
             if(message.type == AccountType.Business)
             {
-                CompanyDirectoryDBConnection connection = new CompanyDirectoryDBConnection();
-
-                connection.addNewCompany(message);
+                CompanyDirectoryDB.getInstance().insertNewCompany(message);
             }
             return Task.CompletedTask;
         }

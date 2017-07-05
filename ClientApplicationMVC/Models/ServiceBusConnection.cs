@@ -31,6 +31,7 @@ namespace ClientApplicationMVC.Models
             string response = readUntilEOF();
 
             //TODO: Check the response of the server. If it is negative, close the connection
+            //TODO: Get the semaphore working properly
 
             //_lock.Release();
             return response;

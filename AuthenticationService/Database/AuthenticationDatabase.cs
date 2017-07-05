@@ -1,203 +1,108 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Messages.Database;
+using Messages.Events;
+
+using MySql.Data.MySqlClient;
 
 using System;
 
 namespace AuthenticationService.Database
 {
-    static partial class AuthenticationDatabase
+    public partial class AuthenticationDatabase : AbstractDatabase
     {
-        /// <summary>
-        /// Creates the database, if it was not already created
-        /// </summary>
-        public static void startupDB()
+        private AuthenticationDatabase()
+            : base()
         {
-            createDB();
-            createTables();
         }
 
         /// <summary>
-        /// Creates the Tables of the database, if they do not already exist
+        /// Returns the singleton instance of the CompanyDirectoryDB
+        /// If the instance had not yet been created it will be upon calling
+        /// this function
         /// </summary>
-        private static void createTables()
+        /// <returns></returns>
+        public static AuthenticationDatabase getInstance()
         {
-            if (openConnection() == true)
+            if (instance == null)
             {
-                foreach (string commandString in tableCreateCommands)
-                {
-                    try
-                    {
-                        MySqlCommand command = new MySqlCommand(commandString, connection);
-                        command.ExecuteNonQuery();
-                    }
-                    catch (MySqlException e)
-                    {
-                        if (e.Number == 1050)//1050 means table already exists
-                        {
-                            Console.WriteLine("Table already exixts");
-                        }
-                        else
-                        {
-                            Console.Write(e.Message + e.Number);
-                        }
-                    }
-                }
-                closeConnection();
+                instance = new AuthenticationDatabase();
             }
+            return instance;
         }
 
         /// <summary>
-        /// Creates the database, if it does not already exist
+        /// Attempts to insert a new user account into the database
         /// </summary>
-        private static void createDB()
-        {
-            String commandString;
-            MySqlCommand command;
-
-            commandString = "CREATE DATABASE " + databaseName + ";";
-            if (openConnection() == true)
-            {
-                try
-                {
-                    command = new MySqlCommand(commandString, connection);
-                    command.ExecuteNonQuery();
-                }
-                catch (MySqlException e)
-                {
-                    if (e.Number == 1007)//Database already exists, no need to continure further
-                    {
-                        Console.WriteLine("Database already exists.");
-                        return;
-                    }
-                    Console.Write(e.Message + e.Number);
-                    throw e;
-                }
-                finally
-                {
-                    closeConnection();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Deletes the database if it exists
-        /// </summary>
-        public static void deleteDatabase()
-        {
-            if (openConnection() == true)
-            {
-                string commandString;
-                MySqlCommand command;
-                foreach (string name in tableNames)
-                {
-                    try
-                    {
-                        commandString = "DROP TABLE " + databaseName + "." + name + ";";
-                        command = new MySqlCommand(commandString, connection);
-                        command.ExecuteNonQuery();
-                    }
-                    catch (MySqlException e)
-                    {
-                        Console.Write(e.Message + e.Number);
-                    }
-                }
-
-                commandString = "DROP DATABASE " + databaseName + ";";
-                command = new MySqlCommand(commandString, connection);
-                try
-                {
-                    command.ExecuteNonQuery();
-                }
-                catch (MySqlException e)
-                {
-                    Console.Write(e.Message + e.Number);
-                }
-                finally
-                {
-                    closeConnection();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Attempts to open a connection to the database
-        /// </summary>
-        /// <returns>true if the connection was successful, false otherwise</returns>
-        private static bool openConnection()
-        {
-            try
-            {
-                connection.Open();
-                return true;
-            }
-            catch (MySqlException e)
-            {
-                switch (e.Number)
-                {
-                    case 0:
-                        Console.Write("Cannot connect to database.");
-                        break;
-                    case 1045:
-                        Console.Write("Invalid username or password for database.");
-                        break;
-                    default:
-                        Console.Write("Cannot connect to database. Error code <" + e.Number + ">");
-                        break;
-                }
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// Attempts to close the connection with the database
-        /// </summary>
+        /// <param name="accountInfo">Contains information about the </param>
         /// <returns>true if successful, false otherwise</returns>
-        private static bool closeConnection()
+        public bool insertNewUserAccount(AccountCreated accountInfo)
         {
-            try
+            if(openConnection() == true)
             {
-                connection.Close();
-                return true;
+                string query = @"INSERT INTO user(username, password, address) " +
+                    @"VALUES('" + accountInfo.username + @"', '" + accountInfo.password + 
+                    @"', '" + accountInfo.address + @"');";
+
+                try
+                {
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.ExecuteNonQuery();
+                }
+                catch(MySqlException e)
+                {
+                    Console.WriteLine("Unable to complete insert new user into database." +
+                        " Error :" + e.Number + e.Message);
+                    closeConnection();
+                    return false;
+                }
+                finally
+                {
+                    closeConnection();
+                }
             }
-            catch (MySqlException e)
+            else
             {
-                Console.Write("Could not close connection to database. Error message: " + e.Message);
                 return false;
             }
+
+            return true;
         }
     }
 
-    static partial class AuthenticationDatabase
+    public partial class AuthenticationDatabase : AbstractDatabase
     {
-        private static readonly MySqlConnection connection = new MySqlConnection
-                ("SERVER=localhost;DATABASE=mysql;UID=" + UID + ";PASSWORD=" + Password);
-        private const string UID = "root";
-        private const string Password = "abc123";
-        private const string databaseName = "AuthenticationServiceDB";
+        private static AuthenticationDatabase instance = new AuthenticationDatabase();
 
+        private const String dbname = "authenticationservicedb";
+        public override String databaseName { get; } = dbname;
 
-        private const string userTableCreateCommand = "CREATE TABLE " + databaseName + "." + "User" +
-            "(username CHAR(50) NOT NULL," +
-            "password CHAR(50) NOT NULL," +
-            "PRIMARY KEY(name, password)" +
-            ");";
+        private const string userTableStructure =
+            "(username VARCHAR(50) NOT NULL UNIQUE," +
+            "password VARCHAR(50) NOT NULL," +
+            "address VARCHAR(50) NOT NULL," +
+            "PRIMARY KEY(username)" +
+            ")";
 
-        private const string businessUserTableCreateCommand = "CREATE TABLE " + databaseName + "." + "BusinessUser" +
-            "(username CHAR(50) NOT NULL," +
-            "password CHAR(50) NOT NULL," +
-            "phonenumber CHAR(10)," +
-            "PRIMARY KEY(name, password)" +
-            ");";
+        private const string businessUserTableStructure =
+            "(username VARCHAR(50) NOT NULL UNIQUE," +
+            "password VARCHAR(50) NOT NULL," +
+            "phonenumber VARCHAR(10)," +
+            "PRIMARY KEY(username)" +
+            ")";
 
-        private static readonly string[] tableCreateCommands =
+        protected override Table[] tables { get; } =
         {
-            userTableCreateCommand,
-            businessUserTableCreateCommand
-        };
-
-        private static readonly string[] tableNames =
-        {
-            "User",
-            "BusinessUser"
+            new Table
+                (
+                    dbname,
+                    "user",
+                    userTableStructure
+                ),
+            new Table
+                (
+                    dbname,
+                    "businessuser",
+                    businessUserTableStructure
+                )
         };
     }
 }

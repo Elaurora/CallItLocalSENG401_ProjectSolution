@@ -13,8 +13,6 @@ namespace CompanyDirectoryService
     {
         static void Main()
         {
-            CompanyDirectoryDB.startupDB();
-
             AsyncMain().GetAwaiter().GetResult();
         }
 
@@ -54,11 +52,11 @@ namespace CompanyDirectoryService
                 switch (entry)
                 {
                     case ("DELETEDB"):
-                        CompanyDirectoryDB.deleteDatabase();
-                        Console.WriteLine("Deleted database");
+                        CompanyDirectoryDB.getInstance().deleteDatabase();
+                        Console.WriteLine("Delete database attempt complete");
                         break;
                     case ("CREATEDB"):
-                        CompanyDirectoryDB.startupDB();
+                        CompanyDirectoryDB.getInstance().createDB();
                         Console.WriteLine("Completed Database Creation Attempt.");
                         break;
                     default:

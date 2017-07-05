@@ -1,208 +1,110 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Messages.Database;
+using Messages.Events;
+
+using MySql.Data.MySqlClient;
 
 using System;
 
 namespace CompanyDirectoryService.Database
 {
 
-
-    static partial class CompanyDirectoryDB
+    
+    public partial class CompanyDirectoryDB : AbstractDatabase
     {
-        /// <summary>
-        /// Creates the database, if it was not already created
-        /// </summary>
-        public static void startupDB()
+        private CompanyDirectoryDB()
+            : base()
         {
-            createDB();
-            createTables();
         }
 
         /// <summary>
-        /// Creates the Tables of the database, if they do not already exist
+        /// Returns the singleton instance of the CompanyDirectoryDB
+        /// If the instance had not yet been created it will be upon calling
+        /// this function
         /// </summary>
-        private static void createTables()
+        /// <returns></returns>
+        public static CompanyDirectoryDB getInstance()
         {
-            if (openConnection() == true)
+            if(instance == null)
             {
-                foreach (string commandString in tableCreateCommands)
-                {
-                    try
-                    {
-                        MySqlCommand command = new MySqlCommand(commandString, connection);
-                        command.ExecuteNonQuery();
-                    }
-                    catch (MySqlException e)
-                    {
-                        if (e.Number == 1050)//1050 means table already exists
-                        {
-                            Console.WriteLine("Table already exixts");
-                        }
-                        else
-                        {
-                            Console.Write(e.Message + e.Number);
-                        }
-                    }
-                }
-                closeConnection();
+                instance = new CompanyDirectoryDB();
             }
+            return instance;
         }
 
         /// <summary>
-        /// Creates the database, if it does not already exist
+        /// Attempts to insert a new company into the database
         /// </summary>
-        private static void createDB()
-        {
-            String commandString;
-            MySqlCommand command;
-
-            commandString = "CREATE DATABASE " + databaseName + ";";
-            if (openConnection() == true)
-            {
-                try
-                {
-                    command = new MySqlCommand(commandString, connection);
-                    command.ExecuteNonQuery();
-                }
-                catch (MySqlException e)
-                {
-                    if (e.Number == 1007)//Database already exists, no need to continure further
-                    {
-                        Console.WriteLine("Database already exists.");
-                        return;
-                    }
-                    Console.Write(e.Message + e.Number);
-                    throw e;
-                }
-                finally
-                {
-                    closeConnection();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Deletes the database if it exists
-        /// </summary>
-        public static void deleteDatabase()
-        {
-            if (openConnection() == true)
-            {
-                string commandString;
-                MySqlCommand command;
-                foreach (string name in tableNames)
-                {
-                    try
-                    {
-                        commandString = "DROP TABLE " + databaseName + "." + name + ";";
-                        command = new MySqlCommand(commandString, connection);
-                        command.ExecuteNonQuery();
-                    }
-                    catch (MySqlException e)
-                    {
-                        Console.Write(e.Message + e.Number);
-                    }
-                }
-
-                commandString = "DROP DATABASE " + databaseName + ";";
-                command = new MySqlCommand(commandString, connection);
-                try
-                {
-                    command.ExecuteNonQuery();
-                }
-                catch (MySqlException e)
-                {
-                    Console.Write(e.Message + e.Number);
-                }
-                finally
-                {
-                    closeConnection();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Attempts to open a connection to the database
-        /// </summary>
-        /// <returns>true if the connection was successful, false otherwise</returns>
-        private static bool openConnection()
-        {
-            try
-            {
-                connection.Open();
-                return true;
-            }
-            catch (MySqlException e)
-            {
-                switch (e.Number)
-                {
-                    case 0:
-                        Console.Write("Cannot connect to database.");
-                        break;
-                    case 1045:
-                        Console.Write("Invalid username or password for database.");
-                        break;
-                    default:
-                        Console.Write("Cannot connect to database. Error code <" + e.Number + ">");
-                        break;
-                }
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// Attempts to close the connection with the database
-        /// </summary>
+        /// <param name="accountInfo">Contains the info about the new company to be added to the database</param>
         /// <returns>true if successful, false otherwise</returns>
-        private static bool closeConnection()
+        public bool insertNewCompany(AccountCreated accountInfo)
         {
-            try
+            if (openConnection() == true)
             {
-                connection.Close();
-                return true;
+                string query = @"INSERT INTO company(companyname, phonenumber)" +
+                @"VALUES('" + accountInfo.username + @"', '" + accountInfo.phonenumber + @"');";
+
+                try
+                {
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.ExecuteNonQuery();
+
+                    //TODO: Also insert the address into the location table, if there is one
+                }
+                catch(MySqlException e)
+                {
+                    Console.WriteLine("Unable to complete insert new company into database." +
+                        " Error :" + e.Number + e.Message);
+                    closeConnection();
+                    return false;
+                }
+                finally
+                {
+                    closeConnection();
+                }
             }
-            catch (MySqlException e)
+            else
             {
-                Console.Write("Could not close connection to database. Error message: " + e.Message);
                 return false;
             }
+            closeConnection();
+            return true;
         }
     }
-
-
-
-
-    static partial class CompanyDirectoryDB
+    
+    public partial class CompanyDirectoryDB : AbstractDatabase
     {
-        private static readonly MySqlConnection connection = new MySqlConnection
-                ("SERVER=localhost;DATABASE=mysql;UID=" + UID + ";PASSWORD=" + Password);
-        private const string UID = "root";
-        private const string Password = "abc123";
-        private const string databaseName = "CompanyDirectoryServiceDB";
+        private static CompanyDirectoryDB instance = new CompanyDirectoryDB();
 
+        private const String dbname = "companydirectoryservicedb";
+        public override String databaseName { get; } = dbname;
 
-        private const string companyTableCreateCommand = @"CREATE TABLE " + databaseName + "." + "company" +
-            @"(name VARCHAR(50) NOT NULL," +
+        private const string companyTableStructure =
+            @"(companyname VARCHAR(50) NOT NULL," +
             @"phonenumber VARCHAR(10)," +
-            @"PRIMARY KEY(name)" +
-            @");";
+            @"PRIMARY KEY(companyname)" +
+            @")";
 
-        private const string locationTableCreateCommand = @"CREATE TABLE " + databaseName + "." + "location" +
+        private const string locationTableInfo = 
             @"(address VARCHAR(100) NOT NULL," +
             @"companyname VARCHAR(50) NOT NULL," +
             @"PRIMARY KEY(address, companyname)" +
-            @");";
+            @")";
 
-        private static readonly string[] tableCreateCommands =
+        protected override Table[] tables { get; } =
         {
-            companyTableCreateCommand,
-            locationTableCreateCommand
+            new Table
+                (
+                    dbname,
+                    "company",
+                    companyTableStructure
+                ),
+            new Table
+                (
+                    dbname,
+                    "location",
+                    locationTableInfo
+                )
         };
 
-        private static readonly string[] tableNames =
-        {
-            "company",
-            "location"
-        };
-        
     }
 }

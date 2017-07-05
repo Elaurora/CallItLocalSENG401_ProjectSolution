@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="NServiceBus.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=9fc386479f8a226c, processorArchitecture=MSIL">
       <HintPath>..\packages\NServiceBus.6.3.3\lib\net452\NServiceBus.Core.dll</HintPath>
     </Reference>
@@ -45,6 +46,8 @@
   <ItemGroup>
     <Compile Include="Commands\CreateAccount.cs" />
     <Compile Include="Commands\LockAccount.cs" />
+    <Compile Include="Database\AbstractDatabase.cs" />
+    <Compile Include="Database\Table.cs" />
     <Compile Include="DataTypes\Enums.cs" />
     <Compile Include="Events\AccountCreated.cs" />
     <Compile Include="Events\AccountLocked.cs" />

@@ -26,7 +26,7 @@ namespace Messages.Database
         {
             string commandString;
             MySqlCommand command;
-            connection = new MySqlConnection("SERVER=localhost;DATABASE=mysql;UID=" + UID + ";PASSWORD=" + Password);
+            connection = new MySqlConnection("SERVER=localhost;DATABASE=mysql;UID=" + UID + ";AUTO ENLIST=false;PASSWORD=" + Password);
             commandString = "CREATE DATABASE " + databaseName + ";";
             if (openConnection() == true)
             {
@@ -43,7 +43,7 @@ namespace Messages.Database
                     {
                         Console.WriteLine("Database already exists.");
                         closeConnection();
-                        connection = new MySqlConnection("SERVER=localhost;DATABASE=" + databaseName + ";UID=" + UID + ";PASSWORD=" + Password);
+                        connection = new MySqlConnection("SERVER=localhost;DATABASE=" + databaseName + ";UID=" + UID + ";AUTO ENLIST=false;PASSWORD=" + Password);
                         return;
                     }
                     Console.WriteLine("Unable to create database"
@@ -72,7 +72,7 @@ namespace Messages.Database
                     }
                 }
                 closeConnection();
-                connection = new MySqlConnection("SERVER=localhost;DATABASE=" + databaseName + ";UID=" + UID + ";PASSWORD=" + Password);
+                connection = new MySqlConnection("SERVER=localhost;DATABASE=" + databaseName + ";UID=" + UID + ";AUTO ENLIST=false;PASSWORD=" + Password);
             }
         }
 

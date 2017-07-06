@@ -1,5 +1,8 @@
 ﻿using ClientApplicationMVC.Models;
 
+using Messages.Commands;
+using Messages.DataTypes;
+
 using System;
 using System.Net.Sockets;
 using System.Text;
@@ -31,12 +34,38 @@ namespace ClientApplicationMVC.Controllers
         [AsyncTimeout(50000)]
         public ActionResult Index(string textUsername, string textPassword)
         {
-            string response = ServiceBusConnection.sendCredentials(textUsername, textPassword);
+            string response = ServiceBusConnection.sendLogIn(textUsername, textPassword);
 
             ViewBag.Title = "AuthenticationSuccess";
             ViewBag.Result = response;
             return RedirectToAction("Index", "Home");
-            return View("~/Views/Home/Index.aspx");
+        }
+
+        [HttpGet]
+        public ActionResult CreateAccount()
+        {
+            return View("CreateAccount");
+        }
+
+        [HttpPost]
+        public ActionResult CreateAccount(string textUsername, string textPassword, string textAddress, string textPhoneNumber, bool accountType)
+        {
+            //TODO: check entered values for validity before sending
+
+            CreateAccount msg = new CreateAccount
+            {
+                username = textUsername,
+                password = textPassword,
+                address = textAddress,
+                phonenumber = textPhoneNumber,
+                type = accountType ? AccountType.Business : AccountType.User
+            };
+
+            string response = ServiceBusConnection.sendNewAccountInfo(msg);
+
+            //TODO: React based on the response
+
+            return RedirectToAction("Index", "Home");
         }
 
         /// <summary>

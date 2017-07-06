@@ -1,4 +1,5 @@
-﻿using Messages.Events;
+﻿using Messages.DataTypes;
+using Messages.Events;
 
 using NServiceBus;
 
@@ -83,7 +84,7 @@ namespace AuthenticationService
             byte[] readByte = new byte[1];
             string returned = String.Empty;
 
-            while (returned.Contains("<EOF>") == false)
+            while (returned.Contains(SharedData.msgEndDelim) == false)
             {
                 try
                 {
@@ -96,7 +97,7 @@ namespace AuthenticationService
                 }
             }
 
-            return returned.Substring(0, returned.IndexOf("<EOF>"));
+            return returned.Substring(0, returned.IndexOf(SharedData.msgEndDelim));
         }
 
         /// <summary>

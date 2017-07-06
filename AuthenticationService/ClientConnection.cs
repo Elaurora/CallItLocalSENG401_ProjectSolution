@@ -1,4 +1,5 @@
-﻿using Messages.Events;
+﻿using Messages.DataTypes;
+using Messages.Commands;
 
 using NServiceBus;
 
@@ -18,17 +19,17 @@ namespace AuthenticationService
         /// The endpoint, used to communicate with other services in the bus.
         /// All clients use the same endpoint
         /// </summary>
-        IEndpointInstance authenticationEndpoint;
+        private IEndpointInstance authenticationEndpoint;
 
         /// <summary>
         /// The connection between the client and the server.
         /// </summary>
-        Socket connection;
+        private Socket connection;
 
         /// <summary>
         /// This class will be used to authenticate the client
         /// </summary>
-        ClientAuthenticator authenticator;
+        private ClientAuthenticator authenticator;
     }
 
     /// <summary>
@@ -52,16 +53,85 @@ namespace AuthenticationService
         /// </summary>
         public async void listenToClient()
         {
-            waitUntilAuthenticated();
-            while (true)
+            //waitUntilAuthenticated();
+            while (connection.Connected == true)
             {
                 //TODO: Implement logic to deal with other messages that the web client may send
 
                 //Read the name of the service the client wishes to access
                 string serviceRequested = authenticator.readUntilEOF();
 
-                
+                switch (serviceRequested)
+                {
+                    case ("login"):
+                        authenticator.readLoginInfo();
+                        break;
+                    case ("createaccount"):
+                        readNewAccountInfo();
+                        break;
+                    default:
+                        sendToClient("Error: Invalid request. Request received was:" + serviceRequested);
+                        break;
+                }
             }
+        }
+
+        /// <summary>
+        /// Reads the new account info from the client, parses it, and sends a "CreateAccount" command to the authentication endpoint
+        /// It also sends a reply back to the client, and publishes an "AccountCreated" event
+        /// </summary>
+        private void readNewAccountInfo()
+        {
+            String info = authenticator.readUntilEOF();
+
+            CreateAccount command = new CreateAccount
+            {
+                username = "",
+                password = "",
+                address = "",
+                phonenumber = "",
+                type = AccountType.NotSpecified
+            };
+
+            string[] separatedInfo = info.Split(new char[]{ '&' });
+
+            try
+            {
+                foreach (string Info in separatedInfo)
+                {
+                    string[] pieces = Info.Split(new char[] { '=' });
+                    switch (pieces[0])
+                    {
+                        case ("username"):
+                            command.username = pieces[1];
+                            break;
+                        case ("password"):
+                            command.password = pieces[1];
+                            break;
+                        case ("address"):
+                            command.address = pieces[1];
+                            break;
+                        case ("phonenumber"):
+                            command.phonenumber = pieces[1];
+                            break;
+                        case ("type"):
+                            command.type = pieces[1] == "User" ? AccountType.User : AccountType.Business;
+                            break;
+                        default:
+                            throw new ArgumentException("Error: Invalid or unknown argument given, aborting");
+                    }
+                }
+            }
+            catch(ArgumentException e)
+            {
+                sendToClient(e.Message);
+                //TODO: Should i close the connection here ?
+                return;
+            }
+
+            authenticationEndpoint.SendLocal(command);
+
+            sendToClient("Success");
         }
 
         /// <summary>
@@ -80,6 +150,22 @@ namespace AuthenticationService
                     break;
                 }
                 connection.Send(Encoding.ASCII.GetBytes("Incorrect username or password<EOF>"));
+            }
+        }
+
+        /// <summary>
+        /// Sends the given message to the client along with the msgEndDelim on the end
+        /// </summary>
+        /// <param name="msg">The message to send to the client</param>
+        private void sendToClient(string msg)
+        {
+            if(connection.Connected == true)
+            {
+                connection.Send(Encoding.ASCII.GetBytes(msg + SharedData.msgEndDelim));
+            }
+            else
+            {
+                //TODO: Figure out what to do here
             }
         }
     }

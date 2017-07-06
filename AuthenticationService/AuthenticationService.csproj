@@ -48,6 +48,7 @@
     <Compile Include="ClientConnection.cs" />
     <Compile Include="ClientAuthenticator.cs" />
     <Compile Include="Database\AuthenticationDatabase.cs" />
+    <Compile Include="Handlers\CreateAccountHandler.cs" />
     <Compile Include="Handlers\LockAccountHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

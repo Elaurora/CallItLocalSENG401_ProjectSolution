@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Messages.Commands;
+using Messages.DataTypes;
+
+using System;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -23,9 +26,10 @@ namespace ClientApplicationMVC.Models
         /// <param name="username">The username entered</param>
         /// <param name="password">The password entered</param>
         /// <returns></returns>
-        public static string sendCredentials(string username, string password)
+        public static string sendLogIn(string username, string password)
         {
             //_lock.WaitOne();
+            send("login");
             send(username);
             send(password);
             string response = readUntilEOF();
@@ -37,17 +41,32 @@ namespace ClientApplicationMVC.Models
             return response;
         }
 
+        public static string sendNewAccountInfo(CreateAccount msg)
+        {
+            send("createaccount");
+
+            string info =
+                "username=" + msg.username +
+                "&password=" + msg.password +
+                "&address=" + msg.address +
+                "&phonenumber=" + msg.phonenumber +
+                "&type=" + msg.type.ToString();
+
+            send(info);
+
+            return readUntilEOF();
+        }
 
         /// <summary>
         /// Sends the sppecified message through the socket
-        /// Attaches "<EOF>" to the end of the message to indicate the end of the string
+        /// Attaches the msgEndDelim to the end of the message to indicate the end of the string
         /// </summary>
         /// <param name="message">The message to be sent</param>
         private static void send(string message)
         {
-            byte[] msg = Encoding.ASCII.GetBytes(message + "<EOF>");
+            byte[] msg = Encoding.ASCII.GetBytes(message + SharedData.msgEndDelim);
 
-            if (!connection.Connected)
+            while (!connection.Connected)
             {
                 connect();
             }
@@ -80,13 +99,13 @@ namespace ClientApplicationMVC.Models
             byte[] readByte = new byte[1];
             string returned = String.Empty;
 
-            while (returned.Contains("<EOF>") == false)
+            while (returned.Contains(SharedData.msgEndDelim) == false)
             {
                 connection.Receive(readByte, 1, 0);
                 returned += (char)readByte[0];
             }
 
-            return returned.Substring(0, returned.IndexOf("<EOF>"));
+            return returned.Substring(0, returned.IndexOf(SharedData.msgEndDelim));
         }
     }
 }

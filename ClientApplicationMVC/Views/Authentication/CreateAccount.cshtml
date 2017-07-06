@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "CreateAccount";
+}
+
+<h2>CreateAccount</h2>
+
+@using (Html.BeginForm())
+{
+    <p>Please enter the following information to create your account</p>
+    <br />
+    <p>Username:</p>
+    @Html.TextBox("textUsername") <br /> <br />
+    <p>Password:</p>
+    @Html.TextBox("textPassword") <br /> <br />
+    <p>Address:</p>
+    @Html.TextBox("textAddress") <br /> <br />
+    <p>Phonenumber:</p>
+    @Html.TextBox("textPhoneNumber") <br /> <br />
+    <p>Is it a business account ?</p>
+    @Html.CheckBox("accountType")
+
+    <input type="submit" value="Login" /><br /><br />
+
+    <p>Already have an account ? </p>
+
+    @Html.ActionLink("Log In", "Index", "Authentication")
+
+    <br /><br />
+    @ViewBag.Result
+}

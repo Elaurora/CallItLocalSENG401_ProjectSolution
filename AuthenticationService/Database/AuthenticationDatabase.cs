@@ -1,5 +1,5 @@
 ﻿using Messages.Database;
-using Messages.Events;
+using Messages.Commands;
 
 using MySql.Data.MySqlClient;
 
@@ -34,13 +34,13 @@ namespace AuthenticationService.Database
         /// </summary>
         /// <param name="accountInfo">Contains information about the </param>
         /// <returns>true if successful, false otherwise</returns>
-        public bool insertNewUserAccount(AccountCreated accountInfo)
+        public bool insertNewUserAccount(CreateAccount accountInfo)
         {
             if(openConnection() == true)
             {
-                string query = @"INSERT INTO user(username, password, address) " +
+                string query = @"INSERT INTO user(username, password, address, phonenumber) " +
                     @"VALUES('" + accountInfo.username + @"', '" + accountInfo.password + 
-                    @"', '" + accountInfo.address + @"');";
+                    @"', '" + accountInfo.address + @"', '" + accountInfo.phonenumber + @"');";
 
                 try
                 {
@@ -51,6 +51,7 @@ namespace AuthenticationService.Database
                 {
                     Console.WriteLine("Unable to complete insert new user into database." +
                         " Error :" + e.Number + e.Message);
+                    Console.WriteLine("The query was:" + query);
                     closeConnection();
                     return false;
                 }
@@ -79,6 +80,7 @@ namespace AuthenticationService.Database
             "(username VARCHAR(50) NOT NULL UNIQUE," +
             "password VARCHAR(50) NOT NULL," +
             "address VARCHAR(50) NOT NULL," +
+            "phonenumber VARCHAR(10) NOT NULL," +
             "PRIMARY KEY(username)" +
             ")";
 

@@ -12,7 +12,12 @@
     @Html.TextBox("textUsername") <br/> <br/>
     <p>Password:</p>
     @Html.TextBox("textPassword") <br/> <br/>
-    <input type="submit" value="Login" />
+    <input type="submit" value="Login" /><br/><br />
+
+    <p>Dont have an account ? </p>
+    
+    @Html.ActionLink("Create One", "CreateAccount", "Authentication")
+
     <br /><br />
     @ViewBag.Result
 }

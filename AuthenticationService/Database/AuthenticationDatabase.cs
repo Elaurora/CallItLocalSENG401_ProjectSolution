@@ -4,6 +4,7 @@ using Messages.Commands;
 using MySql.Data.MySqlClient;
 
 using System;
+using System.Collections.Generic;
 
 namespace AuthenticationService.Database
 {
@@ -38,9 +39,10 @@ namespace AuthenticationService.Database
         {
             if(openConnection() == true)
             {
-                string query = @"INSERT INTO user(username, password, address, phonenumber) " +
+                string query = @"INSERT INTO user(username, password, address, phonenumber, type) " +
                     @"VALUES('" + accountInfo.username + @"', '" + accountInfo.password + 
-                    @"', '" + accountInfo.address + @"', '" + accountInfo.phonenumber + @"');";
+                    @"', '" + accountInfo.address + @"', '" + accountInfo.phonenumber + @"', '" +
+                    accountInfo.type.ToString() + @"');";
 
                 try
                 {
@@ -67,6 +69,37 @@ namespace AuthenticationService.Database
 
             return true;
         }
+
+        /// <summary>
+        /// This function is used to check and see if the given username and password correspond
+        /// to an existing user account.
+        /// </summary>
+        /// <param name="username">The username to check the database for</param>
+        /// <param name="password">The password to check the database for</param>
+        /// <returns>True if the info corresponds to an entry in the database, false otherwise</returns>
+        public bool isValidUserInfo(string username, string password)
+        {
+            string query = "SELECT * FROM user" +
+                "WHERE username = " + username + " " +
+                "AND password = " + password + ";";
+
+            bool returned = false;
+
+            if(openConnection() == true)
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                returned = dataReader.Read();
+
+                dataReader.Close();
+
+                closeConnection();
+            }
+
+            return returned;
+        }
     }
 
     public partial class AuthenticationDatabase : AbstractDatabase
@@ -76,34 +109,64 @@ namespace AuthenticationService.Database
         private const String dbname = "authenticationservicedb";
         public override String databaseName { get; } = dbname;
 
-        private const string userTableStructure =
-            "(username VARCHAR(50) NOT NULL UNIQUE," +
-            "password VARCHAR(50) NOT NULL," +
-            "address VARCHAR(50) NOT NULL," +
-            "phonenumber VARCHAR(10) NOT NULL," +
-            "PRIMARY KEY(username)" +
-            ")";
-
-        private const string businessUserTableStructure =
-            "(username VARCHAR(50) NOT NULL UNIQUE," +
-            "password VARCHAR(50) NOT NULL," +
-            "phonenumber VARCHAR(10)," +
-            "PRIMARY KEY(username)" +
-            ")";
-
         protected override Table[] tables { get; } =
         {
             new Table
                 (
                     dbname,
                     "user",
-                    userTableStructure
-                ),
-            new Table
-                (
-                    dbname,
-                    "businessuser",
-                    businessUserTableStructure
+                    new Column[]
+                    {
+                        new Column
+                        (
+                            "username", "VARCHAR(50)",
+                            new string[]
+                            {
+                                "NOT NULL",
+                                "UNIQUE"
+                            }, true
+                        ),
+                        new Column
+                        (
+                            "password", "VARCHAR(50)",
+                            new string[]
+                            {
+                                "NOT NULL"
+                            }, false
+                        ),
+                        new Column
+                        (
+                            "address", "VARCHAR(50)",
+                            new string[]
+                            {
+                                "NOT NULL"
+                            }, false
+                        ),
+                        new Column
+                        (
+                            "phonenumber", "VARCHAR(10)",
+                            new string[]
+                            {
+                                "NOT NULL"
+                            }, false
+                        ),
+                        new Column
+                        (
+                            "email", "VARCHAR(30)",
+                            new string[]
+                            {
+                                "NOT NULL"
+                            }, false
+                        ),
+                        new Column
+                        (
+                            "type", "VARCHAR(10)",
+                            new string[]
+                            {
+                                "NOT NULL"
+                            }, false
+                        )
+                    }
                 )
         };
     }

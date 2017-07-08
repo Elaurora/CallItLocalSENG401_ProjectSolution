@@ -6,6 +6,7 @@ using NServiceBus.Logging;
 using Messages.Events;
 using Messages.DataTypes;
 
+using System;
 using System.Threading.Tasks;
 
 namespace CompanyDirectoryService.Handlers
@@ -28,9 +29,16 @@ namespace CompanyDirectoryService.Handlers
         /// <returns></returns>
         public Task Handle(AccountCreated message, IMessageHandlerContext context)
         {
-            if(message.type == AccountType.Business)
+            if(message.type == AccountType.business)
             {
-                CompanyDirectoryDB.getInstance().insertNewCompany(message);
+                if(CompanyDirectoryDB.getInstance().insertNewCompany(message) == false)
+                {
+                    throw new Exception("Failed to enter company into database;");
+                }
+                if(CompanyDirectoryDB.getInstance().insertNewLocation(message.address, message.username) == false)
+                {
+                    throw new Exception("Failed to enter company location into database;");
+                }
             }
             return Task.CompletedTask;
         }

@@ -47,6 +47,7 @@
     <Compile Include="Commands\CreateAccount.cs" />
     <Compile Include="Commands\LockAccount.cs" />
     <Compile Include="Database\AbstractDatabase.cs" />
+    <Compile Include="Database\Column.cs" />
     <Compile Include="Database\Table.cs" />
     <Compile Include="DataTypes\Enums.cs" />
     <Compile Include="DataTypes\SharedData.cs" />

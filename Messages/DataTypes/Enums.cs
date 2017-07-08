@@ -1,5 +1,5 @@
 ﻿
 namespace Messages.DataTypes
 {
-    public enum AccountType { User, Business, NotSpecified };
+    public enum AccountType { user, business, notspecified };
 }

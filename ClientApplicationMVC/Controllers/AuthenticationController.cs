@@ -18,7 +18,7 @@ namespace ClientApplicationMVC.Controllers
         /// </summary>
         /// <returns>The view used for entering login information</returns>
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult LogIn()
         {
             ViewBag.Title = "Authentication";
             return View();
@@ -32,12 +32,14 @@ namespace ClientApplicationMVC.Controllers
         /// <returns>The new view to be displayed</returns>
         [HttpPost]
         [AsyncTimeout(50000)]
-        public ActionResult Index(string textUsername, string textPassword)
+        public ActionResult LogIn(string textUsername, string textPassword)
         {
             string response = ServiceBusConnection.sendLogIn(textUsername, textPassword);
 
             ViewBag.Title = "AuthenticationSuccess";
             ViewBag.Result = response;
+            //TODO: React based on response
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -48,7 +50,7 @@ namespace ClientApplicationMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateAccount(string textUsername, string textPassword, string textAddress, string textPhoneNumber, bool accountType)
+        public ActionResult CreateAccount(string textUsername, string textPassword, string textAddress, string textPhoneNumber, string textEmail, bool accountType)
         {
             //TODO: check entered values for validity before sending
 
@@ -58,7 +60,8 @@ namespace ClientApplicationMVC.Controllers
                 password = textPassword,
                 address = textAddress,
                 phonenumber = textPhoneNumber,
-                type = accountType ? AccountType.Business : AccountType.User
+                email = textEmail,
+                type = accountType ? AccountType.business : AccountType.user
             };
 
             string response = ServiceBusConnection.sendNewAccountInfo(msg);

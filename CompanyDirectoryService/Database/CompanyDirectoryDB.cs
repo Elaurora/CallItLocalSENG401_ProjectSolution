@@ -40,20 +40,59 @@ namespace CompanyDirectoryService.Database
         {
             if (openConnection() == true)
             {
-                string query = @"INSERT INTO company(companyname, phonenumber)" +
-                @"VALUES('" + accountInfo.username + @"', '" + accountInfo.phonenumber + @"');";
+                string query =
+                    @"INSERT INTO company(companyname, phonenumber, email) " +
+                    @"VALUES('" + accountInfo.username + @"', '" + accountInfo.phonenumber +
+                    @"', '" + accountInfo.email + @"');";
 
                 try
                 {
                     MySqlCommand command = new MySqlCommand(query, connection);
                     command.ExecuteNonQuery();
-
-                    //TODO: Also insert the address into the location table, if there is one
                 }
                 catch(MySqlException e)
                 {
                     Console.WriteLine("Unable to complete insert new company into database." +
                         " Error :" + e.Number + e.Message);
+                    closeConnection();
+                    return false;
+                }
+                finally
+                {
+                    closeConnection();
+                }
+            }
+            else
+            {
+                return false;
+            }
+            closeConnection();
+            return true;
+        }
+
+        /// <summary>
+        /// Attempts to insert a new company location into the database
+        /// </summary>
+        /// <param name="address">The location of the company</param>
+        /// <param name="companyname">The name of the existuing company</param>
+        /// <returns></returns>
+        public bool insertNewLocation(string address, string companyname)
+        {
+            if(openConnection() == true)
+            {
+                string query =
+                    @"INSERT INTO location(address, companyname) " +
+                    @"VALUES('" + address + @"', '" + companyname + @"');";
+
+                try
+                {
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.ExecuteNonQuery();
+                }
+                catch(MySqlException e)
+                {
+                    Console.WriteLine("Unable to insert new location into database." +
+                        " Error:" + e.Number + e.Message);
                     closeConnection();
                     return false;
                 }
@@ -78,31 +117,65 @@ namespace CompanyDirectoryService.Database
         private const String dbname = "companydirectoryservicedb";
         public override String databaseName { get; } = dbname;
 
-        private const string companyTableStructure =
-            @"(companyname VARCHAR(50) NOT NULL," +
-            @"phonenumber VARCHAR(10)," +
-            @"PRIMARY KEY(companyname)" +
-            @")";
-
-        private const string locationTableInfo = 
-            @"(address VARCHAR(100) NOT NULL," +
-            @"companyname VARCHAR(50) NOT NULL," +
-            @"PRIMARY KEY(address, companyname)" +
-            @")";
-
         protected override Table[] tables { get; } =
         {
             new Table
                 (
                     dbname,
                     "company",
-                    companyTableStructure
+                    new Column[]
+                    {
+                        new Column
+                        (
+                            "companyname", "VARCHAR(50)",
+                            new string[]
+                            {
+                                "NOT NULL",
+                                "UNIQUE"
+                            }, true
+                        ),
+                        new Column
+                        (
+                            "phonenumber", "VARCHAR(10)",
+                            null, false
+                        ),
+                        new Column
+                        (
+                            "email", "VARCHAR(30)",
+                            new string[]
+                            {
+                                "NOT NULL", 
+                                "UNIQUE"
+                            }, false
+                        )
+                    }
                 ),
             new Table
                 (
                     dbname,
                     "location",
-                    locationTableInfo
+                    new Column[]
+                    {
+                        new Column
+                        (
+                            "address", "VARCHAR(100)",
+                            new string[]
+                            {
+                                "NOT NULL",
+                                "UNIQUE"
+                            }, true
+                        ),
+                         new Column
+                        (
+                            "companyname", "VARCHAR(50)",
+                            new string[]
+                            {
+                                "NOT NULL",
+                                "UNIQUE"
+                            }, true
+                        )
+
+                    }
                 )
         };
 

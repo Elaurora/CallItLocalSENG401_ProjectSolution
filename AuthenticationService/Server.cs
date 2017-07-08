@@ -22,12 +22,6 @@ namespace AuthenticationService
         /// The endpoint used to communicate with the other endpoints in the service bus
         /// </summary>
         private IEndpointInstance endpoint;
-
-        /// <summary>
-        /// A list of all the currently running client connections
-        /// </summary>
-        private List<Thread> threads = new List<Thread>();
-
     }
 
     public partial class Server
@@ -95,7 +89,6 @@ namespace AuthenticationService
             ClientConnection connection = new ClientConnection(handler, endpoint);
 
             Thread newThread = new Thread(new ThreadStart(connection.listenToClient));
-            threads.Add(newThread);
             newThread.Start();
         }
         

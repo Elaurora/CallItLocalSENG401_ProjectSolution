@@ -1,4 +1,6 @@
-﻿using Messages.DataTypes;
+﻿using AuthenticationService.Database;
+
+using Messages.DataTypes;
 using Messages.Events;
 
 using NServiceBus;
@@ -32,12 +34,12 @@ namespace AuthenticationService
         /// <summary>
         /// The username given by the client
         /// </summary>
-        private string username = String.Empty;
+        private string username = "";
 
         /// <summary>
         /// the password given by the client
         /// </summary>
-        private string password = String.Empty;
+        private string password = "";
 
         /// <summary>
         /// Indicates whether or not the username and password given by the client are valid
@@ -91,7 +93,7 @@ namespace AuthenticationService
                     connection.Receive(readByte, 1, 0);
                     returned += (char)readByte[0];
                 }
-                catch(SocketException e)// This is thrown when the timeout occurs. The timeout is set in the constructor
+                catch(SocketException)// This is thrown when the timeout occurs. The timeout is set in the constructor
                 {
                     Thread.Yield();// Yield this threads remaining timeslice to another process, this process does not appear to need it
                 }
@@ -102,14 +104,15 @@ namespace AuthenticationService
 
         /// <summary>
         /// Checks to see if the username and password given by the client are valid
-        /// NOT IMPLEMENTED. Currently, this function will just authenticate the user regardless of
-        /// the information that was entered
+        /// Assumes that the 
         /// </summary>
         private void attemptToAuthenticate()
         {
-            //TODO: Implement logic to authenticate user assuming the username and password have been read
-
-            authenticated = true;
+            if("".Equals(username) || "".Equals(password))
+            {
+                return;
+            }
+            authenticated = AuthenticationDatabase.getInstance().isValidUserInfo(username, password);
             reportLogInAttempt();
         }
 
@@ -133,9 +136,5 @@ namespace AuthenticationService
                 "Password:" + password + "\n");
             authenticationEndpoint.Publish(attempt);
         }
-
-       
     }
-
-    
 }

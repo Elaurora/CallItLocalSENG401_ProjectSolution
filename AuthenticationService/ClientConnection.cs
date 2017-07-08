@@ -1,5 +1,8 @@
-﻿using Messages.DataTypes;
+﻿using AuthenticationService.Database;
+
+using Messages.DataTypes;
 using Messages.Commands;
+using Messages.Events;
 
 using NServiceBus;
 
@@ -51,9 +54,8 @@ namespace AuthenticationService
         /// <summary>
         /// Waits for the client to be authenticated, then listens for message requests/commands until the socket is closed.
         /// </summary>
-        public async void listenToClient()
+        public void listenToClient()
         {
-            //waitUntilAuthenticated();
             while (connection.Connected == true)
             {
                 //TODO: Implement logic to deal with other messages that the web client may send
@@ -64,7 +66,7 @@ namespace AuthenticationService
                 switch (serviceRequested)
                 {
                     case ("login"):
-                        authenticator.readLoginInfo();
+                        authenticateUser();
                         break;
                     case ("createaccount"):
                         readNewAccountInfo();
@@ -84,54 +86,19 @@ namespace AuthenticationService
         {
             String info = authenticator.readUntilEOF();
 
-            CreateAccount command = new CreateAccount
-            {
-                username = "",
-                password = "",
-                address = "",
-                phonenumber = "",
-                type = AccountType.NotSpecified
-            };
+            CreateAccount command = new CreateAccount(info);
 
             string[] separatedInfo = info.Split(new char[]{ '&' });
 
-            try
+            if(AuthenticationDatabase.getInstance().insertNewUserAccount(command) == true)
             {
-                foreach (string Info in separatedInfo)
-                {
-                    string[] pieces = Info.Split(new char[] { '=' });
-                    switch (pieces[0])
-                    {
-                        case ("username"):
-                            command.username = pieces[1];
-                            break;
-                        case ("password"):
-                            command.password = pieces[1];
-                            break;
-                        case ("address"):
-                            command.address = pieces[1];
-                            break;
-                        case ("phonenumber"):
-                            command.phonenumber = pieces[1];
-                            break;
-                        case ("type"):
-                            command.type = pieces[1] == "User" ? AccountType.User : AccountType.Business;
-                            break;
-                        default:
-                            throw new ArgumentException("Error: Invalid or unknown argument given, aborting");
-                    }
-                }
-            }
-            catch(ArgumentException e)
-            {
-                sendToClient(e.Message);
-                //TODO: Should i close the connection here ?
+                sendToClient("Success");
+                authenticationEndpoint.Publish(new AccountCreated(command));
                 return;
             }
 
-            authenticationEndpoint.SendLocal(command);
-
-            sendToClient("Success");
+            sendToClient("Failure");
+            terminateConnection();
         }
 
         /// <summary>
@@ -139,18 +106,16 @@ namespace AuthenticationService
         /// rinse repeat until authenticated. Sends a message to the client indicating whether or not 
         /// it was authenticated successfully
         /// </summary>
-        private void waitUntilAuthenticated()
+        private void authenticateUser()
         {
-            while (true)
+            authenticator.readLoginInfo();
+            if (authenticator.isAuthenticated() == true)
             {
-                authenticator.readLoginInfo();
-                if(authenticator.isAuthenticated() == true)
-                {
-                    connection.Send(Encoding.ASCII.GetBytes("You have been logged in successfully<EOF>"));
-                    break;
-                }
-                connection.Send(Encoding.ASCII.GetBytes("Incorrect username or password<EOF>"));
+                sendToClient("Success");
+                return;
             }
+            sendToClient("Failure");
+            terminateConnection();
         }
 
         /// <summary>
@@ -163,10 +128,14 @@ namespace AuthenticationService
             {
                 connection.Send(Encoding.ASCII.GetBytes(msg + SharedData.msgEndDelim));
             }
-            else
-            {
-                //TODO: Figure out what to do here
-            }
+        }
+
+        /// <summary>
+        /// Closes the connection with the client
+        /// </summary>
+        private void terminateConnection()
+        {
+            connection.Disconnect(false);
         }
     }
 }

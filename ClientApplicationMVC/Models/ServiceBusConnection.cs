@@ -34,7 +34,11 @@ namespace ClientApplicationMVC.Models
             send(password);
             string response = readUntilEOF();
 
-            //TODO: Check the response of the server. If it is negative, close the connection
+            if ("Failure".Equals(response))
+            {
+                terminateConnection();
+            }
+
             //TODO: Get the semaphore working properly
 
             //_lock.Release();
@@ -45,14 +49,7 @@ namespace ClientApplicationMVC.Models
         {
             send("createaccount");
 
-            string info =
-                "username=" + msg.username +
-                "&password=" + msg.password +
-                "&address=" + msg.address +
-                "&phonenumber=" + msg.phonenumber +
-                "&type=" + msg.type.ToString();
-
-            send(info);
+            send(msg.toString());
 
             return readUntilEOF();
         }
@@ -83,14 +80,6 @@ namespace ClientApplicationMVC.Models
         }
 
         /// <summary>
-        /// Attempts to close the connection to the ServiceBus
-        /// </summary>
-        private static void close()
-        {
-            connection.Close();
-        }
-
-        /// <summary>
         /// Continuously reads one byte at a time from the client until the "<EOF>" string of characters is found
         /// </summary>
         /// <returns>The string representation of bytes read from the server socket</returns>
@@ -106,6 +95,14 @@ namespace ClientApplicationMVC.Models
             }
 
             return returned.Substring(0, returned.IndexOf(SharedData.msgEndDelim));
+        }
+
+        /// <summary>
+        /// Disconnects the socket from the server. The socket will be able to reconnect later.
+        /// </summary>
+        private static void terminateConnection()
+        {
+            connection.Disconnect(true);
         }
     }
 }

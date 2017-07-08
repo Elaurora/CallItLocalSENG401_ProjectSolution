@@ -31,14 +31,7 @@ namespace AuthenticationService.Handlers
         {
             AuthenticationDatabase.getInstance().insertNewUserAccount(msg);
 
-            AccountCreated Event = new AccountCreated
-            {
-                username = msg.username,
-                password = msg.password,
-                address = msg.address,
-                phonenumber = msg.phonenumber,
-                type = msg.type
-            };
+            AccountCreated Event = new AccountCreated(msg);
 
             return context.Publish(Event);
         }

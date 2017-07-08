@@ -149,6 +149,14 @@ namespace Messages.Database
                 }
                 return false;
             }
+            catch (InvalidOperationException e)
+            {
+                if(e.Message.Equals("The connection is already open."))
+                {
+                    return true;
+                }
+                throw e;
+            }
         }
 
         /// <summary>

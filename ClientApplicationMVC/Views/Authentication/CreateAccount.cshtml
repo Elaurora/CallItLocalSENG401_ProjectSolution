@@ -7,7 +7,7 @@
 
 @using (Html.BeginForm())
 {
-    <p>Please enter the following information to create your account</p>
+    <p>@ViewBag.Message</p>
     <br />
     <p>Username:</p>
     @Html.TextBox("textUsername") <br /> <br />
@@ -20,7 +20,7 @@
     <p>Email:</p>
     @Html.TextBox("textEmail") <br /> <br />
     <p>Is it a business account ?</p>
-    @Html.CheckBox("accountType")
+    @Html.CheckBox("accountType") <br /> <br />
 
     <input type="submit" value="Submit Account Info" /><br /><br />
 

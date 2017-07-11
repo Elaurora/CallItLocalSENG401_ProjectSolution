@@ -4,7 +4,6 @@ using Messages.Commands;
 using MySql.Data.MySqlClient;
 
 using System;
-using System.Collections.Generic;
 
 namespace AuthenticationService.Database
 {
@@ -39,10 +38,10 @@ namespace AuthenticationService.Database
         {
             if(openConnection() == true)
             {
-                string query = @"INSERT INTO user(username, password, address, phonenumber, type) " +
+                string query = @"INSERT INTO user(username, password, address, phonenumber, email, type) " +
                     @"VALUES('" + accountInfo.username + @"', '" + accountInfo.password + 
-                    @"', '" + accountInfo.address + @"', '" + accountInfo.phonenumber + @"', '" +
-                    accountInfo.type.ToString() + @"');";
+                    @"', '" + accountInfo.address + @"', '" + accountInfo.phonenumber + 
+                    @"', '" + accountInfo.email + @"', '" + accountInfo.type.ToString() + @"');";
 
                 try
                 {
@@ -51,10 +50,17 @@ namespace AuthenticationService.Database
                 }
                 catch(MySqlException e)
                 {
-                    Console.WriteLine("Unable to complete insert new user into database." +
+                    Messages.Debug.consoleMsg("Unable to complete insert new user into database." +
                         " Error :" + e.Number + e.Message);
-                    Console.WriteLine("The query was:" + query);
+                    Messages.Debug.consoleMsg("The query was:" + query);
                     closeConnection();
+                    return false;
+                }
+                catch (Exception e)
+                {
+                    closeConnection();
+                    Messages.Debug.consoleMsg("Unable to Unable to complete insert new user into database." +
+                        " Error:" + e.Message);
                     return false;
                 }
                 finally
@@ -79,9 +85,9 @@ namespace AuthenticationService.Database
         /// <returns>True if the info corresponds to an entry in the database, false otherwise</returns>
         public bool isValidUserInfo(string username, string password)
         {
-            string query = "SELECT * FROM user" +
-                "WHERE username = " + username + " " +
-                "AND password = " + password + ";";
+            string query = @"SELECT * FROM " + databaseName + @".user " +
+                @"WHERE username='" + username + @"' " +
+                @"AND password='" + password + @"';";
 
             bool returned = false;
 
@@ -152,15 +158,16 @@ namespace AuthenticationService.Database
                         ),
                         new Column
                         (
-                            "email", "VARCHAR(30)",
+                            "email", "VARCHAR(100)",
                             new string[]
                             {
-                                "NOT NULL"
+                                "NOT NULL",
+                                "UNIQUE"
                             }, false
                         ),
                         new Column
                         (
-                            "type", "VARCHAR(10)",
+                            "type", "VARCHAR(20)",
                             new string[]
                             {
                                 "NOT NULL"

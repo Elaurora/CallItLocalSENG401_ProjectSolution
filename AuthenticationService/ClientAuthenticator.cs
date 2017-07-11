@@ -74,7 +74,6 @@ namespace AuthenticationService
         {
             username = readUntilEOF();
             password = readUntilEOF();
-            attemptToAuthenticate();
         }
 
         /// <summary>
@@ -106,7 +105,7 @@ namespace AuthenticationService
         /// Checks to see if the username and password given by the client are valid
         /// Assumes that the 
         /// </summary>
-        private void attemptToAuthenticate()
+        public void attemptToAuthenticate()
         {
             if("".Equals(username) || "".Equals(password))
             {

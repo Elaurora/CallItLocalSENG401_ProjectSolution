@@ -4,20 +4,17 @@
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("LogIn", "Authentication"))
 {
-    <p>Please enter your username and password</p>
+    <p>@ViewBag.Message</p>
     <br />
     <p>Username:</p>
     @Html.TextBox("textUsername") <br/> <br/>
     <p>Password:</p>
     @Html.TextBox("textPassword") <br/> <br/>
-    <input type="submit" value="Login" /><br/><br />
+    <input type="submit" value="Log In" /><br/><br />
 
     <p>Dont have an account ? </p>
-    
-    @Html.ActionLink("Create One", "CreateAccount", "Authentication")
 
-    <br /><br />
-    @ViewBag.Result
+    @Html.ActionLink("Create One", "CreateAccount", "Authentication")
 }

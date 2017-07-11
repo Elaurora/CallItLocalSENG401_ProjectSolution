@@ -146,6 +146,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\GlobalVars.cs" />
     <Compile Include="Models\ServiceBusConnection.cs" />
     <Compile Include="Models\ServiceBusInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -188,7 +189,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Authentication\AuthenticationFailure.cshtml" />
     <Content Include="Views\Authentication\Index.cshtml" />
     <Content Include="Views\Authentication\CreateAccount.cshtml" />
   </ItemGroup>

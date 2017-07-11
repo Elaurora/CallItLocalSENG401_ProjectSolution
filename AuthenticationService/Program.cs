@@ -49,7 +49,7 @@ namespace AuthenticationService
 
             serverThread.Start();//Start the server
 
-            Console.WriteLine("Press Enter to exit.");
+            Messages.Debug.consoleMsg("Press Enter to exit.");
             string entry;
 
             do
@@ -60,14 +60,14 @@ namespace AuthenticationService
                 {
                     case ("DELETEDB"):
                         AuthenticationDatabase.getInstance().deleteDatabase();
-                        Console.WriteLine("Delete database attempt complete");
+                        Messages.Debug.consoleMsg("Delete database attempt complete");
                         break;
                     case ("CREATEDB"):
                         AuthenticationDatabase.getInstance().createDB();
-                        Console.WriteLine("Completed Database Creation Attempt.");
+                        Messages.Debug.consoleMsg("Completed Database Creation Attempt.");
                         break;
                     default:
-                        Console.WriteLine("Command not understood");
+                        Messages.Debug.consoleMsg("Command not understood");
                         break;
                 }
             } while (!entry.Equals(""));

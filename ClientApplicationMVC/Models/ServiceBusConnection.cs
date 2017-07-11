@@ -34,17 +34,18 @@ namespace ClientApplicationMVC.Models
             send(password);
             string response = readUntilEOF();
 
-            if ("Failure".Equals(response))
-            {
-                terminateConnection();
-            }
-
             //TODO: Get the semaphore working properly
 
             //_lock.Release();
             return response;
         }
 
+        /// <summary>
+        /// Indicates to the service bus that this client wishes to create a new account.
+        /// Sends the new account info to the service bus and awaits a response indicating success or failure.
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <returns></returns>
         public static string sendNewAccountInfo(CreateAccount msg)
         {
             send("createaccount");
@@ -65,6 +66,7 @@ namespace ClientApplicationMVC.Models
 
             while (!connection.Connected)
             {
+                //TODO: Add a timeout to this
                 connect();
             }
 

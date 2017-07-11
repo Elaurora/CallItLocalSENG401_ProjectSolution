@@ -51,6 +51,7 @@
     <Compile Include="Database\Table.cs" />
     <Compile Include="DataTypes\Enums.cs" />
     <Compile Include="DataTypes\SharedData.cs" />
+    <Compile Include="Debug\Debug.cs" />
     <Compile Include="Events\AccountCreated.cs" />
     <Compile Include="Events\AccountLocked.cs" />
     <Compile Include="Events\ClientLogInAttempted.cs" />

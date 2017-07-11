@@ -76,6 +76,7 @@ namespace AuthenticationService
                         break;
                 }
             }
+            return;
         }
 
         /// <summary>
@@ -109,6 +110,7 @@ namespace AuthenticationService
         private void authenticateUser()
         {
             authenticator.readLoginInfo();
+            authenticator.attemptToAuthenticate();
             if (authenticator.isAuthenticated() == true)
             {
                 sendToClient("Success");

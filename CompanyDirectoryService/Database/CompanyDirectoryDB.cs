@@ -43,7 +43,9 @@ namespace CompanyDirectoryService.Database
                 string query =
                     @"INSERT INTO company(companyname, phonenumber, email) " +
                     @"VALUES('" + accountInfo.username + @"', '" + accountInfo.phonenumber +
-                    @"', '" + accountInfo.email + @"');";
+                    @"', '" + accountInfo.email + @"');" +
+                    @"INSERT INTO location(address, companyname) " +
+                    @"VALUES('" + accountInfo.address + @"', '" + accountInfo.username + @"');";
 
                 try
                 {
@@ -52,9 +54,16 @@ namespace CompanyDirectoryService.Database
                 }
                 catch(MySqlException e)
                 {
-                    Console.WriteLine("Unable to complete insert new company into database." +
+                    Messages.Debug.consoleMsg("Unable to complete insert new company into database." +
                         " Error :" + e.Number + e.Message);
                     closeConnection();
+                    return false;
+                }
+                catch(Exception e)
+                {
+                    closeConnection();
+                    Messages.Debug.consoleMsg("Unable to Unable to complete insert new company into database." +
+                        " Error:" + e.Message);
                     return false;
                 }
                 finally
@@ -75,7 +84,7 @@ namespace CompanyDirectoryService.Database
         /// </summary>
         /// <param name="address">The location of the company</param>
         /// <param name="companyname">The name of the existuing company</param>
-        /// <returns></returns>
+        /// <returns>True if successful, false otherwise</returns>
         public bool insertNewLocation(string address, string companyname)
         {
             if(openConnection() == true)
@@ -91,9 +100,16 @@ namespace CompanyDirectoryService.Database
                 }
                 catch(MySqlException e)
                 {
-                    Console.WriteLine("Unable to insert new location into database." +
+                    Messages.Debug.consoleMsg("Unable to insert new location into database." +
                         " Error:" + e.Number + e.Message);
                     closeConnection();
+                    return false;
+                }
+                catch (Exception e)
+                {
+                    closeConnection();
+                    Messages.Debug.consoleMsg("Unable to Unable to complete insert new location into database." +
+                        " Error:" + e.Message);
                     return false;
                 }
                 finally
@@ -141,7 +157,7 @@ namespace CompanyDirectoryService.Database
                         ),
                         new Column
                         (
-                            "email", "VARCHAR(30)",
+                            "email", "VARCHAR(100)",
                             new string[]
                             {
                                 "NOT NULL", 

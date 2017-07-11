@@ -56,7 +56,7 @@ namespace AuthenticationService
                     connectionAttemptRecieved.Reset();
 
                     // Start an asynchronous socket to listen for connections.  
-                    Console.WriteLine("Waiting for a connection...");
+                    Messages.Debug.consoleMsg("Waiting for a connection...");
                     listener.BeginAccept(
                         new AsyncCallback(AcceptConnection),
                         listener);
@@ -68,7 +68,7 @@ namespace AuthenticationService
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Messages.Debug.consoleMsg(e.ToString());
             }
 
         }

@@ -12,15 +12,9 @@ namespace ClientApplicationMVC.Controllers
 {
     public class AuthenticationController : Controller
     {
-        
-        /// <summary>
-        /// This is the controller used when the user first navigates to the login page before they have entered any information
-        /// </summary>
-        /// <returns>The view used for entering login information</returns>
-        [HttpGet]
-        public ActionResult LogIn()
+        public ActionResult Index()
         {
-            ViewBag.Title = "Authentication";
+            ViewBag.Message = "Please enter your username and password.";
             return View();
         }
 
@@ -31,25 +25,36 @@ namespace ClientApplicationMVC.Controllers
         /// <param name="textPassword">The password entered into the textField</param>
         /// <returns>The new view to be displayed</returns>
         [HttpPost]
-        [AsyncTimeout(50000)]
+        [AsyncTimeout(GlobalVars.patienceLevel_ms)]
         public ActionResult LogIn(string textUsername, string textPassword)
         {
             string response = ServiceBusConnection.sendLogIn(textUsername, textPassword);
 
-            ViewBag.Title = "AuthenticationSuccess";
-            ViewBag.Result = response;
+            
             //TODO: React based on response
 
-            return RedirectToAction("Index", "Home");
+            if ("Success".Equals(response))
+            {
+                ViewBag.Title = "Authentication Success";
+                GlobalVars.user = textUsername;
+                return RedirectToAction("Index", "Home");
+            }
+
+            ViewBag.Title = "Authentication Failure";
+            ViewBag.Message = "Incorrect Username or Password. Please try again";
+
+            return View("Index");
         }
 
         [HttpGet]
         public ActionResult CreateAccount()
         {
+            ViewBag.Message = "Please enter the following information to create your account";
             return View("CreateAccount");
         }
 
         [HttpPost]
+        [AsyncTimeout(GlobalVars.patienceLevel_ms)]
         public ActionResult CreateAccount(string textUsername, string textPassword, string textAddress, string textPhoneNumber, string textEmail, bool accountType)
         {
             //TODO: check entered values for validity before sending
@@ -66,27 +71,10 @@ namespace ClientApplicationMVC.Controllers
 
             string response = ServiceBusConnection.sendNewAccountInfo(msg);
 
+
             //TODO: React based on the response
 
             return RedirectToAction("Index", "Home");
-        }
-
-        /// <summary>
-        /// Continuously reads one byte at a time from the client until the "<EOF>" string of characters is found
-        /// </summary>
-        /// <returns>The string representation of bytes read from the server socket</returns>
-        private string readUntilEOF(Socket connection)
-        {
-            byte[] readByte = new byte[1];
-            string returned = String.Empty;
-
-            while (returned.Contains("<EOF>") == false)
-            {
-                connection.Receive(readByte, 1, 0);
-                returned += (char)readByte[0];
-            }
-
-            return returned.Substring(0, returned.IndexOf("<EOF>"));
         }
     }
 }

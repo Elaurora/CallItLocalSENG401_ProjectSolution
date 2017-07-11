@@ -42,7 +42,7 @@ namespace CompanyDirectoryService
             //Start the endpoint with the configuration defined above. It should be noted that any changes made to the endpointConfiguration after an endpoint is instantiated will not apply to any endpoints that have already been instantiated
             var endpointInstance = await Endpoint.Start(endpointConfiguration).ConfigureAwait(false);
 
-            Console.WriteLine("Press Enter to exit.");
+            Messages.Debug.consoleMsg("Press Enter to exit.");
             string entry;
 
             do
@@ -53,17 +53,17 @@ namespace CompanyDirectoryService
                 {
                     case ("DELETEDB"):
                         CompanyDirectoryDB.getInstance().deleteDatabase();
-                        Console.WriteLine("Delete database attempt complete");
+                        Messages.Debug.consoleMsg("Delete database attempt complete");
                         break;
                     case ("CREATEDB"):
                         CompanyDirectoryDB.getInstance().createDB();
-                        Console.WriteLine("Completed Database Creation Attempt.");
+                        Messages.Debug.consoleMsg("Completed Database Creation Attempt.");
                         break;
                     default:
-                        Console.WriteLine("Command not understood");
+                        Messages.Debug.consoleMsg("Command not understood");
                         break;
                 }
-            } while (!entry.Equals(""));
+            } while (!"".Equals(entry));
             
             await endpointInstance.Stop().ConfigureAwait(false);
         }

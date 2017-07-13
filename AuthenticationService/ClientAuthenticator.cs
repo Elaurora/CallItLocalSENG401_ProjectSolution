@@ -50,6 +50,10 @@ namespace AuthenticationService
         {
             return authenticated;
         }
+        public void setAuthenticated(bool state)
+        {
+            authenticated = true;
+        }
     }
 
     /// <summary>

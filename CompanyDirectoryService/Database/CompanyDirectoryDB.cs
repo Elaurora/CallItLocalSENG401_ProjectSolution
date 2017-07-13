@@ -1,9 +1,11 @@
 ﻿using Messages.Database;
 using Messages.Events;
+using Messages.Message;
 
 using MySql.Data.MySqlClient;
 
 using System;
+using System.Collections.Generic;
 
 namespace CompanyDirectoryService.Database
 {
@@ -28,7 +30,7 @@ namespace CompanyDirectoryService.Database
             {
                 instance = new CompanyDirectoryDB();
             }
-            return instance;
+            return (CompanyDirectoryDB)instance;
         }
 
         /// <summary>
@@ -124,11 +126,40 @@ namespace CompanyDirectoryService.Database
             closeConnection();
             return true;
         }
+
+        public CompanyList searchByName(string name)
+        {
+            if(openConnection() == true)
+            {
+                string query = @"SELECT * FROM " + databaseName + @".company " +
+                  @"WHERE companyname='" + name + @"';";
+
+                List<string> result = new List<string>();
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    result.Add(dataReader["companyname"] + "");
+                }
+
+                dataReader.Close();
+
+                closeConnection();
+
+                return new CompanyList
+                {
+                    companyNames = result.ToArray()
+                };
+            }
+            return new CompanyList();
+        }
     }
     
     public partial class CompanyDirectoryDB : AbstractDatabase
     {
-        private static CompanyDirectoryDB instance = new CompanyDirectoryDB();
 
         private const String dbname = "companydirectoryservicedb";
         public override String databaseName { get; } = dbname;

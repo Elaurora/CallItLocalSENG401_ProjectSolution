@@ -26,7 +26,7 @@ namespace AuthenticationService.Database
             {
                 instance = new AuthenticationDatabase();
             }
-            return instance;
+            return (AuthenticationDatabase)instance;
         }
 
         /// <summary>
@@ -110,8 +110,6 @@ namespace AuthenticationService.Database
 
     public partial class AuthenticationDatabase : AbstractDatabase
     {
-        private static AuthenticationDatabase instance = new AuthenticationDatabase();
-
         private const String dbname = "authenticationservicedb";
         public override String databaseName { get; } = dbname;
 

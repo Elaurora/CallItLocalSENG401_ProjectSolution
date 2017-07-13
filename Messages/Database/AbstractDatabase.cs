@@ -33,7 +33,7 @@ namespace Messages.Database
                 //First try to create the actual database
                 try
                 {
-                    command = new MySqlCommand(commandString, connection);
+                    command = new MySqlCommand(commandString, connection); 
                     command.ExecuteNonQuery();
                     Messages.Debug.consoleMsg("Successfully created database " + databaseName);
                 }
@@ -123,6 +123,7 @@ namespace Messages.Database
                     closeConnection();
                 }
             }
+            instance = null;
         }
 
         /// <summary>
@@ -191,6 +192,8 @@ namespace Messages.Database
         private string UID = "root";
         private string Password = "abc123";
         public abstract String databaseName { get; }
+
+        protected static AbstractDatabase instance;
 
         protected abstract Table[] tables { get; }
     }

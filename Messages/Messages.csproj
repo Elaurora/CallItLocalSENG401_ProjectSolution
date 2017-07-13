@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Commands\CreateAccount.cs" />
     <Compile Include="Commands\LockAccount.cs" />
+    <Compile Include="Commands\SearchForCompany.cs" />
     <Compile Include="Database\AbstractDatabase.cs" />
     <Compile Include="Database\Column.cs" />
     <Compile Include="Database\Table.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Events\AccountCreated.cs" />
     <Compile Include="Events\AccountLocked.cs" />
     <Compile Include="Events\ClientLogInAttempted.cs" />
+    <Compile Include="Message\CompanyList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

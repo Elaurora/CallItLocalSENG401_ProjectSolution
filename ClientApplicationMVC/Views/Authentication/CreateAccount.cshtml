@@ -1,11 +1,13 @@
-﻿
+﻿<!--
+    This is the html page that opens when a user navigates to the create an account page
+-->
 @{
     ViewBag.Title = "CreateAccount";
 }
 
 <h2>CreateAccount</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("CreateAccount", "Authentication"))
 {
     <p>@ViewBag.Message</p>
     <br />

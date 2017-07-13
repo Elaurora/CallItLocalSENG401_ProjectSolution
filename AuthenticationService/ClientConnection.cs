@@ -3,6 +3,7 @@
 using Messages.DataTypes;
 using Messages.Commands;
 using Messages.Events;
+using Messages.Message;
 
 using NServiceBus;
 
@@ -52,7 +53,7 @@ namespace AuthenticationService
         }
 
         /// <summary>
-        /// Waits for the client to be authenticated, then listens for message requests/commands until the socket is closed.
+        /// listens for message requests/commands until the socket is closed.
         /// </summary>
         public void listenToClient()
         {
@@ -65,11 +66,11 @@ namespace AuthenticationService
 
                 switch (serviceRequested)
                 {
-                    case ("login"):
-                        authenticateUser();
+                    case ("authentication"):
+                        authenticationRequest();
                         break;
-                    case ("createaccount"):
-                        readNewAccountInfo();
+                    case ("companydirectory"):
+                        companyDirectoryRequest();
                         break;
                     default:
                         sendToClient("Error: Invalid request. Request received was:" + serviceRequested);
@@ -77,6 +78,62 @@ namespace AuthenticationService
                 }
             }
             return;
+        }
+
+        /// <summary>
+        /// Listens for the client to specify which task it is requesting from the CompanyDirectoryservice
+        /// </summary>
+        private void companyDirectoryRequest()
+        {
+            string taskRequested = authenticator.readUntilEOF();
+
+            switch (taskRequested)
+            {
+                case ("companysearch"):
+                    searchForCompany();
+                    break;
+                default:
+                    sendToClient("Error: Invalid request. Request received was:" + taskRequested);
+                    break;
+            }
+        }
+
+        private void searchForCompany()
+        {
+            //TODO: Make sure user is authenticated
+            string companyToSearchFor = authenticator.readUntilEOF();
+
+            SendOptions sendOptions = new SendOptions();
+            sendOptions.SetDestination("CompanyDirectory");
+
+            CompanyList response = authenticationEndpoint.Request<CompanyList>(new SearchForCompany
+                    {
+                        delim = companyToSearchFor
+                    }
+                , sendOptions).ConfigureAwait(false).GetAwaiter().GetResult();
+
+            sendToClient(response.toString());
+        }
+
+        /// <summary>
+        /// Listens for the client to specify which task it is requesting from the authentication service
+        /// </summary>
+        private void authenticationRequest()
+        {
+            string taskRequested = authenticator.readUntilEOF();
+
+            switch (taskRequested)
+            {
+                case ("login"):
+                    authenticateUser();
+                    break;
+                case ("createaccount"):
+                    readNewAccountInfo();
+                    break;
+                default:
+                    sendToClient("Error: Invalid request. Request received was:" + taskRequested);
+                    break;
+            }
         }
 
         /// <summary>
@@ -93,6 +150,7 @@ namespace AuthenticationService
 
             if(AuthenticationDatabase.getInstance().insertNewUserAccount(command) == true)
             {
+                authenticator.setAuthenticated(true);
                 sendToClient("Success");
                 authenticationEndpoint.Publish(new AccountCreated(command));
                 return;

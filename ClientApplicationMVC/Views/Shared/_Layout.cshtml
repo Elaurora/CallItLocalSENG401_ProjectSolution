@@ -23,7 +23,11 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink(ClientApplicationMVC.Models.GlobalVars.user, "Index", "Authentication")</li>
+                    <li>@Html.ActionLink(ClientApplicationMVC.Models.Globals.getUser(), "Index", "Authentication")</li>
+                    @if (ClientApplicationMVC.Models.Globals.isLoggedIn())
+                    {
+                        <li>@Html.ActionLink("Company Search", "Index", "CompanyListings")</li>
+                    }
                 </ul>
             </div>
         </div>

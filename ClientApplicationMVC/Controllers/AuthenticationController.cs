@@ -15,7 +15,7 @@ namespace ClientApplicationMVC.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Please enter your username and password.";
-            return View();
+            return View("Index");
         }
 
         /// <summary>
@@ -25,10 +25,10 @@ namespace ClientApplicationMVC.Controllers
         /// <param name="textPassword">The password entered into the textField</param>
         /// <returns>The new view to be displayed</returns>
         [HttpPost]
-        [AsyncTimeout(GlobalVars.patienceLevel_ms)]
+        [AsyncTimeout(Globals.patienceLevel_ms)]
         public ActionResult LogIn(string textUsername, string textPassword)
         {
-            string response = ServiceBusConnection.sendLogIn(textUsername, textPassword);
+            string response = ConnectionManager.sendLogIn(textUsername, textPassword);
 
             
             //TODO: React based on response
@@ -36,7 +36,7 @@ namespace ClientApplicationMVC.Controllers
             if ("Success".Equals(response))
             {
                 ViewBag.Title = "Authentication Success";
-                GlobalVars.user = textUsername;
+                Globals.setUser(textUsername);
                 return RedirectToAction("Index", "Home");
             }
 
@@ -54,7 +54,7 @@ namespace ClientApplicationMVC.Controllers
         }
 
         [HttpPost]
-        [AsyncTimeout(GlobalVars.patienceLevel_ms)]
+        [AsyncTimeout(Globals.patienceLevel_ms)]
         public ActionResult CreateAccount(string textUsername, string textPassword, string textAddress, string textPhoneNumber, string textEmail, bool accountType)
         {
             //TODO: check entered values for validity before sending
@@ -69,7 +69,7 @@ namespace ClientApplicationMVC.Controllers
                 type = accountType ? AccountType.business : AccountType.user
             };
 
-            string response = ServiceBusConnection.sendNewAccountInfo(msg);
+            string response = ConnectionManager.sendNewAccountInfo(msg);
 
 
             //TODO: React based on the response

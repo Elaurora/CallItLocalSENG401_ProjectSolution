@@ -34,6 +34,10 @@ namespace AuthenticationService
             endpointConfiguration.UsePersistence<InMemoryPersistence>();
             //Instructs the endpoint to send messages it cannot process to a queue named "error"
             endpointConfiguration.SendFailedMessagesTo("error");
+            //Allows the endpoint to make requests to other endpoints and await a response.
+            endpointConfiguration.EnableCallbacks();
+
+            endpointConfiguration.MakeInstanceUniquelyAddressable("1");
 
             //Instructs the endpoint to use Microsoft Message Queuing TOD): Consider using RabbitMQ instead, only because Arcurve reccomended it. 
             var transport = endpointConfiguration.UseTransport<MsmqTransport>();

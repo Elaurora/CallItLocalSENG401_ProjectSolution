@@ -142,11 +142,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\CompanyListingsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\GlobalVars.cs" />
+    <Compile Include="Models\ConnectionManager.cs" />
+    <Compile Include="Models\Globals.cs" />
     <Compile Include="Models\ServiceBusConnection.cs" />
     <Compile Include="Models\ServiceBusInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -191,6 +193,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Authentication\Index.cshtml" />
     <Content Include="Views\Authentication\CreateAccount.cshtml" />
+    <Content Include="Views\CompanyListings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

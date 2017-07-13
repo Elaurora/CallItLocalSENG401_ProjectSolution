@@ -19,7 +19,7 @@ namespace AuthenticationService.Database
         /// If the instance had not yet been created it will be upon calling
         /// this function
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Theinstance of the authentication database</returns>
         public static AuthenticationDatabase getInstance()
         {
             if (instance == null)
@@ -33,8 +33,8 @@ namespace AuthenticationService.Database
         /// Attempts to insert a new user account into the database
         /// </summary>
         /// <param name="accountInfo">Contains information about the </param>
-        /// <returns>true if successful, false otherwise</returns>
-        public bool insertNewUserAccount(CreateAccount accountInfo)
+        /// <returns>A message indicating the result of the attempt</returns>
+        public string insertNewUserAccount(CreateAccount accountInfo)
         {
             if(openConnection() == true)
             {
@@ -54,14 +54,14 @@ namespace AuthenticationService.Database
                         " Error :" + e.Number + e.Message);
                     Messages.Debug.consoleMsg("The query was:" + query);
                     closeConnection();
-                    return false;
+                    return e.Message;
                 }
                 catch (Exception e)
                 {
                     closeConnection();
                     Messages.Debug.consoleMsg("Unable to Unable to complete insert new user into database." +
                         " Error:" + e.Message);
-                    return false;
+                    return ("An unknown error occured." + e.Message);
                 }
                 finally
                 {
@@ -70,10 +70,10 @@ namespace AuthenticationService.Database
             }
             else
             {
-                return false;
+                return ("Log in service is currently down. Unable to connect to database");
             }
 
-            return true;
+            return ("Success");
         }
 
         /// <summary>

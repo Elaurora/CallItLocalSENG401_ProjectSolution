@@ -1,4 +1,6 @@
-﻿using NServiceBus;
+﻿using AuthenticationService.Communication;
+
+using NServiceBus;
 
 using System;
 using System.Collections.Generic;
@@ -21,15 +23,15 @@ namespace AuthenticationService
         /// <summary>
         /// The endpoint used to communicate with the other endpoints in the service bus
         /// </summary>
-        private IEndpointInstance endpoint;
+        private EndpointConfiguration endpointConfiguration;
         //TODO: High priority - Make each client connection have its own uniquely addressable endpoint.
     }
 
     public partial class Server
     {
-        public Server(IEndpointInstance endpoint)
+        public Server(EndpointConfiguration endpointConfiguration)
         {
-            this.endpoint = endpoint;
+            this.endpointConfiguration = endpointConfiguration;
         }
 
         /// <summary>
@@ -84,10 +86,10 @@ namespace AuthenticationService
             connectionAttemptRecieved.Set();
 
             // Get the socket that handles the client request.  
-            Socket listener = (Socket)ar.AsyncState;
-            Socket handler = listener.EndAccept(ar);
+            Socket serverSocket = (Socket)ar.AsyncState;
+            Socket specificClientSocket = serverSocket.EndAccept(ar);
             
-            ClientConnection connection = new ClientConnection(handler, endpoint);
+            ClientConnection connection = new ClientConnection(specificClientSocket, endpointConfiguration);
 
             Thread newThread = new Thread(new ThreadStart(connection.listenToClient));
             newThread.Start();

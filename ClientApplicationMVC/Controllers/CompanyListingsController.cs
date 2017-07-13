@@ -27,7 +27,7 @@ namespace ClientApplicationMVC.Controllers
             {
                 return RedirectToAction("Index", "Authentication");
             }
-            CompanyList result = ConnectionManager.searchCompanyByName(textCompanyName);
+            CompanyList result = ServiceBusCommunicationManager.searchCompanyByName(textCompanyName);
             if(result == null)
             {
                 return RedirectToAction("Index", "Authentication");

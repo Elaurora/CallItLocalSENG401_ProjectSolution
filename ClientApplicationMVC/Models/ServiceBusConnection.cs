@@ -20,10 +20,10 @@ namespace ClientApplicationMVC.Models
         public string sendLogIn(string username, string password)
         {
             //_lock.WaitOne();
-            send("authentication");
-            send("login");
-            send(username);
-            send(password);
+            string message = "authentication/login/" +
+                "u=" + username + "&" +
+                "p=" + password;
+            send(message);
             string response = readUntilEOF();
 
             //TODO: Get the semaphore working properly
@@ -38,22 +38,20 @@ namespace ClientApplicationMVC.Models
         /// </summary>
         /// <param name="msg">The CreateAccount object containing the new accounts information</param>
         /// <returns>The response from the bus</returns>
-        public string sendNewAccountInfo(CreateAccount msg)
+        public string sendNewAccountInfo(CreateAccount accountInfo)
         {
-            send("authentication");
-            send("createaccount");
+            string message = "authentication/createaccount/" + accountInfo.toString();
 
-            send(msg.toString());
+            send(message);
 
             return readUntilEOF();
         }
 
         public CompanyList searchCompanyByName(string name)
         {
-            send("companydirectory");
-            send("companysearch");
+            string message = "companydirectory/companysearch/" + name;
 
-            send(name);
+            send(message);
 
             return new CompanyList(readUntilEOF());
         }

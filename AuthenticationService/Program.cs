@@ -22,9 +22,9 @@ namespace AuthenticationService
         {
 
             Console.Title = "Authentication";// Give the console a title so it is easier to tell them apart
-            
+
             //Create a new Endpoint configuration with the name "Authentication"
-            var endpointConfiguration = new EndpointConfiguration("Authentication");
+            EndpointConfiguration endpointConfiguration = new EndpointConfiguration("Authentication");
 
             //Allows the endpoint to run installers upon startup. This includes things such as the creation of message queues.
             endpointConfiguration.EnableInstallers();
@@ -45,9 +45,9 @@ namespace AuthenticationService
             var routing = transport.Routing();
 
             //Start the endpoint with the configuration defined above. It should be noted that any changes made to the endpointConfiguration after an endpoint is instantiated will not apply to any endpoints that have already been instantiated
-            var endpointInstance = await Endpoint.Start(endpointConfiguration).ConfigureAwait(false);
+            //var endpointInstance = await Endpoint.Start(endpointConfiguration).ConfigureAwait(false);
 
-            Server serverConnection = new Server(endpointInstance);
+            Server serverConnection = new Server(endpointConfiguration);
 
             Thread serverThread = new Thread(new ThreadStart(serverConnection.StartListening));
 

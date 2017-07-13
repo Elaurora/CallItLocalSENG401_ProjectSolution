@@ -9,7 +9,10 @@ using System.Web;
 
 namespace ClientApplicationMVC.Models
 {
-    public static partial class ConnectionManager
+    /// <summary>
+    /// This class is responsible for maintaining and controlling the 
+    /// </summary>
+    public static partial class ServiceBusCommunicationManager
     {
         /// <summary>
         /// Sends the login information to the bus
@@ -93,7 +96,7 @@ namespace ClientApplicationMVC.Models
         }
     }
 
-    public static partial class ConnectionManager
+    public static partial class ServiceBusCommunicationManager
     {
         /// <summary>
         /// Contains bus connection for all users who are logged in

@@ -28,7 +28,7 @@ namespace ClientApplicationMVC.Controllers
         [AsyncTimeout(Globals.patienceLevel_ms)]
         public ActionResult LogIn(string textUsername, string textPassword)
         {
-            string response = ConnectionManager.sendLogIn(textUsername, textPassword);
+            string response = ServiceBusCommunicationManager.sendLogIn(textUsername, textPassword);
 
             
             //TODO: React based on response
@@ -69,7 +69,7 @@ namespace ClientApplicationMVC.Controllers
                 type = accountType ? AccountType.business : AccountType.user
             };
 
-            string response = ConnectionManager.sendNewAccountInfo(msg);
+            string response = ServiceBusCommunicationManager.sendNewAccountInfo(msg);
 
 
             //TODO: React based on the response

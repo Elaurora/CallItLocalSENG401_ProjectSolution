@@ -50,8 +50,8 @@
     <Compile Include="Database\AbstractDatabase.cs" />
     <Compile Include="Database\Column.cs" />
     <Compile Include="Database\Table.cs" />
-    <Compile Include="DataTypes\Enums.cs" />
-    <Compile Include="DataTypes\SharedData.cs" />
+    <Compile Include="Database\DataTypes\Enums.cs" />
+    <Compile Include="Database\DataTypes\SharedData.cs" />
     <Compile Include="Debug\Debug.cs" />
     <Compile Include="Events\AccountCreated.cs" />
     <Compile Include="Events\AccountLocked.cs" />

@@ -123,7 +123,6 @@ namespace Messages.Database
                     closeConnection();
                 }
             }
-            instance = null;
         }
 
         /// <summary>

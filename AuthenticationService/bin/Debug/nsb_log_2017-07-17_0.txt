@@ -1,0 +1,898 @@
+﻿2017-07-17 12:55:30.011 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-17 12:55:30.293 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-17 12:55:30.372 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-17 12:55:30.517 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:55:30.544 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:55:30.584 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:55:30.630 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:55:30.653 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:55:30.675 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:55:30.696 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:55:30.717 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:55:30.754 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:55:30.776 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:55:30.814 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication-Elaurora] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:55:30.833 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication-Elaurora] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:55:30.855 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 12:55:30.875 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 12:55:30.890 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 12:55:33.239 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-17 12:55:33.498 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MutateIncomingMessageBehavior.<InvokeIncomingMessageMutators>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\MessageMutators\MutateInstanceMessage\MutateIncomingMessageBehavior.cs:line 44
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.UnitOfWorkBehavior.<InvokeUnitsOfWork>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\UnitOfWork\UnitOfWorkBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at NServiceBus.UnitOfWorkBehavior.<InvokeUnitsOfWork>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\UnitOfWork\UnitOfWorkBehavior.cs:line 62
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MutateIncomingTransportMessageBehavior.<InvokeIncomingTransportMessagesMutators>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\MessageMutators\MutateTransportMessage\MutateIncomingTransportMessageBehavior.cs:line 43
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:55:33.533 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:55:33.557 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:55:33.592 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:55:33.619 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:55:33.645 WARN  NServiceBus.RecoverabilityExecutor Delayed Retry will reschedule message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' after a delay of 00:00:10 because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:55:44.705 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:55:47.949 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:55:48.009 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:55:48.527 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:55:48.548 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:55:48.574 WARN  NServiceBus.RecoverabilityExecutor Delayed Retry will reschedule message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' after a delay of 00:00:20 because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:56:09.028 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:56:09.064 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:56:13.128 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:56:13.149 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:56:13.174 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:56:13.195 WARN  NServiceBus.RecoverabilityExecutor Delayed Retry will reschedule message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' after a delay of 00:00:30 because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:56:43.498 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:56:43.521 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:56:43.542 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:56:43.568 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:56:43.597 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:56:43.622 ERROR NServiceBus.RecoverabilityExecutor Moving message 'ff7c18dc-5842-4ff2-94e4-a7b30137b571' to the error queue 'error' because processing failed due to an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 12:58:23.879 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-17 12:58:24.233 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-17 12:58:24.351 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-17 12:58:24.512 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:58:24.541 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:58:24.577 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:58:24.658 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:58:24.704 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:58:24.756 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:58:24.799 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:58:24.830 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:58:24.883 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:58:24.908 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:58:24.933 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication-Elaurora] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:58:24.952 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication-Elaurora] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 12:58:24.975 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 12:58:24.993 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 12:58:25.010 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 12:58:27.519 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null

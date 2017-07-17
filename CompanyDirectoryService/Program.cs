@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace CompanyDirectoryService
 {
-    class Program
+    public class Program
     {
-        static void Main()
+        public static void Main()
         {
             AsyncMain().GetAwaiter().GetResult();
         }

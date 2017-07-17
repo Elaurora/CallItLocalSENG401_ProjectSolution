@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Threading;
 using System.Web;
-using System.Web.Mvc;
 
 namespace ClientApplicationMVC.Models
 {
@@ -13,6 +10,8 @@ namespace ClientApplicationMVC.Models
         /// Value is 10mins
         /// </summary>
         public const int patienceLevel_ms = 600000;
+
+        private static bool servicesRunning = false;
 
         /// <summary>
         /// Returns true if the client is currently logged in.

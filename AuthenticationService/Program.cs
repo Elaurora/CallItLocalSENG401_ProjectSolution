@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace AuthenticationService
 {
-    class Program
+    public class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        static void Main()
+        public static void Main()
         {
             AsyncMain().GetAwaiter().GetResult();
         }
@@ -36,8 +36,6 @@ namespace AuthenticationService
             endpointConfiguration.SendFailedMessagesTo("error");
             //Allows the endpoint to make requests to other endpoints and await a response.
             endpointConfiguration.EnableCallbacks();
-
-            endpointConfiguration.MakeInstanceUniquelyAddressable("1");
 
             //Instructs the endpoint to use Microsoft Message Queuing TOD): Consider using RabbitMQ instead, only because Arcurve reccomended it. 
             var transport = endpointConfiguration.UseTransport<MsmqTransport>();
@@ -75,8 +73,6 @@ namespace AuthenticationService
                         break;
                 }
             } while (!entry.Equals(""));
-
-            await endpointInstance.Stop().ConfigureAwait(false);
         }
 
 

@@ -12,6 +12,8 @@ namespace ClientApplicationMVC
         
         protected void Application_Start()
         {
+            Globals.runServices();
+
             AreaRegistration.RegisterAllAreas();//Added by VS upon creation of project
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);//Added by VS upon creation of project
             RouteConfig.RegisterRoutes(RouteTable.Routes);//Added by VS upon creation of project

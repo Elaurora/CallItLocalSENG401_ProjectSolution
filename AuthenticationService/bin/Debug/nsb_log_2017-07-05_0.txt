@@ -1,0 +1,850 @@
+﻿2017-07-05 10:00:17.752 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 10:00:18.227 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 10:00:18.812 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 10:00:18.976 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 10:00:18.995 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 10:00:19.024 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 10:00:19.046 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 10:00:19.050 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 10:00:19.065 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 10:00:19.097 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 10:00:19.112 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 10:00:19.128 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 10:00:19.159 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 10:00:19.175 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 10:00:19.190 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 10:00:19.206 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 10:00:21.661 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 14:51:55.174 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 14:51:55.527 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 14:51:55.722 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 14:51:55.935 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 14:51:55.991 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 14:51:56.131 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 14:51:56.200 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 14:51:56.263 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 14:51:56.295 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 14:51:56.321 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 14:51:56.376 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 14:51:56.403 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 14:51:56.455 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 14:51:56.474 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 14:51:56.501 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 14:51:56.519 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 14:51:57.943 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 15:24:26.016 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 15:24:26.380 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 15:24:26.572 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 15:24:26.872 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:24:26.942 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:24:27.012 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:24:27.065 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:24:27.112 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:24:27.164 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:24:27.188 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:24:27.229 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:24:27.258 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:24:27.284 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:24:27.311 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 15:24:27.330 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 15:24:27.349 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 15:24:29.950 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 15:26:53.189 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 15:26:53.670 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 15:26:53.860 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 15:26:54.212 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:26:54.261 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:26:54.334 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:26:54.387 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:26:54.471 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:26:54.535 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:26:54.558 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:26:54.585 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:26:54.607 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:26:54.627 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:26:54.663 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 15:26:54.700 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 15:26:54.722 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 15:26:57.310 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 15:28:06.018 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 15:28:06.343 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 15:28:06.436 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 15:28:06.659 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:28:06.705 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:28:06.741 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:28:06.786 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:28:06.814 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:28:06.868 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:28:06.978 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:28:07.036 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:28:07.072 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:28:07.149 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:28:07.172 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 15:28:07.197 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 15:28:07.231 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 15:28:08.748 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 15:29:17.251 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 15:29:17.746 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 15:29:17.861 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 15:29:18.066 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:29:18.132 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:29:18.234 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:29:18.322 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:29:18.404 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:29:18.436 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:29:18.534 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:29:18.599 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:29:18.658 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:29:18.693 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:29:18.720 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 15:29:18.754 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 15:29:18.787 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 15:29:20.408 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 15:56:53.079 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 15:56:53.465 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 15:56:53.589 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 15:56:53.772 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:56:53.800 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:56:53.853 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:56:53.883 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:56:53.952 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:56:54.030 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:56:54.073 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:56:54.136 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:56:54.175 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:56:54.203 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 15:56:54.226 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 15:56:54.257 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 15:56:54.298 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 15:56:55.921 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 17:46:31.736 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 17:46:32.073 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 17:46:32.233 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 17:46:32.457 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:32.501 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:32.623 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:32.724 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:32.796 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:32.850 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:32.934 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:33.018 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:33.096 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:33.174 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:33.200 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:46:33.218 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:46:33.255 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:46:35.957 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 17:46:58.542 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 17:46:58.800 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 17:46:58.976 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 17:46:59.262 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:59.305 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:59.380 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:59.406 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:59.552 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:59.586 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:59.615 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:59.680 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:59.717 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:59.768 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:46:59.793 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:46:59.817 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:46:59.836 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:47:02.973 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 17:49:53.060 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 17:49:53.591 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 17:49:53.743 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 17:49:53.943 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:49:53.987 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:49:54.073 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:49:54.097 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:49:54.145 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:49:54.191 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:49:54.245 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:49:54.271 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:49:54.369 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:49:54.420 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:49:54.452 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:49:54.481 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:49:54.507 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:49:57.047 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 17:50:34.927 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 17:50:35.614 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 17:50:35.819 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 17:50:36.074 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:50:36.109 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:50:36.185 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:50:36.240 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:50:36.374 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:50:36.409 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:50:36.429 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:50:36.450 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:50:36.472 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:50:36.490 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:50:36.511 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:50:36.528 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:50:36.561 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:50:37.782 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 17:51:15.735 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '73c1c25d-cd33-4ac9-8f33-a7a70188797f' because of an exception:
+System.TypeInitializationException: The type initializer for 'AuthenticationService.Database.AuthenticationDatabase' threw an exception. ---> System.NotSupportedException: MySQL Connector/Net does not currently support distributed transactions.
+   at MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlConnection.EnlistTransaction(Transaction transaction)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Messages.Database.AbstractDatabase.openConnection() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 133
+   at Messages.Database.AbstractDatabase.createDB() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 31
+   at Messages.Database.AbstractDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 19
+   at AuthenticationService.Database.AuthenticationDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 13
+   at AuthenticationService.Database.AuthenticationDatabase..cctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 73
+   --- End of inner exception stack trace ---
+   at AuthenticationService.Database.AuthenticationDatabase.getInstance()
+   at AuthenticationService.Handlers.CreateAccountHandler.Handle(CreateAccount msg, IMessageHandlerContext context) in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Handlers\CreateAccountHandler.cs:line 32
+   at lambda_method(Closure , Object , Object , IMessageHandlerContext )
+   at NServiceBus.Pipeline.MessageHandler.Invoke(Object message, IMessageHandlerContext handlerContext) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\MessageHandler.cs:line 43
+   at NServiceBus.InvokeHandlerTerminator.Terminate(IInvokeHandlerContext context) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\InvokeHandlerTerminator.cs:line 21
+   at NServiceBus.Pipeline.PipelineTerminator`1.Invoke(T context, Func`2 next) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\PipelineTerminator.cs:line 27
+   at lambda_method(Closure , IInvokeHandlerContext )
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MutateIncomingMessageBehavior.<InvokeIncomingMessageMutators>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\MessageMutators\MutateInstanceMessage\MutateIncomingMessageBehavior.cs:line 44
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.UnitOfWorkBehavior.<InvokeUnitsOfWork>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\UnitOfWork\UnitOfWorkBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at NServiceBus.UnitOfWorkBehavior.<InvokeUnitsOfWork>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\UnitOfWork\UnitOfWorkBehavior.cs:line 62
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MutateIncomingTransportMessageBehavior.<InvokeIncomingTransportMessagesMutators>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\MessageMutators\MutateTransportMessage\MutateIncomingTransportMessageBehavior.cs:line 43
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-05 17:51:17.334 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '73c1c25d-cd33-4ac9-8f33-a7a70188797f' because of an exception:
+System.TypeInitializationException: The type initializer for 'AuthenticationService.Database.AuthenticationDatabase' threw an exception. ---> System.NotSupportedException: MySQL Connector/Net does not currently support distributed transactions.
+   at MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlConnection.EnlistTransaction(Transaction transaction)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Messages.Database.AbstractDatabase.openConnection() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 133
+   at Messages.Database.AbstractDatabase.createDB() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 31
+   at Messages.Database.AbstractDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 19
+   at AuthenticationService.Database.AuthenticationDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 13
+   at AuthenticationService.Database.AuthenticationDatabase..cctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 73
+   --- End of inner exception stack trace ---
+   at AuthenticationService.Database.AuthenticationDatabase.getInstance()
+   at AuthenticationService.Handlers.CreateAccountHandler.Handle(CreateAccount msg, IMessageHandlerContext context) in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Handlers\CreateAccountHandler.cs:line 32
+   at lambda_method(Closure , Object , Object , IMessageHandlerContext )
+   at NServiceBus.Pipeline.MessageHandler.Invoke(Object message, IMessageHandlerContext handlerContext) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\MessageHandler.cs:line 43
+   at NServiceBus.InvokeHandlerTerminator.Terminate(IInvokeHandlerContext context) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\InvokeHandlerTerminator.cs:line 21
+   at NServiceBus.Pipeline.PipelineTerminator`1.Invoke(T context, Func`2 next) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\PipelineTerminator.cs:line 27
+   at lambda_method(Closure , IInvokeHandlerContext )
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-05 17:51:18.884 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '73c1c25d-cd33-4ac9-8f33-a7a70188797f' because of an exception:
+System.TypeInitializationException: The type initializer for 'AuthenticationService.Database.AuthenticationDatabase' threw an exception. ---> System.NotSupportedException: MySQL Connector/Net does not currently support distributed transactions.
+   at MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlConnection.EnlistTransaction(Transaction transaction)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Messages.Database.AbstractDatabase.openConnection() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 133
+   at Messages.Database.AbstractDatabase.createDB() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 31
+   at Messages.Database.AbstractDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 19
+   at AuthenticationService.Database.AuthenticationDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 13
+   at AuthenticationService.Database.AuthenticationDatabase..cctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 73
+   --- End of inner exception stack trace ---
+   at AuthenticationService.Database.AuthenticationDatabase.getInstance()
+   at AuthenticationService.Handlers.CreateAccountHandler.Handle(CreateAccount msg, IMessageHandlerContext context) in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Handlers\CreateAccountHandler.cs:line 32
+   at lambda_method(Closure , Object , Object , IMessageHandlerContext )
+   at NServiceBus.Pipeline.MessageHandler.Invoke(Object message, IMessageHandlerContext handlerContext) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\MessageHandler.cs:line 43
+   at NServiceBus.InvokeHandlerTerminator.Terminate(IInvokeHandlerContext context) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\InvokeHandlerTerminator.cs:line 21
+   at NServiceBus.Pipeline.PipelineTerminator`1.Invoke(T context, Func`2 next) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\PipelineTerminator.cs:line 27
+   at lambda_method(Closure , IInvokeHandlerContext )
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-05 17:51:22.317 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '73c1c25d-cd33-4ac9-8f33-a7a70188797f' because of an exception:
+System.TypeInitializationException: The type initializer for 'AuthenticationService.Database.AuthenticationDatabase' threw an exception. ---> System.NotSupportedException: MySQL Connector/Net does not currently support distributed transactions.
+   at MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlConnection.EnlistTransaction(Transaction transaction)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Messages.Database.AbstractDatabase.openConnection() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 133
+   at Messages.Database.AbstractDatabase.createDB() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 31
+   at Messages.Database.AbstractDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 19
+   at AuthenticationService.Database.AuthenticationDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 13
+   at AuthenticationService.Database.AuthenticationDatabase..cctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 73
+   --- End of inner exception stack trace ---
+   at AuthenticationService.Database.AuthenticationDatabase.getInstance()
+   at AuthenticationService.Handlers.CreateAccountHandler.Handle(CreateAccount msg, IMessageHandlerContext context) in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Handlers\CreateAccountHandler.cs:line 32
+   at lambda_method(Closure , Object , Object , IMessageHandlerContext )
+   at NServiceBus.Pipeline.MessageHandler.Invoke(Object message, IMessageHandlerContext handlerContext) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\MessageHandler.cs:line 43
+   at NServiceBus.InvokeHandlerTerminator.Terminate(IInvokeHandlerContext context) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\InvokeHandlerTerminator.cs:line 21
+   at NServiceBus.Pipeline.PipelineTerminator`1.Invoke(T context, Func`2 next) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\PipelineTerminator.cs:line 27
+   at lambda_method(Closure , IInvokeHandlerContext )
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-05 17:51:23.034 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '73c1c25d-cd33-4ac9-8f33-a7a70188797f' because of an exception:
+System.TypeInitializationException: The type initializer for 'AuthenticationService.Database.AuthenticationDatabase' threw an exception. ---> System.NotSupportedException: MySQL Connector/Net does not currently support distributed transactions.
+   at MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlConnection.EnlistTransaction(Transaction transaction)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Messages.Database.AbstractDatabase.openConnection() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 133
+   at Messages.Database.AbstractDatabase.createDB() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 31
+   at Messages.Database.AbstractDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 19
+   at AuthenticationService.Database.AuthenticationDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 13
+   at AuthenticationService.Database.AuthenticationDatabase..cctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 73
+   --- End of inner exception stack trace ---
+   at AuthenticationService.Database.AuthenticationDatabase.getInstance()
+   at AuthenticationService.Handlers.CreateAccountHandler.Handle(CreateAccount msg, IMessageHandlerContext context) in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Handlers\CreateAccountHandler.cs:line 32
+   at lambda_method(Closure , Object , Object , IMessageHandlerContext )
+   at NServiceBus.Pipeline.MessageHandler.Invoke(Object message, IMessageHandlerContext handlerContext) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\MessageHandler.cs:line 43
+   at NServiceBus.InvokeHandlerTerminator.Terminate(IInvokeHandlerContext context) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\InvokeHandlerTerminator.cs:line 21
+   at NServiceBus.Pipeline.PipelineTerminator`1.Invoke(T context, Func`2 next) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\PipelineTerminator.cs:line 27
+   at lambda_method(Closure , IInvokeHandlerContext )
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-05 17:51:23.647 WARN  NServiceBus.RecoverabilityExecutor Delayed Retry will reschedule message '73c1c25d-cd33-4ac9-8f33-a7a70188797f' after a delay of 00:00:10 because of an exception:
+System.TypeInitializationException: The type initializer for 'AuthenticationService.Database.AuthenticationDatabase' threw an exception. ---> System.NotSupportedException: MySQL Connector/Net does not currently support distributed transactions.
+   at MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlConnection.EnlistTransaction(Transaction transaction)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Messages.Database.AbstractDatabase.openConnection() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 133
+   at Messages.Database.AbstractDatabase.createDB() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 31
+   at Messages.Database.AbstractDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 19
+   at AuthenticationService.Database.AuthenticationDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 13
+   at AuthenticationService.Database.AuthenticationDatabase..cctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 73
+   --- End of inner exception stack trace ---
+   at AuthenticationService.Database.AuthenticationDatabase.getInstance()
+   at AuthenticationService.Handlers.CreateAccountHandler.Handle(CreateAccount msg, IMessageHandlerContext context) in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Handlers\CreateAccountHandler.cs:line 32
+   at lambda_method(Closure , Object , Object , IMessageHandlerContext )
+   at NServiceBus.Pipeline.MessageHandler.Invoke(Object message, IMessageHandlerContext handlerContext) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\MessageHandler.cs:line 43
+   at NServiceBus.InvokeHandlerTerminator.Terminate(IInvokeHandlerContext context) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\InvokeHandlerTerminator.cs:line 21
+   at NServiceBus.Pipeline.PipelineTerminator`1.Invoke(T context, Func`2 next) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\PipelineTerminator.cs:line 27
+   at lambda_method(Closure , IInvokeHandlerContext )
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-05 17:51:43.277 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '73c1c25d-cd33-4ac9-8f33-a7a70188797f' because of an exception:
+System.TypeInitializationException: The type initializer for 'AuthenticationService.Database.AuthenticationDatabase' threw an exception. ---> System.NotSupportedException: MySQL Connector/Net does not currently support distributed transactions.
+   at MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlConnection.EnlistTransaction(Transaction transaction)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Messages.Database.AbstractDatabase.openConnection() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 133
+   at Messages.Database.AbstractDatabase.createDB() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 31
+   at Messages.Database.AbstractDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 19
+   at AuthenticationService.Database.AuthenticationDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 13
+   at AuthenticationService.Database.AuthenticationDatabase..cctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 73
+   --- End of inner exception stack trace ---
+   at AuthenticationService.Database.AuthenticationDatabase.getInstance()
+   at AuthenticationService.Handlers.CreateAccountHandler.Handle(CreateAccount msg, IMessageHandlerContext context) in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Handlers\CreateAccountHandler.cs:line 32
+   at lambda_method(Closure , Object , Object , IMessageHandlerContext )
+   at NServiceBus.Pipeline.MessageHandler.Invoke(Object message, IMessageHandlerContext handlerContext) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\MessageHandler.cs:line 43
+   at NServiceBus.InvokeHandlerTerminator.Terminate(IInvokeHandlerContext context) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\InvokeHandlerTerminator.cs:line 21
+   at NServiceBus.Pipeline.PipelineTerminator`1.Invoke(T context, Func`2 next) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\PipelineTerminator.cs:line 27
+   at lambda_method(Closure , IInvokeHandlerContext )
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-05 17:51:49.695 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '73c1c25d-cd33-4ac9-8f33-a7a70188797f' because of an exception:
+System.TypeInitializationException: The type initializer for 'AuthenticationService.Database.AuthenticationDatabase' threw an exception. ---> System.NotSupportedException: MySQL Connector/Net does not currently support distributed transactions.
+   at MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlConnection.EnlistTransaction(Transaction transaction)
+   at MySql.Data.MySqlClient.MySqlConnection.Open()
+   at Messages.Database.AbstractDatabase.openConnection() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 133
+   at Messages.Database.AbstractDatabase.createDB() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 31
+   at Messages.Database.AbstractDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\Database\AbstractDatabase.cs:line 19
+   at AuthenticationService.Database.AuthenticationDatabase..ctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 13
+   at AuthenticationService.Database.AuthenticationDatabase..cctor() in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Database\AuthenticationDatabase.cs:line 73
+   --- End of inner exception stack trace ---
+   at AuthenticationService.Database.AuthenticationDatabase.getInstance()
+   at AuthenticationService.Handlers.CreateAccountHandler.Handle(CreateAccount msg, IMessageHandlerContext context) in C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\Handlers\CreateAccountHandler.cs:line 32
+   at lambda_method(Closure , Object , Object , IMessageHandlerContext )
+   at NServiceBus.Pipeline.MessageHandler.Invoke(Object message, IMessageHandlerContext handlerContext) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\MessageHandler.cs:line 43
+   at NServiceBus.InvokeHandlerTerminator.Terminate(IInvokeHandlerContext context) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\InvokeHandlerTerminator.cs:line 21
+   at NServiceBus.Pipeline.PipelineTerminator`1.Invoke(T context, Func`2 next) in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\PipelineTerminator.cs:line 27
+   at lambda_method(Closure , IInvokeHandlerContext )
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-05 17:52:53.568 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 17:52:54.291 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 17:52:54.412 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 17:52:54.599 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:52:54.646 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:52:54.705 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:52:54.731 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:52:54.753 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:52:54.786 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:52:54.824 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:52:54.871 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:52:54.908 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:52:55.001 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:52:55.062 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:52:55.106 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:52:55.149 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:52:56.601 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 17:53:31.715 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 17:53:32.053 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 17:53:32.244 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 17:53:32.511 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:53:32.577 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:53:32.687 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:53:32.756 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:53:32.822 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:53:32.905 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:53:33.069 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:53:33.190 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:53:33.225 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:53:33.257 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:53:33.296 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:53:33.315 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:53:33.330 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:53:35.650 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 17:57:11.259 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 17:57:11.642 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 17:57:11.777 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 17:57:12.022 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:57:12.093 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:57:12.197 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:57:12.330 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:57:12.386 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:57:12.469 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:57:12.549 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:57:12.616 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:57:12.661 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:57:12.688 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 17:57:12.763 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:57:12.780 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:57:12.795 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 17:57:14.181 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 18:01:54.734 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 18:01:55.150 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 18:01:55.298 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 18:01:55.576 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:01:55.611 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:01:55.701 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:01:55.821 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:01:55.882 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:01:55.916 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:01:55.962 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:01:56.012 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:01:56.077 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:01:56.121 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:01:56.159 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 18:01:56.178 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 18:01:56.197 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 18:01:57.574 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 18:08:06.016 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 18:08:06.417 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 18:08:06.555 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 18:08:06.802 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:08:06.880 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:08:06.994 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:08:07.072 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:08:07.152 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:08:07.210 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:08:07.310 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:08:07.359 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:08:07.404 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:08:07.425 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:08:07.447 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 18:08:07.469 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 18:08:07.486 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 18:08:08.912 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 18:09:54.309 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 18:09:54.740 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 18:09:54.894 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 18:09:55.197 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:09:55.305 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:09:55.365 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:09:55.500 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:09:55.536 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:09:55.597 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:09:55.626 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:09:55.652 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:09:55.675 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:09:55.700 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:09:55.718 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 18:09:55.736 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 18:09:55.751 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 18:09:57.110 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 18:11:40.797 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 18:11:41.558 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 18:11:41.860 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 18:11:42.078 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:11:42.096 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:11:42.127 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:11:42.148 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:11:42.185 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:11:42.212 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:11:42.233 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:11:42.251 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:11:42.270 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:11:42.290 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 18:11:42.308 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 18:11:42.321 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 18:11:42.335 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 18:11:43.753 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 19:02:03.186 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 19:02:03.788 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 19:02:03.954 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 19:02:04.171 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:02:04.254 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:02:04.351 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:02:04.439 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:02:04.510 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:02:04.704 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:02:04.772 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:02:04.809 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:02:04.886 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:02:04.990 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:02:05.077 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 19:02:05.122 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 19:02:05.170 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 19:02:07.256 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 19:06:30.441 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 19:06:30.830 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 19:06:30.996 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 19:06:31.212 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:06:31.250 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:06:31.302 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:06:31.332 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:06:31.411 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:06:31.447 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:06:31.476 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:06:31.535 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:06:31.614 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:06:31.649 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:06:31.698 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 19:06:31.720 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 19:06:31.745 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 19:06:33.236 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-05 19:09:18.803 INFO  DefaultFactory Logging to 'C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\' with level Info
+2017-07-05 19:09:19.244 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-05 19:09:19.392 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-05 19:09:19.557 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:09:19.590 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:09:19.661 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:09:19.713 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:09:19.751 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:09:19.791 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:09:19.874 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:09:19.914 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:09:19.946 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:09:19.992 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-05 19:09:20.023 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 19:09:20.049 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 19:09:20.077 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-05 19:09:22.267 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null

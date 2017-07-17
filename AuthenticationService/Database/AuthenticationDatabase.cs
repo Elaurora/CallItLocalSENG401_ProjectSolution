@@ -26,7 +26,7 @@ namespace AuthenticationService.Database
             {
                 instance = new AuthenticationDatabase();
             }
-            return (AuthenticationDatabase)instance;
+            return instance;
         }
 
         /// <summary>
@@ -112,6 +112,8 @@ namespace AuthenticationService.Database
     {
         private const String dbname = "authenticationservicedb";
         public override String databaseName { get; } = dbname;
+
+        private static AuthenticationDatabase instance;
 
         protected override Table[] tables { get; } =
         {

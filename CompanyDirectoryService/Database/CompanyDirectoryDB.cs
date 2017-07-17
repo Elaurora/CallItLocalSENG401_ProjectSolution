@@ -30,7 +30,7 @@ namespace CompanyDirectoryService.Database
             {
                 instance = new CompanyDirectoryDB();
             }
-            return (CompanyDirectoryDB)instance;
+            return instance;
         }
 
         /// <summary>
@@ -127,6 +127,11 @@ namespace CompanyDirectoryService.Database
             return true;
         }
 
+        /// <summary>
+        /// Searches the database for companies that match the given criteria
+        /// </summary>
+        /// <param name="name">The name of the company to search for</param>
+        /// <returns>A list of companies matching the search criteria</returns>
         public CompanyList searchByName(string name)
         {
             if(openConnection() == true)
@@ -163,6 +168,8 @@ namespace CompanyDirectoryService.Database
 
         private const String dbname = "companydirectoryservicedb";
         public override String databaseName { get; } = dbname;
+
+        protected static CompanyDirectoryDB instance;
 
         protected override Table[] tables { get; } =
         {

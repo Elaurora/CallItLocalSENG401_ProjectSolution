@@ -1,15 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApplicationMVC", "ClientApplicationMVC\ClientApplicationMVC.csproj", "{CC44A2D7-03E0-4EAE-9AAD-B6730E60DE10}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B8C49984-7491-44F9-AE82-E6990E56F7A0} = {B8C49984-7491-44F9-AE82-E6990E56F7A0}
+		{D89211F2-DFED-45A1-97B8-107B34209CE0} = {D89211F2-DFED-45A1-97B8-107B34209CE0}
+		{E06DAAF2-1FA6-4236-9509-0C604B3A4F52} = {E06DAAF2-1FA6-4236-9509-0C604B3A4F52}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages", "Messages\Messages.csproj", "{9CAC18A4-2902-403E-9134-04AC6AB4E16F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationService", "AuthenticationService\AuthenticationService.csproj", "{B8C49984-7491-44F9-AE82-E6990E56F7A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyDirectoryService", "CompanyDirectoryService\CompanyDirectoryService.csproj", "{D89211F2-DFED-45A1-97B8-107B34209CE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatService", "ChatService\ChatService.csproj", "{E06DAAF2-1FA6-4236-9509-0C604B3A4F52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +40,10 @@ Global
 		{D89211F2-DFED-45A1-97B8-107B34209CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D89211F2-DFED-45A1-97B8-107B34209CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D89211F2-DFED-45A1-97B8-107B34209CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E06DAAF2-1FA6-4236-9509-0C604B3A4F52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E06DAAF2-1FA6-4236-9509-0C604B3A4F52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E06DAAF2-1FA6-4236-9509-0C604B3A4F52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E06DAAF2-1FA6-4236-9509-0C604B3A4F52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

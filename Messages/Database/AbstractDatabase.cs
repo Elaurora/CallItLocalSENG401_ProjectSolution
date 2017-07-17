@@ -193,8 +193,6 @@ namespace Messages.Database
         private string Password = "abc123";
         public abstract String databaseName { get; }
 
-        protected static AbstractDatabase instance;
-
         protected abstract Table[] tables { get; }
     }
 }

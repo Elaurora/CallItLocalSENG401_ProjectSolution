@@ -1,0 +1,572 @@
+﻿2017-07-17 11:35:49.782 INFO  DefaultFactory Logging to 'c:\users\joshua\documents\visual studio 2017\Projects\CallItLocal\ClientApplicationMVC\App_Data\' with level Info
+2017-07-17 11:35:50.138 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-17 11:35:50.903 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-17 11:35:50.975 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:35:50.985 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:35:51.001 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:35:51.017 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:35:51.040 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:35:51.052 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:35:51.063 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:35:51.077 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:35:51.089 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:35:51.102 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:35:51.115 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication-Elaurora] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:35:51.130 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication-Elaurora] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:35:51.144 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:35:51.154 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:35:51.164 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:39:34.280 INFO  DefaultFactory Logging to 'c:\users\joshua\documents\visual studio 2017\Projects\CallItLocal\ClientApplicationMVC\App_Data\' with level Info
+2017-07-17 11:39:34.514 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-17 11:39:34.743 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-17 11:39:34.882 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:39:34.898 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:39:34.923 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:39:34.949 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:39:34.970 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:39:34.985 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:39:35.661 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:39:35.680 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:39:35.718 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:39:35.737 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:39:35.767 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication-Elaurora] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:39:35.795 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication-Elaurora] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:39:35.827 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:39:35.875 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:39:35.895 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:47:23.994 INFO  DefaultFactory Logging to 'c:\users\joshua\documents\visual studio 2017\Projects\CallItLocal\ClientApplicationMVC\App_Data\' with level Info
+2017-07-17 11:47:24.412 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-17 11:47:24.412 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-17 11:47:26.218 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-17 11:47:26.885 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:26.952 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:27.093 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:27.175 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:27.528 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:27.609 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:27.660 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:27.705 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:28.052 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:28.118 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:28.160 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:47:28.186 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:47:28.265 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:47:28.348 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-17 11:47:28.422 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:28.445 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:28.504 WARN  NServiceBus.QueuePermissions Queue [private$\Chat.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:28.529 WARN  NServiceBus.QueuePermissions Queue [private$\Chat.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:28.571 WARN  NServiceBus.QueuePermissions Queue [private$\Chat.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:28.652 WARN  NServiceBus.QueuePermissions Queue [private$\Chat.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:28.685 WARN  NServiceBus.QueuePermissions Queue [private$\Chat.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:28.715 WARN  NServiceBus.QueuePermissions Queue [private$\Chat.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:28.745 WARN  NServiceBus.QueuePermissions Queue [private$\Chat] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:28.766 WARN  NServiceBus.QueuePermissions Queue [private$\Chat] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:47:28.810 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:47:28.847 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:47:28.903 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:51:11.602 INFO  DefaultFactory Logging to 'c:\users\joshua\documents\visual studio 2017\Projects\CallItLocal\ClientApplicationMVC\App_Data\' with level Info
+2017-07-17 11:51:11.970 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-17 11:51:11.970 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-17 11:51:12.089 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-17 11:51:12.089 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-17 11:51:12.225 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.225 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.266 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.293 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.315 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.325 WARN  NServiceBus.QueuePermissions Queue [private$\Chat.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.342 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.359 WARN  NServiceBus.QueuePermissions Queue [private$\Chat.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.375 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.395 WARN  NServiceBus.QueuePermissions Queue [private$\Chat.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.420 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.435 WARN  NServiceBus.QueuePermissions Queue [private$\Chat.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.456 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.479 WARN  NServiceBus.QueuePermissions Queue [private$\Chat.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.544 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.562 WARN  NServiceBus.QueuePermissions Queue [private$\Chat.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.579 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.593 WARN  NServiceBus.QueuePermissions Queue [private$\Chat] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.607 WARN  NServiceBus.QueuePermissions Queue [private$\CompanyDirectory] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.621 WARN  NServiceBus.QueuePermissions Queue [private$\Chat] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:12.636 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:51:12.647 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:51:12.662 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:51:12.677 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:51:12.692 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:51:12.706 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:51:23.962 INFO  NServiceBus.LicenseManager Selected active license from HKEY_CURRENT_USER\SOFTWARE\ParticularSoftware
+License Expiration: 26 July 2017
+
+2017-07-17 11:51:24.000 INFO  NServiceBus.PerformanceMonitorUsersInstaller Did not attempt to add user 'joshua-HP\joshua' to group 'Performance Monitor Users' since the process is not running with elevated privileges. Processing will continue. To manually perform this action, run the following command from an admin console:
+net localgroup "Performance Monitor Users" "joshua-HP\joshua" /add
+2017-07-17 11:51:24.039 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:24.059 WARN  NServiceBus.QueuePermissions Queue [private$\error] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:24.082 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:24.107 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Timeouts] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:24.130 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:24.181 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.TimeoutsDispatcher] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:24.217 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:24.233 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication.Retries] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:24.252 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:24.266 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:24.284 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication-Elaurora] is running with [Everyone] with AccessRights set to [GenericWrite]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:24.303 WARN  NServiceBus.QueuePermissions Queue [private$\Authentication-Elaurora] is running with [NT AUTHORITY\ANONYMOUS LOGON] with AccessRights set to [WriteMessage]. Consider setting appropriate permissions, if required by the organization. For more information, consult the documentation.
+2017-07-17 11:51:24.317 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs pulled from the input queue /sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:51:24.330 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs successfully processed / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:51:24.346 INFO  NServiceBus.PerformanceCounterHelper NServiceBus performance counter for '# of msgs failures / sec' is not set up correctly. To rectify this problem, consult the NServiceBus performance counters documentation.
+2017-07-17 11:51:26.490 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-17 11:51:26.490 INFO  NServiceBus.SubscriptionReceiverBehavior Subscribe from CompanyDirectory@JOSHUA-HP on message type Messages.Events.AccountCreated, Messages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-07-17 11:51:26.773 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '1d4d6add-1fcc-41a2-8a98-a7b3012538d6' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MutateIncomingMessageBehavior.<InvokeIncomingMessageMutators>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\MessageMutators\MutateInstanceMessage\MutateIncomingMessageBehavior.cs:line 44
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.UnitOfWorkBehavior.<InvokeUnitsOfWork>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\UnitOfWork\UnitOfWorkBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at NServiceBus.UnitOfWorkBehavior.<InvokeUnitsOfWork>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\UnitOfWork\UnitOfWorkBehavior.cs:line 62
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MutateIncomingTransportMessageBehavior.<InvokeIncomingTransportMessagesMutators>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\MessageMutators\MutateTransportMessage\MutateIncomingTransportMessageBehavior.cs:line 43
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 11:51:26.860 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '1d4d6add-1fcc-41a2-8a98-a7b3012538d6' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 11:51:26.900 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '1d4d6add-1fcc-41a2-8a98-a7b3012538d6' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 11:51:26.926 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '1d4d6add-1fcc-41a2-8a98-a7b3012538d6' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 11:51:26.951 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '1d4d6add-1fcc-41a2-8a98-a7b3012538d6' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 11:51:26.981 WARN  NServiceBus.RecoverabilityExecutor Delayed Retry will reschedule message '1d4d6add-1fcc-41a2-8a98-a7b3012538d6' after a delay of 00:00:10 because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 11:51:37.563 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '1d4d6add-1fcc-41a2-8a98-a7b3012538d6' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 11:51:37.622 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '1d4d6add-1fcc-41a2-8a98-a7b3012538d6' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 11:51:38.168 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '1d4d6add-1fcc-41a2-8a98-a7b3012538d6' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 11:51:38.688 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '1d4d6add-1fcc-41a2-8a98-a7b3012538d6' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 11:51:38.715 INFO  NServiceBus.RecoverabilityExecutor Immediate Retry is going to retry message '1d4d6add-1fcc-41a2-8a98-a7b3012538d6' because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86
+2017-07-17 11:51:38.739 WARN  NServiceBus.RecoverabilityExecutor Delayed Retry will reschedule message '1d4d6add-1fcc-41a2-8a98-a7b3012538d6' after a delay of 00:00:20 because of an exception:
+System.InvalidOperationException: No handlers could be found for message type: Messages.Message.CompanyList
+   at NServiceBus.LoadHandlersConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\LoadHandlersConnector.cs:line 31
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.DeserializeLogicalMessagesConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\DeserializeLogicalMessagesConnector.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.SubscriptionReceiverBehavior.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Routing\MessageDrivenSubscriptions\SubscriptionReceiverBehavior.cs:line 29
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceivePerformanceDiagnosticsBehavior.<Invoke>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ReceivePerformanceDiagnosticsBehavior.cs:line 40
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ProcessingStatisticsBehavior.<Invoke>d__0.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Performance\Statistics\ProcessingStatisticsBehavior.cs:line 27
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransportReceiveToPhysicalMessageProcessingConnector.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\Incoming\TransportReceiveToPhysicalMessageProcessingConnector.cs:line 37
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.MainPipelineExecutor.<Invoke>d__1.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Pipeline\MainPipelineExecutor.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.ReceiveStrategy.<TryProcessMessage>d__7.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\ReceiveStrategy.cs:line 109
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at NServiceBus.TransactionScopeStrategy.<ProcessMessage>d__2.MoveNext() in C:\BuildAgent\work\3206e2123f54fce4\src\NServiceBus.Core\Transports\Msmq\TransactionScopeStrategy.cs:line 86

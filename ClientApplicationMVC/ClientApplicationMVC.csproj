@@ -214,6 +214,18 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AuthenticationService\AuthenticationService.csproj">
+      <Project>{b8c49984-7491-44f9-ae82-e6990e56f7a0}</Project>
+      <Name>AuthenticationService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChatService\ChatService.csproj">
+      <Project>{e06daaf2-1fa6-4236-9509-0c604b3a4f52}</Project>
+      <Name>ChatService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CompanyDirectoryService\CompanyDirectoryService.csproj">
+      <Project>{d89211f2-dfed-45a1-97b8-107b34209ce0}</Project>
+      <Name>CompanyDirectoryService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Messages\Messages.csproj">
       <Project>{9cac18a4-2902-403e-9134-04ac6ab4e16f}</Project>
       <Name>Messages</Name>

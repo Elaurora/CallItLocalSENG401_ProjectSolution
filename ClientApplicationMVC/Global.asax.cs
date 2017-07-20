@@ -27,7 +27,7 @@ namespace ClientApplicationMVC
         public void Session_OnEnd()
         {
             //ConnectionManager.removeConnection((string)HttpContext.Current.Session["user"]);
-            //TODO: Test this
+            //TODO Medium Importance: Test this
         }
     }
 }

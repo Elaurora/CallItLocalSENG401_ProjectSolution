@@ -29,8 +29,8 @@
     {
         foreach (string item in ViewBag.Companylist.companyNames)
         {
-            <p>@item</p>
-                <br />
+            @Html.ActionLink(item, "DisplayCompany/" + item, "CompanyListings")
+            <br/>
         }
     }
 }

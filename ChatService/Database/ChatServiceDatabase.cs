@@ -1,10 +1,11 @@
 ﻿using Messages.Database;
+using Messages.DataTypes.Database.Chat;
+using Messages.DataTypes;
+
+using MySql.Data.MySqlClient;
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ChatService.Database
 {
@@ -19,6 +20,183 @@ namespace ChatService.Database
                 instance = new ChatServiceDatabase();
             }
             return instance;
+        }
+
+        /// <summary>
+        /// Saves the chat message to the database and makes all necessary inserts
+        /// </summary>
+        /// <param name="msg">The message to save</param>
+        public void saveMessage(ChatMessage msg)
+        {
+            if(openConnection() == true)
+            {
+                string query = @"SELECT id FROM " + databaseName + @".chats " +
+                    @"WHERE (usersname='" + msg.sender + @"' OR companyname='" + msg.sender + @"')" +
+                    @"AND (usersname='" + msg.receiver + @"' OR companyname='" + msg.receiver + @"');";
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = command.ExecuteReader();
+                long id = -1;
+
+                if(dataReader.Read() == true)
+                {
+                    id = (long)dataReader["id"];
+                    dataReader.Close();
+                }
+                else
+                {
+                    dataReader.Close();
+                    createNewChatInstance(msg.sender, msg.receiver);
+
+                    query = @"SELECT id FROM " + databaseName + @".chats " +
+                        @"WHERE usersname='" + msg.sender + @"' AND companyname='" + msg.receiver + @"';";
+
+                    command = new MySqlCommand(query, connection);
+
+                    dataReader = command.ExecuteReader();
+                    dataReader.Read();
+                    id = (long)dataReader["id"];
+                }
+
+                query = @"INSERT INTO messages(id, message, timestamp, sender) " +
+                    @"VALUES('" + id.ToString() + @"', '" + msg.messageContents +
+                    @"', '" + msg.unix_timestamp.ToString() + @"', '" + msg.sender + @"');";
+
+                command = new MySqlCommand(query, connection);
+                command.ExecuteNonQuery();
+                closeConnection();
+            }
+            else
+            {
+                throw new Exception("Could not connect to database.");
+            }
+        }
+
+        /// <summary>
+        /// Creates a new chat row in the chats table using the given parameters
+        /// </summary>
+        /// <param name="usersname">the usersname</param>
+        /// <param name="companyname">the companies name</param>
+        private void createNewChatInstance(string usersname, string companyname)
+        {
+            bool wasClosed = false;
+            if(connection.State == System.Data.ConnectionState.Closed)
+            {
+                if(openConnection() == false)
+                {
+                    throw new Exception("Could not confirm connection to database in helper function.");
+                }
+                wasClosed = true;
+            }
+
+            string query = @"INSERT INTO chats(usersname, companyname) " +
+                @"VALUES('" + usersname + @"', '" + companyname + @"');";
+
+            MySqlCommand command = new MySqlCommand(query, connection);
+            command.ExecuteNonQuery();
+
+            if(wasClosed == true)
+            {
+                closeConnection();
+            }
+        }
+
+        /// <summary>
+        /// Selects the names of all other users that the given user has made chat contact with in the past
+        /// </summary>
+        /// <param name="usersname">The name of the user</param>
+        /// <returns>A list of usernames the user has sent at least one chat message to</returns>
+        public List<string> getAllChatContactsForUser(string usersname)
+        {
+            //TODO low importance: Turn this from max 3 queries to 2
+            if(openConnection() == true)
+            {
+                string query = "SELECT * FROM " + databaseName + ".chats " +
+                    "WHERE usersname='" + usersname + "' OR companyname='" + usersname + "';";
+
+                List<string> result = new List<string>();
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read() == true)
+                {
+                    if (usersname.Equals(reader["usersname"]))
+                    {
+                        result.Add((string)reader["companyname"]);
+                    }
+                    else
+                    {
+                        result.Add((string)reader["usersname"]);
+                    }
+                }
+
+                reader.Close();
+
+                closeConnection();
+
+                return result;
+            }
+            else
+            {
+                throw new Exception("Could not connect to database.");
+            }
+        }
+
+        /// <summary>
+        /// This function will search the chat database for all of the chat messages passed between the 2 specified users.
+        /// </summary>
+        /// <param name="usersname">The name of the user</param>
+        /// <param name="companyname">The name of the company</param>
+        /// <returns>The chat history of the two users</returns>
+        public ChatHistory getChatHistory(string usersname, string companyname)
+        {
+            if(openConnection() == true)
+            {
+                string query = "SELECT m.message, m.timestamp, m.sender " +
+                    "FROM " + databaseName + ".messages AS m LEFT JOIN " +
+                    databaseName + ".chats AS c ON m.id = c.id " +
+                    "WHERE (c.usersname='" + usersname + "' AND c.companyname='" + companyname + "') " +
+                    "OR (c.usersname='" + companyname + "' AND c.companyname='" + usersname + "');";
+
+                ChatHistory result = new ChatHistory()
+                {
+                    usersname = usersname,
+                    companyname = companyname,
+                    messages = new List<ChatMessage>()
+                };
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while(reader.Read() == true)
+                {
+                    ChatMessage msg = new ChatMessage
+                    {
+                        messageContents = reader.GetString("message"),
+                        unix_timestamp = reader.GetInt32("timestamp")
+                    };
+                    string sender = reader.GetString("sender");
+                    if (usersname.Equals(sender))
+                    {
+                        msg.sender = usersname;
+                    }
+                    else
+                    {
+                        msg.receiver = companyname;
+                    }
+                    result.messages.Add(msg);
+                }
+
+                reader.Close();
+                closeConnection();
+
+                return result;
+            }
+            else
+            {
+                throw new Exception("Could not connect to database.");
+            }
         }
     }
 
@@ -49,7 +227,7 @@ namespace ChatService.Database
                         ),
                         new Column
                         (
-                            "initiator", "VARCHAR(50)",
+                            "usersname", "VARCHAR(50)",
                             new string[]
                             {
                                 "NOT NULL"
@@ -57,7 +235,7 @@ namespace ChatService.Database
                         ),
                         new Column
                         (
-                            "receiver", "VARCHAR(50)",
+                            "companyname", "VARCHAR(50)",
                             new string[]
                             {
                                 "NOT NULL"
@@ -81,7 +259,7 @@ namespace ChatService.Database
                         ),
                         new Column
                         (
-                            "message", "VARCHAR(250)",
+                            "message", "VARCHAR(" + SharedData.MAX_MESSAGE_LENGTH.ToString() + ")",
                             new string[]
                             {
                                 "NOT NULL",

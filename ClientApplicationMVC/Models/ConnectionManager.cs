@@ -1,5 +1,8 @@
-﻿using Messages.Commands;
-using Messages.Message;
+﻿using CompanyDirectoryService.Database;
+
+using Messages.Commands;
+using Messages.DataTypes.Database.Chat;
+using Messages.DataTypes.Database.CompanyDirectory;
 
 using System;
 using System.Collections.Generic;
@@ -14,6 +17,8 @@ namespace ClientApplicationMVC.Models
     /// </summary>
     public static partial class ServiceBusCommunicationManager
     {
+        #region AuthenticationServiceMessages
+        
         /// <summary>
         /// Sends the login information to the bus
         /// </summary>
@@ -61,6 +66,9 @@ namespace ClientApplicationMVC.Models
 
             return response;
         }
+        #endregion AuthenticationServiceMessages
+
+        #region CompanyDirectoryServiceMessages
 
         /// <summary>
         /// Asks the service bus to search for companies of the given name
@@ -75,6 +83,64 @@ namespace ClientApplicationMVC.Models
             }
             return connection.searchCompanyByName(name);
         }
+
+        /// <summary>
+        /// Returns the database information regarding the given company name
+        /// </summary>
+        /// <param name="name">The name of the company</param>
+        public static CompanyInstance getCompanyInfo(string name)
+        {
+            ServiceBusConnection connection;
+            if (!connections.TryGetValue(Globals.getUser(), out connection))
+            {
+                return null;
+            }
+            return connection.getCompanyInfo(name);
+        }
+
+        #endregion CompanyDirectoryServiceMessages
+
+        #region ChatServiceMessages
+        /// <summary>
+        /// Notifies the service bus that a user has sent a message. This function will also
+        /// attempt to send the message directly to the receiver,if they have an open session
+        /// </summary>
+        /// <param name="msg">The message to send</param>
+        public static bool sendChatMessage(ChatMessage msg)
+        {
+            ServiceBusConnection connection;
+            if (!connections.TryGetValue(Globals.getUser(), out connection))
+            {
+                return false;
+            }
+            return connection.sendChatMessage(msg);
+        }
+
+        /// <summary>
+        /// Makes a request to the service bus for a list of usernames the current user has contacted via chat in the past
+        /// </summary>
+        /// <returns>An array of usernames</returns>
+        public static string[] getAllChatContacts()
+        {
+            ServiceBusConnection connection;
+            if (!connections.TryGetValue(Globals.getUser(), out connection))
+            {
+                return null;
+            }
+            return connection.getAllChatContacts();
+        }
+
+        public static ChatHistory getChatHistory(string otherUser)
+        {
+            ServiceBusConnection connection;
+            if (!connections.TryGetValue(Globals.getUser(), out connection))
+            {
+                return null;
+            }
+            return connection.getChatHistory(otherUser);
+        }
+
+        #endregion ChatServiceMessages
 
         /// <summary>
         /// Removes the connection of the given user from the list of connections

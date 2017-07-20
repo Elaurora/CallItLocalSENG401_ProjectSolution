@@ -1,5 +1,6 @@
 ﻿<!--
-    This is the login page. 
+    This is the index page for the chat controller.
+    It is also the login page
 -->
 
 @{
@@ -8,17 +9,34 @@
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm("LogIn", "Authentication"))
+@using (Html.BeginForm("LogIn", "Authentication", FormMethod.Post,
+    new { id = "logInForm", onsubmit = "return validateLoginInfo()" }))
 {
+
     <p>@ViewBag.Message</p>
     <br />
     <p>Username:</p>
     @Html.TextBox("textUsername") <br/> <br/>
     <p>Password:</p>
     @Html.TextBox("textPassword") <br/> <br/>
-    <input type="submit" value="Log In" /><br/><br />
+    <input onclick="" id="LoginSubmitButton" type="submit" value="Log In" /><br/><br />
 
     <p>Dont have an account ? </p>
 
     @Html.ActionLink("Create One", "CreateAccount", "Authentication")
 }
+
+
+<script>
+    function validateLoginInfo() {
+        if (logInForm.textUsername.value === "") {
+            alert("Username cannot be left blank");
+            return false;
+        }
+        if (logInForm.textPassword.value === "") {
+            alert("Password cannot be left blank");
+            return false;
+        }
+        return true;
+    }
+</script>

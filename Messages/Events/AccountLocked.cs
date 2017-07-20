@@ -4,6 +4,6 @@ namespace Messages.Events
 {
     public class AccountLocked
     {
-        //TODO: Finish the definition of this class
+        //TODO MOSHI: Finish the definition of this class
     }
 }

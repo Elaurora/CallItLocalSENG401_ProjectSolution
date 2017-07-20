@@ -1,5 +1,6 @@
 ﻿<!--
-    This is the html page that opens when a user navigates to the create an account page
+    This is the html page that opens when a user navigates
+    to the create an account page
 -->
 @{
     ViewBag.Title = "CreateAccount";
@@ -7,7 +8,8 @@
 
 <h2>CreateAccount</h2>
 
-@using (Html.BeginForm("CreateAccount", "Authentication"))
+@using (Html.BeginForm("CreateAccount", "Authentication", FormMethod.Post,
+    new { id = "createAccountForm", onsubmit = "return validateCreateAccountInfo()" }))
 {
     <p>@ViewBag.Message</p>
     <br />
@@ -33,3 +35,29 @@
     <br /><br />
     @ViewBag.Result
 }
+
+<script>
+    function validateCreateAccountInfo() {
+        if (createAccountForm.textUsername.value === "") {
+            alert("Username cannot be left blank");
+            return false;
+        }
+        if (createAccountForm.textPassword.value === "") {
+            alert("Password cannot be left blank");
+            return false;
+        }
+        if (createAccountForm.textAddress.value === "") {
+            alert("Address cannot be left blank");
+            return false;
+        }
+        if (createAccountForm.textPhoneNumber.value === "") {
+            alert("Phone Number cannot be left blank");
+            return false;
+        }
+        if (createAccountForm.textEmail.value === "") {
+            alert("Email cannot be left blank");
+            return false;
+        }
+        return true;
+    }
+</script>

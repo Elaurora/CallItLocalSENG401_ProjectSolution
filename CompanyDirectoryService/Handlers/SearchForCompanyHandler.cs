@@ -1,7 +1,7 @@
 ﻿using CompanyDirectoryService.Database;
 
 using Messages.Commands;
-using Messages.Message;
+using Messages.DataTypes.Database.CompanyDirectory;
 
 using NServiceBus;
 using NServiceBus.Logging;

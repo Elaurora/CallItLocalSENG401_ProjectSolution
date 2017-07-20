@@ -24,7 +24,6 @@ namespace AuthenticationService
         /// The endpoint used to communicate with the other endpoints in the service bus
         /// </summary>
         private EndpointConfiguration endpointConfiguration;
-        //TODO: High priority - Make each client connection have its own uniquely addressable endpoint.
     }
 
     public partial class Server

@@ -1,6 +1,6 @@
 ﻿using ClientApplicationMVC.Models;
 
-using Messages.Message;
+using Messages.DataTypes.Database.CompanyDirectory;
 
 using System;
 using System.Web.Mvc;
@@ -23,12 +23,12 @@ namespace ClientApplicationMVC.Controllers
         public ActionResult Search(string textCompanyName)
         {
 
-            if(Globals.isLoggedIn() == false)
+            if (Globals.isLoggedIn() == false)
             {
                 return RedirectToAction("Index", "Authentication");
             }
             CompanyList result = ServiceBusCommunicationManager.searchCompanyByName(textCompanyName);
-            if(result == null)
+            if (result == null)
             {
                 return RedirectToAction("Index", "Authentication");
             }
@@ -36,6 +36,20 @@ namespace ClientApplicationMVC.Controllers
             ViewBag.Companylist = result;
 
             return View("Index");
+        }
+
+        public ActionResult DisplayCompany(string id)
+        {
+            if ("".Equals(id))
+            {
+                return View("Index");
+            }
+            CompanyInstance company = ServiceBusCommunicationManager.getCompanyInfo(id);
+
+            ViewBag.CompanyInfo = company;
+
+            ViewBag.CompanyName = id;
+            return View("ShowCompany");
         }
     }
 }

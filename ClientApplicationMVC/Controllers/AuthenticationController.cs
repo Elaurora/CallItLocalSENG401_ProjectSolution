@@ -29,10 +29,7 @@ namespace ClientApplicationMVC.Controllers
         public ActionResult LogIn(string textUsername, string textPassword)
         {
             string response = ServiceBusCommunicationManager.sendLogIn(textUsername, textPassword);
-
             
-            //TODO: React based on response
-
             if ("Success".Equals(response))
             {
                 ViewBag.Title = "Authentication Success";
@@ -57,8 +54,6 @@ namespace ClientApplicationMVC.Controllers
         [AsyncTimeout(Globals.patienceLevel_ms)]
         public ActionResult CreateAccount(string textUsername, string textPassword, string textAddress, string textPhoneNumber, string textEmail, bool accountType)
         {
-            //TODO: check entered values for validity before sending
-
             CreateAccount msg = new CreateAccount
             {
                 username = textUsername,

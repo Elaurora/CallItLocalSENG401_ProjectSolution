@@ -1,6 +1,6 @@
 ﻿using Messages.Database;
+using Messages.DataTypes.Database.CompanyDirectory;
 using Messages.Events;
-using Messages.Message;
 
 using MySql.Data.MySqlClient;
 
@@ -160,6 +160,55 @@ namespace CompanyDirectoryService.Database
                 };
             }
             return new CompanyList();
+        }
+
+        /// <summary>
+        /// Searches the database for a company matching the given name
+        /// </summary>
+        /// <param name="name">The name of the company to search for</param>
+        /// <returns>Info about the company being returned</returns>
+        public CompanyInstance getCompanyInfo(string name)
+        {
+            if(openConnection() == true)
+            {
+                string query = @"SELECT * FROM " + databaseName + @".company " +
+                    @"WHERE companyname='" + name + @"';";
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+
+                MySqlDataReader dataReader = command.ExecuteReader();
+
+                if (!dataReader.Read())
+                {
+                    return new CompanyInstance();
+                }
+                string companyName = dataReader["companyname"] + "";
+                string phoneNumber = dataReader["phonenumber"] + "";
+                string email = dataReader["email"] + "";
+                List<string> locations = new List<string>();
+
+                dataReader.Close();
+
+                query = @"SELECT * FROM " + databaseName + @".location " +
+                    @"WHERE companyname='" + name + @"';";
+
+                command = new MySqlCommand(query, connection);
+
+                dataReader = command.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    locations.Add(dataReader["address"] + "");
+                }
+
+                dataReader.Close();
+
+                closeConnection();
+
+                return new CompanyInstance(companyName, phoneNumber, email, locations.ToArray());
+
+            }
+            return new CompanyInstance();
         }
     }
     

@@ -1,0 +1,50 @@
+﻿<!--
+    This is the index page for the Chat controller    
+-->
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div style="width: 100%; overflow: hidden; height: 500px;">
+    <div style="width: 200px; float: left; height:inherit; overflow: auto;">
+        <!--Here goes a list of all the companies the user has initiated a conversation with-->
+
+        
+    </div>
+    <div style="margin-left: 205px; height: inherit;"> <!--This area contains the conversation and the message typing area-->
+        <div style="height: 400px; font-size:larger; overflow: auto;" id="ConversationDisplayArea">
+            <!--Here is where the messages for the current conversation are displayed-->
+        </div>
+        <div style="height: 100px;" id="UserMessageArea">
+            <div style="float: left; width:inherit; height: 72px;" id="MessageTextArea">
+                <textarea id="textUserMessage" placeholder="Enter your message here."
+                          style="resize: none; max-width: 850px; width: 850px;" rows="3"></textarea>
+            </div>
+            <div style="float: right;" id="SendButtonArea">
+                <input type="submit" value="Send" onsubmit="validateMessageAndUpdateChat()"
+                       style="height: 72px; width: 70px;"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //TODO: This function should send the message to the web server without reloading the page
+    //TODO: How to recieve messages without reloading the page ?
+    function validateMessageAndUpdateChat() {
+        var userData = sendMessageForm.textUserMessage.value;
+        alert(userData.trim());
+        if (userData.trim() == "") {
+            return;
+        }
+        sendMessageForm.textUserMessage.value = "";//Reset the textbox
+
+        var convo = document.getElementById("ConversationDisplayArea");
+        convo.innerHTML += "<p>" + userData + "</p>";
+
+        return;
+    }
+</script>

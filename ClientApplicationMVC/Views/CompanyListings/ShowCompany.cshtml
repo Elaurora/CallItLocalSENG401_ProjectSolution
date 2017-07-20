@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "ShowCompany";
+}
+
+<h2>@ViewBag.CompanyName</h2>
+
+<p>Company Email: @ViewBag.CompanyInfo.email</p>
+<br />
+<p>Company Phone Number: @ViewBag.CompanyInfo.phoneNumber</p>
+<br />
+<p>Company can be found at these locations:</p>
+<br /><br />
+@foreach(string location in ViewBag.CompanyInfo.locations)
+{
+    <p>location</p>
+    <br />
+}
+<br />
+
+@Html.ActionLink("Send " + (string)ViewBag.CompanyName + " a direct message.", "Index", "Chat")

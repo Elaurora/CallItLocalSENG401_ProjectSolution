@@ -32,11 +32,11 @@ namespace AuthenticationService.Handlers
         {
             log.Info("Recieved a command to lock an account.", new NotImplementedException());
 
-            //TODO: Implement logic to lock an account.
+            //TODO MOSHI low importance: Implement logic to lock an account.
 
             var accountLocked = new AccountLocked
             {
-                //TODO: Populate this with relevant info, once AccountLocked has been implemented.
+                //TODO MOSHI low importance: Populate this with relevant info, once AccountLocked has been implemented.
             };
 
             return context.Publish(accountLocked);

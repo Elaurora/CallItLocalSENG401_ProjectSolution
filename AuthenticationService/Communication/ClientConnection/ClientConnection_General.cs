@@ -42,6 +42,11 @@ namespace AuthenticationService.Communication
                 string responseMessage = executeRequest(requestParameters);
 
                 sendToClient(responseMessage);
+
+                if(authenticated == false)
+                {
+                    terminateConnection();
+                }
             }
 
             Debug.consoleMsg("Client connection closing...");
@@ -70,6 +75,8 @@ namespace AuthenticationService.Communication
                     return authenticationRequest(requestParameters);
                 case ("companydirectory"):
                     return companyDirectoryRequest(requestParameters);
+                case ("chat"):
+                    return chatRequest(requestParameters);
                 default:
                     return ("Error: Invalid request. Did not specify a valid service type. Specified type was: " + serviceRequested);
             }
@@ -106,7 +113,7 @@ namespace AuthenticationService.Communication
         /// <param name="msg">The message to send to the client</param>
         private void sendToClient(string msg)
         {
-            if(connection.Connected == true)
+            if(connection.Connected == true && !"".Equals(msg))
             {
                 connection.Send(Encoding.ASCII.GetBytes(msg + SharedData.msgEndDelim));
             }

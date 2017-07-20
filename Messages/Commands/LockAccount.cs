@@ -4,6 +4,6 @@ namespace Messages.Commands
 {
     public class LockAccount
     {
-        //TODO: Finish the definition of this class
+        //TODO MOSHI: Finish the definition of this class
     }
 }

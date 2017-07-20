@@ -57,8 +57,6 @@ namespace AuthenticationService.Communication
                 initializeEndpoint();
                 authenticationEndpoint.Publish(new AccountCreated(command));
             }
-
-            terminateConnection();
             return dbResponse;
         }
 
@@ -86,7 +84,6 @@ namespace AuthenticationService.Communication
             {
                 return ("Success");
             }
-            terminateConnection();
             return ("Failure");
         }
 

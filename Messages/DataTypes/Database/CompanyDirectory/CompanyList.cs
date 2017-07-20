@@ -1,6 +1,6 @@
 ﻿using NServiceBus;
 
-namespace Messages.Message
+namespace Messages.DataTypes.Database.CompanyDirectory
 {
     public class CompanyList : IMessage
     {

@@ -22,9 +22,8 @@ namespace ClientApplicationMVC.Controllers
 
             return View();
         }
-
-        //TODO: Add functionality to search for companies.
+        
         //TODO: Create an emailing service.
-        //TODO: Make a "ServiceStart" project to be run from cmd line to start the services when deployed
+        //TODO: Make a "ServiceStart" script to be run from this project to start the services when deployed
     }
 }

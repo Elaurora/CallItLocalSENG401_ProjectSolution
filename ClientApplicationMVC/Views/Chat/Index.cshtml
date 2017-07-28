@@ -12,11 +12,11 @@
 <h2>Index</h2>
 
 <div style="width: 100%; overflow: hidden; height: 500px;">
-    <div style="width: 200px; float: left; height:inherit; overflow: auto;">
+    <div style="width: 200px; float: left; height:inherit; overflow: auto;" id="ChatInstancesList">
         <!--Here goes a list of all the companies the user has initiated a conversation with-->
         @foreach(string contact in ViewBag.ChatInstances)
         {
-            <div class="chatInstanceBox" onclick="chatInstanceSelected">
+            <div class="chatInstanceBox" id="@contact">
                 <div style="line-height:50px;">
                     <p class="chatInstanceCompanyName">@contact</p>
                 </div>

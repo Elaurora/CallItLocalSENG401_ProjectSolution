@@ -53,6 +53,45 @@ namespace ClientApplicationMVC.Controllers
             return null;
         }
 
+        [HttpGet]
+        public ActionResult Conversation(string otherUser = "")
+        {
+            if (Globals.isLoggedIn() == false)
+            {
+                return RedirectToAction("Index", "Authentication");
+            }
+            if ("".Equals(otherUser))
+            {
+                throw new System.Exception("Did not supply all required arguments.");
+            }
+
+            ChatHistory userHistory = ServiceBusCommunicationManager.getChatHistory(otherUser);
+
+            string newConvoHtml = "";
+
+            foreach(ChatMessage msg in userHistory.messages)
+            {
+                if (msg.sender.Equals(Globals.getUser()))
+                {
+                    newConvoHtml +=
+                        "<p class=\"message\">" +
+                            "<span class=\"username\">You: </span>" +
+                            msg.messageContents +
+                        "</p>";
+                }
+                else
+                {
+                    newConvoHtml +=
+                        "<p class=\"message\">" +
+                            "<span class=\"username\" style=\"color:blue;\">" + msg.sender + ": </span>" +
+                            msg.messageContents +
+                        "</p>";
+                }
+            }
+
+            return Content(newConvoHtml);
+        }
+
         /// <summary>
         /// Send the given chat message to the bus to be added to the database
         /// </summary>

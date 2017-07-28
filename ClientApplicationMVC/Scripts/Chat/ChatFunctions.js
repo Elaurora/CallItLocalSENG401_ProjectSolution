@@ -1,12 +1,15 @@
 ﻿
-
+var currentSelectedChat = null;
 username = "You";
 $(function () {//This function is executed after the entire page is loaded
-
     $("#SendButton").click(sendMessage);
+    $("#ChatInstancesList").children().each(function () {
+        $(this).click(chatInstanceSelected);
+    });
+    var firstChatInstanceBox = $("#ChatInstancesList").children().first();
 
-
-
+    firstChatInstanceBox.css("background", "rgba(255, 255, 255, 0.1)");
+    currentSelectedChat = firstChatInstanceBox.attr("id");
 });
 
 
@@ -26,10 +29,10 @@ function sendMessage() {
     $("#ConversationDisplayArea").scrollTop($("#ConversationDisplayArea").prop("scrollHeight"));//Make the scrollbar scroll to the bottom
 
     //TODO: Implement recipient function
-    var recipient = "TestCompany";
+    var recipient = currentSelectedChat;
     var timestamp = Math.round((new Date()).getTime() / 1000);
 
-    $.post("Chat/SendMessage", {
+    $.post("/Chat/SendMessage", {
         receiver: recipient,
         timestamp: timestamp,
         message: userData
@@ -38,4 +41,26 @@ function sendMessage() {
 
 function chatInstanceSelected() {
     //TODO: This function - Should load the selected chat instance from the database and display it in the chat display area
+    
+    if ($(this).attr("id") == currentSelectedChat) {
+        return;
+    }
+
+    $("#" + currentSelectedChat).css("background", "initial");
+
+    currentSelectedChat = $(this).attr("id");
+
+    $("#" + currentSelectedChat).css("background", "rgba(255, 255, 255, 0.1)");
+
+    $.ajax({
+        method: "GET",
+        url: "/Chat/Conversation",
+        data: {
+            otherUser: currentSelectedChat
+        },
+        success: function (data) {
+            $("#ConversationDisplayArea").html(data);
+        }
+    });
+
 }

@@ -7,9 +7,9 @@ namespace ClientApplicationMVC.Models
     {
         /// <summary>
         /// The amount of time the client should wait for a response from the server
-        /// Value is 10mins
+        /// Value of 600000 is 10mins
         /// </summary>
-        public const int patienceLevel_ms = 600000;
+        public const int patienceLevel_ms = 600000 * 3;
 
         private static bool servicesRunning = false;
 

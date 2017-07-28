@@ -27,6 +27,7 @@ namespace ChatService.Handlers
         /// <returns>A task to reply to the endpoint that sent the command</returns>
         public Task Handle(GetChatHistory message, IMessageHandlerContext context)
         {
+            //return Task.CompletedTask;
             message.history = ChatServiceDatabase.getInstance().getChatHistory(message.userone, message.usertwo);
 
             return context.Reply(message);

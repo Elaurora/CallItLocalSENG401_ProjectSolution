@@ -27,6 +27,7 @@ namespace ChatService.Handlers
         /// <returns>The same message with the contactnames property filled</returns>
         public Task Handle(GetChatContacts message, IMessageHandlerContext context)
         {
+            //return Task.CompletedTask;
             message.contactNames = ChatServiceDatabase.getInstance().getAllChatContactsForUser(message.usersname);
 
             return context.Reply(message);

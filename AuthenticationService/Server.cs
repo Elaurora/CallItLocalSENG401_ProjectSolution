@@ -20,17 +20,16 @@ namespace AuthenticationService
         /// Semaphore, used to indicate when a client connection has been recieved
         /// </summary>
         private ManualResetEvent connectionAttemptRecieved = new ManualResetEvent(false);
-        /// <summary>
-        /// The endpoint used to communicate with the other endpoints in the service bus
-        /// </summary>
-        private EndpointConfiguration endpointConfiguration;
+
+        private IEndpointInstance eventPublisher;
     }
 
     public partial class Server
     {
-        public Server(EndpointConfiguration endpointConfiguration)
+
+        public Server(IEndpointInstance eventPublisher)
         {
-            this.endpointConfiguration = endpointConfiguration;
+            this.eventPublisher = eventPublisher;
         }
 
         /// <summary>
@@ -88,7 +87,7 @@ namespace AuthenticationService
             Socket serverSocket = (Socket)ar.AsyncState;
             Socket specificClientSocket = serverSocket.EndAccept(ar);
             
-            ClientConnection connection = new ClientConnection(specificClientSocket, endpointConfiguration);
+            ClientConnection connection = new ClientConnection(specificClientSocket, eventPublisher);
 
             Thread newThread = new Thread(new ThreadStart(connection.listenToClient));
             newThread.Start();

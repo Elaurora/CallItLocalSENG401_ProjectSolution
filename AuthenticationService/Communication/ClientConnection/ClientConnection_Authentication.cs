@@ -55,7 +55,7 @@ namespace AuthenticationService.Communication
                 username = command.username;
                 password = command.password;
                 initializeEndpoint();
-                authenticationEndpoint.Publish(new AccountCreated(command));
+                eventPublishingEndpoint.Publish(new AccountCreated(command));
             }
             return dbResponse;
         }
@@ -111,7 +111,7 @@ namespace AuthenticationService.Communication
                 username = "TEMPORARY " + username;
             }
             initializeEndpoint();
-            authenticationEndpoint.Publish(attempt);
+            eventPublishingEndpoint.Publish(attempt);
         }
 
         /// <summary>
@@ -159,8 +159,8 @@ namespace AuthenticationService.Communication
         /// </summary>
         private void initializeEndpoint()
         {
-            endpointsettings.MakeInstanceUniquelyAddressable(username);
-            authenticationEndpoint = Endpoint.Start(endpointsettings).ConfigureAwait(false).GetAwaiter().GetResult();
+            EndpointConfiguration config = getConfig(username);
+            requestingEndpoint = Endpoint.Start(config).ConfigureAwait(false).GetAwaiter().GetResult();
         }
     }
 

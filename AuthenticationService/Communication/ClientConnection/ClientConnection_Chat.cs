@@ -46,7 +46,8 @@ namespace AuthenticationService.Communication
         /// <returns>An empty string upon success</returns>
         private string messageSent(string messageInfo)
         {
-            authenticationEndpoint.Publish(new MessageSent { msg = new ChatMessage(messageInfo) });
+            ChatMessage msg = new ChatMessage(messageInfo);
+            eventPublishingEndpoint.Publish(new MessageSent { msg = msg });
             return "";
         }
 
@@ -67,7 +68,7 @@ namespace AuthenticationService.Communication
                 usersname = givenuser
             };
 
-            request = authenticationEndpoint.Request<GetChatContacts>(request).
+            request = requestingEndpoint.Request<GetChatContacts>(request, sendOptions).
                 ConfigureAwait(false).GetAwaiter().GetResult();
 
             if(request.contactNames == null || request.contactNames.Count < 1)
@@ -117,7 +118,7 @@ namespace AuthenticationService.Communication
             SendOptions sendOptions = new SendOptions();
             sendOptions.SetDestination("Chat");
 
-            request = authenticationEndpoint.Request<GetChatHistory>(request, sendOptions)
+            request = requestingEndpoint.Request<GetChatHistory>(request, sendOptions)
                 .ConfigureAwait(false).GetAwaiter().GetResult();
 
             return request.history.toString();

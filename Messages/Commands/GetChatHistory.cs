@@ -4,7 +4,7 @@ using Messages.DataTypes.Database.Chat;
 
 namespace Messages.Commands
 {
-    public class GetChatHistory : ICommand
+    public class GetChatHistory : IMessage
     {
         public string userone { get; set; }
         public string usertwo { get; set; }

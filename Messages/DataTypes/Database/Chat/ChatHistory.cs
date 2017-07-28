@@ -64,7 +64,7 @@ namespace Messages.DataTypes.Database.Chat
 
     public partial class ChatHistory
     {
-        public List<ChatMessage> messages { get; set; }
+        public List<ChatMessage> messages { get; set; } = new List<ChatMessage>(0);
         public string usersname { get; set; }
         public string companyname { get; set; }
     }

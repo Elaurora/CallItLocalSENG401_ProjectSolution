@@ -28,6 +28,8 @@
 
 
 <script>
+    var username = "Log In";
+
     function validateLoginInfo() {
         if (logInForm.textUsername.value === "") {
             alert("Username cannot be left blank");
@@ -37,6 +39,7 @@
             alert("Password cannot be left blank");
             return false;
         }
+        username = logInForm.textUsername.value;
         return true;
     }
 </script>

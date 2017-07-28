@@ -12,11 +12,11 @@ namespace ClientApplicationMVC
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{controller}/{action}/{info}",
+                defaults: new { controller = "Home", action = "Index", info = UrlParameter.Optional }
             );
         }
     }

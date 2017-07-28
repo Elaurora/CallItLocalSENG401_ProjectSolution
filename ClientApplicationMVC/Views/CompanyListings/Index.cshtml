@@ -15,7 +15,7 @@
 
     @Html.TextBox("textCompanyName")
     <input type="submit" value="Search" />
-    <br />
+    <br /><br /><br />
 
     
 }
@@ -27,6 +27,7 @@
     }
     else
     {
+        <p style="font-size:larger">Results:</p> <br />
         foreach (string item in ViewBag.Companylist.companyNames)
         {
             @Html.ActionLink(item, "DisplayCompany/" + item, "CompanyListings")

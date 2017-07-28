@@ -2,6 +2,9 @@
     This is the index page for the Chat controller    
 -->
 
+<link href="~/Content/ChatStyles.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="~/Scripts/Chat/ChatFunctions.js"></script>
 @{
     ViewBag.Title = "Index";
 }
@@ -11,40 +14,50 @@
 <div style="width: 100%; overflow: hidden; height: 500px;">
     <div style="width: 200px; float: left; height:inherit; overflow: auto;">
         <!--Here goes a list of all the companies the user has initiated a conversation with-->
+        @foreach(string contact in ViewBag.ChatInstances)
+        {
+            <div class="chatInstanceBox" onclick="chatInstanceSelected">
+                <div style="line-height:50px;">
+                    <p class="chatInstanceCompanyName">@contact</p>
+                </div>
+            </div>
+            //TODO: Make each of these a press-able button that runs some javascript to load that particular contacts messages
+            //TODO: Make a css class for each of these as well
+        }
 
-        
     </div>
     <div style="margin-left: 205px; height: inherit;"> <!--This area contains the conversation and the message typing area-->
-        <div style="height: 400px; font-size:larger; overflow: auto;" id="ConversationDisplayArea">
+        <div id="ConversationDisplayArea">
             <!--Here is where the messages for the current conversation are displayed-->
+            @foreach(Messages.DataTypes.Database.Chat.ChatMessage msg in ViewBag.DisplayedChatHistory.messages)
+            {
+                if (msg.sender.Equals(ClientApplicationMVC.Models.Globals.getUser()))
+                {
+                    //Display a message of the current user.
+                    <p class="message">
+                        <span class="username">You: </span>
+                        @msg.messageContents
+                    </p>
+                }
+                else
+                {
+                    //Display a message of the conversation
+                    <p class="message">
+                        <span class="username" style="color:blue;">@msg.sender:</span>
+                        @msg.messageContents
+                    </p>
+                }
+            }
         </div>
         <div style="height: 100px;" id="UserMessageArea">
             <div style="float: left; width:inherit; height: 72px;" id="MessageTextArea">
-                <textarea id="textUserMessage" placeholder="Enter your message here."
-                          style="resize: none; max-width: 850px; width: 850px;" rows="3"></textarea>
+                <textarea class="messagetextarea" id="textUserMessage" placeholder="Enter your message here." rows="3"></textarea>
             </div>
             <div style="float: right;" id="SendButtonArea">
-                <input type="submit" value="Send" onsubmit="validateMessageAndUpdateChat()"
-                       style="height: 72px; width: 70px;"/>
+                <button class="sendbutton" id="SendButton">Send</button>
             </div>
         </div>
     </div>
 </div>
 
-<script>
-    //TODO: This function should send the message to the web server without reloading the page
-    //TODO: How to recieve messages without reloading the page ?
-    function validateMessageAndUpdateChat() {
-        var userData = sendMessageForm.textUserMessage.value;
-        alert(userData.trim());
-        if (userData.trim() == "") {
-            return;
-        }
-        sendMessageForm.textUserMessage.value = "";//Reset the textbox
 
-        var convo = document.getElementById("ConversationDisplayArea");
-        convo.innerHTML += "<p>" + userData + "</p>";
-
-        return;
-    }
-</script>

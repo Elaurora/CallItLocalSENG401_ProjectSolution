@@ -31,8 +31,8 @@ namespace ChatService.Database
             if(openConnection() == true)
             {
                 string query = @"SELECT id FROM " + databaseName + @".chats " +
-                    @"WHERE (usersname='" + msg.sender + @"' OR companyname='" + msg.sender + @"')" +
-                    @"AND (usersname='" + msg.receiver + @"' OR companyname='" + msg.receiver + @"');";
+                    @"WHERE (usersname='" + msg.sender + @"' AND companyname='" + msg.receiver + @"') " +
+                    @"OR (usersname='" + msg.receiver + @"' AND companyname='" + msg.sender + @"');";
 
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataReader dataReader = command.ExecuteReader();
@@ -40,10 +40,10 @@ namespace ChatService.Database
 
                 if(dataReader.Read() == true)
                 {
-                    id = (long)dataReader["id"];
+                    id = dataReader.GetInt64("id");
                     dataReader.Close();
                 }
-                else
+                else // The chat instance does not exist and needs to be created
                 {
                     dataReader.Close();
                     createNewChatInstance(msg.sender, msg.receiver);
@@ -55,7 +55,8 @@ namespace ChatService.Database
 
                     dataReader = command.ExecuteReader();
                     dataReader.Read();
-                    id = (long)dataReader["id"];
+                    id = dataReader.GetInt64("id");
+                    dataReader.Close();
                 }
 
                 query = @"INSERT INTO messages(id, message, timestamp, sender) " +
@@ -121,13 +122,13 @@ namespace ChatService.Database
 
                 while (reader.Read() == true)
                 {
-                    if (usersname.Equals(reader["usersname"]))
+                    if (usersname.Equals(reader.GetString("usersname")))
                     {
-                        result.Add((string)reader["companyname"]);
+                        result.Add(reader.GetString("companyname"));
                     }
                     else
                     {
-                        result.Add((string)reader["usersname"]);
+                        result.Add(reader.GetString("usersname"));
                     }
                 }
 
@@ -163,7 +164,6 @@ namespace ChatService.Database
                 {
                     usersname = usersname,
                     companyname = companyname,
-                    messages = new List<ChatMessage>()
                 };
 
                 MySqlCommand command = new MySqlCommand(query, connection);
@@ -222,7 +222,7 @@ namespace ChatService.Database
                             {
                                 "NOT NULL",
                                 "UNIQUE",
-                                "AUTO INCREMENT"
+                                "AUTO_INCREMENT"
                             }, true
                         ),
                         new Column
@@ -231,7 +231,7 @@ namespace ChatService.Database
                             new string[]
                             {
                                 "NOT NULL"
-                            }, true
+                            }, false
                         ),
                         new Column
                         (
@@ -239,7 +239,7 @@ namespace ChatService.Database
                             new string[]
                             {
                                 "NOT NULL"
-                            }, true
+                            }, false
                         )
                     }
                 ),

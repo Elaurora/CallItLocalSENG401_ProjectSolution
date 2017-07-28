@@ -147,7 +147,7 @@ namespace CompanyDirectoryService.Database
 
                 while (dataReader.Read())
                 {
-                    result.Add(dataReader["companyname"] + "");
+                    result.Add(dataReader.GetString("companyname"));
                 }
 
                 dataReader.Close();
@@ -182,9 +182,9 @@ namespace CompanyDirectoryService.Database
                 {
                     return new CompanyInstance();
                 }
-                string companyName = dataReader["companyname"] + "";
-                string phoneNumber = dataReader["phonenumber"] + "";
-                string email = dataReader["email"] + "";
+                string companyName = dataReader.GetString("companyname");
+                string phoneNumber = dataReader.GetString("phonenumber");
+                string email = dataReader.GetString("email");
                 List<string> locations = new List<string>();
 
                 dataReader.Close();
@@ -198,7 +198,7 @@ namespace CompanyDirectoryService.Database
 
                 while (dataReader.Read())
                 {
-                    locations.Add(dataReader["address"] + "");
+                    locations.Add(dataReader.GetString("address"));
                 }
 
                 dataReader.Close();
@@ -265,7 +265,6 @@ namespace CompanyDirectoryService.Database
                             new string[]
                             {
                                 "NOT NULL",
-                                "UNIQUE"
                             }, true
                         ),
                          new Column
@@ -274,7 +273,6 @@ namespace CompanyDirectoryService.Database
                             new string[]
                             {
                                 "NOT NULL",
-                                "UNIQUE"
                             }, true
                         )
 

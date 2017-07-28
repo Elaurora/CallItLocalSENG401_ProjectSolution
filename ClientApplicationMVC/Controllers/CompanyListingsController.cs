@@ -38,18 +38,22 @@ namespace ClientApplicationMVC.Controllers
             return View("Index");
         }
 
-        public ActionResult DisplayCompany(string id)
+        public ActionResult DisplayCompany(string info)
         {
-            if ("".Equals(id))
+            if (Globals.isLoggedIn() == false)
+            {
+                return RedirectToAction("Index", "Authentication");
+            }
+            if ("".Equals(info))
             {
                 return View("Index");
             }
-            CompanyInstance company = ServiceBusCommunicationManager.getCompanyInfo(id);
+            CompanyInstance company = ServiceBusCommunicationManager.getCompanyInfo(info);
 
             ViewBag.CompanyInfo = company;
 
-            ViewBag.CompanyName = id;
-            return View("ShowCompany");
+            ViewBag.CompanyName = info;
+            return View("DisplayCompany");
         }
     }
 }

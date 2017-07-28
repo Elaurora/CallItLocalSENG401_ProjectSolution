@@ -46,7 +46,7 @@ namespace AuthenticationService.Communication
             SendOptions sendOptions = new SendOptions();
             sendOptions.SetDestination("CompanyDirectory");
 
-            CompanyList response = authenticationEndpoint.Request<CompanyList>(new SearchForCompany
+            CompanyList response = requestingEndpoint.Request<CompanyList>(new SearchForCompany
             {
                 delim = companyToSearchFor
             }
@@ -65,7 +65,7 @@ namespace AuthenticationService.Communication
             SendOptions sendOptions = new SendOptions();
             sendOptions.SetDestination("CompanyDirectory");
 
-            CompanyInstance returned = authenticationEndpoint.Request<CompanyInstance>(new GetCompanyInfo
+            CompanyInstance returned = requestingEndpoint.Request<CompanyInstance>(new GetCompanyInfo
             {
                 companyName = companyName
             }, sendOptions).ConfigureAwait(false).GetAwaiter().GetResult();

@@ -95,6 +95,7 @@ namespace AuthenticationService.Communication
             {
                 try
                 {
+                    //TODO AMIR: Here is where the bus receives messages from the web server
                     connection.Receive(readByte, 1, 0);
                     returned += (char)readByte[0];
                 }
@@ -115,6 +116,7 @@ namespace AuthenticationService.Communication
         {
             if (connection.Connected == true && !"".Equals(msg))
             {
+                //TODO AMIR: Here is where the bus sends messages to the web server
                 connection.Send(Encoding.ASCII.GetBytes(msg + SharedData.msgEndDelim));
             }
         }

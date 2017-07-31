@@ -177,13 +177,14 @@ namespace ChatService.Database
                         unix_timestamp = reader.GetInt32("timestamp")
                     };
                     string sender = reader.GetString("sender");
+                    msg.sender = sender;
                     if (usersname.Equals(sender))
                     {
-                        msg.sender = usersname;
+                        msg.receiver = companyname;
                     }
                     else
                     {
-                        msg.receiver = companyname;
+                        msg.receiver = usersname;
                     }
                     result.messages.Add(msg);
                 }

@@ -13,6 +13,7 @@ function validateAndSendMessage() {
     var recipient = $("#CompanyNameDisplay").text();
     var timestamp = Math.round((new Date()).getTime() / 1000);
 
+     //TODO AMIR: Here if where the web client sends messages to the the web server
     $.ajax({
         method: "POST",
         url: "/Chat/SendMessage",

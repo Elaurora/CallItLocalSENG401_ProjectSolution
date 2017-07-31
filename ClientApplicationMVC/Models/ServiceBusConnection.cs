@@ -153,7 +153,7 @@ namespace ClientApplicationMVC.Models
                 //TODO: Low Importance - Add a timeout to this
                 connect();
             }
-
+            //TODO AMIR: Here is where the web server communicates with the Bus
             connection.Send(msg);
         }
 
@@ -176,6 +176,7 @@ namespace ClientApplicationMVC.Models
 
             while (returned.Contains(SharedData.msgEndDelim) == false)
             {
+                //TODO AMIR: Here is where the web server receives responses from the bus
                 connection.Receive(readByte, 1, 0);
                 returned += (char)readByte[0];
             }

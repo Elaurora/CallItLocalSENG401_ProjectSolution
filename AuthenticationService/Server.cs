@@ -8,22 +8,11 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AuthenticationService
 {
-    /// <summary>
-    /// This portion of the class contains the member variables
-    /// </summary>
-    public partial class Server
-    {
-        /// <summary>
-        /// Semaphore, used to indicate when a client connection has been recieved
-        /// </summary>
-        private ManualResetEvent connectionAttemptRecieved = new ManualResetEvent(false);
-
-        private IEndpointInstance eventPublisher;
-    }
-
+    
     public partial class Server
     {
 
@@ -80,18 +69,45 @@ namespace AuthenticationService
         /// <param name="ar"></param>
         public void AcceptConnection(IAsyncResult ar)
         {
-            // Signal the main thread to continue listening for more connection attempts.  
-            connectionAttemptRecieved.Set();
 
             // Get the socket that handles the client request.  
             Socket serverSocket = (Socket)ar.AsyncState;
             Socket specificClientSocket = serverSocket.EndAccept(ar);
-            
-            ClientConnection connection = new ClientConnection(specificClientSocket, eventPublisher);
+
+            // Signal the main thread to continue listening for more connection attempts.  
+            connectionAttemptRecieved.Set();
+
+            ClientConnection connection = new ClientConnection(specificClientSocket, eventPublisher, getCertificate());
 
             Thread newThread = new Thread(new ThreadStart(connection.listenToClient));
             newThread.Start();
         }
         
+        private X509Certificate2 getCertificate()
+        {
+            X509Certificate2 certificate = new X509Certificate2(certificateLocation, "");
+
+
+            return certificate;
+        }
     }
+
+    /// <summary>
+    /// This portion of the class contains the member variables
+    /// </summary>
+    public partial class Server
+    {
+        /// <summary>
+        /// Semaphore, used to indicate when a client connection has been recieved
+        /// </summary>
+        private ManualResetEvent connectionAttemptRecieved = new ManualResetEvent(false);
+
+        /// <summary>
+        /// Endpoint used by all clients to publish events
+        /// </summary>
+        private IEndpointInstance eventPublisher;
+
+        private const string certificateLocation = "C:\\Users\\joshua\\Documents\\Visual Studio 2017\\Projects\\CallItLocal\\Certificate\\ENSF401TenYears.pfx";
+    }
+
 }

@@ -5,6 +5,8 @@ using Messages.DataTypes.Database.Chat;
 
 using System;
 using System.Net.Sockets;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 
@@ -146,7 +148,7 @@ namespace ClientApplicationMVC.Models
         /// <param name="message">The message to be sent</param>
         private void send(string message)
         {
-            byte[] msg = Encoding.ASCII.GetBytes(message + SharedData.msgEndDelim);
+            byte[] msg = Encoding.UTF8.GetBytes(message + SharedData.msgEndDelim);
 
             while (!connection.Connected)
             {
@@ -154,7 +156,8 @@ namespace ClientApplicationMVC.Models
                 connect();
             }
             //TODO AMIR: Here is where the web server communicates with the Bus
-            connection.Send(msg);
+            connectionStream.Write(msg);
+            connectionStream.Flush();
         }
 
         /// <summary>
@@ -163,6 +166,14 @@ namespace ClientApplicationMVC.Models
         private void connect()
         {
             connection.Connect(ServiceBusInfo.serverHostName, ServiceBusInfo.serverPort);
+
+            connectionStream = new SslStream(
+                new NetworkStream(connection),
+                false,
+                new RemoteCertificateValidationCallback(ValidateServerCertificate),
+                null);
+
+            connectionStream.AuthenticateAsClient("localhost");
         }
 
         /// <summary>
@@ -171,14 +182,29 @@ namespace ClientApplicationMVC.Models
         /// <returns>The string representation of bytes read from the server socket</returns>
         private string readUntilEOF()
         {
-            byte[] readByte = new byte[1];
+            byte[] encodedBytes = new byte[2048];
             string returned = String.Empty;
 
             while (returned.Contains(SharedData.msgEndDelim) == false)
             {
-                //TODO AMIR: Here is where the web server receives responses from the bus
-                connection.Receive(readByte, 1, 0);
-                returned += (char)readByte[0];
+                try
+                {
+                    //TODO AMIR: Here is where the bus receives messages from the web server
+                    //connection.Receive(encodedBytes, 1, 0);
+
+                    int bytesRead = connectionStream.Read(encodedBytes, 0, encodedBytes.Length);
+
+                    Decoder decoder = Encoding.UTF8.GetDecoder();
+                    char[] decodedBytes = new char[decoder.GetCharCount(encodedBytes, 0, bytesRead)];
+
+                    decoder.GetChars(encodedBytes, 0, bytesRead, decodedBytes, 0);
+
+                    returned += new string(decodedBytes);
+                }
+                catch (SocketException)// This is thrown when the timeout occurs. The timeout is set in the constructor
+                {
+                    Thread.Yield();// Yield this threads remaining timeslice to another process, this process does not appear to need it
+                }
             }
 
             return returned.Substring(0, returned.IndexOf(SharedData.msgEndDelim));
@@ -191,6 +217,20 @@ namespace ClientApplicationMVC.Models
         {
             connection.Disconnect(true);
         }
+
+        private bool ValidateServerCertificate(
+            object sender,
+              X509Certificate certificate,
+              X509Chain chain,
+              SslPolicyErrors sslPolicyErrors)
+        {
+            if (sslPolicyErrors == SslPolicyErrors.None)
+                return true;
+
+            //TODO: low importance - Handle a failed validation
+
+            return false;
+        }
     }
 
     partial class ServiceBusConnection
@@ -199,6 +239,11 @@ namespace ClientApplicationMVC.Models
         /// This is the socket that connects the application to the database
         /// </summary>
         private Socket connection = new Socket(ServiceBusInfo.ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+
+        /// <summary>
+        /// The stream used to communicate securely
+        /// </summary>
+        private SslStream connectionStream;
 
         /// <summary>
         /// Semaphore in charge of making sure only one thread accesses the socket at a time

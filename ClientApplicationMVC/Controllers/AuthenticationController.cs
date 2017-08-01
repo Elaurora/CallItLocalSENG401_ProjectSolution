@@ -47,9 +47,21 @@ namespace ClientApplicationMVC.Controllers
         public ActionResult CreateAccount()
         {
             ViewBag.Message = "Please enter the following information to create your account";
+            ViewBag.AccountCreationResult = "NotAttempted";
             return View("CreateAccount");
         }
 
+        /// <summary>
+        /// This controller is used when an httpPost request is made to /Authentication/CreateAccount
+        /// If the account creation is successful the user will be logged in.
+        /// </summary>
+        /// <param name="textUsername">The username for the new account</param>
+        /// <param name="textPassword">The password for the new account</param>
+        /// <param name="textAddress">The address for the new account</param>
+        /// <param name="textPhoneNumber">The phone number for the new account</param>
+        /// <param name="textEmail">The email for the new account</param>
+        /// <param name="accountType">The account type</param>
+        /// <returns>A redirect to a different page, the current page if unsuccessful and the home page if successsful</returns>
         [HttpPost]
         [AsyncTimeout(Globals.patienceLevel_ms)]
         public ActionResult CreateAccount(string textUsername, string textPassword, string textAddress, string textPhoneNumber, string textEmail, bool accountType)
@@ -66,10 +78,14 @@ namespace ClientApplicationMVC.Controllers
 
             string response = ServiceBusCommunicationManager.sendNewAccountInfo(msg);
 
+            if ("Success".Equals(response))
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
-            //TODO: React based on the response
+            ViewBag.AccountCreationResult = response;
 
-            return RedirectToAction("Index", "Home");
+            return View("CreateAccount");
         }
     }
 }

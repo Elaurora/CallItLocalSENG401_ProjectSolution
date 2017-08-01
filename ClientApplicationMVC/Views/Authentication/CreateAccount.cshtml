@@ -8,6 +8,11 @@
 
 <h2>CreateAccount</h2>
 
+@if ("NotAttempted".Equals(ViewBag.AccountCreationResult))
+{
+    <p>@ViewBag.AccountCreationResult</p>
+}
+
 @using (Html.BeginForm("CreateAccount", "Authentication", FormMethod.Post,
     new { id = "createAccountForm", onsubmit = "return validateCreateAccountInfo()" }))
 {

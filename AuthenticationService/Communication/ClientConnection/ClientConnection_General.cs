@@ -6,11 +6,8 @@ using NServiceBus;
 using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
-using System.Net.Security;
-using System.Security.Authentication;
 using System.Text;
 using System.Threading;
-using System.Security.Cryptography.X509Certificates;
 
 namespace AuthenticationService.Communication
 {
@@ -24,14 +21,10 @@ namespace AuthenticationService.Communication
     /// </summary>
     partial class ClientConnection
     {
-        public ClientConnection(Socket connection, IEndpointInstance eventPublishingEndpoint, X509Certificate2 certificate)
+        public ClientConnection(Socket connection, IEndpointInstance eventPublishingEndpoint)
         {
             this.connection = connection;
             this.eventPublishingEndpoint = eventPublishingEndpoint;
-            this.certificate = certificate;
-            this.connectionStream = new SslStream(new NetworkStream(connection, false));
-            this.connectionStream.AuthenticateAsServer(certificate,
-                   false, SslProtocols.Tls, true);
         }
 
         /// <summary>
@@ -95,7 +88,7 @@ namespace AuthenticationService.Communication
         /// <returns>The string representation of bytes read from the client socket</returns>
         private string readUntilEOF()
         {
-            byte[] encodedBytes = new byte[2048];
+            byte[] readByte = new byte[1];
             string returned = String.Empty;
 
             while (returned.Contains(SharedData.msgEndDelim) == false)
@@ -103,16 +96,8 @@ namespace AuthenticationService.Communication
                 try
                 {
                     //TODO AMIR: Here is where the bus receives messages from the web server
-                    //connection.Receive(encodedBytes, 1, 0);
-
-                    int bytesRead = connectionStream.Read(encodedBytes, 0, encodedBytes.Length);
-
-                    Decoder decoder = Encoding.UTF8.GetDecoder();
-                    char[] decodedBytes = new char[decoder.GetCharCount(encodedBytes, 0, bytesRead)];
-
-                    decoder.GetChars(encodedBytes, 0, bytesRead, decodedBytes, 0);
-                    
-                    returned += new string(decodedBytes);
+                    connection.Receive(readByte, 1, 0);
+                    returned += (char)readByte[0];
                 }
                 catch (SocketException)// This is thrown when the timeout occurs. The timeout is set in the constructor
                 {
@@ -132,11 +117,7 @@ namespace AuthenticationService.Communication
             if (connection.Connected == true && !"".Equals(msg))
             {
                 //TODO AMIR: Here is where the bus sends messages to the web server
-                //connection.Send(Encoding.ASCII.GetBytes(msg + SharedData.msgEndDelim));
-
-                msg += SharedData.msgEndDelim;
-                connectionStream.Write(Encoding.UTF8.GetBytes(msg));
-                connectionStream.Flush();
+                connection.Send(Encoding.ASCII.GetBytes(msg + SharedData.msgEndDelim));
             }
         }
 
@@ -184,19 +165,9 @@ namespace AuthenticationService.Communication
         private Socket connection;
 
         /// <summary>
-        /// This is the stream used to read and write to the socket securely
-        /// </summary>
-        private SslStream connectionStream = null;
-
-        /// <summary>
         /// This is the timeout used by the socket as it waits for a message from the client
         /// </summary>
         private const int timeout_ms = 50;
-
-        /// <summary>
-        /// This is used to authenticate the connection between the client(web server) and the bus.
-        /// </summary>
-        private X509Certificate2 certificate = null;
     }
 
     partial class ClientConnection

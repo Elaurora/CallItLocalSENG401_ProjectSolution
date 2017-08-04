@@ -8,6 +8,9 @@ using System.Collections.Generic;
 
 namespace AuthenticationService.Communication
 {
+    /// <summary>
+    /// This portion of the class contains the methods used specifically for accessing the chat service
+    /// </summary>
     partial class ClientConnection
     {
         /// <summary>
@@ -37,8 +40,7 @@ namespace AuthenticationService.Communication
                     return ("Error: Invalid request. Did not specify a valid request from the chat service.");
             }
         }
-
-
+        
         /// <summary>
         /// Publishes a MessageSent event through the endpoint.
         /// </summary>

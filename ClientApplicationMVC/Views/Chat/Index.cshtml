@@ -14,15 +14,13 @@
 <div style="width: 100%; overflow: hidden; height: 500px;">
     <div style="width: 200px; float: left; height:inherit; overflow: auto;" id="ChatInstancesList">
         <!--Here goes a list of all the companies the user has initiated a conversation with-->
-        @foreach(string contact in ViewBag.ChatInstances)
+        @foreach (string contact in ViewBag.ChatInstances)
         {
             <div class="chatInstanceBox" id="@contact">
                 <div style="line-height:50px;">
                     <p class="chatInstanceCompanyName">@contact</p>
                 </div>
             </div>
-            //TODO: Make each of these a press-able button that runs some javascript to load that particular contacts messages
-            //TODO: Make a css class for each of these as well
         }
 
     </div>

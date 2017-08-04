@@ -32,7 +32,6 @@ function sendMessage() {
     var recipient = currentSelectedChat;
     var timestamp = Math.round((new Date()).getTime() / 1000);
 
-    //TODO AMIR: Here if where the web client sends messages to the the web server
     $.post("/Chat/SendMessage", {
         receiver: recipient,
         timestamp: timestamp,
@@ -41,8 +40,6 @@ function sendMessage() {
 }
 
 function chatInstanceSelected() {
-    //TODO: This function - Should load the selected chat instance from the database and display it in the chat display area
-    
     if ($(this).attr("id") == currentSelectedChat) {
         return;
     }
@@ -53,7 +50,6 @@ function chatInstanceSelected() {
 
     $("#" + currentSelectedChat).css("background", "rgba(255, 255, 255, 0.1)");
 
-     //TODO AMIR: Here if where the web client sends messages to the the web server
     $.ajax({
         method: "GET",
         url: "/Chat/Conversation",

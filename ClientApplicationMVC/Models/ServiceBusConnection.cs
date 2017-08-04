@@ -155,7 +155,6 @@ namespace ClientApplicationMVC.Models
                 //TODO: Low Importance - Add a timeout to this
                 connect();
             }
-            //TODO AMIR: Here is where the web server communicates with the Bus
             connectionStream.Write(msg);
             connectionStream.Flush();
         }
@@ -189,7 +188,6 @@ namespace ClientApplicationMVC.Models
             {
                 try
                 {
-                    //TODO AMIR: Here is where the bus receives messages from the web server
                     //connection.Receive(encodedBytes, 1, 0);
 
                     int bytesRead = connectionStream.Read(encodedBytes, 0, encodedBytes.Length);

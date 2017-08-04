@@ -16,14 +16,22 @@ namespace AuthenticationService.Communication
 {
 
     /// <summary>
-    /// This portion of the class contains the function definitions
+    /// This portion of the class contains the nonstatic function definitions
     /// 
     /// This class is used to communicate with clients that wish to use the services the bus has
     /// The client will continue to attempt to read a username and password until a valid pair has
     /// been given
+    /// 
+    /// This particular file contains members and methods relevant to all services.
     /// </summary>
     partial class ClientConnection
     {
+        /// <summary>
+        /// Constructor. Sets member variables and Sets up the secure connection stream from the socket
+        /// </summary>
+        /// <param name="connection">The socket which is connected to the client</param>
+        /// <param name="eventPublishingEndpoint">This is needed because the other services which subscribe to authentication endpoint events need an existing endpoint to subscribe too and cannot subscribe to user specific endpoint instances</param>
+        /// <param name="certificate">The certificate object used for secure communication</param>
         public ClientConnection(Socket connection, IEndpointInstance eventPublishingEndpoint, X509Certificate2 certificate)
         {
             this.connection = connection;
@@ -80,17 +88,18 @@ namespace AuthenticationService.Communication
             {
                 case ("authentication"):
                     return authenticationRequest(requestParameters);
-                case ("companydirectory"):
-                    return companyDirectoryRequest(requestParameters);
                 case ("chat"):
                     return chatRequest(requestParameters);
+                case ("companydirectory"):
+                    return companyDirectoryRequest(requestParameters);
                 default:
                     return ("Error: Invalid request. Did not specify a valid service type. Specified type was: " + serviceRequested);
             }
         }
 
         /// <summary>
-        /// Continuously reads one byte at a time from the client until the "<EOF>" string of characters is found
+        /// Continuously reads one byte at a time from the client until the end of file string of characters is found
+        /// The end of file string is found in the Messages library which is shared by the web server and the bus.
         /// </summary>
         /// <returns>The string representation of bytes read from the client socket</returns>
         private string readUntilEOF()
@@ -102,7 +111,6 @@ namespace AuthenticationService.Communication
             {
                 try
                 {
-                    //TODO AMIR: Here is where the bus receives messages from the web server
                     //connection.Receive(encodedBytes, 1, 0);
 
                     int bytesRead = connectionStream.Read(encodedBytes, 0, encodedBytes.Length);
@@ -131,7 +139,6 @@ namespace AuthenticationService.Communication
         {
             if (connection.Connected == true && !"".Equals(msg))
             {
-                //TODO AMIR: Here is where the bus sends messages to the web server
                 //connection.Send(Encoding.ASCII.GetBytes(msg + SharedData.msgEndDelim));
 
                 msg += SharedData.msgEndDelim;
@@ -199,10 +206,14 @@ namespace AuthenticationService.Communication
         private X509Certificate2 certificate = null;
     }
 
+    /// <summary>
+    /// This portion of the class contains the static members
+    /// </summary>
     partial class ClientConnection
     {
         /// <summary>
         /// Returns an endpoint configuration object to be used to craete a new endpoint instance
+        /// This function is required because each endpoint configuration can only be associated with a single endpoint instance
         /// </summary>
         /// <param name="addressableName">The uniquely addressable ID of the endpoint</param>
         /// <returns>Endpoint Configuration Object with relevant settings for use with this server</returns>

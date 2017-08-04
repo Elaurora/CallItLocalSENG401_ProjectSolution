@@ -14,7 +14,7 @@ using System.Threading;
 namespace AuthenticationService.Communication
 {
     /// <summary>
-    /// This portion of the class contains function definitions
+    /// This portion of the class contains methods specifially for accessing the authentication service
     /// </summary>
     partial class ClientConnection
     {

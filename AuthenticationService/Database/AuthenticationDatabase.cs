@@ -117,6 +117,7 @@ namespace AuthenticationService.Database
 
         protected override Table[] tables { get; } =
         {
+            //TODO: Add indication of foreign keys (for all databases that need this)
             new Table
                 (
                     dbname,

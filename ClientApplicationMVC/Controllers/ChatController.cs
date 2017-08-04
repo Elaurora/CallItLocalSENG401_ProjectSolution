@@ -18,7 +18,6 @@ namespace ClientApplicationMVC.Controllers
                 return RedirectToAction("Index", "Authentication");
             }
 
-            //TODO: Get all of the users current chat instances as well as all of the messages of the first instance from the chat service
             string[] chatInstances = ServiceBusCommunicationManager.getAllChatContacts();
             ChatHistory firstDisplayedChatHistory = chatInstances.Length > 0 ? ServiceBusCommunicationManager.getChatHistory(chatInstances[0]) : new ChatHistory();
 

@@ -27,7 +27,7 @@ namespace ClientApplicationMVC
         public void Session_OnEnd()
         {
             //ConnectionManager.removeConnection((string)HttpContext.Current.Session["user"]);
-            //TODO Medium Importance: Test this
+            //TODO Medium Importance: Implement and test this. Need to find a way of figuring out the ID of the session that ended when this was called
         }
     }
 }

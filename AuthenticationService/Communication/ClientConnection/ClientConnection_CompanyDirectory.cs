@@ -9,6 +9,9 @@ using System.Collections.Generic;
 
 namespace AuthenticationService.Communication
 {
+    /// <summary>
+    /// This portion of the class contains methods used specifically for accessing the companyDirectoryService
+    /// </summary>
     partial class ClientConnection
     {
         /// <summary>

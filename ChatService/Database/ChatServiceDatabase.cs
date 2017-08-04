@@ -109,7 +109,7 @@ namespace ChatService.Database
         /// <returns>A list of usernames the user has sent at least one chat message to</returns>
         public List<string> getAllChatContactsForUser(string usersname)
         {
-            //TODO low importance: Turn this from max 3 queries to 2
+            //TODO low importance: Turn this from max 3 queries to 2 for added efficiency
             if(openConnection() == true)
             {
                 string query = "SELECT * FROM " + databaseName + ".chats " +

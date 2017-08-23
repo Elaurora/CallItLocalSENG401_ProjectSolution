@@ -3,6 +3,9 @@ using System.Web;
 
 namespace ClientApplicationMVC.Models
 {
+    /// <summary>
+    /// This class contains functions and variables relevant to many different places in the web server.
+    /// </summary>
     public static class Globals
     {
         /// <summary>
@@ -10,8 +13,6 @@ namespace ClientApplicationMVC.Models
         /// Value of 600000 is 10mins
         /// </summary>
         public const int patienceLevel_ms = 600000 * 3;
-
-        private static bool servicesRunning = false;
 
         /// <summary>
         /// Returns true if the client is currently logged in.
@@ -32,7 +33,10 @@ namespace ClientApplicationMVC.Models
         /// <param name="user">The user name</param>
         public static void setUser(string user)
         {
+            //TODO: What if the user is already logged in on another device ?
             HttpContext.Current.Session["user"] = user;
+            //HttpContext.Current.Session.
+            //HttpContext.Current.User.Identity.
         }
 
         /// <summary>

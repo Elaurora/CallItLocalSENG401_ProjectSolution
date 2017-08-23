@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace AuthenticationService.Handlers
 {
     /// <summary>
-    /// 
+    /// This class is used by the authentication service event publishing endpoint when the LoginLogger service sends a LockAccount command
     /// </summary>
     public class LockAccountHandler : IHandleMessages<LockAccount>
     {
@@ -23,11 +23,11 @@ namespace AuthenticationService.Handlers
         static ILog log = LogManager.GetLogger<LockAccountHandler>();
 
         /// <summary>
-        /// This handler will lock the account using 
+        /// This handler will lock the account using ????
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="context"></param>
-        /// <returns></returns>
+        /// <param name="message">The command object that was sent</param>
+        /// <param name="context">Contains information relevent to the current command being handled.</param>
+        /// <returns>A task to publish an AccountLocked event</returns>
         public Task Handle(LockAccount message, IMessageHandlerContext context)
         {
             log.Info("Recieved a command to lock an account.", new NotImplementedException());

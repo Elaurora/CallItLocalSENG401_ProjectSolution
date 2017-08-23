@@ -50,7 +50,6 @@
     <Compile Include="Communication\ClientConnection\ClientConnection_General.cs" />
     <Compile Include="Communication\ClientConnection\ClientConnection_Authentication.cs" />
     <Compile Include="Database\AuthenticationDatabase.cs" />
-    <Compile Include="Handlers\CreateAccountHandler.cs" />
     <Compile Include="Handlers\LockAccountHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,8 +67,6 @@
       <Name>Messages</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

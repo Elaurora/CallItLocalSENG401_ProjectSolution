@@ -12,8 +12,15 @@ using System.Threading;
 
 namespace ClientApplicationMVC.Models
 {
+    /// <summary>
+    /// This class is responsible for sending and receiving messages between the service bus and the web server in a secure manner.
+    /// </summary>
     partial class ServiceBusConnection
     {
+        public ServiceBusConnection()
+        {
+            connection.ReceiveTimeout = readTimeout_ms;
+        }
 
         #region AuthenticationServiceMessages
         /// <summary>
@@ -90,6 +97,7 @@ namespace ClientApplicationMVC.Models
         {
             string busmsg = "chat/sendmessage/" + msg.toString();
             send(busmsg);
+            //TODO medium importance USE SignalR TO SEND TO RECEIVING CLIENT HERE
             return true;
         }
 
@@ -138,6 +146,7 @@ namespace ClientApplicationMVC.Models
         /// </summary>
         public void close()
         {
+            connectionStream.Close();//TODO low importance: Make sure this is a valid ay of closing the stream
             connection.Close();
         }
 
@@ -160,7 +169,9 @@ namespace ClientApplicationMVC.Models
         }
 
         /// <summary>
-        /// Attempts to connect to the service Bus through the socket
+        /// Attempts to connect to the service Bus through the socket, 
+        /// then attempts to open an SslStream using the socket,
+        /// then attempts to validate the connection with the server
         /// </summary>
         private void connect()
         {
@@ -176,7 +187,7 @@ namespace ClientApplicationMVC.Models
         }
 
         /// <summary>
-        /// Continuously reads one byte at a time from the client until the "<EOF>" string of characters is found
+        /// Continuously reads one byte at a time from the client until the end of file string of characters defined in the Messages library is found
         /// </summary>
         /// <returns>The string representation of bytes read from the server socket</returns>
         private string readUntilEOF()
@@ -216,6 +227,14 @@ namespace ClientApplicationMVC.Models
             connection.Disconnect(true);
         }
 
+        /// <summary>
+        /// TODO AMIR Medium Importance: Please write an accurate description of this method, its parameters and response
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="certificate"></param>
+        /// <param name="chain"></param>
+        /// <param name="sslPolicyErrors"></param>
+        /// <returns></returns>
         private bool ValidateServerCertificate(
             object sender,
               X509Certificate certificate,
@@ -231,6 +250,9 @@ namespace ClientApplicationMVC.Models
         }
     }
 
+    /// <summary>
+    /// This portion of the class contains the member variables
+    /// </summary>
     partial class ServiceBusConnection
     {
         /// <summary>
@@ -239,7 +261,7 @@ namespace ClientApplicationMVC.Models
         private Socket connection = new Socket(ServiceBusInfo.ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
         /// <summary>
-        /// The stream used to communicate securely
+        /// The stream used to communicate through securely
         /// </summary>
         private SslStream connectionStream;
 
@@ -247,5 +269,11 @@ namespace ClientApplicationMVC.Models
         /// Semaphore in charge of making sure only one thread accesses the socket at a time
         /// </summary>
         private Semaphore _lock = new Semaphore(0, 1);
+
+
+        /// <summary>
+        /// The number of milliseconds the ServiceBusConnection should wait for a response from the server before yielding its remaining timeslice
+        /// </summary>
+        private const int readTimeout_ms = 50;
     }
 }

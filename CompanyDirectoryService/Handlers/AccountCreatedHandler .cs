@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace CompanyDirectoryService.Handlers
 {
+    /// <summary>
+    /// This class is used by the Company Directory Service endpoint when the authentication service publishes an AccountCreated event.
+    /// </summary>
     public class AccountCreatedHandler : IHandleMessages<AccountCreated>
     {
         /// <summary>
@@ -23,10 +26,11 @@ namespace CompanyDirectoryService.Handlers
 
         /// <summary>
         /// This handler will add the newly created account to the list of companies upon the creation of a business account
+        /// This function will do nothing if the new account is a regular user account
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="context"></param>
-        /// <returns></returns>
+        /// <param name="message">The event object that was published</param>
+        /// <param name="context">Contains information relevent to the current event being handled.</param>
+        /// <returns>A completed task, which basically means it returns nothing</returns>
         public Task Handle(AccountCreated message, IMessageHandlerContext context)
         {
             //return Task.CompletedTask;

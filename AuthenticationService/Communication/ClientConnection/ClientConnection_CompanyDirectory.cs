@@ -17,6 +17,8 @@ namespace AuthenticationService.Communication
         /// <summary>
         /// Listens for the client to specify which task it is requesting from the CompanyDirectoryservice
         /// </summary>
+        /// <param name="requestParameters">Informtation relevant to the task being requested</param>
+        /// <returns>A response message</returns>
         private string companyDirectoryRequest(List<string> requestParameters)
         {
             if (authenticated == false)

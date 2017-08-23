@@ -5,16 +5,29 @@ using Messages.DataTypes;
 using MySql.Data.MySqlClient;
 
 using System;
+using System.Data.Sql;
 using System.Collections.Generic;
 
 namespace ChatService.Database
 {
+    /// <summary>
+    /// This class is used to manipulate and read the Chat Service's database in a safe and consistent manner.
+    /// It follows the singleton design pattern, as only one instance of this class should ever be in existance at any given time.
+    /// </summary>
     public partial class ChatServiceDatabase : AbstractDatabase
     {
+        /// <summary>
+        /// Private default constructor to enforce the use of the singleton design pattern
+        /// </summary>
         private ChatServiceDatabase() { }
 
+        /// <summary>
+        /// Gets the singleton instance of the database
+        /// </summary>
+        /// <returns>The singleton instance of the database</returns>
         public static ChatServiceDatabase getInstance()
         {
+            //TODO low importance: Add a semaphore to this and the other databases.
             if(instance == null)
             {
                 instance = new ChatServiceDatabase();
@@ -28,13 +41,18 @@ namespace ChatService.Database
         /// <param name="msg">The message to save</param>
         public void saveMessage(ChatMessage msg)
         {
-            if(openConnection() == true)
+            
+            if (openConnection() == true)
             {
                 string query = @"SELECT id FROM " + databaseName + @".chats " +
                     @"WHERE (usersname='" + msg.sender + @"' AND companyname='" + msg.receiver + @"') " +
                     @"OR (usersname='" + msg.receiver + @"' AND companyname='" + msg.sender + @"');";
 
+                //TODO Low importance, figure out what MySqlTransaction is and how it do. Also, something along the lines of "TransactionScope"
                 MySqlCommand command = new MySqlCommand(query, connection);
+                
+                //TODO medium importance: Look into the classes and interfaces in the namespace below.
+                //System.Data.SqlClient.
                 MySqlDataReader dataReader = command.ExecuteReader();
                 long id = -1;
 
@@ -201,13 +219,28 @@ namespace ChatService.Database
         }
     }
 
+    /// <summary>
+    /// This portion of the class contains the member variables as well as the schema definition in the form of Table/Column objects
+    /// </summary>
     public partial class ChatServiceDatabase : AbstractDatabase
     {
+        /// <summary>
+        /// The name of the database.
+        /// Both of these properties are required in order for both the base class and the
+        /// table definitions below to have access to the variable.
+        /// </summary>
         private const String dbname = "chatservicedb";
         public override String databaseName { get; } = dbname;
 
-        protected static ChatServiceDatabase instance;
+        /// <summary>
+        /// The singleton instance of the database
+        /// </summary>
+        protected static ChatServiceDatabase instance = null;
 
+        /// <summary>
+        /// This property represents the database schema, and will be used by the base class
+        /// to create and delete the database.
+        /// </summary>
         protected override Table[] tables { get; } =
         {
             new Table
@@ -285,6 +318,5 @@ namespace ChatService.Database
                     }
                 )
         };
-
     }
 }

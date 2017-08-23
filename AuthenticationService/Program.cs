@@ -8,21 +8,28 @@ using System.Threading.Tasks;
 
 namespace AuthenticationService
 {
+    /// <summary>
+    /// This class is the starting point for the process, responsible for configuring and initializing everything
+    /// </summary>
     public class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        /// Start point for the Authentication Service
         /// </summary>
         public static void Main()
         {
             AsyncMain().GetAwaiter().GetResult();
         }
 
+        /// <summary>
+        /// This method is responsible for initializing the endpoint used to publish events from the authentications server
+        /// </summary>
+        /// <returns>Nothing. Execution ends when this function ends</returns>
         static async Task AsyncMain()
         {
-
+//#if DEBUG
             Console.Title = "Authentication";// Give the console a title so it is easier to tell them apart
-
+//#endif
             //Create a new Endpoint configuration with the name "Authentication"
             EndpointConfiguration endpointConfiguration = new EndpointConfiguration("Authentication");
 
@@ -44,15 +51,19 @@ namespace AuthenticationService
 
             endpointConfiguration.MakeInstanceUniquelyAddressable("1");
 
-            //Start the endpoint with the configuration defined above. It should be noted that any changes made to the endpointConfiguration after an endpoint is instantiated will not apply to any endpoints that have already been instantiated
-            var eventRaisingEndpoint = await Endpoint.Start(endpointConfiguration).ConfigureAwait(false);
+            //Start the endpoint with the configuration defined above. It should be noted that any changes made to the endpointConfiguration after an endpoint is instantiated
+            //will not apply to any endpoints that have already been instantiated
+            var eventPublishingEndpoint = await Endpoint.Start(endpointConfiguration).ConfigureAwait(false);
 
-            Server serverConnection = new Server(eventRaisingEndpoint);
+            //Create the server object
+            Server serverConnection = new Server(eventPublishingEndpoint);
 
+            //Start the server running in its own thread
             Thread serverThread = new Thread(new ThreadStart(serverConnection.StartListening));
 
             serverThread.Start();//Start the server
 
+//#if DEBUG
             Messages.Debug.consoleMsg("Press Enter to exit.");
             string entry;
 
@@ -75,6 +86,9 @@ namespace AuthenticationService
                         break;
                 }
             } while (!entry.Equals(""));
+            //TODO Very low importance: Configure the preprocessor directives in this function for each service to behave 
+            //with or without an open console depending on if in debug or release mode
+//#endif
         }
 
 

@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace CompanyDirectoryService.Handlers
 {
+    /// <summary>
+    /// This class is used by the Company Directory Service endpoint when a client requests information about a specific company
+    /// </summary>
     public class GetCompanyInfoHandler : IHandleMessages<GetCompanyInfo>
     {
         /// <summary>
@@ -20,6 +23,12 @@ namespace CompanyDirectoryService.Handlers
         /// is an expensive call, and there is no need to instantiate a new logger every time a handler is created.
         private static ILog log = LogManager.GetLogger<GetCompanyInfoHandler>();
 
+        /// <summary>
+        /// Searches the CompanyDirectory database for a company matching the one in the comand object and returns its information if it exists
+        /// </summary>
+        /// <param name="message">The command object that was sent</param>
+        /// <param name="context">Contains information relevent to the current command being handled.</param>
+        /// <returns>A CompanyInstance response containing information about the requested company, or null if the company was not found</returns>
         public Task Handle(GetCompanyInfo message, IMessageHandlerContext context)
         {
             CompanyInstance response = CompanyDirectoryDB.getInstance().getCompanyInfo(message.companyName);

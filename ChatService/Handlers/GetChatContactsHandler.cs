@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace ChatService.Handlers
 {
+    /// <summary>
+    /// This class is used by the Chat Service endpoint when a client requests a list of its ChatContacts
+    /// </summary>
     public class GetChatContactsHandler : IHandleMessages<GetChatContacts>
     {
         /// <summary>
@@ -22,9 +25,9 @@ namespace ChatService.Handlers
         /// <summary>
         /// Searches the chat database for the names of all other users the given user has made chat contact with
         /// </summary>
-        /// <param name="message">The message containing the usersname</param>
-        /// <param name="context">the endpoint that received this</param>
-        /// <returns>The same message with the contactnames property filled</returns>
+        /// <param name="message">The command object that was sent</param>
+        /// <param name="context">Contains information relevent to the current command being handled.</param>
+        /// <returns>The command object with the contactnames property filled</returns>
         public Task Handle(GetChatContacts message, IMessageHandlerContext context)
         {
             //return Task.CompletedTask;

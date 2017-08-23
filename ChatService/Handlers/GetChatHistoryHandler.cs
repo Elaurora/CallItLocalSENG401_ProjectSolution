@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace ChatService.Handlers
 {
+    /// <summary>
+    /// This class is used by the Chat Service endpoint when a client requests their chat history with a specific user
+    /// </summary>
     public class GetChatHistoryHandler : IHandleMessages<GetChatHistory>
     {
         /// <summary>
@@ -20,14 +23,13 @@ namespace ChatService.Handlers
         static ILog log = LogManager.GetLogger<GetChatHistoryHandler>();
 
         /// <summary>
-        /// Asks the database to retrieve all chat messages passed between the 2 users specified in the message.
+        /// Asks the database to retrieve all chat messages passed between the 2 users specified in the command object.
         /// </summary>
         /// <param name="message">The command containg the message information</param>
         /// <param name="context">The receiving endpoint</param>
-        /// <returns>A task to reply to the endpoint that sent the command</returns>
+        /// <returns>The command object with the history property filled</returns>
         public Task Handle(GetChatHistory message, IMessageHandlerContext context)
         {
-            //return Task.CompletedTask;
             message.history = ChatServiceDatabase.getInstance().getChatHistory(message.userone, message.usertwo);
 
             return context.Reply(message);

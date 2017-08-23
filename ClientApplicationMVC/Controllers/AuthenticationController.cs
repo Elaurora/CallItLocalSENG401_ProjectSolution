@@ -3,15 +3,19 @@
 using Messages.Commands;
 using Messages.DataTypes;
 
-using System;
-using System.Net.Sockets;
-using System.Text;
 using System.Web.Mvc;
 
 namespace ClientApplicationMVC.Controllers
 {
+    /// <summary>
+    /// This class contains the functions responsible for handling requests routed to *Hostname*/Authentication/*
+    /// </summary>
     public class AuthenticationController : Controller
     {
+        /// <summary>
+        /// The default method for this controller
+        /// </summary>
+        /// <returns>The login page</returns>
         public ActionResult Index()
         {
             ViewBag.Message = "Please enter your username and password.";
@@ -43,6 +47,10 @@ namespace ClientApplicationMVC.Controllers
             return View("Index");
         }
 
+        /// <summary>
+        /// This function is called when the client navigates to *hostname*/Authentication/CreateAccount
+        /// </summary>
+        /// <returns>A view to be sent to the client containg the html page to create an account</returns>
         [HttpGet]
         public ActionResult CreateAccount()
         {

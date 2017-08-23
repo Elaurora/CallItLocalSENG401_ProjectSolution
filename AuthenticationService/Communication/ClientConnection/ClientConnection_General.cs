@@ -19,8 +19,6 @@ namespace AuthenticationService.Communication
     /// This portion of the class contains the nonstatic function definitions
     /// 
     /// This class is used to communicate with clients that wish to use the services the bus has
-    /// The client will continue to attempt to read a username and password until a valid pair has
-    /// been given
     /// 
     /// This particular file contains members and methods relevant to all services.
     /// </summary>
@@ -38,7 +36,7 @@ namespace AuthenticationService.Communication
             this.eventPublishingEndpoint = eventPublishingEndpoint;
             this.certificate = certificate;
             this.connectionStream = new SslStream(new NetworkStream(connection, false));
-            this.connectionStream.AuthenticateAsServer(certificate,
+            this.connectionStream.AuthenticateAsServer(certificate, //Indicate that this stream represents the server
                    false, SslProtocols.Tls, true);
         }
 
@@ -49,7 +47,7 @@ namespace AuthenticationService.Communication
         {
             while (connection.Connected == true)
             {
-                //Read the name of the service, the taskrequested, and information associated with it.
+                //Read the call to the API
                 string serviceRequested = readUntilEOF();
 
                 List<string> requestParameters = new List<string>(serviceRequested.Split('/'));
@@ -98,8 +96,8 @@ namespace AuthenticationService.Communication
         }
 
         /// <summary>
-        /// Continuously reads one byte at a time from the client until the end of file string of characters is found
-        /// The end of file string is found in the Messages library which is shared by the web server and the bus.
+        /// Continuously reads data from the client until the end of file string of characters is found
+        /// The end of file string is defined in the Messages library shared by the web server and the bus.
         /// </summary>
         /// <returns>The string representation of bytes read from the client socket</returns>
         private string readUntilEOF()
@@ -124,7 +122,7 @@ namespace AuthenticationService.Communication
                 }
                 catch (SocketException)// This is thrown when the timeout occurs. The timeout is set in the constructor
                 {
-                    Thread.Yield();// Yield this threads remaining timeslice to another process, this process does not appear to need it
+                    Thread.Yield();// Yield this threads remaining timeslice to another process, this process does not appear to need it currently because the read timed out
                 }
             }
 
@@ -137,6 +135,8 @@ namespace AuthenticationService.Communication
         /// <param name="msg">The message to send to the client</param>
         private void sendToClient(string msg)
         {
+            //TODO Low importance: use below instead of ""
+            //String.IsNullOrEmpty(msg);
             if (connection.Connected == true && !"".Equals(msg))
             {
                 //connection.Send(Encoding.ASCII.GetBytes(msg + SharedData.msgEndDelim));
@@ -157,12 +157,15 @@ namespace AuthenticationService.Communication
         }
 
         /// <summary>
-        /// Closes the requesting endpoint and sets its reference to null
+        /// Closes the requesting endpoint and sets its reference to null, if it is not null already
         /// </summary>
         private void closeRequestEndpoint()
         {
-            requestingEndpoint.Stop().ConfigureAwait(false).GetAwaiter().GetResult();
-            requestingEndpoint = null;
+            if (requestingEndpoint != null)
+            {
+                requestingEndpoint.Stop().ConfigureAwait(false).GetAwaiter().GetResult();
+                requestingEndpoint = null;
+            }
         }
     }
 
@@ -207,13 +210,13 @@ namespace AuthenticationService.Communication
     }
 
     /// <summary>
-    /// This portion of the class contains the static members
+    /// This portion of the class contains the static members and methods
     /// </summary>
     partial class ClientConnection
     {
         /// <summary>
         /// Returns an endpoint configuration object to be used to craete a new endpoint instance
-        /// This function is required because each endpoint configuration can only be associated with a single endpoint instance
+        /// This function is required because each endpoint configuration can only be associated with a single endpoint instance, and so a new one must be created for each connection
         /// </summary>
         /// <param name="addressableName">The uniquely addressable ID of the endpoint</param>
         /// <returns>Endpoint Configuration Object with relevant settings for use with this server</returns>

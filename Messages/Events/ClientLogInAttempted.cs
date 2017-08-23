@@ -11,9 +11,24 @@ namespace Messages.Events
     /// This event is published by the authentication service every time a client attempts to log in
     /// </summary>
     public class ClientLogInAttempted : IEvent { 
+        /// <summary>
+        /// Username used in login attempt
+        /// </summary>
         public string username { get; set; }
+
+        /// <summary>
+        /// Password used in login attempt
+        /// </summary>
         public string password { get; set; }
+
+        /// <summary>
+        /// The result of the login attempt
+        /// </summary>
         public bool clientAccepted { get; set; }
+
+        /// <summary>
+        /// TODO: Low importance, double check that this is a valid way to save the request source
+        /// </summary>
         public SocketAddress requestSource { get; set; }
     }
 }

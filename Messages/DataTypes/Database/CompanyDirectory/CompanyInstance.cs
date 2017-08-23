@@ -4,6 +4,9 @@ using System;
 
 namespace Messages.DataTypes.Database.CompanyDirectory
 {
+    /// <summary>
+    /// This class represents a company whos information is entered in one or more databases
+    /// </summary>
     public partial class CompanyInstance : IMessage
     {
         public CompanyInstance() { }
@@ -79,14 +82,31 @@ namespace Messages.DataTypes.Database.CompanyDirectory
         }
     }
 
+    /// <summary>
+    /// This portion of the class contains the member variables
+    /// </summary>
     public partial class CompanyInstance : IMessage
     {
-        public String companyName = null;
+        /// <summary>
+        /// The name of the company, corresponds to the username of the companies account
+        /// </summary>
+        public String companyName { get; set; } = null;
 
-        public String phoneNumber = null;
+        /// <summary>
+        /// The phone number of the company
+        /// </summary>
+        public String phoneNumber { get; set; } = null;
 
-        public String email = null;
+        /// <summary>
+        /// The email of the company
+        /// </summary>
+        public String email { get; set; } = null;
 
-        public String[] locations = null;
+        /// <summary>
+        /// A list containing the address' of the company
+        /// </summary>
+        public String[] locations { get; set; } = null;
+
+        
     }
 }

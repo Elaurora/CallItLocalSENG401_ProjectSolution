@@ -12,10 +12,15 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace AuthenticationService
 {
-    
+    /// <summary>
+    /// This class is responsible for listening for new client connections, configuring and starting ClientConnection threads 
+    /// </summary>
     public partial class Server
     {
-
+        /// <summary>
+        /// Server constructor
+        /// </summary>
+        /// <param name="eventPublisher">The endpoint to be used by client connections to publish events</param>
         public Server(IEndpointInstance eventPublisher)
         {
             this.eventPublisher = eventPublisher;
@@ -66,7 +71,7 @@ namespace AuthenticationService
         /// <summary>
         /// Accepts the new connection and creates a new running thread to handle communication with the new connection
         /// </summary>
-        /// <param name="ar"></param>
+        /// <param name="ar">Contains the state object given during the "BeginAccept" call.</param>
         public void AcceptConnection(IAsyncResult ar)
         {
 
@@ -83,11 +88,14 @@ namespace AuthenticationService
             newThread.Start();
         }
         
+        /// <summary>
+        /// Gets the certificate used to encrypt/decrypt messages and authenticate clients
+        /// </summary>
+        /// <returns></returns>
         private X509Certificate2 getCertificate()
         {
+            //TODO low importance: Change this to a static member variable that is loaded at runtime instead of being reloaded for every client, bad bottleneck
             X509Certificate2 certificate = new X509Certificate2(certificateLocation, "");
-
-
             return certificate;
         }
     }
@@ -107,7 +115,13 @@ namespace AuthenticationService
         /// </summary>
         private IEndpointInstance eventPublisher;
 
+        /// <summary>
+        /// The location of the certificate on the machine.
+        /// TODO Medium importance: Change this from being const to being passed to the main function as an argument
+        /// The server will not be able to run properly unless this variable is properly set.
+        /// Speak to amir about getting this properly set up, we need to make sure the students can configure this easily without any hiccups
+        /// TODO High Importance: Add this to the Content timetable
+        /// </summary>
         private const string certificateLocation = "C:\\Users\\joshua\\Documents\\Visual Studio 2017\\Projects\\CallItLocal\\Certificate\\ENSF401TenYears.pfx";
     }
-
 }

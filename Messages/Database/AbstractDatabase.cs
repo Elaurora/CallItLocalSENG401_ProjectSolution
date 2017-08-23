@@ -28,6 +28,7 @@ namespace Messages.Database
             MySqlCommand command;
             connection = new MySqlConnection("SERVER=localhost;DATABASE=mysql;UID=" + UID + ";AUTO ENLIST=false;PASSWORD=" + Password);
             commandString = "CREATE DATABASE " + databaseName + ";";
+            //connection.
             if (openConnection() == true)
             {
                 //First try to create the actual database
@@ -61,13 +62,13 @@ namespace Messages.Database
                         command = new MySqlCommand(commandString, connection);
                         command.ExecuteNonQuery();
                         Messages.Debug.consoleMsg("Successfully created the table "
-                            + table.getDBName() + "." + table.getTableName());
+                            + table.databaseName + "." + table.tableName);
 
                     }
                     catch (MySqlException e)
                     {
                         Messages.Debug.consoleMsg("Unable to create table "
-                            + table.getDBName() + "." + table.getTableName()
+                            + table.databaseName + "." + table.tableName
                             + " Error: " + e.Number + e.Message);
                     }
                 }
@@ -96,12 +97,12 @@ namespace Messages.Database
                         command = new MySqlCommand(commandString, connection);
                         command.ExecuteNonQuery();
                         Messages.Debug.consoleMsg("Successfully deleted table "
-                            + table.getDBName() + "." + table.getTableName());
+                            + table.databaseName + "." + table.tableName);
                     }
                     catch (MySqlException e)
                     {
                         Messages.Debug.consoleMsg("Unable to delete table "
-                            + table.getDBName() + "." + table.getTableName()
+                            + table.databaseName + "." + table.tableName
                             + " Error: " + e.Number + e.Message);
                     }
                 }
@@ -185,13 +186,36 @@ namespace Messages.Database
         }
     }
 
+    /// <summary>
+    /// This portion of the class contains the member variables.
+    /// </summary>
     public abstract partial class AbstractDatabase
     {
+        /// <summary>
+        /// This object is responsible for communication with the database. It should be opened and closed
+        /// for each query made.
+        /// </summary>
         protected MySqlConnection connection;
-        private string UID = "root";
-        private string Password = "abc123";
+
+        /// <summary>
+        /// This is the username used to login to the database by the connection
+        /// </summary>
+        private const string UID = "root";
+
+        /// <summary>
+        /// This is the password used to login to the database by the connection
+        /// </summary>
+        private const string Password = "abc123";
+
+        /// <summary>
+        /// This is the name of the database. This property must be defined by the inheriting class
+        /// </summary>
         public abstract String databaseName { get; }
 
+        /// <summary>
+        /// This represents the tables in the database. The inheriting class must define and populate
+        /// this property so that this class may properly create or delete the database
+        /// </summary>
         protected abstract Table[] tables { get; }
     }
 }

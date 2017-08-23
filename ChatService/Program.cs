@@ -13,16 +13,28 @@ using System.Threading.Tasks;
 
 namespace ChatService
 {
+    /// <summary>
+    /// This class is the starting point for the process, responsible for configuring and initializing everything
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// Start point for the Chat Service
+        /// </summary>
         public static void Main()
         {
             AsyncMain().GetAwaiter().GetResult();
         }
 
+        /// <summary>
+        /// This method is responsible for initializing the chat endpoint used to receive events and commands
+        /// </summary>
+        /// <returns>Nothing. Execution ends when this function ends</returns>
         static async Task AsyncMain()
         {
+//#if DEBUG
             Console.Title = "Chat";
+//#endif
 
             //Create a new Endpoint configuration with the name "Authentication"
             EndpointConfiguration endpointConfiguration = new EndpointConfiguration("Chat");
@@ -50,6 +62,7 @@ namespace ChatService
             Debug.consoleMsg("Press Enter to exit.");
             string entry;
 
+//#if DEBUG
             do
             {
                 entry = Console.ReadLine();
@@ -69,6 +82,10 @@ namespace ChatService
                         break;
                 }
             } while (!entry.Equals(""));
+
+            await endpointInstance.Stop().ConfigureAwait(false);
+
+//#endif
         }
     }
 }

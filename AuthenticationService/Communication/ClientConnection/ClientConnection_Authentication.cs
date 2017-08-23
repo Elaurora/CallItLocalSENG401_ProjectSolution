@@ -8,8 +8,6 @@ using NServiceBus;
 using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Net.Sockets;
-using System.Threading;
 
 namespace AuthenticationService.Communication
 {
@@ -33,17 +31,18 @@ namespace AuthenticationService.Communication
                 case ("login"):
                     return attemptToAuthenticateUser(requestParameters[0]);
                 case ("createaccount"):
-                    return readNewAccountInfo(requestParameters[0]);
+                    return attemptNewAccountCreation(requestParameters[0]);
                 default:
                     return("Error: Invalid request. Request received was:" + taskRequested);
             }
         }
 
         /// <summary>
-        /// Reads the new account info from the client, parses it, and sends a "CreateAccount" command to the authentication endpoint
-        /// It also sends a reply back to the client, and publishes an "AccountCreated" event
+        /// Parses new account info and attempts to insert the new account into the authentication database
+        /// It also publishes an "AccountCreated" event
         /// </summary>
-        private string readNewAccountInfo(string info)
+        /// <returns>A response message</returns>
+        private string attemptNewAccountCreation(string info)
         {
             CreateAccount command = new CreateAccount(info);
 
@@ -54,19 +53,19 @@ namespace AuthenticationService.Communication
                 authenticated = true;
                 username = command.username;
                 password = command.password;
-                initializeEndpoint();
+                initializeRequestingEndpoint();
                 eventPublishingEndpoint.Publish(new AccountCreated(command));
             }
             return dbResponse;
         }
-
-
-
+        
         /// <summary>
-        /// Wait for username and password to be sent, check the validity of the information sent,
-        /// rinse repeat until authenticated. Sends a message to the client indicating whether or not 
-        /// it was authenticated successfully
+        /// Parses username and password from info and checks the database for validity of the information sent.
+        /// If invalid, closes the connection after sending the response. 
+        /// If successful will keep the connection open
         /// </summary>
+        /// <param name="info">Should contain the username and password in the proper format. See parseLoginInfo definition for desired format</param>
+        /// <returns>A response message indicating the result of the attempt</returns>
         private string attemptToAuthenticateUser(string info)
         {
             parseLoginInfo(info);
@@ -88,7 +87,7 @@ namespace AuthenticationService.Communication
         }
 
         /// <summary>
-        /// Publishes a ClientLogInAttempted event through the endpoint to all subscribers
+        /// Publishes a ClientLogInAttempted event through the publishing endpoint
         /// </summary>
         private void reportLogInAttempt()
         {
@@ -106,11 +105,10 @@ namespace AuthenticationService.Communication
                 "Username:" + username + "\n" +
                 "Password:" + password + "\n");
 
-            if (authenticated == false)
+            if (authenticated == true)
             {
-                username = "TEMPORARY " + username;
+                initializeRequestingEndpoint();
             }
-            initializeEndpoint();
             eventPublishingEndpoint.Publish(attempt);
         }
 
@@ -157,7 +155,7 @@ namespace AuthenticationService.Communication
         /// <summary>
         /// Starts the endoint that will be linked to this specific client connection
         /// </summary>
-        private void initializeEndpoint()
+        private void initializeRequestingEndpoint()
         {
             EndpointConfiguration config = getConfig(username);
             requestingEndpoint = Endpoint.Start(config).ConfigureAwait(false).GetAwaiter().GetResult();
@@ -165,8 +163,7 @@ namespace AuthenticationService.Communication
     }
 
     /// <summary>
-    /// This portion of the class contains the member variables,
-    /// as well as the getters and setters
+    /// This portion of the class contains the member variables
     /// </summary>
     partial class ClientConnection
     {

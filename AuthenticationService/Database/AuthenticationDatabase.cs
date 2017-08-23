@@ -7,19 +7,21 @@ using System;
 
 namespace AuthenticationService.Database
 {
+    /// <summary>
+    /// This class is used to manipulate and read the Authentication Service's database in a safe and consistent manner.
+    /// It follows the singleton design pattern, as only one instance of this class should ever be in existance at any given time.
+    /// </summary>
     public partial class AuthenticationDatabase : AbstractDatabase
     {
-        private AuthenticationDatabase()
-            : base()
-        {
-        }
+        /// <summary>
+        /// Private default constructor to enforce the use of the singleton design pattern
+        /// </summary>
+        private AuthenticationDatabase(){ }
 
         /// <summary>
-        /// Returns the singleton instance of the CompanyDirectoryDB
-        /// If the instance had not yet been created it will be upon calling
-        /// this function
+        /// Gets the singleton instance of the database
         /// </summary>
-        /// <returns>Theinstance of the authentication database</returns>
+        /// <returns>The singleton instance of the database</returns>
         public static AuthenticationDatabase getInstance()
         {
             if (instance == null)
@@ -108,13 +110,28 @@ namespace AuthenticationService.Database
         }
     }
 
+    /// <summary>
+    /// This portion of the class contains the member variables as well as the schema definition in the form of Table/Column objects
+    /// </summary>
     public partial class AuthenticationDatabase : AbstractDatabase
     {
+        /// <summary>
+        /// The name of the database.
+        /// Both of these properties are required in order for both the base class and the
+        /// table definitions below to have access to the variable.
+        /// </summary>
         private const String dbname = "authenticationservicedb";
         public override String databaseName { get; } = dbname;
 
+        /// <summary>
+        /// The singleton instance of the database
+        /// </summary>
         private static AuthenticationDatabase instance;
 
+        /// <summary>
+        /// This property represents the database schema, and will be used by the base class
+        /// to create and delete the database.
+        /// </summary>
         protected override Table[] tables { get; } =
         {
             //TODO: Add indication of foreign keys (for all databases that need this)

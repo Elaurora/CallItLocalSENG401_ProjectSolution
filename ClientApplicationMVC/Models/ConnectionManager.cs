@@ -13,7 +13,7 @@ using System.Web;
 namespace ClientApplicationMVC.Models
 {
     /// <summary>
-    /// This class is responsible for maintaining and controlling the 
+    /// This class is responsible for maintaining and controlling the ServiceBusConnections for each client with an open session
     /// </summary>
     public static partial class ServiceBusCommunicationManager
     {
@@ -102,10 +102,10 @@ namespace ClientApplicationMVC.Models
 
         #region ChatServiceMessages
         /// <summary>
-        /// Notifies the service bus that a user has sent a message. This function will also
-        /// attempt to send the message directly to the receiver,if they have an open session
+        /// Notifies the service bus that a user has sent a message.
         /// </summary>
         /// <param name="msg">The message to send</param>
+        /// <returns>True if successfulm false otherwise</returns>
         public static bool sendChatMessage(ChatMessage msg)
         {
             ServiceBusConnection connection;
@@ -130,6 +130,11 @@ namespace ClientApplicationMVC.Models
             return connection.getAllChatContacts();
         }
 
+        /// <summary>
+        /// Makes a request to the Chat Service to get the chat history between the requesting user and the given user
+        /// </summary>
+        /// <param name="otherUser">The username of the other user</param>
+        /// <returns>The response from the service bus</returns>
         public static ChatHistory getChatHistory(string otherUser)
         {
             ServiceBusConnection connection;
@@ -162,6 +167,9 @@ namespace ClientApplicationMVC.Models
         }
     }
 
+    /// <summary>
+    /// This portion of the class contains member variables
+    /// </summary>
     public static partial class ServiceBusCommunicationManager
     {
         /// <summary>

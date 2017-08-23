@@ -34,9 +34,9 @@ namespace Messages.Database
             foreach(Column column in columns)
             {
                 query += column.getCreateStructure() + ",";
-                if(column.isPrimary() == true)
+                if(column.primaryKey == true)
                 {
-                    primaryKeys.Add(column.getName());
+                    primaryKeys.Add(column.name);
                 }
             }
             if (primaryKeys.Count == 0)
@@ -68,49 +68,43 @@ namespace Messages.Database
     }
 
     /// <summary>
-    /// This class represents a table in a MySQL Database.
+    /// This portion of the class contains the member variables, as well as relevent
+    /// getters / setters
     /// </summary>
     public partial class Table
     {
         /// <summary>
         /// The name of the database this table is used in
         /// </summary>
-        private String databaseName;
-        public string getDBName()
-        {
-            return databaseName;
-        }
-        public void setDBName(string newName)
-        {
-            this.databaseName = newName;
-        }
+        public String databaseName { get; }
 
         /// <summary>
         /// The name of the table
         /// </summary>
-        private string tableName;
-        public string getTableName()
-        {
-            return tableName;
-        }
-        public void setTableName(string newName)
-        {
-            this.tableName = newName;
-        }
+        public string tableName { get; }
 
         /// <summary>
         /// Represents the structure of the database
         /// </summary>
-        private Column[] columns;
+        private readonly Column[] columns;
+        /// <summary>
+        /// Returns all the column objects associated with 
+        /// </summary>
+        /// <returns>An array of columns contained in the table</returns>
         public Column[] getColumns()
         {
             return columns;
         }
+        /// <summary>
+        /// Gets a specific column in the table with the column name as the deliminator
+        /// </summary>
+        /// <param name="name">The name of the column</param>
+        /// <returns>The column object associated with the given name if it exists, or null if it does not</returns>
         public Column getColumn(string name)
         {
             foreach(Column column in columns)
             {
-                if (column.getName().Equals(name.ToLower()))
+                if (column.name.Equals(name.ToLower()))
                 {
                     return column;
                 }
@@ -118,5 +112,4 @@ namespace Messages.Database
             return null;
         }
     }
-
 }

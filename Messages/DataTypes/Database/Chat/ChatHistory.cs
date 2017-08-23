@@ -6,10 +6,20 @@ using System.Threading.Tasks;
 
 namespace Messages.DataTypes.Database.Chat
 {
+    /// <summary>
+    /// This class represents all messages sent between two users since the accounts creation
+    /// </summary>
     public partial class ChatHistory
     {
         public ChatHistory() { }
 
+        /// <summary>
+        /// This constructor parses given string representation of the object
+        /// The string is assumed to be in the same format that is created by the
+        /// user defined toString() function. Note the difference between the 
+        /// ToString() method inherited from the object class
+        /// </summary>
+        /// <param name="info">The string representation of a ChatHistory object</param>
         public ChatHistory(string info)
         {
             string[] properties = info.Split(new char[] { '&' }, 3);
@@ -38,8 +48,14 @@ namespace Messages.DataTypes.Database.Chat
             }
         }
 
+        /// <summary>
+        /// Creates a string representation of the current state of the object using a "rest-esque" type formatting
+        /// </summary>
+        /// <returns>The string representation of the object</returns>
         public string toString()
         {
+            //TODO low importance: change all classes defined in Messages using the user defined toString()
+            //methods to use built in serialization instead. Better performance (probably?) and increased evolvability
             string returned = "";
 
             returned += "usersname=" + usersname;
@@ -62,10 +78,28 @@ namespace Messages.DataTypes.Database.Chat
         }
     }
 
+    /// <summary>
+    /// This portion of the class contains the member variables of the class
+    /// </summary>
     public partial class ChatHistory
     {
+        /// <summary>
+        /// A list of all the messages sent between the two users.
+        /// </summary>
         public List<ChatMessage> messages { get; set; } = new List<ChatMessage>(0);
+
+        /// <summary>
+        /// The username of the client 
+        /// </summary>
         public string usersname { get; set; }
+
+        /// <summary>
+        /// The username of the company
+        /// </summary>
         public string companyname { get; set; }
+
+        //TODO very low importance: Change the name of usersname and companyname to be more general
+        //so that company to company communication (if ever implemented) does not cause these names 
+        //to be confusing
     }
 }

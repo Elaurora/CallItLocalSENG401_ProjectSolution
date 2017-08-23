@@ -9,17 +9,28 @@ using System.Threading.Tasks;
 
 namespace CompanyDirectoryService
 {
+    /// <summary>
+    /// This class is the starting point for the process, responsible for configuring and initializing everything
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// Start point for the Company Directory Service
+        /// </summary>
         public static void Main()
         {
             AsyncMain().GetAwaiter().GetResult();
         }
 
+        /// <summary>
+        /// This method is responsible for initializing the chat endpoint used to receive events and commands
+        /// </summary>
+        /// <returns>Nothing. Execution ends when this function ends</returns>
         static async Task AsyncMain()
         {
+//#if DEBUG
             Console.Title = "CompanyDirectory";
-
+//#endif
             //Create a new Endpoint configuration with the name "CompanyDirectory"
             var endpointConfiguration = new EndpointConfiguration("CompanyDirectory");
 
@@ -44,7 +55,7 @@ namespace CompanyDirectoryService
 
             Messages.Debug.consoleMsg("Press Enter to exit.");
             string entry;
-
+//#if DEBUG
             do
             {
                 entry = Console.ReadLine();
@@ -64,8 +75,9 @@ namespace CompanyDirectoryService
                         break;
                 }
             } while (!"".Equals(entry));
-            
+
             await endpointInstance.Stop().ConfigureAwait(false);
+//#endif
         }
     }
 }

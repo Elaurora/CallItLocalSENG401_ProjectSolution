@@ -7,9 +7,15 @@ using System.Web.Mvc;
 
 namespace ClientApplicationMVC.Controllers
 {
+    /// <summary>
+    /// This class contains the functions responsible for handling requests routed to *Hostname*/CompanyListings/*
+    /// </summary>
     public class CompanyListingsController : Controller
     {
-        // GET: CompanyListings
+        /// <summary>
+        /// This function is called when the client navigates to *hostname*/CompanyListings
+        /// </summary>
+        /// <returns>A view to be sent to the client</returns>
         public ActionResult Index()
         {
             if (Globals.isLoggedIn())
@@ -20,6 +26,10 @@ namespace ClientApplicationMVC.Controllers
             return RedirectToAction("Index", "Authentication");
         }
 
+        /// <summary>
+        /// This function is called when the client navigates to *hostname*/CompanyListings/Search
+        /// </summary>
+        /// <returns>A view to be sent to the client</returns>
         public ActionResult Search(string textCompanyName)
         {
 
@@ -38,6 +48,11 @@ namespace ClientApplicationMVC.Controllers
             return View("Index");
         }
 
+        /// <summary>
+        /// This function is called when the client navigates to *hostname*/CompanyListings/DisplayCompany/*info*
+        /// </summary>
+        /// <param name="info">The name of the company whos info is to be displayed</param>
+        /// <returns>A view to be sent to the client</returns>
         public ActionResult DisplayCompany(string info)
         {
             if (Globals.isLoggedIn() == false)

@@ -4,16 +4,20 @@ using Messages.DataTypes;
 
 namespace Messages.Commands
 {
-    public class CreateAccount : ICommand
+    /// <summary>
+    /// This class represents the command to create an account as well as all of the information needed to do so.
+    /// </summary>
+    public partial class CreateAccount : ICommand
     {
-        public string username { get; set; }
-        public string password { get; set; }
-        public string address { get; set; }
-        public string phonenumber { get; set; }
-        public string email { get; set; }
-        public AccountType type { get; set; }
-
         public CreateAccount() { }
+
+        /// <summary>
+        /// This constructor parses given string representation of the object
+        /// The string is assumed to be in the same format that is created by the
+        /// user defined toString() function. Note the difference between the 
+        /// ToString() method inherited from the object class
+        /// </summary>
+        /// <param name="info">The string representation</param>
         public CreateAccount(string info)
         {
             username = "";
@@ -52,6 +56,10 @@ namespace Messages.Commands
             }
         }
 
+        /// <summary>
+        /// Creates a string representation of the current state of the object using a "rest-esque" type formatting
+        /// </summary>
+        /// <returns>The string representation of the object</returns>
         public string toString()
         {
             return 
@@ -62,5 +70,41 @@ namespace Messages.Commands
                 "&email=" + email +
                 "&type=" + type.ToString();
         }
+    }
+
+    /// <summary>
+    /// This portion of the class contains the member variables
+    /// </summary>
+    public partial class CreateAccount : ICommand
+    {
+        /// <summary>
+        /// The username of the new account
+        /// </summary>
+        public string username { get; set; }
+
+        /// <summary>
+        /// The password for the new account
+        /// </summary>
+        public string password { get; set; }
+
+        /// <summary>
+        /// The address of the new user
+        /// </summary>
+        public string address { get; set; }
+
+        /// <summary>
+        /// The phone number of the new user
+        /// </summary>
+        public string phonenumber { get; set; }
+
+        /// <summary>
+        /// the email of the new user
+        /// </summary>
+        public string email { get; set; }
+
+        /// <summary>
+        /// The type of account
+        /// </summary>
+        public AccountType type { get; set; }
     }
 }

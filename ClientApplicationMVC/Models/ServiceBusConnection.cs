@@ -19,7 +19,7 @@ namespace ClientApplicationMVC.Models
     {
         public ServiceBusConnection()
         {
-            connection.ReceiveTimeout = readTimeout_ms;
+            //connection.ReceiveTimeout = readTimeout_ms;
         }
 
         #region AuthenticationServiceMessages
@@ -146,7 +146,7 @@ namespace ClientApplicationMVC.Models
         /// </summary>
         public void close()
         {
-            connectionStream.Close();//TODO low importance: Make sure this is a valid ay of closing the stream
+            connectionStream.Close();//TODO low importance: Make sure this is a valid way of closing the stream
             connection.Close();
         }
 
@@ -201,7 +201,8 @@ namespace ClientApplicationMVC.Models
                 {
                     //connection.Receive(encodedBytes, 1, 0);
 
-                    int bytesRead = connectionStream.Read(encodedBytes, 0, encodedBytes.Length);
+                    int bytesRead = connectionStream.ReadAsync(encodedBytes, 0, encodedBytes.Length).ConfigureAwait(false).GetAwaiter().GetResult();
+                    //int bytesRead = connectionStream.Read(encodedBytes, 0, encodedBytes.Length);
 
                     Decoder decoder = Encoding.UTF8.GetDecoder();
                     char[] decodedBytes = new char[decoder.GetCharCount(encodedBytes, 0, bytesRead)];

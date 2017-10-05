@@ -1,6 +1,10 @@
 ﻿
 var currentSelectedChat = null;
 username = "You";
+
+/**
+*   This function will set the on click functions for the send button and chat instances.
+*/
 $(function () {//This function is executed after the entire page is loaded
     $("#SendButton").click(sendMessage);
     $("#ChatInstancesList").children().each(function () {
@@ -12,7 +16,10 @@ $(function () {//This function is executed after the entire page is loaded
     currentSelectedChat = firstChatInstanceBox.attr("id");
 });
 
-
+/**
+ *  Validates the message the user is trying to send, and sends it.
+*   This function will reset the message box and append the message the user sent to the message display area
+ */
 function sendMessage() {
     var userData = $("#textUserMessage").val();
     if ($.trim(userData) == "") {
@@ -39,6 +46,9 @@ function sendMessage() {
     });
 }
 
+/**
+ * When a user selects their chat history with a specific user, this function will load and display the chat history.
+ */
 function chatInstanceSelected() {
     if ($(this).attr("id") == currentSelectedChat) {
         return;

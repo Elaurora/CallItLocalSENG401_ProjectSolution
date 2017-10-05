@@ -3,6 +3,8 @@
     It is also the login page
 -->
 
+<script type="text/javascript" src="~/Scripts/Authentication/AuthenticationFunctions.js"></script>
+
 @{
     ViewBag.Title = "Log In";
 }
@@ -25,22 +27,3 @@
 
     @Html.ActionLink("Create One", "CreateAccount", "Authentication")
 }
-
-
-<script>
-    //TODO low importance: move the authentication javascript functions to the Scripts folder
-    var username = "Log In";
-
-    function validateLoginInfo() {
-        if (logInForm.textUsername.value === "") {
-            alert("Username cannot be left blank");
-            return false;
-        }
-        if (logInForm.textPassword.value === "") {
-            alert("Password cannot be left blank");
-            return false;
-        }
-        username = logInForm.textUsername.value;
-        return true;
-    }
-</script>

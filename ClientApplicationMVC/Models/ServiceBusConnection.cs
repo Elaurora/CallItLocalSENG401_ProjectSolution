@@ -141,6 +141,41 @@ namespace ClientApplicationMVC.Models
 
         #endregion ChatServiceMessages
 
+        #region EchoServiceMessages
+
+        /// <summary>
+        /// Sends the data to be echo'd to the service bus
+        /// </summary>
+        /// <param name="data">The data to be echo'd</param>
+        /// <returns>The response from the servicebus</returns>
+        public string echoForeward(string data)
+        {
+            string msg = "echo/echo/" + data;
+
+            send(msg);
+
+            string response = readUntilEOF();
+            return response;
+        }
+
+        /// <summary>
+        /// Sends the data to be echo'd to the service bus
+        /// </summary>
+        /// <param name="data">The data to be echo'd</param>
+        /// <returns>The response from the servicebus</returns>
+        public string echoReverse(string data)
+        {
+            string msg = "echo/reverse/" + data;
+
+            send(msg);
+
+            string response = readUntilEOF();
+            return response;
+        }
+
+        #endregion EchoServiceMessages
+
+
         /// <summary>
         /// Closes the connection with the service bus.
         /// </summary>

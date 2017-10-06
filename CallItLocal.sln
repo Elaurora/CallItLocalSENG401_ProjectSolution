@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApplicationMVC", "ClientApplicationMVC\ClientApplicationMVC.csproj", "{CC44A2D7-03E0-4EAE-9AAD-B6730E60DE10}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -17,6 +17,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyDirectoryService", "CompanyDirectoryService\CompanyDirectoryService.csproj", "{D89211F2-DFED-45A1-97B8-107B34209CE0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatService", "ChatService\ChatService.csproj", "{E06DAAF2-1FA6-4236-9509-0C604B3A4F52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoService", "EchoService\EchoService.csproj", "{C8CA01D5-04BB-43C1-A4CD-8B655F763F1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,8 +46,15 @@ Global
 		{E06DAAF2-1FA6-4236-9509-0C604B3A4F52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E06DAAF2-1FA6-4236-9509-0C604B3A4F52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E06DAAF2-1FA6-4236-9509-0C604B3A4F52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8CA01D5-04BB-43C1-A4CD-8B655F763F1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8CA01D5-04BB-43C1-A4CD-8B655F763F1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8CA01D5-04BB-43C1-A4CD-8B655F763F1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8CA01D5-04BB-43C1-A4CD-8B655F763F1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2412553E-801E-4C45-89ED-3A9D53CED297}
 	EndGlobalSection
 EndGlobal

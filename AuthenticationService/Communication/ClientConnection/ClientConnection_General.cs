@@ -90,6 +90,8 @@ namespace AuthenticationService.Communication
                     return chatRequest(requestParameters);
                 case ("companydirectory"):
                     return companyDirectoryRequest(requestParameters);
+                case ("echo"):
+                    return echoRequest(requestParameters);
                 default:
                     return ("Error: Invalid request. Did not specify a valid service type. Specified type was: " + serviceRequested);
             }

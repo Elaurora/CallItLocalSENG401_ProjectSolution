@@ -49,6 +49,7 @@
     <Compile Include="Commands\GetChatHistory.cs" />
     <Compile Include="Commands\GetCompanyInfo.cs" />
     <Compile Include="Commands\LockAccount.cs" />
+    <Compile Include="Commands\ReverseEcho.cs" />
     <Compile Include="Commands\SearchForCompany.cs" />
     <Compile Include="Database\AbstractDatabase.cs" />
     <Compile Include="Database\Column.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Events\AccountLocked.cs" />
     <Compile Include="Events\ClientLogInAttempted.cs" />
     <Compile Include="DataTypes\Database\CompanyDirectory\CompanyList.cs" />
+    <Compile Include="Events\EchoEvent.cs" />
     <Compile Include="Events\MessageSent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

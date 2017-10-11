@@ -51,7 +51,7 @@ namespace ClientApplicationMVC.Hubs
             };
 
             //Send the chat message to the service bus to be saved in the database
-            ServiceBusCommunicationManager.sendChatMessage(Message);
+            ServiceBusCommunicationManager.getConnectionObject(user).sendChatMessage(Message);
              
             if (receiverConnectionID != null)
             {

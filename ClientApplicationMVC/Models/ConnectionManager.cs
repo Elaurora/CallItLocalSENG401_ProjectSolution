@@ -27,8 +27,8 @@ namespace ClientApplicationMVC.Models
         /// <returns>The response from the bus</returns>
         public static string sendLogIn(string username, string password)
         {
-            ServiceBusConnection newConnection = new ServiceBusConnection();
-            string response = newConnection.sendLogIn(username, password);
+            ServiceBusConnection newConnection = new ServiceBusConnection(username);
+            string response = newConnection.sendLogIn(password);
 
             if ("Success".Equals(response))
             {
@@ -51,7 +51,7 @@ namespace ClientApplicationMVC.Models
         /// <returns>The response from the bus</returns>
         public static string sendNewAccountInfo(CreateAccount msg)
         {
-            ServiceBusConnection newConnection = new ServiceBusConnection();
+            ServiceBusConnection newConnection = new ServiceBusConnection(msg.username);
             string response = newConnection.sendNewAccountInfo(msg);
 
             if ("Success".Equals(response))
@@ -68,92 +68,27 @@ namespace ClientApplicationMVC.Models
         }
         #endregion AuthenticationServiceMessages
 
-        #region CompanyDirectoryServiceMessages
-
         /// <summary>
-        /// Asks the service bus to search for companies of the given name
+        /// Returns the ServiceBusConnection object associates with the given user.
         /// </summary>
-        /// <param name="name">The name of the company to search for</param>
-        /// <returns>A list of company names matching the criteria given</returns>
-        public static CompanyList searchCompanyByName(string name)
+        /// <param name="user">The name of the user to get the connection object for</param>
+        /// <returns>The connection object if the user has been properly authenticated recently. null otherwise</returns>
+        public static ServiceBusConnection getConnectionObject(string user)
         {
             ServiceBusConnection connection;
-            if (!connections.TryGetValue(Globals.getUser(), out connection)){
-                return null;
-            }
-            return connection.searchCompanyByName(name);
-        }
-
-        /// <summary>
-        /// Returns the database information regarding the given company name
-        /// </summary>
-        /// <param name="name">The name of the company</param>
-        public static CompanyInstance getCompanyInfo(string name)
-        {
-            ServiceBusConnection connection;
-            if (!connections.TryGetValue(Globals.getUser(), out connection))
+            if (connections.TryGetValue(user, out connection) == false)
             {
                 return null;
             }
-            return connection.getCompanyInfo(name);
-        }
 
-        #endregion CompanyDirectoryServiceMessages
-
-        #region ChatServiceMessages
-        /// <summary>
-        /// Notifies the service bus that a user has sent a message.
-        /// </summary>
-        /// <param name="msg">The message to send</param>
-        /// <returns>True if successfulm false otherwise</returns>
-        public static bool sendChatMessage(ChatMessage msg)
-        {
-            ServiceBusConnection connection;
-            if (!connections.TryGetValue(msg.sender, out connection))
+            if(connection.isConnected() == false)
             {
-                return false;
-            }
-            return connection.sendChatMessage(msg);
-        }
-
-        /// <summary>
-        /// Makes a request to the service bus for a list of usernames the current user has contacted via chat in the past
-        /// </summary>
-        /// <returns>An array of usernames</returns>
-        public static string[] getAllChatContacts()
-        {
-            ServiceBusConnection connection;
-            if (!connections.TryGetValue(Globals.getUser(), out connection))
-            {
+                connection.close();
+                connections.Remove(user);
                 return null;
             }
-            return connection.getAllChatContacts();
-        }
 
-        /// <summary>
-        /// Makes a request to the Chat Service to get the chat history between the requesting user and the given user
-        /// </summary>
-        /// <param name="otherUser">The username of the other user</param>
-        /// <returns>The response from the service bus</returns>
-        public static ChatHistory getChatHistory(string otherUser)
-        {
-            ServiceBusConnection connection;
-            if (!connections.TryGetValue(Globals.getUser(), out connection))
-            {
-                return null;
-            }
-            return connection.getChatHistory(otherUser);
-        }
-
-        #endregion ChatServiceMessages
-
-        /// <summary>
-        /// Removes the connection of the given user from the list of connections
-        /// </summary>
-        /// <param name="user">The connection key to terminate</param>
-        public static void removeConnection(string user)
-        {
-            connections.Remove(user);
+            return connection;
         }
 
         /// <summary>

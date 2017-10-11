@@ -15,11 +15,12 @@ namespace ClientApplicationMVC.Models
     /// <summary>
     /// This class is responsible for sending and receiving messages between the service bus and the web server in a secure manner.
     /// </summary>
-    partial class ServiceBusConnection
+    public partial class ServiceBusConnection
     {
-        public ServiceBusConnection()
+        public ServiceBusConnection(string username)
         {
             //connection.ReceiveTimeout = readTimeout_ms;
+            this.username = username;
         }
 
         #region AuthenticationServiceMessages
@@ -29,7 +30,7 @@ namespace ClientApplicationMVC.Models
         /// <param name="username">The username entered</param>
         /// <param name="password">The password entered</param>
         /// <returns>The response from the bus</returns>
-        public string sendLogIn(string username, string password)
+        public string sendLogIn(string password)
         {
             string message = "authentication/login/" +
                 "u=" + username + "&" +
@@ -97,7 +98,6 @@ namespace ClientApplicationMVC.Models
         {
             string busmsg = "chat/sendmessage/" + msg.toString();
             send(busmsg);
-            //TODO medium importance USE SignalR TO SEND TO RECEIVING CLIENT HERE
             return true;
         }
 
@@ -107,7 +107,7 @@ namespace ClientApplicationMVC.Models
         /// <returns>An array of usernames</returns>
         public string[] getAllChatContacts()
         {
-            string msg = "chat/getchatcontacts/" + Globals.getUser();
+            string msg = "chat/getchatcontacts/" + username;
 
             send(msg);
 
@@ -130,7 +130,7 @@ namespace ClientApplicationMVC.Models
         public ChatHistory getChatHistory(string otherUser)
         {
             string msg = "chat/getchathistory/" +
-                "userone=" + Globals.getUser() +
+                "userone=" + username +
                 "&usertwo=" + otherUser;
 
             send(msg);
@@ -175,6 +175,14 @@ namespace ClientApplicationMVC.Models
 
         #endregion EchoServiceMessages
 
+        /// <summary>
+        /// Indicates if this object is still connected to the service bus
+        /// </summary>
+        /// <returns>True if connected, false if not</returns>
+        public bool isConnected()
+        {
+            return connection.Connected;
+        }
 
         /// <summary>
         /// Closes the connection with the service bus.
@@ -264,7 +272,7 @@ namespace ClientApplicationMVC.Models
         }
 
         /// <summary>
-        /// TODO AMIR Medium Importance: Please write an accurate description of this method, its parameters and response
+        /// TODO Medium Importance: Write an accurate description of this method, its parameters and response
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="certificate"></param>
@@ -306,6 +314,10 @@ namespace ClientApplicationMVC.Models
         /// </summary>
         private Semaphore _lock = new Semaphore(0, 1);
 
+        /// <summary>
+        /// The name of the user associates with this connection object
+        /// </summary>
+        private string username;
 
         /// <summary>
         /// The number of milliseconds the ServiceBusConnection should wait for a response from the server before yielding its remaining timeslice

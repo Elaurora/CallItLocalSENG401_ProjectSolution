@@ -24,8 +24,15 @@ namespace ClientApplicationMVC.Controllers
                 return RedirectToAction("Index", "Authentication");
             }
 
-            string[] chatInstances = ServiceBusCommunicationManager.getAllChatContacts();
-            ChatHistory firstDisplayedChatHistory = chatInstances.Length > 0 ? ServiceBusCommunicationManager.getChatHistory(chatInstances[0]) : new ChatHistory();
+            ServiceBusConnection connection = ServiceBusCommunicationManager.getConnectionObject(Globals.getUser());
+            if (connection == null)
+            {
+                return RedirectToAction("Index", "Authentication");
+            }
+
+
+            string[] chatInstances = connection.getAllChatContacts();
+            ChatHistory firstDisplayedChatHistory = chatInstances.Length > 0 ? connection.getChatHistory(chatInstances[0]) : new ChatHistory();
 
             ViewBag.ChatInstances = chatInstances;
             ViewBag.DisplayedChatHistory = firstDisplayedChatHistory;
@@ -53,6 +60,12 @@ namespace ClientApplicationMVC.Controllers
                 throw new System.Exception("Did not supply all required arguments.");
             }
 
+            ServiceBusConnection connection = ServiceBusCommunicationManager.getConnectionObject(Globals.getUser());
+            if (connection == null)
+            {
+                return RedirectToAction("Index", "Authentication");
+            }
+
             ChatMessage Message = new ChatMessage
             {
                 sender = Globals.getUser(),
@@ -61,7 +74,7 @@ namespace ClientApplicationMVC.Controllers
                 messageContents = message
             };
 
-            sendMessageToBus(Message);
+            connection.sendChatMessage(Message);
             return null;
         }
 
@@ -82,7 +95,13 @@ namespace ClientApplicationMVC.Controllers
                 throw new System.Exception("Did not supply all required arguments.");
             }
 
-            ChatHistory userHistory = ServiceBusCommunicationManager.getChatHistory(otherUser);
+            ServiceBusConnection connection = ServiceBusCommunicationManager.getConnectionObject(Globals.getUser());
+            if (connection == null)
+            {
+                return RedirectToAction("Index", "Authentication");
+            }
+
+            ChatHistory userHistory = connection.getChatHistory(otherUser);
 
             string newConvoHtml = "";
 
@@ -107,18 +126,6 @@ namespace ClientApplicationMVC.Controllers
             }
 
             return Content(newConvoHtml);
-        }
-
-        /// <summary>
-        /// Send the given chat message to the bus to be added to the database
-        /// </summary>
-        /// <param name="msg">The message to be sent to the bus</param>
-        private void sendMessageToBus(ChatMessage msg)
-        {
-            ServiceBusCommunicationManager.sendChatMessage(msg);
-
-
-
         }
     }
 }

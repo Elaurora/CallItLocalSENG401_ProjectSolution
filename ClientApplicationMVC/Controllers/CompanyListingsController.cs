@@ -37,7 +37,14 @@ namespace ClientApplicationMVC.Controllers
             {
                 return RedirectToAction("Index", "Authentication");
             }
-            CompanyList result = ServiceBusCommunicationManager.searchCompanyByName(textCompanyName);
+
+            ServiceBusConnection connection = ServiceBusCommunicationManager.getConnectionObject(Globals.getUser());
+            if(connection == null)
+            {
+                return RedirectToAction("Index", "Authentication");
+            }
+
+            CompanyList result = connection.searchCompanyByName(textCompanyName);
             if (result == null)
             {
                 return RedirectToAction("Index", "Authentication");
@@ -63,7 +70,14 @@ namespace ClientApplicationMVC.Controllers
             {
                 return View("Index");
             }
-            CompanyInstance company = ServiceBusCommunicationManager.getCompanyInfo(info);
+
+            ServiceBusConnection connection = ServiceBusCommunicationManager.getConnectionObject(Globals.getUser());
+            if (connection == null)
+            {
+                return RedirectToAction("Index", "Authentication");
+            }
+
+            CompanyInstance company = connection.getCompanyInfo(info);
 
             ViewBag.CompanyInfo = company;
 

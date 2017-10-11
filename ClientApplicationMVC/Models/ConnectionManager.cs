@@ -109,7 +109,7 @@ namespace ClientApplicationMVC.Models
         public static bool sendChatMessage(ChatMessage msg)
         {
             ServiceBusConnection connection;
-            if (!connections.TryGetValue(Globals.getUser(), out connection))
+            if (!connections.TryGetValue(msg.sender, out connection))
             {
                 return false;
             }
@@ -177,5 +177,7 @@ namespace ClientApplicationMVC.Models
         /// </summary>
         private static Dictionary<string, ServiceBusConnection> connections =
             new Dictionary<string, ServiceBusConnection>();
+
+        
     }
 }

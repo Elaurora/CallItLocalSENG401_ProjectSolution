@@ -3,8 +3,7 @@
 -->
 
 <link href="~/Content/ChatStyles.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="~/Scripts/Chat/ChatFunctions.js"></script>
+
 @{
     ViewBag.Title = "Chat Box";
 }
@@ -59,3 +58,13 @@
 </div>
 
 
+@section scripts{
+    
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+<script type="text/javascript" src="~/signalr/hubs"></script>
+<script type="text/javascript" src="~/Scripts/Chat/ChatFunctions.js"></script>
+
+
+    
+}

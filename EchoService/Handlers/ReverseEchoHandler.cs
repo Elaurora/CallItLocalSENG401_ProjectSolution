@@ -13,6 +13,10 @@ using System.Threading.Tasks;
 
 namespace EchoService.Handlers
 {
+
+    /// <summary>
+    /// 
+    /// </summary>
     public class ReverseEchoHandler : IHandleMessages<ReverseEcho>
     {
         /// <summary>
@@ -24,17 +28,22 @@ namespace EchoService.Handlers
         static ILog log = LogManager.GetLogger<ReverseEcho>();
 
         /// <summary>
-        /// Saves the echo to the database
+        /// Saves the echo to the database, reverses the data, and returns it back to the calling endpoint
         /// </summary>
         /// <param name="message">Information about the echo</param>
         /// <param name="context">Used to access information regarding the endpoints used for this handle</param>
         /// <returns>The response to be sent back to the calling process</returns>
         public Task Handle(ReverseEcho message, IMessageHandlerContext context)
         {
+            //Save the echo to the database
             EchoServiceDatabase.getInstance().saveReverseEcho(message);
+
+            //Reverse the string
             char[] charArray = message.data.ToCharArray();
             Array.Reverse(charArray);
             message.data = new string(charArray);
+
+            //The context is used to give a reply back to the endpoint that sent the command
             return context.Reply(message);
         }
     }

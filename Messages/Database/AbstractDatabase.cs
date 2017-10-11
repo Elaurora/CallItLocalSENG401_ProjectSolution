@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 
 using System;
+using System.Threading;
 
 namespace Messages.Database
 {
@@ -16,6 +17,7 @@ namespace Messages.Database
         /// </summary>
         protected AbstractDatabase()
         {
+            mutex = new Mutex(false);
             createDB();
         }
 
@@ -134,11 +136,13 @@ namespace Messages.Database
         {
             try
             {
+                mutex.WaitOne();
                 connection.Open();
                 return true;
             }
             catch (MySqlException e)
             {
+                mutex.ReleaseMutex();
                 switch (e.Number)
                 {
                     case 0:
@@ -155,14 +159,16 @@ namespace Messages.Database
             }
             catch (InvalidOperationException e)
             {
-                if(e.Message.Equals("The connection is already open."))
+                if (e.Message.Equals("The connection is already open."))
                 {
                     return true;
                 }
+                mutex.ReleaseMutex();
                 throw e;
             }
             catch(Exception e)
             {
+                mutex.ReleaseMutex();
                 throw e;
             }
         }
@@ -176,10 +182,12 @@ namespace Messages.Database
             try
             {
                 connection.Close();
+                mutex.ReleaseMutex();
                 return true;
             }
             catch (MySqlException e)
             {
+                mutex.ReleaseMutex();
                 Messages.Debug.consoleMsg("Could not close connection to database. Error message: " + e.Number + e.Message);
                 return false;
             }
@@ -217,5 +225,7 @@ namespace Messages.Database
         /// this property so that this class may properly create or delete the database
         /// </summary>
         protected abstract Table[] tables { get; }
+
+        private Mutex mutex;
     }
 }

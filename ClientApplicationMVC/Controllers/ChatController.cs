@@ -116,8 +116,8 @@ namespace ClientApplicationMVC.Controllers
         private void sendMessageToBus(ChatMessage msg)
         {
             ServiceBusCommunicationManager.sendChatMessage(msg);
-            //TODO: Attempt to send the message to the receiver if they currently have an open session
-            //This will need to be done with WebSockets. There is a solid amount of server side and client side work to be done to make this work
+
+
 
         }
     }

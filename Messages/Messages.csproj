@@ -54,6 +54,7 @@
     <Compile Include="Database\AbstractDatabase.cs" />
     <Compile Include="Database\Column.cs" />
     <Compile Include="Database\Table.cs" />
+    <Compile Include="DataTypes\Collections\ConnectionDictionary.cs" />
     <Compile Include="DataTypes\Database\Chat\ChatHistory.cs" />
     <Compile Include="DataTypes\Database\Chat\ChatMessage.cs" />
     <Compile Include="DataTypes\Database\CompanyDirectory\CompanyInstance.cs" />

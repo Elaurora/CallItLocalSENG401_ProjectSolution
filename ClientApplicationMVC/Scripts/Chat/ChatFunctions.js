@@ -44,6 +44,11 @@ function sendMessage() {
     });*/
 }
 
+/**
+ * This function adds the given text to the user and indicates the sender of the text.
+ * @param {string} text - The content of the message
+ * @param {string} sender - The username of the sender. If it is "You" it will be a different colour.
+ */s
 function addTextToChatBox(text, sender) {
     var newMessageHtml =
         "<p class='message'>" +
@@ -91,6 +96,10 @@ function chatInstanceSelected() {
 
 }
 
+/**
+ * Initializes the SignalR connection with the server, and calls the "hello" function
+ * on the server when the connection is complete
+ */
 function initializeSignalRProxy() {
     
     myHubProxy = $.connection.hub.createHubProxy("ChatHub");
@@ -100,7 +109,15 @@ function initializeSignalRProxy() {
     });
 }
 
-
+/**
+ * This function is called by the server through SignalR. The calling of
+ * this function indicates that this user has received a message from
+ * another user.
+ * This function will only do anything if the client is currently viewing the
+ * chat history of the sender of the message.
+ * @param {any} message - The content of the message
+ * @param {any} sender - The username of the sender of the message
+ */
 function receiveMessage(message, sender) {
     if (currentSelectedChat === sender) {
         addTextToChatBox(message, sender);

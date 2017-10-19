@@ -1,6 +1,7 @@
-﻿using Messages.Commands;
+﻿using Messages;
 using Messages.Database;
-using Messages.Events;
+using Messages.NServiceBus.Events;
+using Messages.ServiceBusRequest.Echo.Requests;
 
 using MySql.Data.MySqlClient;
 
@@ -39,7 +40,7 @@ namespace EchoService.Database
         /// Saves the foreward echo to the database
         /// </summary>
         /// <param name="echo">Information about the echo</param>
-        public void saveForewardEcho(EchoEvent echo)
+        public void saveAsIsEcho(AsIsEchoEvent echo)
         {
             if(openConnection() == true)
             {
@@ -54,7 +55,7 @@ namespace EchoService.Database
             }
             else
             {
-                throw new Exception("Could not connect to database");
+                Debug.consoleMsg("Unable to connect to database");
             }
         }
 
@@ -62,13 +63,13 @@ namespace EchoService.Database
         /// Saves the reverse echo to the database
         /// </summary>
         /// <param name="echo">Information about the echo</param>
-        public void saveReverseEcho(ReverseEcho echo)
+        public void saveReverseEcho(ReverseEchoRequest request)
         {
             if (openConnection() == true)
             {
                 string query = @"INSERT INTO echoreverse(timestamp, username, datain)" +
                     @"VALUES('" + DateTimeOffset.Now.ToUnixTimeSeconds().ToString() +
-                    @"', '" + echo.username + @"', '" + echo.data + @"');";
+                    @"', '" + request.username + @"', '" + request.data + @"');";
 
                 MySqlCommand command = new MySqlCommand(query, connection);
                 command.ExecuteNonQuery();
@@ -77,7 +78,7 @@ namespace EchoService.Database
             }
             else
             {
-                throw new Exception("Could not connect to database");
+                Debug.consoleMsg("Unable to connect to database");
             }
         }
     }

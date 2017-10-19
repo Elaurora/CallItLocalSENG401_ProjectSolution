@@ -1,6 +1,8 @@
 ﻿using ClientApplicationMVC.Models;
 
 using Messages.DataTypes.Database.CompanyDirectory;
+using Messages.ServiceBusRequest.CompanyDirectory.Responses;
+using Messages.ServiceBusRequest.CompanyDirectory.Requests;
 
 using System;
 using System.Web.Mvc;
@@ -38,19 +40,21 @@ namespace ClientApplicationMVC.Controllers
                 return RedirectToAction("Index", "Authentication");
             }
 
-            ServiceBusConnection connection = ServiceBusCommunicationManager.getConnectionObject(Globals.getUser());
+            ServiceBusConnection connection = ConnectionManager.getConnectionObject(Globals.getUser());
             if(connection == null)
             {
                 return RedirectToAction("Index", "Authentication");
             }
 
-            CompanyList result = connection.searchCompanyByName(textCompanyName);
-            if (result == null)
+            CompanySearchRequest request = new CompanySearchRequest(textCompanyName);
+
+            CompanySearchResponse response = connection.searchCompanyByName(request);
+            if (response.result == false)
             {
                 return RedirectToAction("Index", "Authentication");
             }
 
-            ViewBag.Companylist = result;
+            ViewBag.Companylist = response.list;
 
             return View("Index");
         }
@@ -58,30 +62,32 @@ namespace ClientApplicationMVC.Controllers
         /// <summary>
         /// This function is called when the client navigates to *hostname*/CompanyListings/DisplayCompany/*info*
         /// </summary>
-        /// <param name="info">The name of the company whos info is to be displayed</param>
+        /// <param name="companyName">The name of the company whos info is to be displayed</param>
         /// <returns>A view to be sent to the client</returns>
-        public ActionResult DisplayCompany(string info)
+        public ActionResult DisplayCompany(string companyName)
         {
             if (Globals.isLoggedIn() == false)
             {
                 return RedirectToAction("Index", "Authentication");
             }
-            if ("".Equals(info))
+            if ("".Equals(companyName))
             {
                 return View("Index");
             }
 
-            ServiceBusConnection connection = ServiceBusCommunicationManager.getConnectionObject(Globals.getUser());
+            ServiceBusConnection connection = ConnectionManager.getConnectionObject(Globals.getUser());
             if (connection == null)
             {
                 return RedirectToAction("Index", "Authentication");
             }
 
-            CompanyInstance company = connection.getCompanyInfo(info);
+            GetCompanyInfoRequest request = new GetCompanyInfoRequest(new CompanyInstance(companyName));
 
-            ViewBag.CompanyInfo = company;
+            GetCompanyInfoResponse response = connection.getCompanyInfo(request);
 
-            ViewBag.CompanyName = info;
+            ViewBag.CompanyInfo = response.companyInfo;
+
+            ViewBag.CompanyName = companyName;
             return View("DisplayCompany");
         }
     }

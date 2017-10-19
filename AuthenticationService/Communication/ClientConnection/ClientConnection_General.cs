@@ -1,12 +1,19 @@
 ﻿using Messages;
 using Messages.DataTypes;
+using Messages.ServiceBusRequest;
+using Messages.ServiceBusRequest.Authentication;
+using Messages.ServiceBusRequest.Chat;
+using Messages.ServiceBusRequest.CompanyDirectory;
+using Messages.ServiceBusRequest.Echo;
 
 using NServiceBus;
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Sockets;
 using System.Net.Security;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Authentication;
 using System.Text;
 using System.Threading;
@@ -48,11 +55,9 @@ namespace AuthenticationService.Communication
             while (connection.Connected == true)
             {
                 //Read the call to the API
-                string serviceRequested = readUntilEOF();
+                ServiceBusRequest request = readUntilEOF();
 
-                List<string> requestParameters = new List<string>(serviceRequested.Split('/'));
-
-                string responseMessage = executeRequest(requestParameters);
+                ServiceBusResponse responseMessage = executeRequest(request);
 
                 sendToClient(responseMessage);
 
@@ -72,28 +77,20 @@ namespace AuthenticationService.Communication
         /// </summary>
         /// <param name="requestParameters">Information about the request</param>
         /// <returns>A string representing the result of the request</returns>
-        private string executeRequest(List<string> requestParameters)
+        private ServiceBusResponse executeRequest(ServiceBusRequest request)
         {
-            if (requestParameters.Count < 2)
+            switch (request.serviceRequested)
             {
-                return "Error: Invalid Request. Are you using the correct syntax ?";
-            }
-
-            string serviceRequested = requestParameters[0];
-            requestParameters.RemoveAt(0);
-
-            switch (serviceRequested)
-            {
-                case ("authentication"):
-                    return authenticationRequest(requestParameters);
-                case ("chat"):
-                    return chatRequest(requestParameters);
-                case ("companydirectory"):
-                    return companyDirectoryRequest(requestParameters);
-                case ("echo"):
-                    return echoRequest(requestParameters);
+                case (Service.Authentication):
+                    return authenticationRequest((AuthenticationServiceRequest)request);
+                case (Service.Chat):
+                    return chatRequest((ChatServiceRequest)request);
+                case (Service.CompanyDirectory):
+                    return companyDirectoryRequest((CompanyDirectoryServiceRequest)request);
+                case (Service.Echo):
+                    return echoRequest((EchoServiceRequest)request);
                 default:
-                    return ("Error: Invalid request. Did not specify a valid service type. Specified type was: " + serviceRequested);
+                    return new ServiceBusResponse(false, "Error: Invalid request. Did not specify a valid service type. Specified type was: " + request.serviceRequested.ToString());
             }
         }
 
@@ -102,25 +99,17 @@ namespace AuthenticationService.Communication
         /// The end of file string is defined in the Messages library shared by the web server and the bus.
         /// </summary>
         /// <returns>The string representation of bytes read from the client socket</returns>
-        private string readUntilEOF()
+        private ServiceBusRequest readUntilEOF()
         {
-            byte[] encodedBytes = new byte[2048];
-            string returned = String.Empty;
+            int sizeOfMsg = 0;
+            int bytesRead = 0;
+            byte[] msgSize = new byte[4];
 
-            while (returned.Contains(SharedData.msgEndDelim) == false)
+            while(bytesRead < msgSize.Length)
             {
                 try
                 {
-                    //connection.Receive(encodedBytes, 1, 0);
-
-                    int bytesRead = connectionStream.Read(encodedBytes, 0, encodedBytes.Length);
-
-                    Decoder decoder = Encoding.UTF8.GetDecoder();
-                    char[] decodedBytes = new char[decoder.GetCharCount(encodedBytes, 0, bytesRead)];
-
-                    decoder.GetChars(encodedBytes, 0, bytesRead, decodedBytes, 0);
-                    
-                    returned += new string(decodedBytes);
+                    bytesRead += connectionStream.Read(msgSize, bytesRead, msgSize.Length - bytesRead);
                 }
                 catch (SocketException)// This is thrown when the timeout occurs. The timeout is set in the constructor
                 {
@@ -128,17 +117,42 @@ namespace AuthenticationService.Communication
                 }
             }
 
-            return returned.Substring(0, returned.IndexOf(SharedData.msgEndDelim));
+            //First we will receive the size of the message
+            sizeOfMsg = BitConverter.ToInt32(msgSize, 0);
+
+            byte[] requestBytes = new byte[sizeOfMsg];
+            ServiceBusRequest request = null;
+            bytesRead = 0;
+
+            while (bytesRead < requestBytes.Length)
+            {
+                try
+                {
+                    bytesRead += connectionStream.Read(requestBytes, bytesRead, requestBytes.Length - bytesRead);
+                }
+                catch (SocketException)// This is thrown when the timeout occurs. The timeout is set in the constructor
+                {
+                    Thread.Yield();// Yield this threads remaining timeslice to another process, this process does not appear to need it currently because the read timed out
+                }
+            }
+
+            MemoryStream memStream = new MemoryStream(requestBytes);
+            BinaryFormatter binForm = new BinaryFormatter();
+
+            request = (ServiceBusRequest)binForm.Deserialize(memStream);
+
+            return request;
         }
 
         /// <summary>
         /// Sends the given message to the client along with the msgEndDelim on the end
         /// </summary>
         /// <param name="msg">The message to send to the client</param>
-        private void sendToClient(string msg)
+        private void sendToClient(ServiceBusResponse message)
         {
             //TODO Low importance: use below instead of ""
             //String.IsNullOrEmpty(msg);
+            /*
             if (connection.Connected == true && !"".Equals(msg))
             {
                 //connection.Send(Encoding.ASCII.GetBytes(msg + SharedData.msgEndDelim));
@@ -147,6 +161,25 @@ namespace AuthenticationService.Communication
                 connectionStream.Write(Encoding.UTF8.GetBytes(msg));
                 connectionStream.Flush();
             }
+            */
+
+            MemoryStream memStream = new MemoryStream();
+            BinaryFormatter binForm = new BinaryFormatter();
+
+            binForm.Serialize(memStream, message);
+            //memStream.Write(SharedData.msgEndDelim.)
+            byte[] msg = memStream.ToArray();
+            //byte[] msg = Encoding.UTF8.GetBytes(message + SharedData.msgEndDelim);
+
+            int msgSize = msg.Length;
+
+            //First write the total size of the message 
+            connectionStream.Write(BitConverter.GetBytes(msgSize));
+            connectionStream.Flush();
+
+            //Then write the serialized object
+            connectionStream.Write(msg);
+            connectionStream.Flush();
         }
 
         /// <summary>
@@ -226,6 +259,15 @@ namespace AuthenticationService.Communication
         {
             //Create a new Endpoint configuration with the name "Authentication"
             EndpointConfiguration endpointConfiguration = new EndpointConfiguration("Authentication");
+
+            //These two lines prevemt the endpoint configuration from scanning the MySql dll. 
+            //This is donw because it speeds up the startup time, and it prevents a rare but 
+            //very confusing error sometimes caused by NServiceBus scanning the file. If you 
+            //wish to know morw about this, google it, then ask your TA(since they will probably
+            //just google it anyway)
+            var scanner = endpointConfiguration.AssemblyScanner();
+            scanner.ExcludeAssemblies("MySql.Data.dll");
+
 
             //Allows the endpoint to run installers upon startup. This includes things such as the creation of message queues.
             endpointConfiguration.EnableInstallers();

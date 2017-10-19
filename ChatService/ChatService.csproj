@@ -62,8 +62,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\ChatServiceDatabase.cs" />
-    <Compile Include="Handlers\GetChatContactsHandler.cs" />
-    <Compile Include="Handlers\GetChatHistoryHandler.cs" />
+    <Compile Include="Handlers\GetChatContactsRequestHandler.cs" />
+    <Compile Include="Handlers\GetChatHistoryRequestHandler.cs" />
     <Compile Include="Handlers\MessageSentHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

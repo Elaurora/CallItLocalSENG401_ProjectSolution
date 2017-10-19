@@ -1,5 +1,8 @@
-﻿using Messages.Commands;
-using Messages.Events;
+﻿using Messages.NServiceBus.Commands;
+using Messages.NServiceBus.Events;
+using Messages.ServiceBusRequest;
+using Messages.ServiceBusRequest.Echo;
+using Messages.ServiceBusRequest.Echo.Requests;
 
 using NServiceBus;
 
@@ -21,19 +24,16 @@ namespace AuthenticationService.Communication
         /// </summary>
         /// <param name="requestParameters">Includes which task is being requested and any additional information required for the task to be executed</param>
         /// <returns>A response message</returns>
-        private string echoRequest(List<string> requestParameters)
+        private ServiceBusResponse echoRequest(EchoServiceRequest request)
         {
-            string taskRequested = requestParameters[0];
-            requestParameters.RemoveAt(0);
-
-            switch (taskRequested)
+            switch (request.requestType)
             {
-                case ("echo"):
-                    return echoForward(requestParameters[0]);
-                case ("reverse"):
-                    return echoReverse(requestParameters[0]);
+                case (EchoRequest.AsIsEcho):
+                    return asIsEcho((AsIsEchoRequest)request);
+                case (EchoRequest.ReverseEcho):
+                    return reverseEcho((ReverseEchoRequest)request);
                 default:
-                    return ("Error: Invalid Request. Request received was:" + taskRequested);
+                    return new ServiceBusResponse(false, "Error: Invalid Request. Request received was:" + request.requestType.ToString());
             }
         }
 
@@ -42,14 +42,18 @@ namespace AuthenticationService.Communication
         /// </summary>
         /// <param name="data">The data to be echo'd back to the client</param>
         /// <returns>The data sent by the client</returns>
-        private string echoForward(string data)
+        private ServiceBusResponse asIsEcho(AsIsEchoRequest request)
         {
-            EchoEvent echo = new EchoEvent
+            AsIsEchoEvent echoEvent = new AsIsEchoEvent
             {
-                data = data
+                data = request.data
             };
-            eventPublishingEndpoint.Publish(echo);
-            return data;
+
+            //This function publishes the EchoEvent class. All endpoint instances that subscribed to these events prior
+            //to the event being published will have their respictive handler functions called with the EchoEvent object
+            //as one of the parameters
+            eventPublishingEndpoint.Publish(echoEvent);
+            return new ServiceBusResponse(true, request.data);
         }
 
         /// <summary>
@@ -57,29 +61,22 @@ namespace AuthenticationService.Communication
         /// </summary>
         /// <param name="data">The data sent by the client</param>
         /// <returns>The response from the echo service</returns>
-        private string echoReverse(string data)
+        private ServiceBusResponse reverseEcho(ReverseEchoRequest request)
         {
             if(authenticated == false)
             {
-                return ("Error: You must be logged in to use the echo reverse functionality.");
+                return new ServiceBusResponse(false, "Error: You must be logged in to use the echo reverse functionality.");
             }
 
             // This class indicates to the request function where 
             SendOptions sendOptions = new SendOptions();
             sendOptions.SetDestination("Echo");
 
-            // This is the object passed between this process and the echo service process
-            ReverseEcho reverseEchoRequest = new ReverseEcho();
-            reverseEchoRequest.data = data;
-
-            // The Request funtion is an asynchronous function. However, since we do not want to continue execution until the Reuest
+            // The Request<> funtion itself is an asynchronous operation. However, since we do not want to continue execution until the Request
             // function runs to completion, we call the ConfigureAwait, GetAwaiter, and GetResult functions to ensure that this thread
             // will wait for the completion of Request before continueing. 
-            reverseEchoRequest = requestingEndpoint.Request<ReverseEcho>(reverseEchoRequest, sendOptions).
+            return requestingEndpoint.Request<ServiceBusResponse>(request, sendOptions).
                 ConfigureAwait(false).GetAwaiter().GetResult();
-
-            //return the response to the client.
-            return reverseEchoRequest.data;
         }
     }
 }

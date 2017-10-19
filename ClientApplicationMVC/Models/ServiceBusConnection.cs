@@ -1,11 +1,18 @@
-﻿using Messages.Commands;
+﻿using Messages.NServiceBus.Commands;
 using Messages.DataTypes;
-using Messages.DataTypes.Database.CompanyDirectory;
-using Messages.DataTypes.Database.Chat;
+using Messages.ServiceBusRequest;
+using Messages.ServiceBusRequest.Authentication.Requests;
+using Messages.ServiceBusRequest.Chat.Responses;
+using Messages.ServiceBusRequest.Chat.Requests;
+using Messages.ServiceBusRequest.CompanyDirectory.Responses;
+using Messages.ServiceBusRequest.CompanyDirectory.Requests;
+using Messages.ServiceBusRequest.Echo.Requests;
 
 using System;
+using System.IO;
 using System.Net.Sockets;
 using System.Net.Security;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
@@ -24,156 +31,129 @@ namespace ClientApplicationMVC.Models
         }
 
         #region AuthenticationServiceMessages
-        /// <summary>
-        /// Sends the login information to the bus
-        /// </summary>
-        /// <param name="username">The username entered</param>
-        /// <param name="password">The password entered</param>
-        /// <returns>The response from the bus</returns>
-        public string sendLogIn(string password)
-        {
-            string message = "authentication/login/" +
-                "u=" + username + "&" +
-                "p=" + password;
-            send(message);
-            string response = readUntilEOF();
 
-            return response;
+
+        /// <summary>
+        /// Sends the login information to the bus and attempts to log in
+        /// </summary>
+        /// <param name="request">The login information</param>
+        /// <returns>The response from the bus</returns>
+        public ServiceBusResponse sendLogIn(LogInRequest request)
+        {
+            send(request);
+            return readUntilEOF();
         }
 
         /// <summary>
         /// Indicates to the service bus that this client wishes to create a new account.
         /// Sends the new account info to the service bus and awaits a response indicating success or failure.
         /// </summary>
-        /// <param name="msg">The CreateAccount object containing the new accounts information</param>
+        /// <param name="request">The CreateAccountRequest object containing the new accounts information</param>
         /// <returns>The response from the bus</returns>
-        public string sendNewAccountInfo(CreateAccount accountInfo)
+        public ServiceBusResponse sendNewAccountInfo(CreateAccountRequest request)
         {
-            string message = "authentication/createaccount/" + accountInfo.toString();
-
-            send(message);
-
+            send(request);
             return readUntilEOF();
         }
+
+
         #endregion AuthenticationServiceMessages
 
-        #region CompanyDirectoryServiceMessages
-        /// <summary>
-        /// Makes a request to te bus to search for companies matching the given criteria
-        /// </summary>
-        /// <param name="delim">The criteria to search for</param>
-        /// <returns>A list of companies matching the given criteria</returns>
-        public CompanyList searchCompanyByName(string delim)
-        {
-            string message = "companydirectory/companysearch/" + delim;
-
-            send(message);
-
-            return new CompanyList(readUntilEOF());
-        }
-
-        /// <summary>
-        /// Makes a request to the servicebus to get the information about a specific company
-        /// </summary>
-        /// <param name="name">The name of the company being searched for</param>
-        /// <returns>The information about the company</returns>
-        public CompanyInstance getCompanyInfo(string name)
-        {
-            string message = "companydirectory/getcompany/" + name;
-
-            send(message);
-
-            return new CompanyInstance(readUntilEOF());
-        }
-        #endregion CompanyDirectoryServiceMessages
 
         #region ChatServiceMessages
+
+
         /// <summary>
-        /// Notifies the service bus that a user has sent a message. This function will also
-        /// attempt to send the message directly to the receiver,if they have an open session
+        /// Notifies the service bus that a user has sent a message.
         /// </summary>
-        /// <param name="msg">The message to send</param>
-        /// <returns>true if successful, false otherwise</returns>
-        public bool sendChatMessage(ChatMessage msg)
+        /// <param name="request">The message to send</param>
+        /// <returns>The response from the bus</returns>
+        public ServiceBusResponse sendChatMessage(SendMessageRequest request)
         {
-            string busmsg = "chat/sendmessage/" + msg.toString();
-            send(busmsg);
-            return true;
+            send(request);
+            return readUntilEOF();
         }
 
         /// <summary>
         /// Makes a request to the service bus for a list of usernames the current user has contacted via chat in the past
         /// </summary>
-        /// <returns>An array of usernames</returns>
-        public string[] getAllChatContacts()
+        /// <returns>The response from the server containing the list of usernames</returns>
+        public GetChatContactsResponse getAllChatContacts(GetChatContactsRequest request)
         {
-            string msg = "chat/getchatcontacts/" + username;
-
-            send(msg);
-
-            string response = readUntilEOF();
-
-            if(" ".Equals(response))
-            {
-                return new string[0];
-            }
-
-            return response.Split('&');
+            send(request);
+            return (GetChatContactsResponse)readUntilEOF();
         }
 
         /// <summary>
-        /// Sends a message to the bus requesting the chat history between this user
-        /// and the other specified user.
+        /// Sends a message to the bus requesting the chat history between the current user and the other specified user
         /// </summary>
-        /// <param name="otherUser">The other user whos chat history with the current user is requested</param>
+        /// <param name="otherUser">A request containing information needed for the request to be completed</param>
         /// <returns>The chat history between two users</returns>
-        public ChatHistory getChatHistory(string otherUser)
+        public GetChatHistoryResponse getChatHistory(GetChatHistoryRequest request)
         {
-            string msg = "chat/getchathistory/" +
-                "userone=" + username +
-                "&usertwo=" + otherUser;
-
-            send(msg);
-
-            string response = readUntilEOF();
-            return new ChatHistory(response);
+            send(request);
+            return (GetChatHistoryResponse)readUntilEOF();
         }
 
         #endregion ChatServiceMessages
 
+
+        #region CompanyDirectoryServiceMessages
+
+
+        /// <summary>
+        /// Makes a request to te bus to search for companies matching the given criteria
+        /// </summary>
+        /// <param name="delim">A request containing information needed for the request to be completed</param>
+        /// <returns>The response from the server containg a list of companies matching the given criteria</returns>
+        public CompanySearchResponse searchCompanyByName(CompanySearchRequest request)
+        {
+            send(request);
+            return (CompanySearchResponse)readUntilEOF();
+        }
+
+        /// <summary>
+        /// Makes a request to the servicebus to get the information about a specific company
+        /// </summary>
+        /// <param name="request">A request containing information needed for the request to be completed</param>
+        /// <returns>The information about the company</returns>
+        public GetCompanyInfoResponse getCompanyInfo(GetCompanyInfoRequest request)
+        {
+            send(request);
+            return (GetCompanyInfoResponse)readUntilEOF();
+        }
+
+
+        #endregion CompanyDirectoryServiceMessages
+
+        
         #region EchoServiceMessages
+
 
         /// <summary>
         /// Sends the data to be echo'd to the service bus
         /// </summary>
-        /// <param name="data">The data to be echo'd</param>
+        /// <param name="request">The data to be echo'd</param>
         /// <returns>The response from the servicebus</returns>
-        public string echoForeward(string data)
+        public ServiceBusResponse echoAsIs(AsIsEchoRequest request)
         {
-            string msg = "echo/echo/" + data;
-
-            send(msg);
-
-            string response = readUntilEOF();
-            return response;
+            send(request);
+            return readUntilEOF();
         }
 
         /// <summary>
         /// Sends the data to be echo'd to the service bus
         /// </summary>
-        /// <param name="data">The data to be echo'd</param>
+        /// <param name="request">The data to be echo'd</param>
         /// <returns>The response from the servicebus</returns>
-        public string echoReverse(string data)
+        public ServiceBusResponse echoReverse(ReverseEchoRequest request)
         {
-            string msg = "echo/reverse/" + data;
-
-            send(msg);
-
-            string response = readUntilEOF();
-            return response;
+            send(request);
+            return readUntilEOF();
         }
 
         #endregion EchoServiceMessages
+
 
         /// <summary>
         /// Indicates if this object is still connected to the service bus
@@ -198,15 +178,30 @@ namespace ClientApplicationMVC.Models
         /// Attaches the msgEndDelim to the end of the message to indicate the end of the string
         /// </summary>
         /// <param name="message">The message to be sent</param>
-        private void send(string message)
+        private void send(ServiceBusRequest message)
         {
-            byte[] msg = Encoding.UTF8.GetBytes(message + SharedData.msgEndDelim);
+            MemoryStream memStream = new MemoryStream();
+            BinaryFormatter binForm = new BinaryFormatter();
+
+            binForm.Serialize(memStream, message);
+            //memStream.Write(SharedData.msgEndDelim.)
+            byte[] msg = memStream.ToArray();
+            //byte[] msg = Encoding.UTF8.GetBytes(message + SharedData.msgEndDelim);
+
+            int msgSize = msg.Length;
 
             while (!connection.Connected)
             {
                 //TODO: Low Importance - Add a timeout to this
                 connect();
             }
+
+            //First write the total size of the message 
+
+            byte[] msgSizeBytes = BitConverter.GetBytes(msgSize);
+            connectionStream.Write(msgSizeBytes);
+            connectionStream.Flush();
+
             connectionStream.Write(msg);
             connectionStream.Flush();
         }
@@ -233,34 +228,49 @@ namespace ClientApplicationMVC.Models
         /// Continuously reads one byte at a time from the client until the end of file string of characters defined in the Messages library is found
         /// </summary>
         /// <returns>The string representation of bytes read from the server socket</returns>
-        private string readUntilEOF()
+        private ServiceBusResponse readUntilEOF()
         {
-            byte[] encodedBytes = new byte[2048];
-            string returned = String.Empty;
+            int sizeOfMsg = 0;
+            int bytesRead = 0;
+            byte[] msgSize = new byte[4];
 
-            while (returned.Contains(SharedData.msgEndDelim) == false)
+            while (bytesRead < msgSize.Length)
             {
                 try
                 {
-                    //connection.Receive(encodedBytes, 1, 0);
-
-                    int bytesRead = connectionStream.ReadAsync(encodedBytes, 0, encodedBytes.Length).ConfigureAwait(false).GetAwaiter().GetResult();
-                    //int bytesRead = connectionStream.Read(encodedBytes, 0, encodedBytes.Length);
-
-                    Decoder decoder = Encoding.UTF8.GetDecoder();
-                    char[] decodedBytes = new char[decoder.GetCharCount(encodedBytes, 0, bytesRead)];
-
-                    decoder.GetChars(encodedBytes, 0, bytesRead, decodedBytes, 0);
-
-                    returned += new string(decodedBytes);
+                    bytesRead += connectionStream.Read(msgSize, bytesRead, msgSize.Length - bytesRead);
                 }
                 catch (SocketException)// This is thrown when the timeout occurs. The timeout is set in the constructor
                 {
-                    Thread.Yield();// Yield this threads remaining timeslice to another process, this process does not appear to need it
+                    Thread.Yield();// Yield this threads remaining timeslice to another process, this process does not appear to need it currently because the read timed out
                 }
             }
 
-            return returned.Substring(0, returned.IndexOf(SharedData.msgEndDelim));
+            //First we will receive the size of the message
+            sizeOfMsg = BitConverter.ToInt32(msgSize, 0);
+
+            byte[] requestBytes = new byte[sizeOfMsg];
+            ServiceBusResponse request = null;
+            bytesRead = 0;
+
+            while (bytesRead < requestBytes.Length)
+            {
+                try
+                {
+                    bytesRead += connectionStream.Read(requestBytes, bytesRead, requestBytes.Length - bytesRead);
+                }
+                catch (SocketException)// This is thrown when the timeout occurs. The timeout is set in the constructor
+                {
+                    Thread.Yield();// Yield this threads remaining timeslice to another process, this process does not appear to need it currently because the read timed out
+                }
+            }
+
+            MemoryStream memStream = new MemoryStream(requestBytes);
+            BinaryFormatter binForm = new BinaryFormatter();
+
+            request = (ServiceBusResponse)binForm.Deserialize(memStream);
+
+            return request;
         }
 
         /// <summary>

@@ -1,39 +1,33 @@
-﻿using CompanyDirectoryService.Database;
+﻿using Messages.NServiceBus.Commands;
+using Messages.ServiceBusRequest;
+using Messages.ServiceBusRequest.Authentication.Requests;
 
-using Messages.Commands;
-using Messages.DataTypes.Database.Chat;
-using Messages.DataTypes.Database.CompanyDirectory;
-
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.Web;
 
 namespace ClientApplicationMVC.Models
 {
     /// <summary>
     /// This class is responsible for maintaining and controlling the ServiceBusConnections for each client with an open session
     /// </summary>
-    public static partial class ServiceBusCommunicationManager
+    public static partial class ConnectionManager
     {
         #region AuthenticationServiceMessages
-        
+
         /// <summary>
         /// Sends the login information to the bus
         /// </summary>
-        /// <param name="username">The username entered</param>
-        /// <param name="password">The password entered</param>
+        /// <param name="request">The request to be sent to the service bus containg the necessary information</param>
         /// <returns>The response from the bus</returns>
-        public static string sendLogIn(string username, string password)
+        public static ServiceBusResponse sendLogIn(LogInRequest request)
         {
-            ServiceBusConnection newConnection = new ServiceBusConnection(username);
-            string response = newConnection.sendLogIn(password);
+            ServiceBusConnection newConnection = new ServiceBusConnection(request.username);
+            
+            ServiceBusResponse response = newConnection.sendLogIn(request);
 
-            if ("Success".Equals(response))
+            if (response.result == true)
             {
-                addConnection(username, newConnection);
-                Globals.setUser(username);
+                addConnection(request.username, newConnection);
+                Globals.setUser(request.username);
             }
             else
             {
@@ -49,15 +43,15 @@ namespace ClientApplicationMVC.Models
         /// </summary>
         /// <param name="msg">The CreateAccount object containing the new accounts information</param>
         /// <returns>The response from the bus</returns>
-        public static string sendNewAccountInfo(CreateAccount msg)
+        public static ServiceBusResponse sendNewAccountInfo(CreateAccountRequest request)
         {
-            ServiceBusConnection newConnection = new ServiceBusConnection(msg.username);
-            string response = newConnection.sendNewAccountInfo(msg);
+            ServiceBusConnection newConnection = new ServiceBusConnection(request.createCommand.username);
+            ServiceBusResponse response = newConnection.sendNewAccountInfo(request);
 
-            if ("Success".Equals(response))
+            if (response.result == true)
             {
-                addConnection(msg.username, newConnection);
-                Globals.setUser(msg.username);
+                addConnection(request.createCommand.username, newConnection);
+                Globals.setUser(request.createCommand.username);
             }
             else
             {
@@ -105,7 +99,7 @@ namespace ClientApplicationMVC.Models
     /// <summary>
     /// This portion of the class contains member variables
     /// </summary>
-    public static partial class ServiceBusCommunicationManager
+    public static partial class ConnectionManager
     {
         /// <summary>
         /// Contains bus connection for all users who are logged in

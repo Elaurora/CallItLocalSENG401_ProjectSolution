@@ -1,6 +1,10 @@
 ﻿using ClientApplicationMVC.Models;
 
+using Messages.NServiceBus.Commands;
 using Messages.DataTypes.Database.Chat;
+using Messages.ServiceBusRequest;
+using Messages.ServiceBusRequest.Chat.Requests;
+using Messages.ServiceBusRequest.Chat.Responses;
 
 using System.Web.Mvc;
 
@@ -24,17 +28,43 @@ namespace ClientApplicationMVC.Controllers
                 return RedirectToAction("Index", "Authentication");
             }
 
-            ServiceBusConnection connection = ServiceBusCommunicationManager.getConnectionObject(Globals.getUser());
+            ServiceBusConnection connection = ConnectionManager.getConnectionObject(Globals.getUser());
             if (connection == null)
             {
                 return RedirectToAction("Index", "Authentication");
             }
 
+            GetChatContacts getContactsCommand = new GetChatContacts
+            {
+                usersname = Globals.getUser(),
+                contactNames = null
+            };
 
-            string[] chatInstances = connection.getAllChatContacts();
-            ChatHistory firstDisplayedChatHistory = chatInstances.Length > 0 ? connection.getChatHistory(chatInstances[0]) : new ChatHistory();
+            GetChatContactsRequest contactsRequest = new GetChatContactsRequest(getContactsCommand);
+            GetChatContactsResponse contactsResponse = connection.getAllChatContacts(contactsRequest);
+            
+            ChatHistory firstDisplayedChatHistory = null;
 
-            ViewBag.ChatInstances = chatInstances;
+            if (contactsResponse.responseData.contactNames.Count != 0) {
+                GetChatHistory getHistoryCommand = new GetChatHistory()
+                {
+                    history = new ChatHistory
+                    {
+                        user1 = Globals.getUser(),
+                        user2 = contactsResponse.responseData.contactNames[0]
+                    }
+
+                };
+                
+                GetChatHistoryRequest historyRequest = new GetChatHistoryRequest(getHistoryCommand);
+                firstDisplayedChatHistory = connection.getChatHistory(historyRequest).getCommand.history;
+            }
+            else
+            {
+                firstDisplayedChatHistory = new ChatHistory();
+            }
+
+            ViewBag.ChatInstances = contactsResponse.responseData.contactNames;
             ViewBag.DisplayedChatHistory = firstDisplayedChatHistory;
 
             return View();
@@ -60,13 +90,13 @@ namespace ClientApplicationMVC.Controllers
                 throw new System.Exception("Did not supply all required arguments.");
             }
 
-            ServiceBusConnection connection = ServiceBusCommunicationManager.getConnectionObject(Globals.getUser());
+            ServiceBusConnection connection = ConnectionManager.getConnectionObject(Globals.getUser());
             if (connection == null)
             {
                 return RedirectToAction("Index", "Authentication");
             }
 
-            ChatMessage Message = new ChatMessage
+            ChatMessage chatMessage = new ChatMessage
             {
                 sender = Globals.getUser(),
                 receiver = receiver,
@@ -74,7 +104,9 @@ namespace ClientApplicationMVC.Controllers
                 messageContents = message
             };
 
-            connection.sendChatMessage(Message);
+            SendMessageRequest request = new SendMessageRequest(chatMessage);
+
+            connection.sendChatMessage(request);
             return null;
         }
 
@@ -95,17 +127,28 @@ namespace ClientApplicationMVC.Controllers
                 throw new System.Exception("Did not supply all required arguments.");
             }
 
-            ServiceBusConnection connection = ServiceBusCommunicationManager.getConnectionObject(Globals.getUser());
+            ServiceBusConnection connection = ConnectionManager.getConnectionObject(Globals.getUser());
             if (connection == null)
             {
                 return RedirectToAction("Index", "Authentication");
             }
 
-            ChatHistory userHistory = connection.getChatHistory(otherUser);
+            GetChatHistory getCommand = new GetChatHistory()
+            {
+                history = new ChatHistory()
+                {
+                    user1 = Globals.getUser(),
+                    user2 = otherUser
+                }
+            };
+
+            GetChatHistoryRequest request = new GetChatHistoryRequest(getCommand);
+
+            GetChatHistoryResponse response = connection.getChatHistory(request);
 
             string newConvoHtml = "";
 
-            foreach(ChatMessage msg in userHistory.messages)
+            foreach(ChatMessage msg in response.getCommand.history.messages)
             {
                 if (msg.sender.Equals(Globals.getUser()))
                 {

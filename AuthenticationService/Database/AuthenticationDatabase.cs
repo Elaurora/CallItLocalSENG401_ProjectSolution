@@ -1,5 +1,6 @@
 ﻿using Messages.Database;
-using Messages.Commands;
+using Messages.NServiceBus.Commands;
+using Messages.ServiceBusRequest;
 
 using MySql.Data.MySqlClient;
 
@@ -36,8 +37,10 @@ namespace AuthenticationService.Database
         /// </summary>
         /// <param name="accountInfo">Contains information about the </param>
         /// <returns>A message indicating the result of the attempt</returns>
-        public string insertNewUserAccount(CreateAccount accountInfo)
+        public ServiceBusResponse insertNewUserAccount(CreateAccount accountInfo)
         {
+            bool result = false;
+            string message = "";
             if(openConnection() == true)
             {
                 string query = @"INSERT INTO user(username, password, address, phonenumber, email, type) " +
@@ -49,21 +52,20 @@ namespace AuthenticationService.Database
                 {
                     MySqlCommand command = new MySqlCommand(query, connection);
                     command.ExecuteNonQuery();
+                    result = true;
                 }
                 catch(MySqlException e)
                 {
                     Messages.Debug.consoleMsg("Unable to complete insert new user into database." +
                         " Error :" + e.Number + e.Message);
                     Messages.Debug.consoleMsg("The query was:" + query);
-                    closeConnection();
-                    return e.Message;
+                    message = e.Message;
                 }
                 catch (Exception e)
                 {
-                    closeConnection();
                     Messages.Debug.consoleMsg("Unable to Unable to complete insert new user into database." +
                         " Error:" + e.Message);
-                    return ("An unknown error occured." + e.Message);
+                    message = e.Message;
                 }
                 finally
                 {
@@ -72,10 +74,10 @@ namespace AuthenticationService.Database
             }
             else
             {
-                return ("Log in service is currently down. Unable to connect to database");
+                message = "Unable to connect to database";
             }
 
-            return ("Success");
+            return new ServiceBusResponse(result, message);
         }
 
         /// <summary>
@@ -85,28 +87,39 @@ namespace AuthenticationService.Database
         /// <param name="username">The username to check the database for</param>
         /// <param name="password">The password to check the database for</param>
         /// <returns>True if the info corresponds to an entry in the database, false otherwise</returns>
-        public bool isValidUserInfo(string username, string password)
+        public ServiceBusResponse isValidUserInfo(string username, string password)
         {
             string query = @"SELECT * FROM " + databaseName + @".user " +
                 @"WHERE username='" + username + @"' " +
                 @"AND password='" + password + @"';";
+            
+            bool result = false;
+            string message = "";
 
-            bool returned = false;
-
-            if(openConnection() == true)
+            try
             {
-                MySqlCommand command = new MySqlCommand(query, connection);
-
-                MySqlDataReader dataReader = command.ExecuteReader();
-
-                returned = dataReader.Read();
-
-                dataReader.Close();
-
+                if (openConnection() == true)
+                {
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataReader dataReader = command.ExecuteReader();
+                    result = dataReader.Read();
+                    dataReader.Close();
+                }
+                else
+                {
+                    result = false;
+                    message = "Could not connect to database.";
+                }
+            }
+            catch(Exception e)
+            {
+                message = e.Message;
+            }
+            finally
+            {
                 closeConnection();
             }
-
-            return returned;
+            return new ServiceBusResponse(result, message);
         }
     }
 

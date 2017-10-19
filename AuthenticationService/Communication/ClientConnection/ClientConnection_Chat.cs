@@ -1,6 +1,10 @@
-﻿using Messages.Commands;
+﻿using Messages.NServiceBus.Commands;
 using Messages.DataTypes.Database.Chat;
-using Messages.Events;
+using Messages.NServiceBus.Events;
+using Messages.ServiceBusRequest;
+using Messages.ServiceBusRequest.Chat;
+using Messages.ServiceBusRequest.Chat.Requests;
+using Messages.ServiceBusRequest.Chat.Responses;
 
 using NServiceBus;
 
@@ -18,26 +22,18 @@ namespace AuthenticationService.Communication
         /// </summary>
         /// <param name="requestParameters">The information regarding which task is requested and any additional information needed</param>
         /// <returns>A response from the chat service</returns>
-        private string chatRequest(List<string> requestParameters)
+        private ServiceBusResponse chatRequest(ChatServiceRequest request)
         {
-            if(authenticated == false)
+            switch (request.requestType)
             {
-                return ("You must be logged in to use the chat service.");
-            }
-
-            string taskRequested = requestParameters[0];
-            requestParameters.RemoveAt(0);
-
-            switch (taskRequested)
-            {
-                case ("sendmessage"):
-                    return messageSent(requestParameters[0]);
-                case ("getchatcontacts"):
-                    return getAllChatContactsForUser(requestParameters[0]);
-                case ("getchathistory"):
-                    return getChatHistory(requestParameters[0]);
+                case (ChatRequest.sendMessage):
+                    return messageSent((SendMessageRequest)request);
+                case (ChatRequest.getChatContacts):
+                    return getAllChatContactsForUser((GetChatContactsRequest)request);
+                case (ChatRequest.getChatHistory):
+                    return getChatHistory((GetChatHistoryRequest)request);
                 default:
-                    return ("Error: Invalid request. Did not specify a valid request from the chat service.");
+                    return new ServiceBusResponse(false, "Error: Invalid request. Did not specify a valid request from the chat service.");
             }
         }
         
@@ -46,11 +42,16 @@ namespace AuthenticationService.Communication
         /// </summary>
         /// <param name="messageInfo">Information about the message, ready to be parsed by the ChatMessage in the proper format</param>
         /// <returns>An empty string upon success</returns>
-        private string messageSent(string messageInfo)
+        private ServiceBusResponse messageSent(SendMessageRequest request)
         {
-            ChatMessage msg = new ChatMessage(messageInfo);
+            if(authenticated == false)
+            {
+                return new ServiceBusResponse(false, "You must be logged in to use the chat service");
+            }
+
+            ChatMessage msg = request.message;
             eventPublishingEndpoint.Publish(new MessageSent { msg = msg });
-            return "";
+            return new ServiceBusResponse(true, "");
         }
 
         /// <summary>
@@ -58,36 +59,18 @@ namespace AuthenticationService.Communication
         /// </summary>
         /// <param name="usersname">The name of the user</param>
         /// <returns>A single string containing the usernames of users the given user has contacted via chat. A " " response indicates no other users were found</returns>
-        private string getAllChatContactsForUser(string givenuser)
+        private GetChatContactsResponse getAllChatContactsForUser(GetChatContactsRequest request)
         {
-            //TODO: Learn about how databases work on a lower level
+            if (authenticated == false)
+            {
+                return new GetChatContactsResponse(false, "You must be logged in to use the chat service", null);
+            }
 
             SendOptions sendOptions = new SendOptions();
             sendOptions.SetDestination("Chat");
-
-            GetChatContacts request = new GetChatContacts
-            {
-                usersname = givenuser
-            };
-
-            request = requestingEndpoint.Request<GetChatContacts>(request, sendOptions).
+            
+            return requestingEndpoint.Request<GetChatContactsResponse>(request, sendOptions).
                 ConfigureAwait(false).GetAwaiter().GetResult();
-
-            if(request.contactNames == null || request.contactNames.Count < 1)
-            {
-                return " ";// Return a space to indicate no users found
-            }
-            string returned = "";
-
-            for(int i = 0; i != request.contactNames.Count; i++)
-            {
-                if(i != 0)
-                {
-                    returned += "&";
-                }
-                returned += request.contactNames[i];
-            }
-            return returned;
         }
 
         /// <summary>
@@ -95,35 +78,18 @@ namespace AuthenticationService.Communication
         /// </summary>
         /// <param name="info">Should contain the two users whos chat history is being requested. in the form "userone=whatev1&usertwo=whatev2"</param>
         /// <returns>A string representation of the chat history between the 2 given users.</returns>
-        private string getChatHistory(string info)
+        private GetChatHistoryResponse getChatHistory(GetChatHistoryRequest request)
         {
-            string[] parts = info.Split('&');
-
-            GetChatHistory request = new GetChatHistory();
-
-            foreach(string part in parts)
+            if (authenticated == false)
             {
-                string[] pieces = part.Split('=');
-                switch (pieces[0])
-                {
-                    case ("userone"):
-                        request.userone = pieces[1];
-                        break;
-                    case ("usertwo"):
-                        request.usertwo = pieces[1];
-                        break;
-                    default:
-                        return ("Error: Invalid format for get Chat History parameters");
-                }
+                return new GetChatHistoryResponse(false, "You must be logged in to use the chat service", null);
             }
 
             SendOptions sendOptions = new SendOptions();
             sendOptions.SetDestination("Chat");
 
-            request = requestingEndpoint.Request<GetChatHistory>(request, sendOptions)
+            return requestingEndpoint.Request<GetChatHistoryResponse>(request, sendOptions)
                 .ConfigureAwait(false).GetAwaiter().GetResult();
-
-            return request.history.toString();
         }
     }
 }

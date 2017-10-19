@@ -5,6 +5,7 @@ namespace Messages.DataTypes.Database.Chat
     /// <summary>
     /// This class represents a single chat message sent from one user to another.
     /// </summary>
+    [Serializable]
     public partial class ChatMessage
     {
         public ChatMessage() { }

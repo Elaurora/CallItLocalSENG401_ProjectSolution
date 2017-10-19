@@ -15,14 +15,18 @@ namespace Messages.DataTypes.Collections
         }
 
         /// <summary>
-        /// Adds the given pair to the dictionary
+        /// Adds the given pair to the dictionary if it does not already e
         /// </summary>
         /// <param name="Username">The username of the user</param>
         /// <param name="ConnectionID">The connectionID of the user</param>
         public void Add(string Username, string ConnectionID)
         {
-            userKey.Add(Username, ConnectionID);
-            connectionKey.Add(ConnectionID, Username);
+            try
+            {
+                userKey.Add(Username, ConnectionID);
+                connectionKey.Add(ConnectionID, Username);
+            }
+            catch (ArgumentException) { }
         }
 
         /// <summary>

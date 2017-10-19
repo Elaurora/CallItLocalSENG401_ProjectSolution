@@ -1,6 +1,6 @@
 ﻿using CompanyDirectoryService.Database;
 
-using Messages.Events;
+using Messages.NServiceBus.Events;
 
 using NServiceBus;
 
@@ -33,6 +33,14 @@ namespace CompanyDirectoryService
 //#endif
             //Create a new Endpoint configuration with the name "CompanyDirectory"
             var endpointConfiguration = new EndpointConfiguration("CompanyDirectory");
+
+            //These two lines prevemt the endpoint configuration from scanning the MySql dll. 
+            //This is donw because it speeds up the startup time, and it prevents a rare but 
+            //very confusing error sometimes caused by NServiceBus scanning the file. If you 
+            //wish to know morw about this, google it, then ask your TA(since they will probably
+            //just google it anyway)
+            var scanner = endpointConfiguration.AssemblyScanner();
+            scanner.ExcludeAssemblies("MySql.Data.dll");
 
             //Allows the endpoint to run installers upon startup. This includes things such as the creation of message queues.
             endpointConfiguration.EnableInstallers();

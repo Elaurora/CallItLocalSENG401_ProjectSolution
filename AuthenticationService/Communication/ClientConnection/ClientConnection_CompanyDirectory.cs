@@ -1,7 +1,9 @@
-﻿
-
-using Messages.DataTypes.Database.CompanyDirectory;
-using Messages.Commands;
+﻿using Messages.DataTypes.Database.CompanyDirectory;
+using Messages.NServiceBus.Commands;
+using Messages.ServiceBusRequest;
+using Messages.ServiceBusRequest.CompanyDirectory;
+using Messages.ServiceBusRequest.CompanyDirectory.Responses;
+using Messages.ServiceBusRequest.CompanyDirectory.Requests;
 
 using NServiceBus;
 
@@ -19,24 +21,16 @@ namespace AuthenticationService.Communication
         /// </summary>
         /// <param name="requestParameters">Informtation relevant to the task being requested</param>
         /// <returns>A response message</returns>
-        private string companyDirectoryRequest(List<string> requestParameters)
+        private ServiceBusResponse companyDirectoryRequest(CompanyDirectoryServiceRequest request)
         {
-            if (authenticated == false)
+            switch (request.requestType)
             {
-                return ("Error: You must be logged in to use the CompanyDirectoryService.");
-            }
-
-            string taskRequested = requestParameters[0];
-            requestParameters.RemoveAt(0);
-
-            switch (taskRequested)
-            {
-                case ("companysearch"):
-                    return searchForCompany(requestParameters[0]);
-                case ("getcompany"):
-                    return getCompanyByName(requestParameters[0]);
+                case (CompanyDirectoryRequest.CompanySearch):
+                    return searchForCompany((CompanySearchRequest)request);
+                case (CompanyDirectoryRequest.GetCompanyInfo):
+                    return getCompanyInfo((GetCompanyInfoRequest)request);
                 default:
-                    return ("Error: Invalid request. Request received was:" + taskRequested);
+                    return new ServiceBusResponse(false, "Error: Invalid request. Request received was:" + request.requestType.ToString());
             }
         }
 
@@ -45,19 +39,18 @@ namespace AuthenticationService.Communication
         /// </summary>
         /// <param name="companyToSearchFor">The name of the company to search for</param>
         /// <returns>A string representing the result of the request</returns>
-        private string searchForCompany(string companyToSearchFor)
+        private CompanySearchResponse searchForCompany(CompanySearchRequest request)
         {
+            if(authenticated == false)
+            {
+                return new CompanySearchResponse(false, "Must be logged in to use the Company DIrectory Service", null);
+            }
 
             SendOptions sendOptions = new SendOptions();
             sendOptions.SetDestination("CompanyDirectory");
 
-            CompanyList response = requestingEndpoint.Request<CompanyList>(new SearchForCompany
-            {
-                delim = companyToSearchFor
-            }
-                , sendOptions).ConfigureAwait(false).GetAwaiter().GetResult();
-
-            return (response.toString());
+            return requestingEndpoint.Request<CompanySearchResponse>(request, sendOptions)
+                .ConfigureAwait(false).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -65,22 +58,18 @@ namespace AuthenticationService.Communication
         /// </summary>
         /// <param name="companyName">The name of the company to search for</param>
         /// <returns>String representation of the company being searched for</returns>
-        private string getCompanyByName(string companyName)
+        private GetCompanyInfoResponse getCompanyInfo(GetCompanyInfoRequest request)
         {
+            if (authenticated == false)
+            {
+                return new GetCompanyInfoResponse(false, "Must be logged in to use the Company DIrectory Service", null);
+            }
+
             SendOptions sendOptions = new SendOptions();
             sendOptions.SetDestination("CompanyDirectory");
 
-            CompanyInstance returned = requestingEndpoint.Request<CompanyInstance>(new GetCompanyInfo
-            {
-                companyName = companyName
-            }, sendOptions).ConfigureAwait(false).GetAwaiter().GetResult();
-
-            if (returned.companyName == null)
-            {
-                return ("Error: Could not find company " + companyName);
-            }
-
-            return (returned.toString());
+            return requestingEndpoint.Request<GetCompanyInfoResponse>(request, sendOptions)
+                .ConfigureAwait(false).GetAwaiter().GetResult();
         }
     }
 }

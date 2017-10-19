@@ -1,5 +1,5 @@
-﻿using Messages.Commands;
-using Messages.Events;
+﻿using Messages.NServiceBus.Commands;
+using Messages.NServiceBus.Events;
 
 using NServiceBus;
 using NServiceBus.Logging;

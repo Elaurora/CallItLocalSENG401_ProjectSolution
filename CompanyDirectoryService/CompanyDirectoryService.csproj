@@ -48,8 +48,8 @@
   <ItemGroup>
     <Compile Include="Database\CompanyDirectoryDB.cs" />
     <Compile Include="Handlers\AccountCreatedHandler .cs" />
-    <Compile Include="Handlers\GetCompanyInfoHandler.cs" />
-    <Compile Include="Handlers\SearchForCompanyHandler.cs" />
+    <Compile Include="Handlers\GetCompanyInfoRequestHandler.cs" />
+    <Compile Include="Handlers\CompanySearchRequestHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

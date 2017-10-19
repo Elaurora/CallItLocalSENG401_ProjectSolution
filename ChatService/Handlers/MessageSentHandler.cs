@@ -1,6 +1,6 @@
 ﻿using ChatService.Database;
 
-using Messages.Events;
+using Messages.NServiceBus.Events;
 
 using NServiceBus;
 using NServiceBus.Logging;

@@ -1,7 +1,11 @@
 ﻿using AuthenticationService.Database;
 
-using Messages.Commands;
-using Messages.Events;
+using Messages;
+using Messages.NServiceBus.Commands;
+using Messages.NServiceBus.Events;
+using Messages.ServiceBusRequest;
+using Messages.ServiceBusRequest.Authentication;
+using Messages.ServiceBusRequest.Authentication.Requests;
 
 using NServiceBus;
 
@@ -21,19 +25,16 @@ namespace AuthenticationService.Communication
         /// </summary>
         /// <param name="requestParameters">Information regarding the task being requested</param>
         /// <returns>A response message</returns>
-        private string authenticationRequest(List<string> requestParameters)
+        private ServiceBusResponse authenticationRequest(AuthenticationServiceRequest request)
         {
-            string taskRequested = requestParameters[0];
-            requestParameters.RemoveAt(0);
-
-            switch (taskRequested)
+            switch (request.requestType)
             {
-                case ("login"):
-                    return attemptToAuthenticateUser(requestParameters[0]);
-                case ("createaccount"):
-                    return attemptNewAccountCreation(requestParameters[0]);
+                case (AuthenticationRequest.LogIn):
+                    return attemptToAuthenticateUser((LogInRequest)request);
+                case (AuthenticationRequest.CreateAccount):
+                    return attemptNewAccountCreation((CreateAccountRequest)request);
                 default:
-                    return("Error: Invalid request. Request received was:" + taskRequested);
+                    return new ServiceBusResponse(false, "Error: Invalid request. Request received was:" + request.requestType.ToString());
             }
         }
 
@@ -42,13 +43,13 @@ namespace AuthenticationService.Communication
         /// It also publishes an "AccountCreated" event
         /// </summary>
         /// <returns>A response message</returns>
-        private string attemptNewAccountCreation(string info)
+        private ServiceBusResponse attemptNewAccountCreation(CreateAccountRequest request)
         {
-            CreateAccount command = new CreateAccount(info);
+            CreateAccount command = request.createCommand;
 
-            string dbResponse = AuthenticationDatabase.getInstance().insertNewUserAccount(command);
+            ServiceBusResponse dbResponse = AuthenticationDatabase.getInstance().insertNewUserAccount(command);
 
-            if ("Success".Equals(dbResponse))
+            if (dbResponse.result == true)
             {
                 authenticated = true;
                 username = command.username;
@@ -66,24 +67,22 @@ namespace AuthenticationService.Communication
         /// </summary>
         /// <param name="info">Should contain the username and password in the proper format. See parseLoginInfo definition for desired format</param>
         /// <returns>A response message indicating the result of the attempt</returns>
-        private string attemptToAuthenticateUser(string info)
+        private ServiceBusResponse attemptToAuthenticateUser(LogInRequest request)
         {
-            parseLoginInfo(info);
+            this.username = request.username;
+            this.password = request.password;
 
             if ("".Equals(username) || "".Equals(password))
             {
                 terminateConnection();
-                return ("Failure. Username or password not sent properly");
+                return new ServiceBusResponse(false, "Failure. Username or password not sent properly");
             }
 
-            authenticated = AuthenticationDatabase.getInstance().isValidUserInfo(username, password);
+            ServiceBusResponse dbResponse = AuthenticationDatabase.getInstance().isValidUserInfo(username, password);
+            authenticated = dbResponse.result;
+
             reportLogInAttempt();
-
-            if (authenticated == true)
-            {
-                return ("Success");
-            }
-            return ("Failure");
+            return dbResponse;
         }
 
         /// <summary>
@@ -101,7 +100,7 @@ namespace AuthenticationService.Communication
 
             //Publish the log in attempt event for any other EP that wish to know about it.
             //If an endpoint wishes to be notified about this event, it should subscribe to the event in its configuration
-            Console.Write("Log in attempted with credentials:" + "\n" +
+            Debug.consoleMsg("Log in attempted with credentials:" + "\n" +
                 "Username:" + username + "\n" +
                 "Password:" + password + "\n");
 
@@ -110,46 +109,6 @@ namespace AuthenticationService.Communication
                 initializeRequestingEndpoint();
             }
             eventPublishingEndpoint.Publish(attempt);
-        }
-
-        /// <summary>
-        /// Attempts to convert the given string into a username and password.
-        /// The expexted format is :
-        /// "u=givenusername&p=givenpassword"
-        /// </summary>
-        private void parseLoginInfo(string info)
-        {
-            string[] components = info.Split('&');
-
-            if (components.Length != 2)
-            {
-                username = "";
-                password = "";
-                return;
-            }
-            foreach (string component in components)
-            {
-                string[] pieces = component.Split('=');
-                if (pieces.Length != 2)
-                {
-                    username = "";
-                    password = "";
-                    return;
-                }
-                switch (pieces[0])
-                {
-                    case ("u"):
-                        username = pieces[1];
-                        break;
-                    case ("p"):
-                        password = pieces[1];
-                        break;
-                    default:
-                        username = "";
-                        password = "";
-                        return;
-                }
-            }
         }
 
         /// <summary>

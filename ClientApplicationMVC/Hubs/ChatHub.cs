@@ -2,6 +2,7 @@
 
 using Messages.DataTypes.Collections;
 using Messages.DataTypes.Database.Chat;
+using Messages.ServiceBusRequest.Chat.Requests;
 
 using Microsoft.AspNet.SignalR;
 
@@ -42,7 +43,7 @@ namespace ClientApplicationMVC.Hubs
             string receiverConnectionID = connectedUsers.getConnectionID(receiver);
             string user = connectedUsers.getUsername(Context.ConnectionId);
 
-            ChatMessage Message = new ChatMessage
+            ChatMessage chatMessage = new ChatMessage
             {
                 sender = user,
                 receiver = receiver,
@@ -50,8 +51,10 @@ namespace ClientApplicationMVC.Hubs
                 messageContents = message
             };
 
+            SendMessageRequest request = new SendMessageRequest(chatMessage);
+
             //Send the chat message to the service bus to be saved in the database
-            ServiceBusCommunicationManager.getConnectionObject(user).sendChatMessage(Message);
+            ConnectionManager.getConnectionObject(user).sendChatMessage(request);
              
             if (receiverConnectionID != null)
             {

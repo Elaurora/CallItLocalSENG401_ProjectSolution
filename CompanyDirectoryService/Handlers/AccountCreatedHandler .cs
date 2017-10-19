@@ -3,7 +3,7 @@
 using NServiceBus;
 using NServiceBus.Logging;
 
-using Messages.Events;
+using Messages.NServiceBus.Events;
 using Messages.DataTypes;
 
 using System;

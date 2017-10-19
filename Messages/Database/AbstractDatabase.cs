@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Messages;
+
+using MySql.Data.MySqlClient;
 
 using System;
 using System.Threading;
@@ -38,18 +40,18 @@ namespace Messages.Database
                 {
                     command = new MySqlCommand(commandString, connection); 
                     command.ExecuteNonQuery();
-                    Messages.Debug.consoleMsg("Successfully created database " + databaseName);
+                    Debug.consoleMsg("Successfully created database " + databaseName);
                 }
                 catch (MySqlException e)
                 {
                     if (e.Number == 1007)//Database already exists, no need to continure further
                     {
-                        Messages.Debug.consoleMsg("Database already exists.");
+                        Debug.consoleMsg("Database already exists.");
                         closeConnection();
                         connection = new MySqlConnection("SERVER=localhost;DATABASE=" + databaseName + ";UID=" + UID + ";AUTO ENLIST=false;PASSWORD=" + Password);
                         return;
                     }
-                    Messages.Debug.consoleMsg("Unable to create database"
+                    Debug.consoleMsg("Unable to create database"
                         + databaseName + " Error: " +  e.Number + e.Message);
                     closeConnection();
                     return;
@@ -63,13 +65,13 @@ namespace Messages.Database
                         commandString = table.getCreateCommand();
                         command = new MySqlCommand(commandString, connection);
                         command.ExecuteNonQuery();
-                        Messages.Debug.consoleMsg("Successfully created the table "
+                        Debug.consoleMsg("Successfully created the table "
                             + table.databaseName + "." + table.tableName);
 
                     }
                     catch (MySqlException e)
                     {
-                        Messages.Debug.consoleMsg("Unable to create table "
+                        Debug.consoleMsg("Unable to create table "
                             + table.databaseName + "." + table.tableName
                             + " Error: " + e.Number + e.Message);
                     }
@@ -98,12 +100,12 @@ namespace Messages.Database
                         commandString = table.getDropCommand();
                         command = new MySqlCommand(commandString, connection);
                         command.ExecuteNonQuery();
-                        Messages.Debug.consoleMsg("Successfully deleted table "
+                        Debug.consoleMsg("Successfully deleted table "
                             + table.databaseName + "." + table.tableName);
                     }
                     catch (MySqlException e)
                     {
-                        Messages.Debug.consoleMsg("Unable to delete table "
+                        Debug.consoleMsg("Unable to delete table "
                             + table.databaseName + "." + table.tableName
                             + " Error: " + e.Number + e.Message);
                     }
@@ -114,11 +116,11 @@ namespace Messages.Database
                 try
                 {
                     command.ExecuteNonQuery();
-                    Messages.Debug.consoleMsg("Successfully deleted database " + databaseName);
+                    Debug.consoleMsg("Successfully deleted database " + databaseName);
                 }
                 catch (MySqlException e)
                 {
-                    Messages.Debug.consoleMsg("Unable to delete database " + databaseName
+                    Debug.consoleMsg("Unable to delete database " + databaseName
                         + " Error: " + e.Number + e.Message);
                 }
                 finally
@@ -146,13 +148,13 @@ namespace Messages.Database
                 switch (e.Number)
                 {
                     case 0:
-                        Messages.Debug.consoleMsg("Cannot connect to database.");
+                        Debug.consoleMsg("Cannot connect to database.");
                         break;
                     case 1045:
-                        Messages.Debug.consoleMsg("Invalid username or password for database.");
+                        Debug.consoleMsg("Invalid username or password for database.");
                         break;
                     default:
-                        Messages.Debug.consoleMsg("Cannot connect to database. Error code <" + e.Number + ">");
+                        Debug.consoleMsg("Cannot connect to database. Error code <" + e.Number + ">");
                         break;
                 }
                 return false;
@@ -164,12 +166,12 @@ namespace Messages.Database
                     return true;
                 }
                 mutex.ReleaseMutex();
-                throw e;
+                return false;
             }
             catch(Exception e)
             {
                 mutex.ReleaseMutex();
-                throw e;
+                return false;
             }
         }
 
@@ -188,7 +190,7 @@ namespace Messages.Database
             catch (MySqlException e)
             {
                 mutex.ReleaseMutex();
-                Messages.Debug.consoleMsg("Could not close connection to database. Error message: " + e.Number + e.Message);
+                Debug.consoleMsg("Could not close connection to database. Error message: " + e.Number + e.Message);
                 return false;
             }
         }

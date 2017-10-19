@@ -44,13 +44,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\CreateAccount.cs" />
-    <Compile Include="Commands\GetChatContacts.cs" />
-    <Compile Include="Commands\GetChatHistory.cs" />
-    <Compile Include="Commands\GetCompanyInfo.cs" />
-    <Compile Include="Commands\LockAccount.cs" />
-    <Compile Include="Commands\ReverseEcho.cs" />
-    <Compile Include="Commands\SearchForCompany.cs" />
+    <Compile Include="ServiceBusRequest\Authentication\AuthenticationServiceRequest.cs" />
+    <Compile Include="ServiceBusRequest\Authentication\Requests\CreateAccountRequest.cs" />
+    <Compile Include="ServiceBusRequest\Authentication\Requests\LogInRequest.cs" />
+    <Compile Include="ServiceBusRequest\Chat\ChatServiceRequest.cs" />
+    <Compile Include="ServiceBusRequest\Chat\Responses\GetChatContactsResponse.cs" />
+    <Compile Include="ServiceBusRequest\Chat\Responses\GetChatHistoryResponse.cs" />
+    <Compile Include="ServiceBusRequest\Chat\Requests\GetChatContactsRequest.cs" />
+    <Compile Include="ServiceBusRequest\Chat\Requests\GetChatHistoryRequest.cs" />
+    <Compile Include="ServiceBusRequest\Chat\Requests\SendMessageRequest.cs" />
+    <Compile Include="ServiceBusRequest\CompanyDirectory\CompanyDirectoryServiceRequest.cs" />
+    <Compile Include="ServiceBusRequest\CompanyDirectory\Requests\CompanySearchRequest.cs" />
+    <Compile Include="ServiceBusRequest\CompanyDirectory\Requests\GetCompanyInfoRequest.cs" />
+    <Compile Include="ServiceBusRequest\CompanyDirectory\Responses\CompanySearchResponse.cs" />
+    <Compile Include="ServiceBusRequest\CompanyDirectory\Responses\GetCompanyInfoResponse.cs" />
+    <Compile Include="ServiceBusRequest\Echo\EchoServiceRequest.cs" />
+    <Compile Include="ServiceBusRequest\Echo\Requests\AsIsEchoRequest.cs" />
+    <Compile Include="ServiceBusRequest\Echo\Requests\ReverseEchoRequest.cs" />
+    <Compile Include="ServiceBusRequest\ServiceBusResponse.cs" />
+    <Compile Include="ServiceBusRequest\ServiceBusRequest.cs" />
+    <Compile Include="NServiceBus\Commands\CreateAccount.cs" />
+    <Compile Include="NServiceBus\Commands\GetChatContacts.cs" />
+    <Compile Include="NServiceBus\Commands\GetChatHistory.cs" />
+    <Compile Include="NServiceBus\Commands\GetCompanyInfo.cs" />
+    <Compile Include="NServiceBus\Commands\LockAccount.cs" />
+    <Compile Include="NServiceBus\Commands\SearchForCompany.cs" />
     <Compile Include="Database\AbstractDatabase.cs" />
     <Compile Include="Database\Column.cs" />
     <Compile Include="Database\Table.cs" />
@@ -61,12 +79,12 @@
     <Compile Include="DataTypes\Enums.cs" />
     <Compile Include="DataTypes\SharedData.cs" />
     <Compile Include="Debug\Debug.cs" />
-    <Compile Include="Events\AccountCreated.cs" />
-    <Compile Include="Events\AccountLocked.cs" />
-    <Compile Include="Events\ClientLogInAttempted.cs" />
+    <Compile Include="NServiceBus\Events\AccountCreated.cs" />
+    <Compile Include="NServiceBus\Events\AccountLocked.cs" />
+    <Compile Include="NServiceBus\Events\ClientLogInAttempted.cs" />
     <Compile Include="DataTypes\Database\CompanyDirectory\CompanyList.cs" />
-    <Compile Include="Events\EchoEvent.cs" />
-    <Compile Include="Events\MessageSent.cs" />
+    <Compile Include="NServiceBus\Events\AsIsEchoEvent.cs" />
+    <Compile Include="NServiceBus\Events\MessageSent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

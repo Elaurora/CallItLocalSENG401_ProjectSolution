@@ -1,7 +1,7 @@
 ﻿using EchoService.Database;
 
 using Messages;
-using Messages.Events;
+using Messages.NServiceBus.Events;
 
 using NServiceBus;
 
@@ -37,6 +37,14 @@ namespace EchoService
             //Create a new Endpoint configuration with the name "Authentication"
             EndpointConfiguration endpointConfiguration = new EndpointConfiguration("Echo");
 
+            //These two lines prevemt the endpoint configuration from scanning the MySql dll. 
+            //This is donw because it speeds up the startup time, and it prevents a rare but 
+            //very confusing error sometimes caused by NServiceBus scanning the file. If you 
+            //wish to know morw about this, google it, then ask your TA(since they will probably
+            //just google it anyway)
+            var scanner = endpointConfiguration.AssemblyScanner();
+            scanner.ExcludeAssemblies("MySql.Data.dll");
+
             //Allows the endpoint to run installers upon startup. This includes things such as the creation of message queues.
             endpointConfiguration.EnableInstallers();
             //Instructs the queue to serialize messages with Json, should it need to serialize them
@@ -52,7 +60,7 @@ namespace EchoService
             var routing = transport.Routing();
 
             //Register to the MessageSent events published by the authentication endpoint
-            routing.RegisterPublisher(typeof(EchoEvent), "Authentication");
+            routing.RegisterPublisher(typeof(AsIsEchoEvent), "Authentication");
 
             //Start the endpoint with the configuration defined above.It should be noted that any changes made to the endpointConfiguration after an endpoint is instantiated will not apply to any endpoints that have already been instantiated
             var endpointInstance = await Endpoint.Start(endpointConfiguration).ConfigureAwait(false);

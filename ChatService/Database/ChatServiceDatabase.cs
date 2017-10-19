@@ -1,6 +1,9 @@
 ﻿using Messages.Database;
 using Messages.DataTypes.Database.Chat;
 using Messages.DataTypes;
+using Messages.NServiceBus.Commands;
+using Messages.ServiceBusRequest.Chat.Responses;
+using Messages.ServiceBusRequest.Chat.Requests;
 
 using MySql.Data.MySqlClient;
 
@@ -125,41 +128,59 @@ namespace ChatService.Database
         /// </summary>
         /// <param name="usersname">The name of the user</param>
         /// <returns>A list of usernames the user has sent at least one chat message to</returns>
-        public List<string> getAllChatContactsForUser(string usersname)
+        public GetChatContactsResponse getAllChatContactsForUser(GetChatContactsRequest request)
         {
             //TODO low importance: Turn this from max 3 queries to 2 for added efficiency
+            bool result = false;
+            string response = "";
+
+            GetChatContacts requestData = request.getCommand;
+
             if(openConnection() == true)
             {
-                string query = "SELECT * FROM " + databaseName + ".chats " +
-                    "WHERE usersname='" + usersname + "' OR companyname='" + usersname + "';";
-
-                List<string> result = new List<string>();
-
-                MySqlCommand command = new MySqlCommand(query, connection);
-                MySqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read() == true)
+                List<string> contacts = new List<string>();
+                MySqlDataReader reader = null;
+                try
                 {
-                    if (usersname.Equals(reader.GetString("usersname")))
+                    string query = "SELECT * FROM " + databaseName + ".chats " +
+                       "WHERE usersname='" + requestData.usersname + "' OR companyname='" + requestData.usersname + "';";
+
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    reader = command.ExecuteReader();
+
+                    while (reader.Read() == true)
                     {
-                        result.Add(reader.GetString("companyname"));
+                        if (requestData.usersname.Equals(reader.GetString("usersname")))
+                        {
+                            contacts.Add(reader.GetString("companyname"));
+                        }
+                        else
+                        {
+                            contacts.Add(reader.GetString("usersname"));
+                        }
                     }
-                    else
+
+                    requestData.contactNames = contacts;
+                    result = true;
+                }
+                catch (Exception e)
+                {
+                    response = e.Message;
+                }
+                finally
+                {
+                    if(reader != null && reader.IsClosed == false)
                     {
-                        result.Add(reader.GetString("usersname"));
+                        reader.Close();
                     }
+                    closeConnection();
                 }
 
-                reader.Close();
-
-                closeConnection();
-
-                return result;
+                return new GetChatContactsResponse(result, response, requestData);
             }
-            else
-            {
-                throw new Exception("Could not connect to database.");
-            }
+
+            return new GetChatContactsResponse(false, "Could not connect to database", requestData);
+            
         }
 
         /// <summary>
@@ -168,53 +189,70 @@ namespace ChatService.Database
         /// <param name="usersname">The name of the user</param>
         /// <param name="companyname">The name of the company</param>
         /// <returns>The chat history of the two users</returns>
-        public ChatHistory getChatHistory(string usersname, string companyname)
+        public GetChatHistoryResponse getChatHistory(GetChatHistoryRequest request)
         {
+            GetChatHistory requestData = request.getCommand;
+            string user1 = requestData.history.user1;
+            string user2 = requestData.history.user2;
+            List<ChatMessage> messages = new List<ChatMessage>();
+            bool result = false;
+            string response = "";
+
             if(openConnection() == true)
             {
-                string query = "SELECT m.message, m.timestamp, m.sender " +
-                    "FROM " + databaseName + ".messages AS m LEFT JOIN " +
-                    databaseName + ".chats AS c ON m.id = c.id " +
-                    "WHERE (c.usersname='" + usersname + "' AND c.companyname='" + companyname + "') " +
-                    "OR (c.usersname='" + companyname + "' AND c.companyname='" + usersname + "');";
+                MySqlDataReader reader = null;
 
-                ChatHistory result = new ChatHistory()
+                try
                 {
-                    usersname = usersname,
-                    companyname = companyname,
-                };
+                    string query = "SELECT m.message, m.timestamp, m.sender " +
+                        "FROM " + databaseName + ".messages AS m LEFT JOIN " +
+                        databaseName + ".chats AS c ON m.id = c.id " +
+                        "WHERE (c.usersname='" + user1 + "' AND c.companyname='" + user2 + "') " +
+                        "OR (c.usersname='" + user2 + "' AND c.companyname='" + user1 + "');";
 
-                MySqlCommand command = new MySqlCommand(query, connection);
-                MySqlDataReader reader = command.ExecuteReader();
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    reader = command.ExecuteReader();
 
-                while(reader.Read() == true)
-                {
-                    ChatMessage msg = new ChatMessage
+                    while (reader.Read() == true)
                     {
-                        messageContents = reader.GetString("message"),
-                        unix_timestamp = reader.GetInt32("timestamp")
-                    };
-                    string sender = reader.GetString("sender");
-                    msg.sender = sender;
-                    if (usersname.Equals(sender))
-                    {
-                        msg.receiver = companyname;
+                        ChatMessage msg = new ChatMessage
+                        {
+                            messageContents = reader.GetString("message"),
+                            unix_timestamp = reader.GetInt32("timestamp")
+                        };
+                        string sender = reader.GetString("sender");
+                        msg.sender = sender;
+                        if (user1.Equals(sender))
+                        {
+                            msg.receiver = user2;
+                        }
+                        else
+                        {
+                            msg.receiver = user1;
+                        }
+                        messages.Add(msg);
                     }
-                    else
-                    {
-                        msg.receiver = usersname;
-                    }
-                    result.messages.Add(msg);
+
+                    requestData.history.messages = messages;
+                    result = true;
                 }
-
-                reader.Close();
-                closeConnection();
-
-                return result;
+                catch(Exception e)
+                {
+                    response = e.Message;
+                }
+                finally
+                {
+                    if (reader != null && reader.IsClosed == false)
+                    {
+                        reader.Close();
+                    }
+                    closeConnection();
+                }
+                return new GetChatHistoryResponse(result, response, requestData);
             }
             else
             {
-                throw new Exception("Could not connect to database.");
+                return new GetChatHistoryResponse(false, "Could not connect to Database.", requestData);
             }
         }
     }

@@ -1,7 +1,9 @@
 ﻿using ClientApplicationMVC.Models;
 
-using Messages.Commands;
+using Messages.NServiceBus.Commands;
 using Messages.DataTypes;
+using Messages.ServiceBusRequest;
+using Messages.ServiceBusRequest.Authentication.Requests;
 
 using System.Web.Mvc;
 
@@ -32,9 +34,11 @@ namespace ClientApplicationMVC.Controllers
         [AsyncTimeout(Globals.patienceLevel_ms)]
         public ActionResult LogIn(string textUsername, string textPassword)
         {
-            string response = ServiceBusCommunicationManager.sendLogIn(textUsername, textPassword);
+            LogInRequest request = new LogInRequest(textUsername, textPassword);
+
+            ServiceBusResponse response = ConnectionManager.sendLogIn(request);
             
-            if ("Success".Equals(response))
+            if (response.result == true)
             {
                 ViewBag.Title = "Authentication Success";
                 Globals.setUser(textUsername);
@@ -42,7 +46,7 @@ namespace ClientApplicationMVC.Controllers
             }
 
             ViewBag.Title = "Authentication Failure";
-            ViewBag.Message = "Incorrect Username or Password. Please try again";
+            ViewBag.Message = response.response;
 
             return View("Index");
         }
@@ -84,14 +88,16 @@ namespace ClientApplicationMVC.Controllers
                 type = accountType ? AccountType.business : AccountType.user
             };
 
-            string response = ServiceBusCommunicationManager.sendNewAccountInfo(msg);
+            CreateAccountRequest request = new CreateAccountRequest(msg);
 
-            if ("Success".Equals(response))
+            ServiceBusResponse response = ConnectionManager.sendNewAccountInfo(request);
+
+            if (response.result == true)
             {
                 return RedirectToAction("Index", "Home");
             }
 
-            ViewBag.AccountCreationResult = response;
+            ViewBag.AccountCreationResult = response.response;
 
             return View("CreateAccount");
         }

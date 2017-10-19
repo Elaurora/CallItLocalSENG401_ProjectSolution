@@ -1,6 +1,8 @@
 ﻿using Messages.Database;
 using Messages.DataTypes.Database.CompanyDirectory;
-using Messages.Events;
+using Messages.NServiceBus.Events;
+using Messages.ServiceBusRequest.CompanyDirectory.Requests;
+using Messages.ServiceBusRequest.CompanyDirectory.Responses;
 
 using MySql.Data.MySqlClient;
 
@@ -135,34 +137,52 @@ namespace CompanyDirectoryService.Database
         /// </summary>
         /// <param name="name">The name of the company to search for</param>
         /// <returns>A list of companies matching the search criteria</returns>
-        public CompanyList searchByName(string name)
+        public CompanySearchResponse searchByName(CompanySearchRequest request)
         {
+            bool result = false;
+            string response = "";
+
             if(openConnection() == true)
             {
                 string query = @"SELECT * FROM " + databaseName + @".company " +
-                  @"WHERE companyname='" + name + @"';";
+                  @"WHERE companyname='" + request.searchDeliminator + @"';";
+                MySqlDataReader dataReader = null;
+                List<string> list = new List<string>();
 
-                List<string> result = new List<string>();
-
-                MySqlCommand command = new MySqlCommand(query, connection);
-
-                MySqlDataReader dataReader = command.ExecuteReader();
-
-                while (dataReader.Read())
+                try
                 {
-                    result.Add(dataReader.GetString("companyname"));
+                    MySqlCommand command = new MySqlCommand(query, connection);
+
+                    dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        list.Add(dataReader.GetString("companyname"));
+                    }
+
+                    result = true;
+                }
+                catch(Exception e)
+                {
+                    response = e.Message;
+                }
+                finally
+                {
+                    if(dataReader != null && dataReader.IsClosed == false)
+                    {
+                        dataReader.Close();
+                    }
+                    closeConnection();
                 }
 
-                dataReader.Close();
-
-                closeConnection();
-
-                return new CompanyList
+                CompanyList CList = new CompanyList
                 {
-                    companyNames = result.ToArray()
+                    companyNames = list.ToArray()
                 };
+
+                return new CompanySearchResponse(result, response, CList);
             }
-            return new CompanyList();
+            return new CompanySearchResponse(false, "Could not connect to database", null);
         }
 
         /// <summary>
@@ -170,48 +190,73 @@ namespace CompanyDirectoryService.Database
         /// </summary>
         /// <param name="name">The name of the company to search for</param>
         /// <returns>Info about the company being returned</returns>
-        public CompanyInstance getCompanyInfo(string name)
+        public GetCompanyInfoResponse getCompanyInfo(GetCompanyInfoRequest request)
         {
-            if(openConnection() == true)
+            bool result = false;
+            string response = "";
+            CompanyInstance requestData = request.companyInfo;
+
+            if (openConnection() == true)
             {
                 string query = @"SELECT * FROM " + databaseName + @".company " +
-                    @"WHERE companyname='" + name + @"';";
+                    @"WHERE companyname='" + requestData.companyName + @"';";
+                MySqlDataReader dataReader = null;
+                CompanyInstance returnData = null;
 
-                MySqlCommand command = new MySqlCommand(query, connection);
-
-                MySqlDataReader dataReader = command.ExecuteReader();
-
-                if (!dataReader.Read())
+                try
                 {
-                    return new CompanyInstance();
+
+                    MySqlCommand command = new MySqlCommand(query, connection);
+
+                    dataReader = command.ExecuteReader();
+
+                    if (!dataReader.Read())
+                    {
+                        return new GetCompanyInfoResponse(false, "No company with the given name exists in our database.", requestData);
+                    }
+                    string companyName = dataReader.GetString("companyname");
+                    string phoneNumber = dataReader.GetString("phonenumber");
+                    string email = dataReader.GetString("email");
+                    List<string> locations = new List<string>();
+
+                    dataReader.Close();
+
+                    query = @"SELECT * FROM " + databaseName + @".location " +
+                        @"WHERE companyname='" + requestData.companyName + @"';";
+
+                    command = new MySqlCommand(query, connection);
+
+                    dataReader = command.ExecuteReader();
+
+                    while (dataReader.Read())
+                    {
+                        locations.Add(dataReader.GetString("address"));
+                    }
+
+                    returnData = new CompanyInstance(
+                        companyName, phoneNumber, email, locations.ToArray()
+                    );
+
+                    result = true;
+
                 }
-                string companyName = dataReader.GetString("companyname");
-                string phoneNumber = dataReader.GetString("phonenumber");
-                string email = dataReader.GetString("email");
-                List<string> locations = new List<string>();
-
-                dataReader.Close();
-
-                query = @"SELECT * FROM " + databaseName + @".location " +
-                    @"WHERE companyname='" + name + @"';";
-
-                command = new MySqlCommand(query, connection);
-
-                dataReader = command.ExecuteReader();
-
-                while (dataReader.Read())
+                catch (Exception e)
                 {
-                    locations.Add(dataReader.GetString("address"));
+                    response = e.Message;
+                }
+                finally
+                {
+                    if (dataReader != null && dataReader.IsClosed == false)
+                    {
+                        dataReader.Close();
+                    }
+                    closeConnection();
                 }
 
-                dataReader.Close();
-
-                closeConnection();
-
-                return new CompanyInstance(companyName, phoneNumber, email, locations.ToArray());
+                return new GetCompanyInfoResponse(result, response, returnData);
 
             }
-            return new CompanyInstance();
+            return new GetCompanyInfoResponse(false, "Unable to connect to database", null);
         }
     }
 

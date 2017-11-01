@@ -57,7 +57,7 @@ namespace ClientApplicationMVC.Controllers
                 };
                 
                 GetChatHistoryRequest historyRequest = new GetChatHistoryRequest(getHistoryCommand);
-                firstDisplayedChatHistory = connection.getChatHistory(historyRequest).getCommand.history;
+                firstDisplayedChatHistory = connection.getChatHistory(historyRequest).responseData.history;
             }
             else
             {
@@ -148,7 +148,7 @@ namespace ClientApplicationMVC.Controllers
 
             string newConvoHtml = "";
 
-            foreach(ChatMessage msg in response.getCommand.history.messages)
+            foreach(ChatMessage msg in response.responseData.history.messages)
             {
                 if (msg.sender.Equals(Globals.getUser()))
                 {

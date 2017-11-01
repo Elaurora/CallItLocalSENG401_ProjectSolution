@@ -1,0 +1,14 @@
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\EchoService\bin\Debug\EchoService.exe.config
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\EchoService\bin\Debug\EchoService.exe
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\EchoService\bin\Debug\EchoService.pdb
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\EchoService\bin\Debug\Messages.dll
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\EchoService\bin\Debug\MySql.Data.dll
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\EchoService\bin\Debug\NServiceBus.Core.dll
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\EchoService\bin\Debug\Messages.pdb
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\EchoService\bin\Debug\MySql.Data.xml
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\EchoService\bin\Debug\NServiceBus.Core.pdb
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\EchoService\bin\Debug\NServiceBus.Core.xml
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\EchoService\obj\Debug\EchoService.csprojResolveAssemblyReference.cache
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\EchoService\obj\Debug\EchoService.csproj.CoreCompileInputs.cache
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\EchoService\obj\Debug\EchoService.exe
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\EchoService\obj\Debug\EchoService.pdb

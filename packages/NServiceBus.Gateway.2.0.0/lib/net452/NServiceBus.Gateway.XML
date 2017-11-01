@@ -1,0 +1,421 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NServiceBus.Gateway</name>
+    </assembly>
+    <members>
+        <member name="T:NServiceBus.MessageHandlerContextExtensions">
+            <summary>
+            Gateways IBus extensions.
+            </summary>
+        </member>
+        <member name="M:NServiceBus.MessageHandlerContextExtensions.SendToSites(NServiceBus.IMessageHandlerContext,System.Collections.Generic.IEnumerable{System.String},System.Object)">
+            <summary>
+            Sends the message to all sites with matching site keys registered with the gateway.
+            </summary>
+            <remarks>To use callbacks with SendToSites then use <see cref="T:NServiceBus.SendOptions"/> with <see cref="M:NServiceBus.SendOptionsExtensions.RouteToSites(NServiceBus.SendOptions,System.String[])"/></remarks>
+        </member>
+        <member name="M:NServiceBus.MessageHandlerContextExtensions.SendToSites(NServiceBus.IMessageSession,System.Collections.Generic.IEnumerable{System.String},System.Object)">
+            <summary>
+            Sends the message to all sites with matching site keys registered with the gateway.
+            </summary>
+            <remarks>To use callbacks with SendToSites then use <see cref="T:NServiceBus.SendOptions"/> with <see cref="M:NServiceBus.SendOptionsExtensions.RouteToSites(NServiceBus.SendOptions,System.String[])"/></remarks>
+        </member>
+        <member name="T:NServiceBus.Gateway.Channels.Channel">
+            <summary>
+            The site channel class.
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Gateway.Channels.Channel.Type">
+            <summary>
+            The type of the channel.
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Gateway.Channels.Channel.Address">
+            <summary>
+            The address to receive/send on.
+            </summary>
+        </member>
+        <member name="M:NServiceBus.Gateway.Channels.Channel.Equals(NServiceBus.Gateway.Channels.Channel)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+            <param name="other">An object to compare with this object.</param>
+        </member>
+        <member name="M:NServiceBus.Gateway.Channels.Channel.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>
+            A string that represents the current object.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:NServiceBus.Gateway.Channels.Channel.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            true if the specified object  is equal to the current object; otherwise, false.
+            </returns>
+            <param name="obj">The object to compare with the current object. </param><filterpriority>2</filterpriority>
+        </member>
+        <member name="M:NServiceBus.Gateway.Channels.Channel.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type. 
+            </summary>
+            <returns>
+            A hash code for the current <see cref="T:System.Object"/>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:NServiceBus.Gateway.Channels.Channel.op_Equality(NServiceBus.Gateway.Channels.Channel,NServiceBus.Gateway.Channels.Channel)">
+            <summary>
+            Overrides the == operator.
+            </summary>
+        </member>
+        <member name="M:NServiceBus.Gateway.Channels.Channel.op_Inequality(NServiceBus.Gateway.Channels.Channel,NServiceBus.Gateway.Channels.Channel)">
+            <summary>
+            Overrides the != operator.
+            </summary>
+        </member>
+        <member name="T:NServiceBus.Gateway.Channels.ChannelTypeAttribute">
+            <summary>
+            Defines the channel types a <see cref="T:NServiceBus.Gateway.IChannelReceiver"/> or <see cref="T:NServiceBus.Gateway.IChannelSender"/> supports.
+            </summary>
+        </member>
+        <member name="M:NServiceBus.Gateway.Channels.ChannelTypeAttribute.#ctor(System.String)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="type">The type to register.</param>
+        </member>
+        <member name="P:NServiceBus.Gateway.Channels.ChannelTypeAttribute.Type">
+            <summary>
+            The type to register.
+            </summary>
+        </member>
+        <member name="T:NServiceBus.Gateway.Channels.Http.HttpHeaders">
+            <summary>
+            Well known http headers.
+            </summary>
+        </member>
+        <member name="F:NServiceBus.Gateway.Channels.Http.HttpHeaders.ContentMD5">
+            <summary>
+            Content-MD5 http header.
+            </summary>
+        </member>
+        <member name="T:NServiceBus.Gateway.DataReceivedOnChannelArgs">
+            <summary>
+            Contains the data and headers received.
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Gateway.DataReceivedOnChannelArgs.Headers">
+            <summary>
+            The headers received.
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Gateway.DataReceivedOnChannelArgs.Data">
+            <summary>
+            The data received by the channel.
+            </summary>
+        </member>
+        <member name="T:NServiceBus.Gateway.IChannelReceiver">
+            <summary>
+            Implement to create a channel receiver.
+            </summary>
+        </member>
+        <member name="M:NServiceBus.Gateway.IChannelReceiver.Start(System.String,System.Int32,System.Func{NServiceBus.Gateway.DataReceivedOnChannelArgs,System.Threading.Tasks.Task})">
+            <summary>
+            Called to start the receiving channel.
+            </summary>
+            <param name="address">The address to listen on.</param>
+            <param name="maxConcurrency">The maximum number of messages that should be processed at any given time.</param>
+            <param name="dataReceivedOnChannel">The handler fired when data is received.</param>
+        </member>
+        <member name="M:NServiceBus.Gateway.IChannelReceiver.Stop">
+            <summary>
+            Called to shut down the receive channel.
+            </summary>
+        </member>
+        <member name="T:NServiceBus.Gateway.IChannelSender">
+            <summary>
+            Implement to add a new channel sender.
+            </summary>
+        </member>
+        <member name="M:NServiceBus.Gateway.IChannelSender.Send(System.String,System.Collections.Generic.IDictionary{System.String,System.String},System.IO.Stream)">
+            <summary>
+            Sends the given data to the remote address.
+            </summary>
+            <param name="remoteAddress">The destination address.</param>
+            <param name="headers">Extra headers.</param>
+            <param name="data">The data to be sent.</param>
+        </member>
+        <member name="T:NServiceBus.Gateway.HeaderExtensions">
+            <summary>
+                extensions internal to the gateway
+            </summary>
+        </member>
+        <member name="M:NServiceBus.Gateway.HeaderExtensions.IsLegacyGatewayMessage(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+                legacy mode support
+            </summary>
+            <returns>
+                true when message received from gateway other than v4
+                or v4 site is configured to forward messages using legacy mode,
+                false otherwise
+            </returns>
+        </member>
+        <member name="T:NServiceBus.Gateway.Routing.RouteThroughGateway">
+            <summary>
+            Indicates a message needs to be routed through the gateway
+            </summary>
+        </member>
+        <member name="T:NServiceBus.Gateway.Routing.Site">
+            <summary>
+            The site class.
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Gateway.Routing.Site.Channel">
+            <summary>
+            The channel used for the site.
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Gateway.Routing.Site.Key">
+            <summary>
+            The site key to use, this goes hand in hand with Bus.SendToSites(key, message).
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Gateway.Routing.Site.LegacyMode">
+            <summary>
+            <code>true</code> to set the forwarding mode for this site to use legacy mode.
+            </summary>
+        </member>
+        <member name="T:NServiceBus.Gateway.CallType">
+            <summary>
+            received request type.
+            </summary>
+        </member>
+        <member name="F:NServiceBus.Gateway.CallType.SingleCallSubmit">
+            <summary>
+            Default request type.
+            </summary>
+        </member>
+        <member name="F:NServiceBus.Gateway.CallType.SingleCallDatabusProperty">
+            <summary>
+            Request type for Databus properties.
+            </summary>
+        </member>
+        <member name="T:NServiceBus.Config.ChannelCollection">
+            <summary>
+            The channels collection.
+            </summary>
+        </member>
+        <member name="M:NServiceBus.Config.ChannelCollection.CreateNewElement">
+            <summary>
+            Creates a new empty property
+            </summary>
+        </member>
+        <member name="M:NServiceBus.Config.ChannelCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            Returns the key for the given element
+            </summary>
+        </member>
+        <member name="M:NServiceBus.Config.ChannelCollection.IsReadOnly">
+            <summary>
+            Indicates whether the <see cref="T:System.Configuration.ConfigurationElementCollection"/> object is read only.
+            </summary>
+            <returns>
+            true if the <see cref="T:System.Configuration.ConfigurationElementCollection"/> object is read only; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:NServiceBus.Config.ChannelCollection.Add(NServiceBus.Config.ChannelConfig)">
+            <summary>
+            Calls BaseAdd.
+            </summary>
+        </member>
+        <member name="M:NServiceBus.Config.ChannelCollection.BaseAdd(System.Configuration.ConfigurationElement)">
+            <summary>
+            Calls BaseAdd with true as the additional parameter.
+            </summary>
+        </member>
+        <member name="T:NServiceBus.Config.ChannelConfig">
+            <summary>
+            Used to configure <see cref="T:NServiceBus.Gateway.Channels.ReceiveChannel"/>.
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Config.ChannelConfig.Default">
+            <summary>
+            True if this channel is the default channel
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Config.ChannelConfig.Address">
+            <summary>
+            The Address that the channel is listening on
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Config.ChannelConfig.NumberOfWorkerThreads">
+            <summary>
+            The number of worker threads that will be used for this channel
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Config.ChannelConfig.MaxConcurrency">
+            <summary>
+            The maximum number of messages that should be processed at any given time.
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Config.ChannelConfig.ChannelType">
+            <summary>
+            The ChannelType
+            </summary>
+        </member>
+        <member name="T:NServiceBus.Config.GatewayConfig">
+            <summary>
+            Config section for the gateway
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Config.GatewayConfig.TransactionTimeout">
+            <summary>
+            Property for getting/setting the period of time when the outgoing gateway transaction times out.
+            Defaults to the TransactionTimeout of the main transport.
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Config.GatewayConfig.Sites">
+            <summary>
+            Collection of sites
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Config.GatewayConfig.Channels">
+            <summary>
+            Collection of channels
+            </summary>
+        </member>
+        <member name="T:NServiceBus.Config.SiteCollection">
+            <summary>
+            Collection of sites
+            </summary>
+        </member>
+        <member name="M:NServiceBus.Config.SiteCollection.CreateNewElement">
+            <summary>
+            Creates a new empty property
+            </summary>
+        </member>
+        <member name="M:NServiceBus.Config.SiteCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            Returns the key for the given element
+            </summary>
+        </member>
+        <member name="M:NServiceBus.Config.SiteCollection.IsReadOnly">
+            <summary>
+            Indicates whether the <see cref="T:System.Configuration.ConfigurationElementCollection"/> object is read only.
+            </summary>
+            <returns>
+            true if the <see cref="T:System.Configuration.ConfigurationElementCollection"/> object is read only; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:NServiceBus.Config.SiteCollection.Add(NServiceBus.Config.SiteConfig)">
+            <summary>
+            Calls BaseAdd.
+            </summary>
+        </member>
+        <member name="M:NServiceBus.Config.SiteCollection.BaseAdd(System.Configuration.ConfigurationElement)">
+            <summary>
+            Calls BaseAdd with true as the additional parameter.
+            </summary>
+        </member>
+        <member name="T:NServiceBus.Config.SiteConfig">
+            <summary>
+            A site property
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Config.SiteConfig.Key">
+            <summary>
+            The key
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Config.SiteConfig.Address">
+            <summary>
+            The Address of this site
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Config.SiteConfig.ChannelType">
+            <summary>
+            The ChannelType of this site
+            </summary>
+        </member>
+        <member name="P:NServiceBus.Config.SiteConfig.LegacyMode">
+            <summary>
+            The forwarding mode for this site
+            </summary>
+        </member>
+        <member name="T:NServiceBus.Features.Gateway">
+            <summary>
+            Used to configure the gateway.
+            </summary>
+        </member>
+        <member name="M:NServiceBus.Features.Gateway.Setup(NServiceBus.Features.FeatureConfigurationContext)">
+            <summary>
+                Called when the features is activated
+            </summary>
+        </member>
+        <member name="T:NServiceBus.SendOptionsExtensions">
+            <summary>
+            Extensions to <see cref="T:NServiceBus.SendOptions"/> provided by the Gateway.
+            </summary>
+        </member>
+        <member name="M:NServiceBus.SendOptionsExtensions.RouteToSites(NServiceBus.SendOptions,System.String[])">
+            <summary>
+            Route the message through the Gateway to the specified sites.
+            </summary>
+        </member>
+        <member name="M:NServiceBus.SendOptionsExtensions.GetSitesRoutingTo(NServiceBus.SendOptions)">
+            <summary>
+            Retrieves the sites configured by <see cref="M:NServiceBus.SendOptionsExtensions.RouteToSites(NServiceBus.SendOptions,System.String[])"/>.
+            </summary>
+        </member>
+        <member name="T:NServiceBus.GatewayExtensions">
+            <summary>
+            Provides a fluent api to allow the configuration of <see cref="T:NServiceBus.GatewaySettings"/>.
+            </summary>
+        </member>
+        <member name="M:NServiceBus.GatewayExtensions.Gateway(NServiceBus.EndpointConfiguration)">
+            <summary>
+            Allows the user to control how the gateway behaves.
+            </summary>
+            <param name="config">The <see cref="T:NServiceBus.EndpointConfiguration"/> instance to apply the settings to.</param>
+        </member>
+        <member name="T:NServiceBus.GatewaySettings">
+            <summary>
+            Placeholder for the various settings and extension points related to gateway.
+            </summary>
+        </member>
+        <member name="M:NServiceBus.GatewaySettings.ChannelFactories(System.Func{System.String,NServiceBus.Gateway.IChannelSender},System.Func{System.String,NServiceBus.Gateway.IChannelReceiver})">
+            <summary>
+            Register custom factories for creating channel receivers and channel senders. This allows for overriding the default Http implementation.
+            </summary>
+            <param name="senderFactory">The sender factory to use. The factory takes a string with the channel type as parameter.</param>
+            <param name="receiverFactory">The receiver factory to use. The factory takes a string with the channel type as parameter.</param>
+        </member>
+        <member name="M:NServiceBus.GatewaySettings.Retries(System.Int32,System.TimeSpan)">
+            <summary>
+            Set the number of retries and time increase between them for messages failing to be sent through the gateway.
+            </summary>
+            <param name="numberOfRetries">The total number of retries to do. 0 means no retry.</param>
+            <param name="timeIncrease">The time to wait between each retry.</param>
+        </member>
+        <member name="M:NServiceBus.GatewaySettings.CustomRetryPolicy(System.Func{NServiceBus.Transport.IncomingMessage,System.Exception,System.Int32,System.TimeSpan})">
+            <summary>
+            Set a retry policy that returns a TimeSpan to delay between attempts based on the number of retries attempted. Return <see cref="F:System.TimeSpan.Zero" /> to abort retries.
+            </summary>
+            <param name="customRetryPolicy">The custom retry policy to use.</param>
+        </member>
+        <member name="M:NServiceBus.GatewaySettings.DisableRetries">
+            <summary>
+            Failed messages will not be retried and will be sent directly to the configured error queue.
+            </summary>
+        </member>
+    </members>
+</doc>

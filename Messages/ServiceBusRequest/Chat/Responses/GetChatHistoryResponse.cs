@@ -7,15 +7,15 @@ namespace Messages.ServiceBusRequest.Chat.Responses
     [Serializable]
     public class GetChatHistoryResponse : ServiceBusResponse
     {
-        public GetChatHistoryResponse(bool result, string response, GetChatHistory getCommand)
+        public GetChatHistoryResponse(bool result, string response, GetChatHistory responseData)
             : base(result, response)
         {
-            this.getCommand = getCommand;
+            this.responseData = responseData;
         }
 
         /// <summary>
         /// The NServiceBus command that contains the chat history requested by the client
         /// </summary>
-        public GetChatHistory getCommand;
+        public GetChatHistory responseData;
     }
 }

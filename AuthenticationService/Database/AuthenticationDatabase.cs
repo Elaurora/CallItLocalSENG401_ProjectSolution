@@ -96,28 +96,28 @@ namespace AuthenticationService.Database
             bool result = false;
             string message = "";
 
-            try
+            if (openConnection() == true)
             {
-                if (openConnection() == true)
+                try
                 {
                     MySqlCommand command = new MySqlCommand(query, connection);
                     MySqlDataReader dataReader = command.ExecuteReader();
                     result = dataReader.Read();
                     dataReader.Close();
                 }
-                else
+                catch (Exception e)
                 {
-                    result = false;
-                    message = "Could not connect to database.";
+                    message = e.Message;
+                }
+                finally
+                {
+                    closeConnection();
                 }
             }
-            catch(Exception e)
+            else
             {
-                message = e.Message;
-            }
-            finally
-            {
-                closeConnection();
+                result = false;
+                message = "Could not connect to database.";
             }
             return new ServiceBusResponse(result, message);
         }

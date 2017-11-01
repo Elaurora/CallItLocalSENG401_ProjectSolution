@@ -1,0 +1,14 @@
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\CompanyReviewServiceEP\obj\Debug\CompanyReviewServiceEP.csprojResolveAssemblyReference.cache
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\CompanyReviewServiceEP\obj\Debug\CompanyReviewServiceEP.csproj.CoreCompileInputs.cache
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\CompanyReviewServiceEP\bin\Debug\CompanyReviewService.exe.config
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\CompanyReviewServiceEP\bin\Debug\CompanyReviewService.exe
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\CompanyReviewServiceEP\bin\Debug\CompanyReviewService.pdb
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\CompanyReviewServiceEP\bin\Debug\Messages.dll
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\CompanyReviewServiceEP\bin\Debug\NServiceBus.Core.dll
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\CompanyReviewServiceEP\bin\Debug\MySql.Data.dll
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\CompanyReviewServiceEP\bin\Debug\Messages.pdb
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\CompanyReviewServiceEP\bin\Debug\NServiceBus.Core.pdb
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\CompanyReviewServiceEP\bin\Debug\NServiceBus.Core.xml
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\CompanyReviewServiceEP\bin\Debug\MySql.Data.xml
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\CompanyReviewServiceEP\obj\Debug\CompanyReviewService.exe
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\CompanyReviewServiceEP\obj\Debug\CompanyReviewService.pdb

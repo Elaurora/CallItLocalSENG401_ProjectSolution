@@ -1,5 +1,6 @@
 ﻿using Messages;
 using Messages.Database;
+using Messages.DataTypes;
 using Messages.NServiceBus.Events;
 using Messages.ServiceBusRequest.Echo.Requests;
 
@@ -139,7 +140,7 @@ namespace EchoService.Database
                     ),
                     new Column
                     (
-                        "datain", "VARCHAR",
+                        "datain", "VARCHAR(" + SharedData.MAX_MESSAGE_LENGTH.ToString() + ")",
                         new string[]
                         {
                             "NOT NULL"
@@ -174,12 +175,14 @@ namespace EchoService.Database
                     new Column
                     (
                         "username", "VARCHAR(50)",
-                        new string[] {},
-                        false
+                        new string[] 
+                        {
+                            "NOT NULL"
+                        }, false
                     ),
                     new Column
                     (
-                        "datain", "VARCHAR",
+                        "datain", "VARCHAR(" + SharedData.MAX_MESSAGE_LENGTH.ToString() + ")",
                         new string[]
                         {
                             "NOT NULL"

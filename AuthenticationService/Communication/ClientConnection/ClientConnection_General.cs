@@ -4,6 +4,7 @@ using Messages.ServiceBusRequest;
 using Messages.ServiceBusRequest.Authentication;
 using Messages.ServiceBusRequest.Chat;
 using Messages.ServiceBusRequest.CompanyDirectory;
+using Messages.ServiceBusRequest.CompanyReview;
 using Messages.ServiceBusRequest.Echo;
 
 using NServiceBus;
@@ -87,6 +88,8 @@ namespace AuthenticationService.Communication
                     return chatRequest((ChatServiceRequest)request);
                 case (Service.CompanyDirectory):
                     return companyDirectoryRequest((CompanyDirectoryServiceRequest)request);
+                case (Service.CompanyReview):
+                    return companyReviewRequest((CompanyReviewServiceRequest)request);
                 case (Service.Echo):
                     return echoRequest((EchoServiceRequest)request);
                 default:

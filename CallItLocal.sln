@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatService", "ChatService\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoService", "EchoService\EchoService.csproj", "{C8CA01D5-04BB-43C1-A4CD-8B655F763F1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyReviewServiceEP", "CompanyReviewServiceEP\CompanyReviewServiceEP.csproj", "{C74A63E8-637C-4FB2-A671-7720DE71BAC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{C8CA01D5-04BB-43C1-A4CD-8B655F763F1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8CA01D5-04BB-43C1-A4CD-8B655F763F1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8CA01D5-04BB-43C1-A4CD-8B655F763F1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C74A63E8-637C-4FB2-A671-7720DE71BAC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C74A63E8-637C-4FB2-A671-7720DE71BAC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C74A63E8-637C-4FB2-A671-7720DE71BAC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C74A63E8-637C-4FB2-A671-7720DE71BAC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

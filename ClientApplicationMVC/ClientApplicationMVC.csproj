@@ -284,6 +284,7 @@
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\CompanyListingsController.cs" />
+    <Compile Include="Controllers\EchoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -337,7 +338,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Authentication\Index.cshtml" />
@@ -345,6 +345,7 @@
     <Content Include="Views\CompanyListings\Index.cshtml" />
     <Content Include="Views\CompanyListings\DisplayCompany.cshtml" />
     <Content Include="Views\Chat\Index.cshtml" />
+    <Content Include="Views\Echo\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

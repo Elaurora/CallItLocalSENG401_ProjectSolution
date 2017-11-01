@@ -6,6 +6,8 @@ using Messages.ServiceBusRequest.Chat.Responses;
 using Messages.ServiceBusRequest.Chat.Requests;
 using Messages.ServiceBusRequest.CompanyDirectory.Responses;
 using Messages.ServiceBusRequest.CompanyDirectory.Requests;
+using Messages.ServiceBusRequest.CompanyReview.Requests;
+using Messages.ServiceBusRequest.CompanyReview.Responses;
 using Messages.ServiceBusRequest.Echo.Requests;
 
 using System;
@@ -29,6 +31,8 @@ namespace ClientApplicationMVC.Models
             //connection.ReceiveTimeout = readTimeout_ms;
             this.username = username;
         }
+
+        #region ServiceBusMessages
 
         #region AuthenticationServiceMessages
 
@@ -126,7 +130,34 @@ namespace ClientApplicationMVC.Models
 
         #endregion CompanyDirectoryServiceMessages
 
-        
+
+        #region CompanyReviewServiceMessages
+
+        /// <summary>
+        /// Makes a request to the service bus for reviews of a company
+        /// </summary>
+        /// <param name="request">Request object containing needed information</param>
+        /// <returns>Reviews of a company</returns>
+        public GetCompanyReviewsResponse getCompanyReviews(GetCompanyReviewsRequest request)
+        {
+            send(request);
+            return (GetCompanyReviewsResponse)readUntilEOF();
+        }
+
+        /// <summary>
+        /// Makes a request to the service bus to save a review of a company
+        /// </summary>
+        /// <param name="request">The request object, contains information needed to save the review</param>
+        /// <returns>The response from the service bus</returns>
+        public ServiceBusResponse saveCompanyReview(SaveCompanyReviewRequest request)
+        {
+            send(request);
+            return readUntilEOF();
+        }
+
+        #endregion CompanyReviewServiceMessages
+
+
         #region EchoServiceMessages
 
 
@@ -154,6 +185,9 @@ namespace ClientApplicationMVC.Models
 
         #endregion EchoServiceMessages
 
+        #endregion ServiceBusMessages
+
+        #region ConnectionFunctions
 
         /// <summary>
         /// Indicates if this object is still connected to the service bus
@@ -302,6 +336,8 @@ namespace ClientApplicationMVC.Models
 
             return false;
         }
+
+        #endregion ConnectionFunctions
     }
 
     /// <summary>

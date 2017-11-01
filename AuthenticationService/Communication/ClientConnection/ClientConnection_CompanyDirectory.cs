@@ -43,7 +43,7 @@ namespace AuthenticationService.Communication
         {
             if(authenticated == false)
             {
-                return new CompanySearchResponse(false, "Must be logged in to use the Company DIrectory Service", null);
+                return new CompanySearchResponse(false, "Must be logged in to use the Company Directory Service", null);
             }
 
             SendOptions sendOptions = new SendOptions();

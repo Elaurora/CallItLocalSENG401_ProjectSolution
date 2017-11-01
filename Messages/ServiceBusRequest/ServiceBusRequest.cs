@@ -1,6 +1,7 @@
 ﻿using NServiceBus;
 
 using System;
+using System.Runtime.Serialization;
 
 namespace Messages.ServiceBusRequest
 {
@@ -18,5 +19,5 @@ namespace Messages.ServiceBusRequest
         public Service serviceRequested;
     }
 
-    public enum Service { Authentication, Chat, CompanyDirectory, Echo };
+    public enum Service { Authentication, Chat, CompanyDirectory, CompanyReview, Echo };
 }

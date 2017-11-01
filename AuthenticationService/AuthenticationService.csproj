@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Communication\ClientConnection\ClientConnection_Chat.cs" />
     <Compile Include="Communication\ClientConnection\ClientConnection_CompanyDirectory.cs" />
+    <Compile Include="Communication\ClientConnection\ClientConnection_CompanyReview.cs" />
     <Compile Include="Communication\ClientConnection\ClientConnection_Echo.cs" />
     <Compile Include="Communication\ClientConnection\ClientConnection_General.cs" />
     <Compile Include="Communication\ClientConnection\ClientConnection_Authentication.cs" />

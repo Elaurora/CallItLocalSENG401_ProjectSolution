@@ -1,6 +1,7 @@
 ﻿using Messages.NServiceBus.Commands;
 using Messages.ServiceBusRequest;
 using Messages.ServiceBusRequest.Authentication.Requests;
+using Messages.ServiceBusRequest.Echo.Requests;
 
 using System.Collections.Generic;
 
@@ -60,8 +61,26 @@ namespace ClientApplicationMVC.Models
 
             return response;
         }
+
         #endregion AuthenticationServiceMessages
 
+        #region EchoServiceMessages
+
+        /// <summary>
+        /// Sends the data to be echo'd to the service bus
+        /// </summary>
+        /// <param name="request">The data to be echo'd</param>
+        /// <returns>The response from the servicebus</returns>
+        public static ServiceBusResponse echoAsIs(AsIsEchoRequest request)
+        {
+            ServiceBusConnection tempConnection = new ServiceBusConnection("");
+            ServiceBusResponse response = tempConnection.echoAsIs(request);
+            tempConnection.close();
+            return response;
+        }
+
+        #endregion EchoServiceMessages
+        
         /// <summary>
         /// Returns the ServiceBusConnection object associates with the given user.
         /// </summary>

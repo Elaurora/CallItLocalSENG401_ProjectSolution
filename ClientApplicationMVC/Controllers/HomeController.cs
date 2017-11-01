@@ -17,17 +17,6 @@ namespace ClientApplicationMVC.Controllers
         }
 
         /// <summary>
-        /// This function is called when the client navigates to *hostname*/Home/About
-        /// </summary>
-        /// <returns>A view to be sent to the client</returns>
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        /// <summary>
         /// This function is called when the client navigates to *hostname*/Home/Contact
         /// </summary>
         /// <returns>A view to be sent to the client</returns>

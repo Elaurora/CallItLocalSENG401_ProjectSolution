@@ -46,7 +46,8 @@ namespace AuthenticationService.Communication
         {
             AsIsEchoEvent echoEvent = new AsIsEchoEvent
             {
-                data = request.data
+                data = request.data,
+                username = username
             };
 
             //This function publishes the EchoEvent class. All endpoint instances that subscribed to these events prior

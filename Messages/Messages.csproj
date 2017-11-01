@@ -36,6 +36,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTypes\Database\CompanyReview\CustomerReview.cs" />
     <Compile Include="ServiceBusRequest\Authentication\AuthenticationServiceRequest.cs" />
     <Compile Include="ServiceBusRequest\Authentication\Requests\CreateAccountRequest.cs" />
     <Compile Include="ServiceBusRequest\Authentication\Requests\LogInRequest.cs" />
@@ -58,6 +60,10 @@
     <Compile Include="ServiceBusRequest\CompanyDirectory\Requests\GetCompanyInfoRequest.cs" />
     <Compile Include="ServiceBusRequest\CompanyDirectory\Responses\CompanySearchResponse.cs" />
     <Compile Include="ServiceBusRequest\CompanyDirectory\Responses\GetCompanyInfoResponse.cs" />
+    <Compile Include="ServiceBusRequest\CompanyReview\CompanyReviewServiceRequest.cs" />
+    <Compile Include="ServiceBusRequest\CompanyReview\Requests\GetCompanyReviewsRequest.cs" />
+    <Compile Include="ServiceBusRequest\CompanyReview\Requests\SaveCompanyReviewRequest.cs" />
+    <Compile Include="ServiceBusRequest\CompanyReview\Responses\GetCompanyReviewsResponse.cs" />
     <Compile Include="ServiceBusRequest\Echo\EchoServiceRequest.cs" />
     <Compile Include="ServiceBusRequest\Echo\Requests\AsIsEchoRequest.cs" />
     <Compile Include="ServiceBusRequest\Echo\Requests\ReverseEchoRequest.cs" />

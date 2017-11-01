@@ -3,9 +3,12 @@
 using Messages.DataTypes.Database.CompanyDirectory;
 using Messages.ServiceBusRequest.CompanyDirectory.Responses;
 using Messages.ServiceBusRequest.CompanyDirectory.Requests;
+using Messages.ServiceBusRequest.CompanyReview.Requests;
+using Messages.ServiceBusRequest.CompanyReview.Responses;
 
 using System;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace ClientApplicationMVC.Controllers
 {
@@ -62,15 +65,15 @@ namespace ClientApplicationMVC.Controllers
         /// <summary>
         /// This function is called when the client navigates to *hostname*/CompanyListings/DisplayCompany/*info*
         /// </summary>
-        /// <param name="companyName">The name of the company whos info is to be displayed</param>
+        /// <param name="info">The name of the company whos info is to be displayed</param>
         /// <returns>A view to be sent to the client</returns>
-        public ActionResult DisplayCompany(string companyName)
+        public ActionResult DisplayCompany(string info)
         {
             if (Globals.isLoggedIn() == false)
             {
                 return RedirectToAction("Index", "Authentication");
             }
-            if ("".Equals(companyName))
+            if ("".Equals(info))
             {
                 return View("Index");
             }
@@ -81,13 +84,16 @@ namespace ClientApplicationMVC.Controllers
                 return RedirectToAction("Index", "Authentication");
             }
 
-            GetCompanyInfoRequest request = new GetCompanyInfoRequest(new CompanyInstance(companyName));
+            ViewBag.CompanyName = info;
 
-            GetCompanyInfoResponse response = connection.getCompanyInfo(request);
+            GetCompanyInfoRequest infoRequest = new GetCompanyInfoRequest(new CompanyInstance(info));
+            GetCompanyInfoResponse infoResponse = connection.getCompanyInfo(infoRequest);
+            ViewBag.CompanyInfo = infoResponse.companyInfo;
 
-            ViewBag.CompanyInfo = response.companyInfo;
+            GetCompanyReviewsRequest reviewRequest = new GetCompanyReviewsRequest(info);
+            GetCompanyReviewsResponse reviewResponse = connection.getCompanyReviews(reviewRequest);
+            ViewBag.CompanyReviews = 0;
 
-            ViewBag.CompanyName = companyName;
             return View("DisplayCompany");
         }
     }

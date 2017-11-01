@@ -5,7 +5,7 @@ using System;
 namespace Messages.ServiceBusRequest.CompanyDirectory.Requests
 {
     [Serializable]
-    public class CompanySearchRequest : CompanyDirectoryServiceRequest, IMessage
+    public class CompanySearchRequest : CompanyDirectoryServiceRequest
     {
         public CompanySearchRequest(string searchDeliminator)
             : base(CompanyDirectoryRequest.CompanySearch)

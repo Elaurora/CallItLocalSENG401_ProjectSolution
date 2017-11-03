@@ -1,5 +1,3 @@
-C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\obj\Debug\ClientApplicationMVC.csprojResolveAssemblyReference.cache
-C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\obj\Debug\ClientApplicationMVC.csproj.CoreCompileInputs.cache
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\ApplicationInsights.config
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\roslyn\csc.exe
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\roslyn\csc.exe.config
@@ -152,5 +150,7 @@ C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicat
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\MySql.Data.xml
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\NServiceBus.Callbacks.pdb
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\NServiceBus.Callbacks.xml
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\obj\Debug\ClientApplicationMVC.csprojResolveAssemblyReference.cache
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\obj\Debug\ClientApplicationMVC.csproj.CoreCompileInputs.cache
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\obj\Debug\ClientApplicationMVC.dll
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\obj\Debug\ClientApplicationMVC.pdb

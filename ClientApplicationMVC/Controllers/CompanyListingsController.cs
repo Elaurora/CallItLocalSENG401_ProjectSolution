@@ -1,6 +1,8 @@
 ﻿using ClientApplicationMVC.Models;
 
 using Messages.DataTypes.Database.CompanyDirectory;
+using Messages.DataTypes.Database.CompanyReview;
+using Messages.ServiceBusRequest;
 using Messages.ServiceBusRequest.CompanyDirectory.Responses;
 using Messages.ServiceBusRequest.CompanyDirectory.Requests;
 using Messages.ServiceBusRequest.CompanyReview.Requests;
@@ -92,9 +94,30 @@ namespace ClientApplicationMVC.Controllers
 
             GetCompanyReviewsRequest reviewRequest = new GetCompanyReviewsRequest(info);
             GetCompanyReviewsResponse reviewResponse = connection.getCompanyReviews(reviewRequest);
-            ViewBag.CompanyReviews = 0;
+            ViewBag.CompanyReviews = reviewResponse.getReviews();
 
             return View("DisplayCompany");
+        }
+
+        [HttpPost]
+        public ActionResult WriteReview(string company = "", string userReview = "", int timestamp = -1, int stars = -1)
+        {
+            if (Globals.isLoggedIn() == false || company == "" || userReview == "" || timestamp == -1 || stars == -1)
+            {
+                return RedirectToAction("Index", "Authentication");
+            }
+
+            ServiceBusConnection connection = ConnectionManager.getConnectionObject(Globals.getUser());
+            if (connection == null)
+            {
+                return RedirectToAction("Index", "Authentication");
+            }
+
+            SaveCompanyReviewRequest request = new SaveCompanyReviewRequest(new CustomerReview(company, Globals.getUser(), userReview, stars, timestamp));
+
+            ServiceBusResponse response = connection.saveCompanyReview(request);
+
+            return null;
         }
     }
 }

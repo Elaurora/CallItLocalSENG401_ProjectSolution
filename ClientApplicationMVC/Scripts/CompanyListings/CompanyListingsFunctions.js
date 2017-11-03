@@ -4,7 +4,8 @@
 */
 $(function () {
 
-    $("#SendButton").click(validateAndSendMessage);
+    $("#SendMessageButton").click(validateAndSendMessage);
+    $('#SumbitReviewButton').click(validateAndSendReview);
 });
 
 /**
@@ -31,6 +32,31 @@ function validateAndSendMessage() {
         },
         success: function () {
             window.location = "/Chat/Index";
+        }
+    });
+}
+
+function validateAndSendReview() {
+    var userReview = $("#reviewtextarea").val();
+    if ($.trim(userReview) == "") {
+        return;
+    }
+
+    var companyName = $("#CompanyNameDisplay").text();
+    var timestamp = Math.round((new Date()).getTime() / 1000);
+    var stars = $("#starselection").val();
+
+    $.ajax({
+        method: "POST",
+        url: "/CompanyListings/WriteReview",
+        data: {
+            company: companyName,
+            userReview: userReview,
+            timestamp: timestamp,
+            stars: stars
+        },
+        success: function () {
+            window.location = companyName 
         }
     });
 }

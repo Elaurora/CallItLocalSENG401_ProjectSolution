@@ -66,11 +66,10 @@ namespace AuthenticationService.Communication
             }
 
             SendOptions sendOptions = new SendOptions();
-            sendOptions.SetDestination("CompanyDirectory");
+            sendOptions.SetDestination("CompanyReview");
 
-            requestingEndpoint.Request<GetCompanyReviewsResponse>(request, sendOptions);
-
-            return new ServiceBusResponse(true, "Success");
+            return requestingEndpoint.Request<ServiceBusResponse>(request, sendOptions)
+                .ConfigureAwait(false).GetAwaiter().GetResult();
         }
     }
 }

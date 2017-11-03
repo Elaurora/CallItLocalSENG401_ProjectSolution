@@ -33,7 +33,7 @@ namespace CompanyReviewServiceEP.Handlers
         {
             CompanyReviewAPIRequest webRequest = new CompanyReviewAPIRequest();
             ServiceBusResponse response = webRequest.saveCompanyReview(request);
-            return Task.CompletedTask;
+            return context.Reply(response);
         }
     }
 }

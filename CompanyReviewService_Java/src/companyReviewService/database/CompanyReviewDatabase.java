@@ -23,7 +23,7 @@ public class CompanyReviewDatabase extends AbstractDatabase {
 	
 	/**
 	 * Gets the singleton isntance of the database. If it does not exist it will be created upon the first time this function is called
-	 * @return The singletom instance of the database.
+	 * @return The singleton instance of the database.
 	 * @throws SQLException - If there is an error accessing the database
 	 * @throws ClassNotFoundException - If the Driver library is missing
 	 */

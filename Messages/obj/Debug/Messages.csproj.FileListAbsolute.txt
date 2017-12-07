@@ -5,7 +5,7 @@ C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\bin\D
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\bin\Debug\MySql.Data.xml
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\bin\Debug\NServiceBus.Core.pdb
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\bin\Debug\NServiceBus.Core.xml
-C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\obj\Debug\Messages.csprojResolveAssemblyReference.cache
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\obj\Debug\Messages.csproj.CoreCompileInputs.cache
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\obj\Debug\Messages.dll
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\obj\Debug\Messages.pdb
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\obj\Debug\Messages.csprojResolveAssemblyReference.cache

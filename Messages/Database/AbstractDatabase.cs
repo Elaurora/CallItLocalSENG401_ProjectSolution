@@ -10,7 +10,7 @@ namespace Messages.Database
     /// <summary>
     /// This class is used as a base class for the creation and deletion of a database.
     /// To use this class you will need to implement the databaseName and tables properties.
-    /// It is recommended that the inhereting class be a singleton.
+    /// It is recommended that the inhereting class follow the singleton design pattern.
     /// </summary>
     public abstract partial class AbstractDatabase
     {

@@ -89,7 +89,7 @@ namespace CompanyReviewServiceEP.Communication
 
             serializer = new DataContractJsonSerializer(typeof(GetCompanyReviewsResponse));
             GetCompanyReviewsResponse responseData = (GetCompanyReviewsResponse)serializer.ReadObject(memStream);
-
+            
             return responseData;
         }
     }

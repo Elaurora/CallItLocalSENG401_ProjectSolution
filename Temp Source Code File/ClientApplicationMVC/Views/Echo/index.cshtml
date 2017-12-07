@@ -1,0 +1,29 @@
+﻿@{ 
+    ViewBag.Title = "Echo Service";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>Please enter the information you wish to have echo'd by the service bus</p>
+
+<br />
+
+@using (Html.BeginForm("AsIsEcho", "Echo"))
+{
+    <h3>As Is Echo</h3>
+    @Html.TextBox("asIsText")
+    <input type="submit" value="Echo" />
+    <br />
+    <p>@ViewBag.AsIsResponse</p>
+    <br />
+}
+
+@using (Html.BeginForm("ReverseEcho", "Echo"))
+{
+    <h3>Reverse Echo</h3>
+    @Html.TextBox("reverseText")
+    <input type="submit" value="Echo" />
+    <br />
+    <p>@ViewBag.ReverseResponse</p>
+    <br />
+}

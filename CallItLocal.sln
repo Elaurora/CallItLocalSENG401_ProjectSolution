@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoService", "EchoService\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyReviewServiceEP", "CompanyReviewServiceEP\CompanyReviewServiceEP.csproj", "{C74A63E8-637C-4FB2-A671-7720DE71BAC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService_Service", "WebService_Service\WebService_Service.csproj", "{D76BC070-585E-4E1A-8898-D475D88D289C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{C74A63E8-637C-4FB2-A671-7720DE71BAC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C74A63E8-637C-4FB2-A671-7720DE71BAC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C74A63E8-637C-4FB2-A671-7720DE71BAC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D76BC070-585E-4E1A-8898-D475D88D289C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D76BC070-585E-4E1A-8898-D475D88D289C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D76BC070-585E-4E1A-8898-D475D88D289C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D76BC070-585E-4E1A-8898-D475D88D289C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

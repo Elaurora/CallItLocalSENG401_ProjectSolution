@@ -3,19 +3,34 @@
 using System;
 using System.Threading.Tasks;
 
+using WebServiceService.Communication;
+
+
+
 namespace WebServiceService
 {
+
+
     /// <summary>
     /// This class is the starting point for the process, responsible for configuring and initializing everything
     /// </summary>
     public class Program
     {
         /// <summary>
-        /// Start point for the Company Directory Service
+        /// Start point for the Web Service Service
         /// </summary>
         public static void Main()
         {
-            AsyncMain().GetAwaiter().GetResult();
+            string mode = "Test";
+
+            if ("Test".Equals(mode))
+            {
+                TestingMain();
+            }
+            else
+            {
+                AsyncMain().GetAwaiter().GetResult();
+            }
         }
 
         /// <summary>
@@ -66,5 +81,15 @@ namespace WebServiceService
             await endpointInstance.Stop().ConfigureAwait(false);
             //#endif
         }
+
+        public static void TestingMain()
+        {
+            AccuweatherAPIRequest apiRequest = new AccuweatherAPIRequest();
+
+            string result = apiRequest.getCalgaryDailyWeatherForecast();
+
+            return;
+        }
     }
+
 }

@@ -6,44 +6,62 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebService_Service.Communication
+namespace WebServiceService.Communication
 {
     public partial class AccuweatherAPIRequest
     {
+        /// <summary>
+        /// The purpose of this function is to get one of the location keys for calgary
+        /// </summary>
+        /// <returns>A Location key for calgary</returns>
         public string getCalgaryLocationKey()
         {
-            string path = "locations/v1/cities/search?"
-                + "apikey=" + apiKey
-                + "&q=calgary";
-            
-            HttpResponseMessage response = null;
-
-            try
+            //If the program is not already aware of the location key it will make a call to the web API to find it.
+            if (calgaryLocationKey == null)
             {
-                response = webCaller.GetAsync(path).GetAwaiter().GetResult();
-            }
-            catch(HttpRequestException e)
-            {
-                return "Unable to make call to web API. Exception message: " + e.Message;
+                //Sets the path and parameters for the call
+                string path = "locations/v1/cities/search?"
+                    + "apikey=" + apiKey
+                    + "&q=calgary";
+
+                HttpResponseMessage response = null;
+
+                try
+                {
+                    //Makes the call to the web API and awaits the response from the server
+                    response = webCaller.GetAsync(path).GetAwaiter().GetResult();
+                }
+                catch (HttpRequestException e)
+                {
+                    return "Unable to make call to web API. Exception message: " + e.Message;
+                }
+
+                //These three lines parse the response from the server. For now, we only care about the location key
+                string locationKey = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                int keyStart = locationKey.IndexOf("\"Key\"") + 7;
+                locationKey = locationKey.Substring(keyStart, locationKey.IndexOf('"', keyStart) - keyStart);
+
+                calgaryLocationKey = locationKey;
             }
 
-            string locationKey = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
-            int keyStart = locationKey.IndexOf("\"key\"") + 8;
-            locationKey = locationKey.Substring(keyStart, locationKey.IndexOf('"', keyStart) - keyStart);
-
-            return locationKey;
+            return calgaryLocationKey;
         }
 
+        /// <summary>
+        /// Returns the daily forcast for calgary in an unparsed JSON format received from the web API.
+        /// </summary>
+        /// <returns>Daily forcast for calgary in an unparsed JSON format received from the web API.</returns>
         public string getCalgaryDailyWeatherForecast()
         {
             string locationKey = getCalgaryLocationKey();
             string path = $"forecasts/v1/daily/1day/{locationKey}?"
-                + $"apikey={apiKey}";
+                + $"apikey={apiKey}&metric=true";
 
             HttpResponseMessage response = null;
 
             try
             {
+                //Make the call to the web api
                 response = webCaller.GetAsync(path).GetAwaiter().GetResult();
             }
             catch (HttpRequestException e)
@@ -51,7 +69,9 @@ namespace WebService_Service.Communication
                 return "Unable to make call to web API. Exception message: " + e.Message;
             }
 
-            return response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            string result = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+
+            return result;
         }
 
 
@@ -60,12 +80,30 @@ namespace WebService_Service.Communication
 
     public partial class AccuweatherAPIRequest
     {
+        /// <summary>
+        /// This is the address used to access the web API
+        /// </summary>
         private const string baseAddress = "http://dataservice.accuweather.com/";
         
-        private const string apiKey = null;
+        /// <summary>
+        /// This is our application specific key used to authenticate ourselves with the web API
+        /// </summary>
+        private const string apiKey = "PGgBLiijTQQWVrBrkXhJqdYA67v95DTy";
 
+        /// <summary>
+        /// This is the class responsible for making our request to the API
+        /// </summary>
         private static readonly HttpClient webCaller = initializeWebCaller();
 
+        /// <summary>
+        /// The location key for calgary, saved to reduce the number of calls we make to the web API
+        /// </summary>
+        private string calgaryLocationKey = null;
+
+        /// <summary>
+        /// This function sets up the class that makes the calls to the API
+        /// </summary>
+        /// <returns></returns>
         private static HttpClient initializeWebCaller()
         {
             HttpClient webCaller = new HttpClient();

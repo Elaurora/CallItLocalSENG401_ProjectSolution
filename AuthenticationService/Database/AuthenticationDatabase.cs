@@ -12,7 +12,7 @@ namespace AuthenticationService.Database
     /// This class is used to manipulate and read the Authentication Service's database in a safe and consistent manner.
     /// It follows the singleton design pattern, as only one instance of this class should ever be in existance at any given time.
     /// </summary>
-    public partial class AuthenticationDatabase : AbstractDatabase
+    public partial class AuthenticationDatabase : AbstractDatabase, IAuthenticationDatabase
     {
         /// <summary>
         /// Private default constructor to enforce the use of the singleton design pattern
@@ -126,7 +126,7 @@ namespace AuthenticationService.Database
     /// <summary>
     /// This portion of the class contains the member variables as well as the schema definition in the form of Table/Column objects
     /// </summary>
-    public partial class AuthenticationDatabase : AbstractDatabase
+    public partial class AuthenticationDatabase : AbstractDatabase, IAuthenticationDatabase
     {
         /// <summary>
         /// The name of the database.

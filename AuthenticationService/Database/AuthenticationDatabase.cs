@@ -126,7 +126,7 @@ namespace AuthenticationService.Database
     /// <summary>
     /// This portion of the class contains the member variables as well as the schema definition in the form of Table/Column objects
     /// </summary>
-    public partial class AuthenticationDatabase : AbstractDatabase, IAuthenticationDatabase
+    public partial class AuthenticationDatabase : AbstractDatabase
     {
         /// <summary>
         /// The name of the database.

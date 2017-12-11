@@ -96,9 +96,11 @@ C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicat
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\System.Web.WebPages.Razor.dll
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\System.Xml.ReaderWriter.dll
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\WebGrease.dll
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\Castle.Windsor.dll
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\NServiceBus.Core.dll
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\MySql.Data.dll
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\NServiceBus.Callbacks.dll
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\Castle.Core.dll
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\AuthenticationService.pdb
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\AuthenticationService.exe.config
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\ChatService.pdb
@@ -145,6 +147,7 @@ C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicat
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\Microsoft.AI.Web.xml
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\Castle.Windsor.xml
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\NServiceBus.Core.pdb
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\NServiceBus.Core.xml
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\ClientApplicationMVC\bin\MySql.Data.xml

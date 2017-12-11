@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\IAbstractDatabase.cs" />
     <Compile Include="DataTypes\Database\CompanyReview\CustomerReview.cs" />
     <Compile Include="ServiceBusRequest\Authentication\AuthenticationServiceRequest.cs" />
     <Compile Include="ServiceBusRequest\Authentication\Requests\CreateAccountRequest.cs" />

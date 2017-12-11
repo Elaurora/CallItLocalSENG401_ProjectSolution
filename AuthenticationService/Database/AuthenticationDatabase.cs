@@ -10,27 +10,9 @@ namespace AuthenticationService.Database
 {
     /// <summary>
     /// This class is used to manipulate and read the Authentication Service's database in a safe and consistent manner.
-    /// It follows the singleton design pattern, as only one instance of this class should ever be in existance at any given time.
     /// </summary>
-    public partial class AuthenticationDatabase : AbstractDatabase, IAuthenticationDatabase
+    public partial class AuthenticationMySQLDatabase : AbstractDatabase, IAuthenticationDatabase
     {
-        /// <summary>
-        /// Private default constructor to enforce the use of the singleton design pattern
-        /// </summary>
-        private AuthenticationDatabase(){ }
-
-        /// <summary>
-        /// Gets the singleton instance of the database
-        /// </summary>
-        /// <returns>The singleton instance of the database</returns>
-        public static AuthenticationDatabase getInstance()
-        {
-            if (instance == null)
-            {
-                instance = new AuthenticationDatabase();
-            }
-            return instance;
-        }
 
         /// <summary>
         /// Attempts to insert a new user account into the database
@@ -126,7 +108,7 @@ namespace AuthenticationService.Database
     /// <summary>
     /// This portion of the class contains the member variables as well as the schema definition in the form of Table/Column objects
     /// </summary>
-    public partial class AuthenticationDatabase : AbstractDatabase, IAuthenticationDatabase
+    public partial class AuthenticationMySQLDatabase : AbstractDatabase, IAuthenticationDatabase
     {
         /// <summary>
         /// The name of the database.
@@ -135,11 +117,6 @@ namespace AuthenticationService.Database
         /// </summary>
         private const String dbname = "authenticationservicedb";
         public override String databaseName { get; } = dbname;
-
-        /// <summary>
-        /// The singleton instance of the database
-        /// </summary>
-        private static AuthenticationDatabase instance;
 
         /// <summary>
         /// This property represents the database schema, and will be used by the base class

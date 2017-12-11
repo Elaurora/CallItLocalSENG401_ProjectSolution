@@ -47,7 +47,9 @@ namespace AuthenticationService.Communication
         {
             CreateAccount command = request.createCommand;
 
-            ServiceBusResponse dbResponse = AuthenticationDatabase.getInstance().insertNewUserAccount(command);
+            IAuthenticationDatabase dataBase = Program.getContainer().Resolve<IAuthenticationDatabase>();
+
+            ServiceBusResponse dbResponse = dataBase.insertNewUserAccount(command);
 
             if (dbResponse.result == true)
             {
@@ -78,7 +80,9 @@ namespace AuthenticationService.Communication
                 return new ServiceBusResponse(false, "Failure. Username or password not sent properly");
             }
 
-            ServiceBusResponse dbResponse = AuthenticationDatabase.getInstance().isValidUserInfo(username, password);
+            IAuthenticationDatabase dataBase = Program.getContainer().Resolve<IAuthenticationDatabase>();
+
+            ServiceBusResponse dbResponse = dataBase.isValidUserInfo(username, password);
             authenticated = dbResponse.result;
 
             reportLogInAttempt();

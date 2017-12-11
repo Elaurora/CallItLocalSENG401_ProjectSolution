@@ -8,4 +8,3 @@ C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\bin\D
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\obj\Debug\Messages.csproj.CoreCompileInputs.cache
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\obj\Debug\Messages.dll
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\obj\Debug\Messages.pdb
-C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\Messages\obj\Debug\Messages.csprojResolveAssemblyReference.cache

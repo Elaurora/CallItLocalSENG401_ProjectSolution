@@ -1,11 +1,14 @@
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\AuthenticationService.exe.config
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\AuthenticationService.exe
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\AuthenticationService.pdb
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\Castle.Core.dll
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\Castle.Windsor.dll
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\Messages.dll
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\MySql.Data.dll
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\NServiceBus.Callbacks.dll
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\NServiceBus.Core.dll
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\Messages.pdb
+C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\Castle.Windsor.xml
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\MySql.Data.xml
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\NServiceBus.Callbacks.pdb
 C:\Users\joshua\Documents\Visual Studio 2017\Projects\CallItLocal\AuthenticationService\bin\Debug\NServiceBus.Callbacks.xml

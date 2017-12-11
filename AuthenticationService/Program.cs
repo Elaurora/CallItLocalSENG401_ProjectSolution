@@ -1,5 +1,8 @@
 ﻿using AuthenticationService.Database;
 
+using Castle.MicroKernel.Registration;
+using Castle.Windsor;
+
 using NServiceBus;
 
 using System;
@@ -18,6 +21,7 @@ namespace AuthenticationService
         /// </summary>
         public static void Main()
         {
+            initiateWindsor();
             AsyncMain().GetAwaiter().GetResult();
         }
 
@@ -82,11 +86,11 @@ namespace AuthenticationService
                 switch (entry)
                 {
                     case ("DELETEDB"):
-                        AuthenticationDatabase.getInstance().deleteDatabase();
+                        container.Resolve<IAuthenticationDatabase>().deleteDatabase();
                         Messages.Debug.consoleMsg("Delete database attempt complete");
                         break;
                     case ("CREATEDB"):
-                        AuthenticationDatabase.getInstance().createDB();
+                        container.Resolve<IAuthenticationDatabase>().createDB();
                         Messages.Debug.consoleMsg("Completed Database Creation Attempt.");
                         break;
                     default:
@@ -98,6 +102,18 @@ namespace AuthenticationService
             //with or without an open console depending on if in debug or release mode
 //#endif
         }
+
+
+        static void initiateWindsor()
+        {
+            container = new WindsorContainer();
+
+            container.Register(Component.For<IAuthenticationDatabase>().ImplementedBy<AuthenticationMySQLDatabase>());
+        }
+
+
+        public static WindsorContainer getContainer() { return container; }
+        private static WindsorContainer container = null;
 
 
     }

@@ -12,7 +12,7 @@ namespace Messages.Database
     /// To use this class you will need to implement the databaseName and tables properties.
     /// It is recommended that the inhereting class follow the singleton design pattern.
     /// </summary>
-    public abstract partial class AbstractDatabase
+    public abstract partial class AbstractDatabase : IAbstractDatabase
     {
         /// <summary>
         /// Creates the connection object and attempts to create the database if it does not exist already
@@ -199,7 +199,7 @@ namespace Messages.Database
     /// <summary>
     /// This portion of the class contains the member variables.
     /// </summary>
-    public abstract partial class AbstractDatabase
+    public abstract partial class AbstractDatabase : IAbstractDatabase
     {
         /// <summary>
         /// This object is responsible for communication with the database. It should be opened and closed
@@ -228,6 +228,6 @@ namespace Messages.Database
         /// </summary>
         protected abstract Table[] tables { get; }
 
-        private Mutex mutex;
+        private static Mutex mutex;
     }
 }

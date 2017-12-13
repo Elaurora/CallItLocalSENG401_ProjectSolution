@@ -11,10 +11,10 @@ namespace WebServiceService.Communication
     public partial class AccuweatherAPIRequest
     {
         /// <summary>
-        /// The purpose of this function is to get one of the location keys for calgary
+        /// The purpose of this function is to get one of the location keys for the given city
         /// </summary>
         /// <returns>A Location key for calgary</returns>
-        public string getCalgaryLocationKey()
+        public string getLocationKey(string city)
         {
             //If the program is not already aware of the location key it will make a call to the web API to find it.
             if (calgaryLocationKey == null)
@@ -22,7 +22,7 @@ namespace WebServiceService.Communication
                 //Sets the path and parameters for the call
                 string path = "locations/v1/cities/search?"
                     + "apikey=" + apiKey
-                    + "&q=calgary";
+                    + "&q=" + city;
 
                 HttpResponseMessage response = null;
 
@@ -48,12 +48,12 @@ namespace WebServiceService.Communication
         }
 
         /// <summary>
-        /// Returns the daily forcast for calgary in an unparsed JSON format received from the web API.
+        /// Returns the daily forcast for the given city in an unparsed JSON format received from the web API.
         /// </summary>
-        /// <returns>Daily forcast for calgary in an unparsed JSON format received from the web API.</returns>
-        public string getCalgaryDailyWeatherForecast()
+        /// <returns>Daily forcast for the given city in an unparsed JSON format received from the web API.</returns>
+        public string getDailyWeatherForecast(string city)
         {
-            string locationKey = getCalgaryLocationKey();
+            string locationKey = getLocationKey(city);
             string path = $"forecasts/v1/daily/1day/{locationKey}?"
                 + $"apikey={apiKey}&metric=true";
 

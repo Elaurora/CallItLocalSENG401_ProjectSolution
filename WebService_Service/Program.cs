@@ -86,7 +86,7 @@ namespace WebServiceService
         {
             AccuweatherAPIRequest apiRequest = new AccuweatherAPIRequest();
 
-            string result = apiRequest.getCalgaryDailyWeatherForecast();
+            string result = apiRequest.getDailyWeatherForecast("Calgary");
 
             return;
         }

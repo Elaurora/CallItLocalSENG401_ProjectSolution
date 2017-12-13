@@ -12,7 +12,7 @@ namespace ClientApplicationMVC.Models
         /// The amount of time the client should wait for a response from the server
         /// Value of 600000 is 10mins
         /// </summary>
-        public const int patienceLevel_ms = 600000 * 3 * 100;
+        public const int patienceLevel_ms = 600000 * 3;
 
         /// <summary>
         /// Returns true if the client is currently logged in.

@@ -26,8 +26,5 @@ namespace ClientApplicationMVC.Controllers
 
             return View();
         }
-        
-        //TODO: Create an emailing service.
-        //TODO: Make a "ServiceStart" script to be run from this project to start the services when deployed
     }
 }

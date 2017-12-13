@@ -21,6 +21,11 @@ namespace ClientApplicationMVC.Controllers
             return View();
         }
 
+        /// <summary>
+        /// This function is called by the client on the users computer when they request an asisecho
+        /// </summary>
+        /// <param name="asIsText">The text to be sent to the service bus</param>
+        /// <returns>An html page containing the response from the service bus</returns>
         public ActionResult AsIsEcho(string asIsText)
         {
             AsIsEchoRequest request = new AsIsEchoRequest(asIsText);
@@ -40,6 +45,11 @@ namespace ClientApplicationMVC.Controllers
             return View("Index");
         }
 
+        /// <summary>
+        /// This function is called by the client on the users computer when they request a reverse echo
+        /// </summary>
+        /// <param name="reverseText">The text to be sent to the service bus</param>
+        /// <returns>An html page containing the response from the service bus</returns>
         public ActionResult ReverseEcho(string reverseText)
         {
             ReverseEchoRequest request = new ReverseEchoRequest(reverseText, Globals.getUser());

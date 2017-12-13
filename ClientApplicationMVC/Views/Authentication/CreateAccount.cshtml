@@ -17,7 +17,7 @@
 }
 
 @using (Html.BeginForm("CreateAccount", "Authentication", FormMethod.Post,
-    new { id = "createAccountForm", onsubmit = "return validateCreateAccountInfo()" }))
+    new { id = "createAccountForm", onsubmit = "return validateCreateAccountInfo()" }))//The onsubmit calls a javascript function, and will only submit the form if it returns true
 {
     <p>@ViewBag.Message</p>
     <br />

@@ -24,6 +24,7 @@ namespace AuthenticationService
         public Server(IEndpointInstance eventPublisher)
         {
             this.eventPublisher = eventPublisher;
+            certificate = new X509Certificate2(certificateLocation, "", X509KeyStorageFlags.MachineKeySet);
         }
 
         /// <summary>
@@ -103,7 +104,7 @@ namespace AuthenticationService
     /// </summary>
     public partial class Server
     {
-        private static X509Certificate2 certificate = new X509Certificate2(certificateLocation, "");
+        private static X509Certificate2 certificate;
 
         /// <summary>
         /// Semaphore, used to indicate when a client connection has been recieved
@@ -119,6 +120,6 @@ namespace AuthenticationService
         /// The location of the certificate on the machine.
         /// The server will not be able to run properly unless this variable is properly set.
         /// </summary>
-        private const string certificateLocation = "C:\\Users\\joshua\\Documents\\Visual Studio 2017\\Projects\\CallItLocal\\Certificate\\ENSF401TenYears.pfx";
+        private const string certificateLocation = "C:\\Users\\joshua\\Documents\\Visual Studio 2017\\Projects\\CallItLocal\\Certificate\\ENSF4011TenYears.pfx";
     }
 }

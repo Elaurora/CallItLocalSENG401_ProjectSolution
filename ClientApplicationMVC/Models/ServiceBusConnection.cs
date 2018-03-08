@@ -267,6 +267,8 @@ namespace ClientApplicationMVC.Models
             int sizeOfMsg = 0;
             int bytesRead = 0;
             byte[] msgSize = new byte[4];
+            string thing;
+            
 
             while (bytesRead < msgSize.Length)
             {

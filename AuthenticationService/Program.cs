@@ -36,7 +36,7 @@ namespace AuthenticationService
             //These two lines prevemt the endpoint configuration from scanning the MySql dll. 
             //This is donw because it speeds up the startup time, and it prevents a rare but 
             //very confusing error sometimes caused by NServiceBus scanning the file. If you 
-            //wish to know morw about this, google it, then ask your TA(since they will probably
+            //wish to know morw about this, google it, then ask your TA (since they will probably
             //just google it anyway)
             var scanner = endpointConfiguration.AssemblyScanner();
             scanner.ExcludeAssemblies("MySql.Data.dll");
@@ -52,7 +52,7 @@ namespace AuthenticationService
             //Allows the endpoint to make requests to other endpoints and await a response.
             endpointConfiguration.EnableCallbacks();
 
-            //Instructs the endpoint to use Microsoft Message Queuing TOD): Consider using RabbitMQ instead, only because Arcurve reccomended it. 
+            //Instructs the endpoint to use Microsoft Message Queuing
             var transport = endpointConfiguration.UseTransport<MsmqTransport>();
             //This variable is used to configure how messages are routed. Using this, you may set the default reciever of a particular command, and/or subscribe to any number of events
             var routing = transport.Routing();
@@ -94,7 +94,5 @@ namespace AuthenticationService
                 }
             } while (!entry.Equals(""));
         }
-
-
     }
 }

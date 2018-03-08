@@ -89,7 +89,16 @@ namespace CompanyReviewServiceEP.Communication
 
             serializer = new DataContractJsonSerializer(typeof(GetCompanyReviewsResponse));
             GetCompanyReviewsResponse responseData = (GetCompanyReviewsResponse)serializer.ReadObject(memStream);
-            
+
+            /* I put this here so i could get the response as a JSON object more easily to use as an example.
+            MemoryStream memStream1 = new MemoryStream();
+            DataContractJsonSerializer serializer1 = new DataContractJsonSerializer(typeof(GetCompanyReviewsResponse));
+
+            serializer1.WriteObject(memStream1, responseData);
+
+            string jsonEndodedObject1 = Encoding.ASCII.GetString(memStream1.ToArray());
+            */
+
             return responseData;
         }
     }
